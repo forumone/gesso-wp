@@ -1,0 +1,26 @@
+// @file
+// Accessibility helper classes
+
+.element-invisible,
+%element-invisible {
+  @include element-invisible;
+}
+
+%element-invisible-off {
+  @include element-invisible-off;
+}
+
+.element-focusable,
+%element-focusable {
+  @extend %element-invisible;
+
+  &:active,
+  &:focus {
+    @extend %element-invisible-off;
+  }
+}
+
+.element-hidden,
+%element-hidden {
+  @include element-hidden;
+}

@@ -1,0 +1,63 @@
+// @file
+// Custom sass variables
+//
+// Define the custom variables for your project here.
+// http://sass-lang.com/docs/yardoc/file.SASS_REFERENCE.html#variables_
+
+// Layout
+$breakpoint-to-ems: true;
+$max-page-width: 1200px;
+
+// Colors
+$primary-text-color: #333;
+$secondary-text-color: #555;
+$heading-text-color: #333;
+$body-color: #fff;
+$link-color: blue;
+$link-hover-color: green;
+$selection-background: blue;
+$selection-foreground: #fff;
+$border-color: #ccc;
+$gradient-light: rgba(255, 255, 255, 0.2);
+$gradient-dark: rgba(0, 0, 0, 0.2);
+
+// Typography
+$base-font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+$header-font-family: $base-font-family;
+$monospace-font-family: Consolas, "Lucida Console", "Liberation Mono", "Courier New", monospace, sans-serif;
+$base-font-size: 16px;
+$base-line-height: 21px;
+$font-size-xxl: 26px;
+$font-size-xl: 22px;
+$font-size-lg: 19px;
+$font-size-normal: $base-font-size;
+$font-size-md: 14px;
+$font-size-sm: 12px;
+$font-size-xs: 10px;
+
+// Forms
+$form-bg-color: #eee; // Used for fieldsets and vertical-tabs.
+$form-border-color: #ccc;
+$form-text-size: $font-size-normal;
+
+// Buttons
+$button-bg-color: #f9f9f9;
+$button-text-color: #333;
+$button-font-family: $base-font-family;
+
+// Mobile Menu
+$mobile-menu-bp: 700px;
+$mobile-menu-bg-color: rgba(0, 0, 0, 0.9);
+$mobile-menu-bg-color-fallback: #111;
+$mobile-menu-border-color: #666;
+$mobile-menu-text-color: #eee;
+$mobile-menu-link-color: #37b;
+$mobile-menu-font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+$mobile-submenu-bg-color: #eee;
+$mobile-submenu-border-color: #ccc;
+$mobile-submenu-text-color: #333;
+$mobile-submenu-link-color: #ddd;
+
+// Polyfill for box-sizing in IE7 and below. The url must be root relative to
+// the location of the htc script.
+$box-sizing-polyfill-path: '/sites/all/themes/f1ux/polyfills/boxsizing.htc';
