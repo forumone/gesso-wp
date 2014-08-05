@@ -19,7 +19,7 @@ function f1ux_nav($location) {
 		'menu_class'      => '',
 		'menu_id'         => '',
 		'echo'            => true,
-		'fallback_cb'     => 'wp_page_menu',
+		'fallback_cb'     => 'false', //changed this value to false so if no menu is defined it won't show an empty list
 		'before'          => '',
 		'after'           => '',
 		'link_before'     => '',
@@ -81,7 +81,9 @@ class f1ux_walker_nav_menu extends Walker_Nav_Menu {
     $class_names = esc_attr( implode( ' ', apply_filters( 'nav_menu_css_class', array_filter( $classes ), $item ) ) );
     
     // add active class    
-    $class_names .= in_array("current_page_item",$item->classes) ? ' active' : '';
+    if ( is_array($class_names)) { // Added the conditional to make sure the menu was an array and not empty or only a single item, making the error generated when no items are present on a menu go away
+    	$class_names .= in_array("current_page_item",$item->classes) ? ' active' : '';
+	}
 
     // build html
     $output .= $indent . '<li class="nav__item ' . $depth_class_names . $class_names .'">';
@@ -109,9 +111,13 @@ class f1ux_walker_nav_menu extends Walker_Nav_Menu {
 
 // add first/last classes to menus
 function add_first_and_last($output) {
-  $output = preg_replace('/class="nav__item/', 'class="first nav__item', $output, 1);
-  $output = substr_replace($output, 'class="last nav__item', strripos($output, 'class="nav__item'), strlen('class="menu-item'));
-  return $output;
+  		// See if the menus have the applied nav__item class, if not the output will remain default	
+	   // TODO: try to apply this class system to custom menus in widgets or in undefined locations
+	  if (preg_match('/class="nav__item/', $output)) {
+	  	$output = preg_replace('/class="nav__item/', 'class="first nav__item', $output, 1);
+	  	$output = substr_replace($output, 'class="last nav__item', strripos($output, 'class="nav__item'), strlen('class="menu-item'));
+	  	}
+	  	return $output;
 }
 add_filter('wp_nav_menu', 'add_first_and_last');
 
