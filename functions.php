@@ -10,25 +10,25 @@ if (function_exists('add_theme_support')) {
 
 
 function f1ux_nav($location) {
-	wp_nav_menu(
-	array(
-		'theme_location'  => $location,
-		'menu'            => '',
-		'container'       => '',
-		'container_class' => '',
-		'menu_class'      => '',
-		'menu_id'         => '',
-		'echo'            => true,
-		'fallback_cb'     => 'false', //changed this value to false so if no menu is defined it won't show an empty list
-		'before'          => '',
-		'after'           => '',
-		'link_before'     => '',
-		'link_after'      => '',
-		'items_wrap'      => '<nav class="%1$s nav--' . $location . '" role="navigation"><ul class="nav">%3$s</ul></nav>',
-		'depth'           => 0,
-		'walker'          => new f1ux_walker_nav_menu()
-		)
-	);
+  wp_nav_menu(
+  array(
+    'theme_location'  => $location,
+    'menu'            => '',
+    'container'       => '',
+    'container_class' => '',
+    'menu_class'      => '',
+    'menu_id'         => '',
+    'echo'            => true,
+    'fallback_cb'     => false,
+    'before'          => '',
+    'after'           => '',
+    'link_before'     => '',
+    'link_after'      => '',
+    'items_wrap'      => '<nav class="%1$s nav--' . $location . '" role="navigation"><ul class="nav">%3$s</ul></nav>',
+    'depth'           => 0,
+    'walker'          => new f1ux_walker_nav_menu()
+    )
+  );
 }
 
 
@@ -48,8 +48,8 @@ function has_visible_widgets($sidebar_id) {
 
 class f1ux_walker_nav_menu extends Walker_Nav_Menu {
   
-	// add classes to ul sub-menus
-	function start_lvl( &$output, $depth ) {
+  // add classes to ul sub-menus
+  function start_lvl( &$output, $depth ) {
     // depth dependent classes
     $indent = ( $depth > 0  ? str_repeat( "\t", $depth ) : '' ); // code indent
     $display_depth = ( $depth + 1); // because it counts the first submenu as 0
@@ -58,14 +58,14 @@ class f1ux_walker_nav_menu extends Walker_Nav_Menu {
       ( $display_depth >=2 ? 'sub-sub-menu' : '' ),
       'menu-depth-' . $display_depth
       );
-	  $class_names = implode( ' ', $classes );
+    $class_names = implode( ' ', $classes );
   
     // build html
     $output .= "\n" . $indent . '<ul class="' . $class_names . '">' . "\n";
-	}
-	  
-	// add main/sub classes to li's and links
-	 function start_el( &$output, $item, $depth, $args ) {
+  }
+    
+  // add main/sub classes to li's and links
+   function start_el( &$output, $item, $depth, $args ) {
     global $wp_query;
     $indent = ( $depth > 0 ? str_repeat( "\t", $depth ) : '' ); // code indent
   
@@ -75,15 +75,15 @@ class f1ux_walker_nav_menu extends Walker_Nav_Menu {
       ( $depth >=2 ? 'sub-sub-menu__item' : '' )
     );
     $depth_class_names = esc_attr( implode( ' ', $depth_classes ) );
-  	  
+      
     // passed classes
     $classes = empty( $item->classes ) ? array() : (array) $item->classes;
     $class_names = esc_attr( implode( ' ', apply_filters( 'nav_menu_css_class', array_filter( $classes ), $item ) ) );
     
     // add active class    
-    if ( is_array($class_names)) { // Added the conditional to make sure the menu was an array and not empty or only a single item, making the error generated when no items are present on a menu go away
-    	$class_names .= in_array("current_page_item",$item->classes) ? ' active' : '';
-	}
+    if ( is_array($class_names)) { // make sure the menu is an array and not empty or only a single item
+      $class_names .= in_array("current_page_item",$item->classes) ? ' active' : '';
+    }
 
     // build html
     $output .= $indent . '<li class="nav__item ' . $depth_class_names . $class_names .'">';
@@ -106,25 +106,27 @@ class f1ux_walker_nav_menu extends Walker_Nav_Menu {
   
     // build html
     $output .= apply_filters( 'walker_nav_menu_start_el', $item_output, $item, $depth, $args );
-	}
+  }
 }
 
 // add first/last classes to menus
 function add_first_and_last($output) {
-  		// See if the menus have the applied nav__item class, if not the output will remain default	
-	   // TODO: try to apply this class system to custom menus in widgets or in undefined locations
-	  if (preg_match('/class="nav__item/', $output)) {
-	  	$output = preg_replace('/class="nav__item/', 'class="first nav__item', $output, 1);
-	  	$output = substr_replace($output, 'class="last nav__item', strripos($output, 'class="nav__item'), strlen('class="menu-item'));
-	  	}
-	  	return $output;
+  // See if the menus have the applied nav__item class, if not the output will remain default 
+  // TODO: try to apply this class system to custom menus in widgets or in undefined locations
+  if (preg_match('/class="nav__item/', $output)) {
+    if (count($output) > 1) {    
+      $output = preg_replace('/class="nav__item/', 'class="first nav__item', $output, 1);
+      $output = substr_replace($output, 'class="last nav__item', strripos($output, 'class="nav__item'), strlen('class="menu-item'));
+    }
+  }
+  return $output;
 }
 add_filter('wp_nav_menu', 'add_first_and_last');
 
 
 function f1ux_header_scripts() {
   if ($GLOBALS['pagenow'] != 'wp-login.php' && !is_admin()) {
-  	
+    
     wp_deregister_script('jquery'); 
     wp_register_script('jquery', 'http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js', array() ); // Google CDN jQuery
     wp_enqueue_script('jquery');  
