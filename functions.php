@@ -9,7 +9,7 @@ if (function_exists('add_theme_support')) {
 }
 
 
-function f1ux_nav($location) {
+function gesso_nav($location) {
   wp_nav_menu(
   array(
     'theme_location'  => $location,
@@ -26,7 +26,7 @@ function f1ux_nav($location) {
     'link_after'      => '',
     'items_wrap'      => '<nav class="%1$s nav--' . $location . '" role="navigation"><ul class="nav">%3$s</ul></nav>',
     'depth'           => 0,
-    'walker'          => new f1ux_walker_nav_menu()
+    'walker'          => new gesso_walker_nav_menu()
     )
   );
 }
@@ -46,7 +46,7 @@ function has_visible_widgets($sidebar_id) {
 }
 
 
-class f1ux_walker_nav_menu extends Walker_Nav_Menu {
+class gesso_walker_nav_menu extends Walker_Nav_Menu {
   
   // add classes to ul sub-menus
   function start_lvl( &$output, $depth ) {
@@ -124,7 +124,7 @@ function add_first_and_last($output) {
 add_filter('wp_nav_menu', 'add_first_and_last');
 
 
-function f1ux_header_scripts() {
+function gesso_header_scripts() {
   if ($GLOBALS['pagenow'] != 'wp-login.php' && !is_admin()) {
     
     wp_deregister_script('jquery'); 
@@ -134,28 +134,28 @@ function f1ux_header_scripts() {
     wp_register_script('modernizr', 'http://cdnjs.cloudflare.com/ajax/libs/modernizr/2.7.1/modernizr.min.js', array('jquery') ); // Modernizr
     wp_enqueue_script('modernizr');  
 
-    wp_register_script('f1uxskiplinks', get_template_directory_uri() . '/js/skiplinks.js', array('jquery','modernizr') ); // Accessible skiplinks
-    wp_enqueue_script('f1uxskiplinks');  
+    wp_register_script('gessoskiplinks', get_template_directory_uri() . '/js/skiplinks.js', array('jquery','modernizr') ); // Accessible skiplinks
+    wp_enqueue_script('gessoskiplinks');  
 
-    wp_register_script('f1uxmobilemenu', get_template_directory_uri() . '/js/mobile-menu.js', array('jquery','modernizr') ); // Mobile menu
-    wp_enqueue_script('f1uxmobilemenu');  
+    wp_register_script('gessomobilemenu', get_template_directory_uri() . '/js/mobile-menu.js', array('jquery','modernizr') ); // Mobile menu
+    wp_enqueue_script('gessomobilemenu');  
 
-    wp_register_script('f1uxscripts', get_template_directory_uri() . '/js/scripts.js', array('jquery','modernizr') ); // Custom scripts
-    wp_enqueue_script('f1uxscripts');  
+    wp_register_script('gessoscripts', get_template_directory_uri() . '/js/scripts.js', array('jquery','modernizr') ); // Custom scripts
+    wp_enqueue_script('gessoscripts');  
   }
 }
 
 // uses echo since wp_register_style() currently has no way to <!--[if gte IE 9]><!--> type conditional comments
-function f1ux_styles() {
+function gesso_styles() {
   echo '<!--[if gte IE 9]><!--><link rel="stylesheet" href="' . get_template_directory_uri() . '/css/styles.css" media="all"><!--<![endif]-->';
   echo '<!--[if lt IE 9]><link rel="stylesheet" href="' . get_template_directory_uri() . '/css/no-mq.css" media="all"><![endif]-->';
 }
 
 
-function register_f1ux_menu() {
+function register_gesso_menu() {
   register_nav_menus(array(  
-    'primary' => __('Primary', 'f1ux'),  
-    'secondary' => __('Secondary', 'f1ux')
+    'primary' => __('Primary', 'gesso'),  
+    'secondary' => __('Secondary', 'gesso')
   ));
 }
 
@@ -179,8 +179,8 @@ function add_slug_to_body_class($classes) {
 
 if (function_exists('register_sidebar')) {
   register_sidebar(array(
-    'name' => __('Widget Area 1', 'f1ux'),
-    'description' => __('Widget Area 1', 'f1ux'),
+    'name' => __('Widget Area 1', 'gesso'),
+    'description' => __('Widget Area 1', 'gesso'),
     'id' => 'widget-area-1',
     'before_widget' => '<div id="%1$s" class="widget %2$s">',
     'after_widget' => '</div>',
@@ -190,7 +190,7 @@ if (function_exists('register_sidebar')) {
 }
 
 
-function f1ux_pagination() {
+function gesso_pagination() {
   global $wp_query;
   $big = 999999999;
   echo paginate_links(array(
@@ -209,10 +209,10 @@ function remove_thumbnail_dimensions( $html ) {
 }
 
 
-add_action('init', 'f1ux_header_scripts');  
-add_action('wp_head', 'f1ux_styles');
-add_action('init', 'f1ux_pagination'); 
-add_action('init', 'register_f1ux_menu');  
+add_action('init', 'gesso_header_scripts');  
+add_action('wp_head', 'gesso_styles');
+add_action('init', 'gesso_pagination'); 
+add_action('init', 'register_gesso_menu');  
 
 add_filter('body_class', 'add_slug_to_body_class');  
 add_filter('post_thumbnail_html', 'remove_thumbnail_dimensions', 10); // Remove width and height dynamic attributes to thumbnails

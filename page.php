@@ -21,7 +21,7 @@
 					<?php else: ?>
 
 						<article>
-							<h2><?php _e( 'Sorry, nothing to display.', 'f1ux' ); ?></h2>
+							<h2><?php _e( 'Sorry, nothing to display.', 'gesso' ); ?></h2>
 						</article>
 
 					<?php endif; ?>

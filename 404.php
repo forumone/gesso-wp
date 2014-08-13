@@ -7,9 +7,9 @@
 			<div class="l-main__content">
 				<section>
 					<article id="post-404">
-						<h1 class="page-title"><?php _e( 'Uh oh. Page not found.', 'f1ux' ); ?></h1>
+						<h1 class="page-title"><?php _e( 'Uh oh. Page not found.', 'gesso' ); ?></h1>
 						<h2>
-							<a href="<?php echo home_url(); ?>"><?php _e( 'Return to homepage?', 'f1ux' ); ?></a>
+							<a href="<?php echo home_url(); ?>"><?php _e( 'Return to homepage?', 'gesso' ); ?></a>
 						</h2>
 					</article>
 				</section>

@@ -1,5 +1,4 @@
 // Custom scripts file
-// to load, uncomment the call to this file in f1ux.info
 
 jQuery( document ).ready(function( $ ) {
 

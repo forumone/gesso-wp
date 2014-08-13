@@ -6,7 +6,7 @@
 			
 			<div class="l-main__content">
 				<section>
-					<h1 class="page-title"><?php echo sprintf( __( '%s Search Results for ', 'f1ux' ), $wp_query->found_posts ); echo get_search_query(); ?></h1>
+					<h1 class="page-title"><?php echo sprintf( __( '%s Search Results for ', 'gesso' ), $wp_query->found_posts ); echo get_search_query(); ?></h1>
 					<?php get_template_part('templates/loop'); ?>
 					<?php get_template_part('templates/pagination'); ?>
 				</section>
