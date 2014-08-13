@@ -1,3 +1,3 @@
 <div class="pagination">
-	<?php f1ux_pagination(); ?>
+	<?php gesso_pagination(); ?>
 </div>

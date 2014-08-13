@@ -24,9 +24,9 @@
 
 		<header class="header" role="banner">
 			<div class="header-inner l-constrain">
-				<?php f1ux_nav('secondary'); ?>				 
+				<?php gesso_nav('secondary'); ?>				 
 				<a href="<?php echo home_url(); ?>" class="sitename"><?php bloginfo('name'); ?></a>
 				<?php get_template_part('templates/searchform'); ?>
-				<?php f1ux_nav('primary'); ?>
+				<?php gesso_nav('primary'); ?>
 			</div>
 		</header>

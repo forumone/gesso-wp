@@ -6,7 +6,7 @@
 			
 			<div class="l-main__content">
 				<section>
-					<h1 class="page-title"><?php _e( 'Archives', 'f1ux' ); ?></h1>
+					<h1 class="page-title"><?php _e( 'Archives', 'gesso' ); ?></h1>
 
 					<?php get_template_part('templates/loop'); ?>
 
