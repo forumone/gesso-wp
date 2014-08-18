@@ -2,8 +2,7 @@
 // Layout partials
 //
 // The layout of major regions that components will be placed into. Build
-// sub-folders and partials in the 'layout' folder and import them, in cascading
-// order, into this file.
+// sub-folders and partials in the 'layout' folder. Sass globbing will
+// automatically import these partials.
 
 @import 'layout/**/*.*';
- 
