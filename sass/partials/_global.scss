@@ -11,6 +11,5 @@
 
 // Custom partials to be shared with all .scss files.
 // Imported with limited sass-globbing to ensure load order
-@import 'global/variables';
-@import 'global/functions/**/*.*';
-@import 'global/mixins/**/*.*';
+@import 'global/variables/**/*.*';
+@import 'global/helpers/**/*.*';

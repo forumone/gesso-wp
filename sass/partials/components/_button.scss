@@ -4,3 +4,7 @@
 .button {
   @extend %button;
 }
+
+.button--large {
+  @extend %button--large;
+}
