@@ -16,7 +16,7 @@
 									</a>
 								<?php endif; ?>
 								<h1 class="page-title">
-									<a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>"><?php the_title(); ?></a>
+									<?php the_title(); ?>
 								</h1>		
 								<span class="date"><?php the_time('F j, Y'); ?> <?php the_time('g:i a'); ?></span>
 								<span class="author"><?php _e( 'Published by', 'gesso' ); ?> <?php the_author_posts_link(); ?></span>
