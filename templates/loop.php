@@ -15,7 +15,7 @@
 			<span class="comments"><?php comments_popup_link( __( 'Leave a comment', 'gesso' ), __( '1 Comment', 'gesso' ), __( '% Comments', 'gesso' )); ?></span>
 		</header>
 				
-		<?php the_content(); ?>
+		<?php the_excerpt(); ?>
 		
 		<footer>
 			<?php edit_post_link(); ?>
