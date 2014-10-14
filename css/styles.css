@@ -1,4 +1,4 @@
-/* line 65, ../../../../../../Ruby200-x64/lib/ruby/gems/2.0.0/gems/singularitygs-1.1.2/stylesheets/singularitygs/helpers/_clearfix.scss */
+/* line 65, ../../../../../../../../var/lib/gems/1.9.1/gems/singularitygs-1.1.2/stylesheets/singularitygs/helpers/_clearfix.scss */
 .clearfix:after {
   content: "";
   display: table;
@@ -659,24 +659,24 @@ ul ul {
 }
 }
 /* line 1, ../sass/partials/layout/_page.scss */
-.l-constrain {
+.layout-constrain {
   margin: 0 auto;
   max-width: 75em;
   padding: 0 1em;
 }
 
 /* line 9, ../sass/partials/global/helpers/_clearfix.scss */
-.l-main:after {
+.layout-main:after {
   display: table;
   content: "";
 }
 /* line 14, ../sass/partials/global/helpers/_clearfix.scss */
-.l-main:after {
+.layout-main:after {
   clear: both;
 }
 @media (min-width: 43.75em) {
   /* line 17, ../sass/partials/layout/_page.scss */
-  .l-main.sidebar .l-main__content {
+  .layout-main.sidebar .layout-main__content {
     width: 65.21739%;
     float: left;
     margin-right: -100%;
@@ -684,7 +684,7 @@ ul ul {
     clear: none;
   }
   /* line 20, ../sass/partials/layout/_page.scss */
-  .l-main.sidebar .l-main__sidebar {
+  .layout-main.sidebar .layout-main__sidebar {
     width: 30.43478%;
     float: right;
     margin-left: 0;
