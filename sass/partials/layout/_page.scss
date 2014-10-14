@@ -1,4 +1,4 @@
-.l-constrain {
+.layout-constrain {
   margin: 0 auto;
   max-width: em($max-page-width);
   padding: 0 1em;
@@ -8,16 +8,16 @@
   }
 }
 
-.l-main {
+.layout-main {
 	@include clearfix;
   &.sidebar {
   	@include breakpoint(700px, $no-query: true) {
     	$grids: 12;
     	$gutters: 1;
-    	.l-main__content {
+    	.layout-main__content {
       	@include grid-span(8,1);
     	}
-    	.l-main__sidebar {
+    	.layout-main__sidebar {
       	@include grid-span(4,9);
     	}
     }
