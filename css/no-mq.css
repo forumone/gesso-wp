@@ -664,9 +664,11 @@ ul ul {
 }
 /* line 1, ../sass/partials/layout/_page.scss */
 .layout-constrain {
-  margin: 0 auto;
+  margin-left: auto;
+  margin-right: auto;
   max-width: 75em;
-  padding: 0 1em;
+  padding-left: 1em;
+  padding-right: 1em;
   width: 75em;
 }
 
@@ -679,7 +681,7 @@ ul ul {
 .layout-main:after {
   clear: both;
 }
-/* line 17, ../sass/partials/layout/_page.scss */
+/* line 19, ../sass/partials/layout/_page.scss */
 .layout-main.sidebar .layout-main__content {
   width: 65.21739%;
   float: left;
@@ -687,7 +689,7 @@ ul ul {
   margin-left: 0%;
   clear: none;
 }
-/* line 20, ../sass/partials/layout/_page.scss */
+/* line 22, ../sass/partials/layout/_page.scss */
 .layout-main.sidebar .layout-main__sidebar {
   width: 30.43478%;
   float: right;
