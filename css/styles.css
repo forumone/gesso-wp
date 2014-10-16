@@ -1,4 +1,4 @@
-/* line 65, ../../../../../../../../var/lib/gems/1.9.1/gems/singularitygs-1.1.2/stylesheets/singularitygs/helpers/_clearfix.scss */
+/* line 65, ../../../../../../../../../Library/Ruby/Gems/2.0.0/gems/singularitygs-1.1.2/stylesheets/singularitygs/helpers/_clearfix.scss */
 .clearfix:after {
   content: "";
   display: table;
@@ -694,6 +694,35 @@ ul ul {
     margin-right: 0;
     clear: none;
   }
+}
+
+/* line 1, ../sass/partials/components/_alignments.scss */
+.alignright, .alignleft {
+  float: none;
+  margin: 0;
+  max-width: 100%;
+}
+
+@media (min-width: 48em) {
+  /* line 8, ../sass/partials/components/_alignments.scss */
+  .alignright {
+    float: right;
+    margin: 0 0 1em 1em;
+  }
+
+  /* line 13, ../sass/partials/components/_alignments.scss */
+  .alignleft {
+    float: left;
+    margin: 0 1em 1em 0;
+  }
+}
+/* line 19, ../sass/partials/components/_alignments.scss */
+.aligncenter {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 1em;
+  max-width: 100%;
 }
 
 /* line 1, ../sass/partials/components/_comment-list.scss */
