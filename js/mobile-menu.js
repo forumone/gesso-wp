@@ -1,11 +1,12 @@
 jQuery( document ).ready(function( $ ) {
 
+  'use strict';
+
   // The styling for this mobile menu is located in sass/components/mobile-menu/_mobile-menu.scss.
   // Create mobile menu container, create mobile bar, and clone the main menu.
   var $mobileNav = $('<nav class="mobile-nav" role="navigation"></nav>'),
       $mobileBar = $('<div class="mobile-nav__bar"><a class="mobile-nav__button mobile-nav__button--home" href="/" rel="home"><span class="mobile-nav__icon mobile-nav__icon--home">Home</span></a><button class="mobile-nav__button js-mobile-menu-button mobile-nav__button--menu"><span class="mobile-nav__icon mobile-nav__icon--menu">Menu</span></button></div>'),
       $mobileLinks = $('<div class="mobile-nav__links element-hidden"></div>'),
-      $mobileArrow = $('<span class="mobile-arrow"></span>'),
       $mainMenu = $('.nav--primary ul').first().clone(),
       $isSuperfish = ($mainMenu.hasClass('sf-menu')) ? true : false;
 
@@ -30,7 +31,7 @@ jQuery( document ).ready(function( $ ) {
   // set classes on superfish items
   if ($isSuperfish) {
     $mainMenu.find('li').each(function(){
-      $(this).attr("class","nav__item").find('a').attr("class","nav__link");
+      $(this).attr('class', 'nav__item').find('a').attr('class', 'nav__link');
     });
   }
 
@@ -62,7 +63,7 @@ jQuery( document ).ready(function( $ ) {
 
     // Remove focus for mouse clicks after closing the menu.
     $(this).not('.is-active').mouseleave(function () {
-      $(this).blur()
+      $(this).blur();
     });
 
     // Take mobile menu links out of tab flow if hidden.
