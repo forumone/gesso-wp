@@ -10,87 +10,91 @@ jQuery( document ).ready(function( $ ) {
       $mainMenu = $('.nav--primary ul').first().clone(),
       $isSuperfish = ($mainMenu.hasClass('sf-menu')) ? true : false;
 
-  // Remove menu id, add class, and format subnav menus.
-  $mainMenu.removeAttr('id').attr('class', 'nav nav--mobile').find('ul').each(function () {
-    var $parentLink = $(this).prev('a');
+  // Only create mobile menu if there is a main menu.
+  if ($mainMenu.length > 0) {
 
-    // Copy parent link to subnav list.
-    $parentLink.clone().prependTo(this).wrap('<li class="nav__item"></li>');
+    // Remove menu id, add class, and format subnav menus.
+    $mainMenu.removeAttr('id').attr('class', 'nav nav--mobile').find('ul').each(function () {
+      var $parentLink = $(this).prev('a');
 
-    // Change parent link into a button and add classes.
-    $parentLink.replaceWith(function () {
-      return $('<button class="nav__link nav__link--parent js-mobile-menu-parent" />').append($(this).contents());
+      // Copy parent link to subnav list.
+      $parentLink.clone().prependTo(this).wrap('<li class="nav__item"></li>');
+
+      // Change parent link into a button and add classes.
+      $parentLink.replaceWith(function () {
+        return $('<button class="nav__link nav__link--parent js-mobile-menu-parent" />').append($(this).contents());
+      });
+
+      // Remove inline styles from Superfish.
+      if ($isSuperfish) {
+        $(this).removeAttr('style').addClass('nav--subnav').find('ul, li, a').removeAttr('style');
+      }
     });
 
-    // Remove inline styles from Superfish.
+    // set classes on superfish items
     if ($isSuperfish) {
-      $(this).removeAttr('style').addClass('nav--subnav').find('ul, li, a').removeAttr('style');
+      $mainMenu.find('li').each(function(){
+        $(this).attr('class', 'nav__item').find('a').attr('class', 'nav__link');
+      });
     }
-  });
 
-  // set classes on superfish items
-  if ($isSuperfish) {
-    $mainMenu.find('li').each(function(){
-      $(this).attr('class', 'nav__item').find('a').attr('class', 'nav__link');
+    // Remove third level menu items.
+    $mainMenu.find('ul ul').remove();
+
+    // Insert the cloned menus into the mobile menu container.
+    $mainMenu.appendTo($mobileLinks);
+
+    // Insert the top bar into mobile menu container.
+    $mobileBar.prependTo($mobileNav);
+
+    // Insert the mobile links into mobile menu container.
+    $mobileLinks.appendTo($mobileNav);
+
+    // Add mobile menu to the page.
+    $('.skiplinks').after($mobileNav);
+
+    var $mobileMenuWrapper = $('.mobile-nav__links'),
+        $mobileMenuLinks = $mobileMenuWrapper.find('a');
+
+    // Initially take mobile menu links out of tab flow.
+    $mobileMenuLinks.attr('tabindex', -1);
+
+    // Open/close mobile menu when menu button is clicked.
+    $('.js-mobile-menu-button').click(function (e) {
+      $(this).toggleClass('is-active');
+      $mobileMenuWrapper.toggleClass('element-hidden');
+
+      // Remove focus for mouse clicks after closing the menu.
+      $(this).not('.is-active').mouseleave(function () {
+        $(this).blur();
+      });
+
+      // Take mobile menu links out of tab flow if hidden.
+      if ($mobileMenuWrapper.hasClass('element-hidden')) {
+        $mobileMenuLinks.attr('tabindex', -1);
+      }
+      else {
+        $mobileMenuLinks.removeAttr('tabindex');
+      }
+
+      e.preventDefault();
     });
+
+    // Open/close submenus.
+    $('.js-mobile-menu-parent').click(function (e) {
+      $(this).toggleClass('is-active').next('ul').slideToggle();
+
+      // Remove focus for mouse clicks after closing the subnav.
+      $(this).not('.is-active').mouseleave(function () {
+        $(this).blur();
+      });
+
+      e.preventDefault();
+    });
+
+    // Set the height of the menu.
+    $mobileMenuWrapper.height($(document).height());
+  
   }
-
-  // Remove third level menu items.
-  $mainMenu.find('ul ul').remove();
-
-  // Insert the cloned menus into the mobile menu container.
-  $mainMenu.appendTo($mobileLinks);
-
-  // Insert the top bar into mobile menu container.
-  $mobileBar.prependTo($mobileNav);
-
-  // Insert the mobile links into mobile menu container.
-  $mobileLinks.appendTo($mobileNav);
-
-  // Add mobile menu to the page.
-  $('.skiplinks').after($mobileNav);
-
-  var $mobileMenuWrapper = $('.mobile-nav__links'),
-      $mobileMenuLinks = $mobileMenuWrapper.find('a');
-
-  // Initially take mobile menu links out of tab flow.
-  $mobileMenuLinks.attr('tabindex', -1);
-
-  // Open/close mobile menu when menu button is clicked.
-  $('.js-mobile-menu-button').click(function (e) {
-    $(this).toggleClass('is-active');
-    $mobileMenuWrapper.toggleClass('element-hidden');
-
-    // Remove focus for mouse clicks after closing the menu.
-    $(this).not('.is-active').mouseleave(function () {
-      $(this).blur();
-    });
-
-    // Take mobile menu links out of tab flow if hidden.
-    if ($mobileMenuWrapper.hasClass('element-hidden')) {
-      $mobileMenuLinks.attr('tabindex', -1);
-    }
-    else {
-      $mobileMenuLinks.removeAttr('tabindex');
-    }
-
-    e.preventDefault();
-  });
-
-  // Open/close submenus.
-  $('.js-mobile-menu-parent').click(function (e) {
-    $(this).toggleClass('is-active').next('ul').slideToggle();
-
-    // Remove focus for mouse clicks after closing the subnav.
-    $(this).not('.is-active').mouseleave(function () {
-      $(this).blur();
-    });
-
-    e.preventDefault();
-  });
-
-  // Set the height of the menu.
-  $mobileMenuWrapper.height($(document).height());
- 
 
 });
