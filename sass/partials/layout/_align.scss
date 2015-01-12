@@ -1,7 +1,10 @@
+.alignright, .alignleft, .wp-caption {
+	max-width: 100%;
+}
+
 .alignright, .alignleft {
 	float: none;
 	margin: 0;
-	max-width: 100%;
 }
 	
 @include breakpoint(700px, $no-query: true) {
@@ -23,3 +26,4 @@
 	margin-bottom: 1em;
 	max-width: 100%;
 }
+

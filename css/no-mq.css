@@ -1,4 +1,4 @@
-/* line 65, ../../../../../../Ruby21-x64/lib/ruby/gems/2.1.0/gems/singularitygs-1.1.2/stylesheets/singularitygs/helpers/_clearfix.scss */
+/* line 65, ../../../../../../../../../Library/Ruby/Gems/2.0.0/gems/singularitygs-1.1.2/stylesheets/singularitygs/helpers/_clearfix.scss */
 .clearfix:after {
   content: "";
   display: table;
@@ -659,25 +659,29 @@ ul ul {
 }
 }
 /* line 1, ../sass/partials/layout/_align.scss */
-.alignright, .alignleft {
-  float: none;
-  margin: 0;
+.alignright, .alignleft, .wp-caption {
   max-width: 100%;
 }
 
-/* line 8, ../sass/partials/layout/_align.scss */
+/* line 5, ../sass/partials/layout/_align.scss */
+.alignright, .alignleft {
+  float: none;
+  margin: 0;
+}
+
+/* line 11, ../sass/partials/layout/_align.scss */
 .alignright {
   float: right;
   margin: 0 0 1em 1em;
 }
 
-/* line 13, ../sass/partials/layout/_align.scss */
+/* line 16, ../sass/partials/layout/_align.scss */
 .alignleft {
   float: left;
   margin: 0 1em 1em 0;
 }
 
-/* line 19, ../sass/partials/layout/_align.scss */
+/* line 22, ../sass/partials/layout/_align.scss */
 .aligncenter {
   display: block;
   margin-left: auto;
