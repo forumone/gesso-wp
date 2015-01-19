@@ -19,6 +19,9 @@ require 'breakpoint'
 require 'singularitygs'
 require 'sass-globbing'
 
+# Set default file encoding.
+Encoding.default_external = "UTF-8"
+
 # Disable cache busting on image assets.
 asset_cache_buster :none
 

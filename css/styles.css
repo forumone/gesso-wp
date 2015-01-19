@@ -1,4 +1,4 @@
-/* line 65, ../../../../../../../../var/lib/gems/1.9.1/gems/singularitygs-1.1.2/stylesheets/singularitygs/helpers/_clearfix.scss */
+/* line 65, ../../../../../../Ruby21-x64/lib/ruby/gems/2.1.0/gems/singularitygs-1.1.2/stylesheets/singularitygs/helpers/_clearfix.scss */
 .clearfix:after {
   content: "";
   display: table;
@@ -28,7 +28,17 @@
   display: none;
 }
 
-/* line 49, ../sass/partials/global/helpers/_button.scss */
+/* line 9, ../sass/partials/global/helpers/_clearfix.scss */
+.clearfix:after {
+  display: table;
+  content: "";
+}
+/* line 14, ../sass/partials/global/helpers/_clearfix.scss */
+.clearfix:after {
+  clear: both;
+}
+
+/* line 49, ../sass/partials/global/extendables/_button.scss */
 .button {
   font-size: 0.875em;
   line-height: 1.5em;
@@ -60,42 +70,32 @@
   text-shadow: 0 1px 1px rgba(255, 255, 255, 0.75);
   vertical-align: baseline;
 }
-/* line 36, ../sass/partials/global/helpers/_button.scss */
+/* line 36, ../sass/partials/global/extendables/_button.scss */
 .button:focus, .button:hover {
   background-color: white;
   border-color: #797979;
   color: #333333;
   outline: 0;
 }
-/* line 43, ../sass/partials/global/helpers/_button.scss */
+/* line 43, ../sass/partials/global/extendables/_button.scss */
 .button:active {
   background-color: #e0e0e0;
   border-color: #acacac;
 }
-/* line 52, ../sass/partials/global/helpers/_button.scss */
+/* line 52, ../sass/partials/global/extendables/_button.scss */
 .button + .button {
   margin-left: 1em;
 }
-/* line 55, ../sass/partials/global/helpers/_button.scss */
+/* line 55, ../sass/partials/global/extendables/_button.scss */
 [dir="rtl"] .button + .button {
   margin-left: 0;
   margin-right: 1em;
 }
 
-/* line 62, ../sass/partials/global/helpers/_button.scss */
+/* line 62, ../sass/partials/global/extendables/_button.scss */
 .button--large {
   font-size: 1.1875em;
   line-height: 2.21053em;
-}
-
-/* line 9, ../sass/partials/global/helpers/_clearfix.scss */
-.clearfix:after {
-  display: table;
-  content: "";
-}
-/* line 14, ../sass/partials/global/helpers/_clearfix.scss */
-.clearfix:after {
-  clear: both;
 }
 
 /* line 15, ../sass/partials/base/_normalize.scss */
@@ -398,50 +398,46 @@ object {
 /* line 26, ../sass/partials/base/_html-elements.scss */
 a {
   color: blue;
+  outline-offset: 0.125em;
 }
-/* line 33, ../sass/partials/base/_html-elements.scss */
+/* line 32, ../sass/partials/base/_html-elements.scss */
 a:hover, a:focus {
   color: green;
 }
 
-/* line 38, ../sass/partials/base/_html-elements.scss */
+/* line 37, ../sass/partials/base/_html-elements.scss */
 abbr {
   font-variant: small-caps;
   text-transform: lowercase;
 }
-/* line 41, ../sass/partials/base/_html-elements.scss */
+/* line 40, ../sass/partials/base/_html-elements.scss */
 abbr:hover {
   cursor: help;
 }
 
-/* line 56, ../sass/partials/base/_html-elements.scss */
+/* line 55, ../sass/partials/base/_html-elements.scss */
 blockquote {
-  margin: 1.3125em 1.5em;
+  margin: 0 1.5em 1.3125em;
 }
 
-/* line 60, ../sass/partials/base/_html-elements.scss */
+/* line 59, ../sass/partials/base/_html-elements.scss */
 body {
   background-color: white;
   color: #333333;
   word-wrap: break-word;
 }
 
-/* line 92, ../sass/partials/base/_html-elements.scss */
+/* line 83, ../sass/partials/base/_html-elements.scss */
+dd {
+  margin-bottom: 1.3125em;
+}
+
+/* line 93, ../sass/partials/base/_html-elements.scss */
 dl {
-  margin: 1.3125em 0;
+  margin: 0 0 1.3125em;
 }
 
-/* line 96, ../sass/partials/base/_html-elements.scss */
-dt {
-  margin-top: 1.3125em;
-}
-
-/* line 100, ../sass/partials/base/_html-elements.scss */
-dt + dt {
-  margin-top: 0;
-}
-
-/* line 118, ../sass/partials/base/_html-elements.scss */
+/* line 113, ../sass/partials/base/_html-elements.scss */
 h1, h2, h3, h4, h5, h6 {
   color: #333333;
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -452,50 +448,50 @@ h1, h2, h3, h4, h5, h6 {
   text-rendering: optimizeLegibility;
 }
 
-/* line 126, ../sass/partials/base/_html-elements.scss */
+/* line 121, ../sass/partials/base/_html-elements.scss */
 h1 {
   font-size: 1.625em;
-  margin: 0.80769em 0;
+  margin: 0 0 0.80769em;
 }
 
-/* line 132, ../sass/partials/base/_html-elements.scss */
+/* line 127, ../sass/partials/base/_html-elements.scss */
 h2 {
   font-size: 1.375em;
-  margin: 0.95455em 0;
+  margin: 0 0 0.95455em;
 }
 
-/* line 138, ../sass/partials/base/_html-elements.scss */
+/* line 133, ../sass/partials/base/_html-elements.scss */
 h3 {
   font-size: 1.1875em;
-  margin: 1.10526em 0;
+  margin: 0 0 1.10526em;
 }
 
-/* line 144, ../sass/partials/base/_html-elements.scss */
+/* line 139, ../sass/partials/base/_html-elements.scss */
 h4 {
   font-size: 1em;
-  margin: 1.3125em 0;
+  margin: 0 0 1.3125em;
 }
 
-/* line 150, ../sass/partials/base/_html-elements.scss */
+/* line 145, ../sass/partials/base/_html-elements.scss */
 h5 {
   font-size: 0.875em;
-  margin: 1.5em 0;
+  margin: 0 0 1.5em;
 }
 
-/* line 156, ../sass/partials/base/_html-elements.scss */
+/* line 151, ../sass/partials/base/_html-elements.scss */
 h6 {
   font-size: 0.75em;
-  margin: 1.75em 0;
+  margin: 0 0 1.75em;
 }
 
-/* line 164, ../sass/partials/base/_html-elements.scss */
+/* line 159, ../sass/partials/base/_html-elements.scss */
 hr {
   border: 1px solid #cccccc;
   margin: 1.3125em 0;
   padding-bottom: -1px;
 }
 
-/* line 170, ../sass/partials/base/_html-elements.scss */
+/* line 165, ../sass/partials/base/_html-elements.scss */
 html {
   line-height: 1.3125em;
   -webkit-hyphens: auto;
@@ -505,65 +501,65 @@ html {
   font-size: 100%;
 }
 
-/* line 216, ../sass/partials/base/_html-elements.scss */
+/* line 211, ../sass/partials/base/_html-elements.scss */
 legend {
   margin: 0;
 }
 
-/* line 232, ../sass/partials/base/_html-elements.scss */
+/* line 227, ../sass/partials/base/_html-elements.scss */
 mark {
   background: #ff0;
   color: #000;
 }
 
-/* line 247, ../sass/partials/base/_html-elements.scss */
+/* line 242, ../sass/partials/base/_html-elements.scss */
 ol {
-  margin: 1.3125em 0;
+  margin: 0 0 1.3125em;
   padding: 0 0 0 1.5em;
 }
-/* line 251, ../sass/partials/base/_html-elements.scss */
+/* line 246, ../sass/partials/base/_html-elements.scss */
 [dir="rtl"] ol {
   padding: 0 1.5em 0 0;
 }
-/* line 256, ../sass/partials/base/_html-elements.scss */
+/* line 251, ../sass/partials/base/_html-elements.scss */
 ol ol,
 ol ul {
   margin: 0;
 }
 
-/* line 267, ../sass/partials/base/_html-elements.scss */
+/* line 262, ../sass/partials/base/_html-elements.scss */
 p {
-  margin: 0 0 1.3125em 0;
+  margin: 0 0 1.3125em;
 }
 
-/* line 273, ../sass/partials/base/_html-elements.scss */
+/* line 268, ../sass/partials/base/_html-elements.scss */
 pre {
-  margin: 1.3125em 0;
+  margin: 0 0 1.3125em;
 }
 
-/* line 289, ../sass/partials/base/_html-elements.scss */
+/* line 284, ../sass/partials/base/_html-elements.scss */
 small {
   font-size: 0.875em;
   line-height: 1.5em;
 }
 
-/* line 321, ../sass/partials/base/_html-elements.scss */
+/* line 316, ../sass/partials/base/_html-elements.scss */
 ul {
-  margin: 1.3125em 0;
+  margin: 0 0 1.3125em;
   padding: 0 0 0 1.2em;
 }
-/* line 325, ../sass/partials/base/_html-elements.scss */
+/* line 320, ../sass/partials/base/_html-elements.scss */
 [dir="rtl"] ul {
   padding: 0 1.2em 0 0;
 }
-/* line 330, ../sass/partials/base/_html-elements.scss */
+/* line 325, ../sass/partials/base/_html-elements.scss */
 ul ol,
 ul ul {
   margin: 0;
 }
 
 @media print {
-  /* line 341, ../sass/partials/base/_html-elements.scss */
+  /* line 336, ../sass/partials/base/_html-elements.scss */
   * {
     background: transparent !important;
     box-shadow: none !important;
@@ -571,19 +567,19 @@ ul ul {
     text-shadow: none !important;
   }
 
-  /* line 353, ../sass/partials/base/_html-elements.scss */
+  /* line 348, ../sass/partials/base/_html-elements.scss */
   iframe,
   nav {
     display: none;
   }
 
-  /* line 358, ../sass/partials/base/_html-elements.scss */
+  /* line 353, ../sass/partials/base/_html-elements.scss */
   a,
   a:visited {
     text-decoration: none;
   }
 
-  /* line 362, ../sass/partials/base/_html-elements.scss */
+  /* line 357, ../sass/partials/base/_html-elements.scss */
   a[href]:after {
     content: " <" attr(href) ">";
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -592,7 +588,7 @@ ul ul {
     text-transform: lowercase;
   }
 
-  /* line 378, ../sass/partials/base/_html-elements.scss */
+  /* line 373, ../sass/partials/base/_html-elements.scss */
   a[href^="javascript:"]:after,
   a[href^="mailto:"]:after,
   a[href^="tel:"]:after,
@@ -600,36 +596,36 @@ ul ul {
     content: "";
   }
 
-  /* line 382, ../sass/partials/base/_html-elements.scss */
+  /* line 377, ../sass/partials/base/_html-elements.scss */
   abbr[title]:after {
     content: " (" attr(title) ")";
   }
 
-  /* line 387, ../sass/partials/base/_html-elements.scss */
+  /* line 382, ../sass/partials/base/_html-elements.scss */
   blockquote,
   pre {
     border: 1px solid #999;
     page-break-inside: avoid;
   }
 
-  /* line 392, ../sass/partials/base/_html-elements.scss */
+  /* line 387, ../sass/partials/base/_html-elements.scss */
   thead {
     display: table-header-group;
   }
 
-  /* line 398, ../sass/partials/base/_html-elements.scss */
+  /* line 393, ../sass/partials/base/_html-elements.scss */
   img,
   tr,
   ul {
     page-break-inside: avoid;
   }
 
-  /* line 402, ../sass/partials/base/_html-elements.scss */
+  /* line 397, ../sass/partials/base/_html-elements.scss */
   img {
     max-width: 100% !important;
   }
 
-  /* line 411, ../sass/partials/base/_html-elements.scss */
+  /* line 406, ../sass/partials/base/_html-elements.scss */
   h1 a:after,
   h2 a:after,
   h3 a:after,
@@ -639,7 +635,7 @@ ul ul {
     display: inline-block;
   }
 
-  /* line 418, ../sass/partials/base/_html-elements.scss */
+  /* line 413, ../sass/partials/base/_html-elements.scss */
   h2,
   h3,
   h4,
@@ -648,7 +644,7 @@ ul ul {
     widows: 3;
   }
 
-  /* line 425, ../sass/partials/base/_html-elements.scss */
+  /* line 420, ../sass/partials/base/_html-elements.scss */
   h2,
   h3,
   h4 {
@@ -659,6 +655,35 @@ ul ul {
     margin: 2cm;
 }
 }
+/* line 1, ../sass/partials/layout/_align.scss */
+.alignright, .alignleft {
+  float: none;
+  margin: 0;
+  max-width: 100%;
+}
+
+@media (min-width: 43.75em) {
+  /* line 8, ../sass/partials/layout/_align.scss */
+  .alignright {
+    float: right;
+    margin: 0 0 1em 1em;
+  }
+
+  /* line 13, ../sass/partials/layout/_align.scss */
+  .alignleft {
+    float: left;
+    margin: 0 1em 1em 0;
+  }
+}
+/* line 19, ../sass/partials/layout/_align.scss */
+.aligncenter {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 1em;
+  max-width: 100%;
+}
+
 /* line 1, ../sass/partials/layout/_page.scss */
 .layout-constrain {
   margin-left: auto;
