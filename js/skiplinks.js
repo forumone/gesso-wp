@@ -1,5 +1,7 @@
 jQuery( document ).ready(function( $ ) {
 
+  'use strict';
+
   // Fixes skiplink behavior for Opera and Webkit browsers.
 
   var $skiplink = $('.skiplinks__link'),
