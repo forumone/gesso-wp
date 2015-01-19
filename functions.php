@@ -187,6 +187,16 @@ if (function_exists('register_sidebar')) {
     'before_title' => '<h3 class="widget__title">',
     'after_title' => '</h3>'
   ));
+  
+  register_sidebar(array(
+    'name' => __('Footer Widgets', 'gesso'),
+    'description' => __('Footer Widgets', 'gesso'),
+    'id' => 'footer-widgets',
+    'before_widget' => '<div id="%1$s" class="widget %2$s">',
+    'after_widget' => '</div>',
+    'before_title' => '<h3 class="widget__title">',
+    'after_title' => '</h3>'
+  ));
 }
 
 
