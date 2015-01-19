@@ -1,4 +1,4 @@
-/* line 65, ../../../../../../../../../Library/Ruby/Gems/2.0.0/gems/singularitygs-1.1.2/stylesheets/singularitygs/helpers/_clearfix.scss */
+/* line 65, ../../../../../../../../var/lib/gems/1.9.1/gems/singularitygs-1.1.2/stylesheets/singularitygs/helpers/_clearfix.scss */
 .clearfix:after {
   content: "";
   display: table;
@@ -655,39 +655,6 @@ ul ul {
     margin: 2cm;
 }
 }
-/* line 1, ../sass/partials/layout/_align.scss */
-.alignright, .alignleft, .wp-caption {
-  max-width: 100%;
-}
-
-/* line 5, ../sass/partials/layout/_align.scss */
-.alignright, .alignleft {
-  float: none;
-  margin: 0;
-}
-
-@media (min-width: 43.75em) {
-  /* line 11, ../sass/partials/layout/_align.scss */
-  .alignright {
-    float: right;
-    margin: 0 0 1em 1em;
-  }
-
-  /* line 16, ../sass/partials/layout/_align.scss */
-  .alignleft {
-    float: left;
-    margin: 0 1em 1em 0;
-  }
-}
-/* line 22, ../sass/partials/layout/_align.scss */
-.aligncenter {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  margin-bottom: 1em;
-  max-width: 100%;
-}
-
 /* line 1, ../sass/partials/layout/_page.scss */
 .layout-constrain {
   margin-left: auto;
@@ -725,6 +692,51 @@ ul ul {
   }
 }
 
+/* line 1, ../sass/partials/components/_aligncenter.scss */
+.aligncenter {
+  display: block;
+  margin-bottom: 1em;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 100%;
+}
+
+/* line 1, ../sass/partials/components/_alignleft.scss */
+.alignleft {
+  max-width: 100%;
+}
+
+/* line 5, ../sass/partials/components/_alignleft.scss */
+.alignleft {
+  float: none;
+  margin: 0;
+}
+
+@media (min-width: 43.75em) {
+  /* line 11, ../sass/partials/components/_alignleft.scss */
+  .alignleft {
+    float: left;
+    margin: 0 1em 1em 0;
+  }
+}
+/* line 1, ../sass/partials/components/_alignright.scss */
+.alignright {
+  max-width: 100%;
+}
+
+/* line 5, ../sass/partials/components/_alignright.scss */
+.alignright {
+  float: none;
+  margin: 0;
+}
+
+@media (min-width: 43.75em) {
+  /* line 11, ../sass/partials/components/_alignright.scss */
+  .alignright {
+    float: right;
+    margin: 0 0 1em 1em;
+  }
+}
 /* line 1, ../sass/partials/components/_comment-list.scss */
 ul.comment-list {
   list-style: none;
@@ -1019,4 +1031,9 @@ nav ul.nav {
 /* line 34, ../sass/partials/components/_skiplinks.scss */
 #main:focus {
   outline: 0;
+}
+
+/* line 1, ../sass/partials/components/_wp-caption.scss */
+.wp-caption {
+  max-width: 100%;
 }

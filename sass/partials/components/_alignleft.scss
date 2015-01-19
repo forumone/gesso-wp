@@ -1,0 +1,15 @@
+.alignleft {
+  max-width: 100%;
+}
+
+.alignleft {
+  float: none;
+  margin: 0;
+}
+	
+@include breakpoint(700px, $no-query: true) {
+  .alignleft { 
+    float: left;
+    margin: 0 1em 1em 0;
+  }
+}
