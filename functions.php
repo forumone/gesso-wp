@@ -177,7 +177,7 @@ function add_slug_to_body_class($classes) {
 }
 
 
-if (function_exists('register_sidebar')) {
+function gesso_widgets_init() {
   register_sidebar(array(
     'name' => __('Widget Area 1', 'gesso'),
     'description' => __('Widget Area 1', 'gesso'),
@@ -188,7 +188,7 @@ if (function_exists('register_sidebar')) {
     'after_title' => '</h3>'
   ));
 }
-
+add_action( 'widgets_init', 'gesso_widgets_init' );
 
 function gesso_pagination() {
   global $wp_query;
