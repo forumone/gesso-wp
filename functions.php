@@ -1,4 +1,8 @@
 <?php
+
+if ( ! isset( $content_width ) ) {
+  $content_width = 1200;
+}
  
 if (function_exists('add_theme_support')) {
   add_theme_support('post-thumbnails');
@@ -134,6 +138,8 @@ function gesso_header_scripts() {
     wp_register_script('modernizr', 'http://cdnjs.cloudflare.com/ajax/libs/modernizr/2.7.1/modernizr.min.js', array('jquery') ); // Modernizr
     wp_enqueue_script('modernizr');  
 
+    if ( is_singular() ) wp_enqueue_script( "comment-reply" );
+
     wp_register_script('gessoskiplinks', get_template_directory_uri() . '/js/skiplinks.js', array('jquery','modernizr') ); // Accessible skiplinks
     wp_enqueue_script('gessoskiplinks');  
 
@@ -211,7 +217,6 @@ function remove_thumbnail_dimensions( $html ) {
 // Adjusting the title
 add_filter('wp_title', 'gesso_pagetitle');
 function filter_pagetitle($title) {
-    //check if its a blog post
     if (!empty($title)) {
         return $title;
     }
