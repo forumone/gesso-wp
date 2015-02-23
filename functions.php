@@ -208,6 +208,18 @@ function remove_thumbnail_dimensions( $html ) {
   return $html;
 }
 
+// Adjusting the title
+add_filter('wp_title', 'gesso_pagetitle');
+function filter_pagetitle($title) {
+    //check if its a blog post
+    if (!empty($title)) {
+        return $title;
+    }
+    else {
+      echo get_bloginfo('name');
+    }
+}
+
 
 add_action('init', 'gesso_header_scripts');  
 add_action('wp_head', 'gesso_styles');
