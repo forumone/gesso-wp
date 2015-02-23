@@ -3,6 +3,8 @@
 if ( ! isset( $content_width ) ) {
   $content_width = 1200;
 }
+
+add_theme_support( 'automatic-feed-links' );
  
 if (function_exists('add_theme_support')) {
   add_theme_support('post-thumbnails');
