@@ -216,7 +216,7 @@ function remove_thumbnail_dimensions( $html ) {
 
 // Adjusting the title
 add_filter('wp_title', 'gesso_pagetitle');
-function filter_pagetitle($title) {
+function gesso_pagetitle($title) {
     if (!empty($title)) {
         return $title;
     }
