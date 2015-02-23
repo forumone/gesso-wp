@@ -23,8 +23,6 @@
 		
 		<footer>
 			<?php edit_post_link(); ?>
-
-			<?php wp_link_pages(); ?>
 		</footer>
 	</article>
 
