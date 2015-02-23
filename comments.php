@@ -15,6 +15,9 @@
 				) );
 			?>
 		</ul> 
+		<div class="navigation">
+		  <?php paginate_comments_links(); ?> 
+		</div>
 	<?php elseif ( ! comments_open() && ! is_page() && post_type_supports( get_post_type(), 'comments' ) ) : ?>
 		<p><?php _e( 'Comments are closed.', 'gesso' ); ?></p>
 	<?php endif; ?>
