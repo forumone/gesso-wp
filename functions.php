@@ -216,7 +216,7 @@ function remove_thumbnail_dimensions( $html ) {
   return $html;
 }
 
-// Adjusting the title
+// Adjusting the <title>
 add_filter('wp_title', 'gesso_pagetitle');
 function gesso_pagetitle($title) {
     if (!empty($title)) {
@@ -225,6 +225,11 @@ function gesso_pagetitle($title) {
     else {
       echo get_bloginfo('name');
     }
+}
+
+//Allowing styles for post editor to match how it will actually be visually represented 
+function gesso_add_editor_styles() {
+    add_editor_style( 'css/custom-editor-style.css' );
 }
 
 
@@ -236,3 +241,4 @@ add_action('init', 'register_gesso_menu');
 add_filter('body_class', 'add_slug_to_body_class');  
 add_filter('post_thumbnail_html', 'remove_thumbnail_dimensions', 10); // Remove width and height dynamic attributes to thumbnails
 add_filter('image_send_to_editor', 'remove_thumbnail_dimensions', 10); // Remove width and height dynamic attributes to post images
+add_action( 'admin_init', 'gesso_add_editor_styles' );
