@@ -216,17 +216,7 @@ function remove_thumbnail_dimensions( $html ) {
   return $html;
 }
 
-// Adjusting the <title>
-/*add_filter('wp_title', 'gesso_pagetitle');
-function gesso_pagetitle($title) {
-    if (!empty($title)) {
-        return $title;
-    }
-    else {
-      echo get_bloginfo('name');
-    }
-}*/
-
+// Adds site name to title tag
 add_theme_support( 'title-tag' );
 
 //Allowing styles for post editor to match how it will actually be visually represented 
