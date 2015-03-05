@@ -186,8 +186,8 @@ function add_slug_to_body_class($classes) {
   return $classes;
 }
 
-// Addinging initial widget area
-function gesso_widgets_init() {
+// Initial Sidebar and Footer Widget Areas
+if (function_exists('register_sidebar')) {
   register_sidebar(array(
     'name' => __('Widget Area 1', 'gesso'),
     'description' => __('Widget Area 1', 'gesso'),
@@ -197,8 +197,17 @@ function gesso_widgets_init() {
     'before_title' => '<h3 class="widget__title">',
     'after_title' => '</h3>'
   ));
+  
+  register_sidebar(array(
+    'name' => __('Footer Widgets', 'gesso'),
+    'description' => __('Footer Widgets', 'gesso'),
+    'id' => 'footer-widgets',
+    'before_widget' => '<div id="%1$s" class="widget %2$s">',
+    'after_widget' => '</div>',
+    'before_title' => '<h3 class="widget__title">',
+    'after_title' => '</h3>'
+  ));
 }
-add_action( 'widgets_init', 'gesso_widgets_init' );
 
 function gesso_pagination() {
   global $wp_query;
