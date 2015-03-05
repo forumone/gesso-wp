@@ -25,6 +25,7 @@
 								
 							</header>							
 							<?php the_content(); // Dynamic Content ?>
+							<?php gesso_link_pages(); ?>
 							<footer>
 								<?php the_tags( __( 'Tags: ', 'gesso' ), ', ', '<br>'); // Separated by commas with a line break at the end ?>
 								<p><?php _e( 'Categorized in: ', 'gesso' ); the_category(', '); // Separated by commas ?></p>

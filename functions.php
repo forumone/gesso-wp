@@ -220,6 +220,16 @@ function gesso_pagination() {
   ));
 }
 
+//Adds proper markup to pages content
+function gesso_link_pages() {
+  wp_link_pages(array(
+      'before'      => '<nav class="page-links" role="navigation"><h2 class="page-links-title element-invisible">' . __( 'Pages:', 'gesso' ) . '</h2><ul class="page-links-list">',
+      'after'       => '</ul></nav>',
+      'link_before' => '<li class="pager__item">',
+      'link_after'  => '</li>',
+    ));
+}
+
 
  // Remove thumbnail dimensions  
 function remove_thumbnail_dimensions( $html ) {

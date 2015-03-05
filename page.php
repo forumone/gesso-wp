@@ -19,7 +19,7 @@
 						<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 							<?php the_content(); ?>
 
-							<?php wp_link_pages(); ?>
+							<?php gesso_link_pages(); ?>
 							<?php edit_post_link(); ?>
 							<?php comments_template( '', true ); ?>
 						</article>
