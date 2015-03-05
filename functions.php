@@ -1,9 +1,11 @@
 <?php
 
+// Setting main content width - update to match the width of your site's main content area.
 if ( ! isset( $content_width ) ) {
-  $content_width = 1200;
+  $content_width = 760;
 }
 
+// Add support for automatic links for feeds.
 add_theme_support( 'automatic-feed-links' );
  
 if (function_exists('add_theme_support')) {
@@ -184,7 +186,7 @@ function add_slug_to_body_class($classes) {
   return $classes;
 }
 
-
+// Addinging initial widget area
 function gesso_widgets_init() {
   register_sidebar(array(
     'name' => __('Widget Area 1', 'gesso'),
@@ -219,10 +221,13 @@ function remove_thumbnail_dimensions( $html ) {
 // Adds site name to title tag
 add_theme_support( 'title-tag' );
 
-//Allowing styles for post editor to match how it will actually be visually represented 
+// Allowing styles for post editor to match how it will actually be visually represented 
 function gesso_add_editor_styles() {
     add_editor_style( 'css/custom-editor-style.css' );
 }
+
+// Adding theme support for HTML5
+add_theme_support( 'html5', array( 'comment-list', 'comment-form', 'search-form', 'gallery', 'caption' ) );
 
 
 add_action('init', 'gesso_header_scripts');  
