@@ -1,4 +1,12 @@
 <?php
+
+// Setting main content width - update to match the width of your site's main content area.
+if ( ! isset( $content_width ) ) {
+  $content_width = 760;
+}
+
+// Add support for automatic links for feeds.
+add_theme_support( 'automatic-feed-links' );
  
 if (function_exists('add_theme_support')) {
   add_theme_support('post-thumbnails');
@@ -49,7 +57,7 @@ function has_visible_widgets($sidebar_id) {
 class gesso_walker_nav_menu extends Walker_Nav_Menu {
   
   // add classes to ul sub-menus
-  function start_lvl( &$output, $depth ) {
+  function start_lvl( &$output, $depth = 0, $args = array() ) {
     // depth dependent classes
     $indent = ( $depth > 0  ? str_repeat( "\t", $depth ) : '' ); // code indent
     $display_depth = ( $depth + 1); // because it counts the first submenu as 0
@@ -65,7 +73,7 @@ class gesso_walker_nav_menu extends Walker_Nav_Menu {
   }
     
   // add main/sub classes to li's and links
-   function start_el( &$output, $item, $depth, $args ) {
+   function start_el( &$output, $item, $depth = 0, $args = array(), $id = 0 ) {
     global $wp_query;
     $indent = ( $depth > 0 ? str_repeat( "\t", $depth ) : '' ); // code indent
   
@@ -134,6 +142,8 @@ function gesso_header_scripts() {
     wp_register_script('modernizr', 'http://cdnjs.cloudflare.com/ajax/libs/modernizr/2.7.1/modernizr.min.js', array('jquery') ); // Modernizr
     wp_enqueue_script('modernizr');  
 
+    if ( is_singular() ) wp_enqueue_script( "comment-reply" );
+
     wp_register_script('gessoskiplinks', get_template_directory_uri() . '/js/skiplinks.js', array('jquery','modernizr') ); // Accessible skiplinks
     wp_enqueue_script('gessoskiplinks');  
 
@@ -176,7 +186,7 @@ function add_slug_to_body_class($classes) {
   return $classes;
 }
 
-
+// Initial Sidebar and Footer Widget Areas
 if (function_exists('register_sidebar')) {
   register_sidebar(array(
     'name' => __('Widget Area 1', 'gesso'),
@@ -199,7 +209,6 @@ if (function_exists('register_sidebar')) {
   ));
 }
 
-
 function gesso_pagination() {
   global $wp_query;
   $big = 999999999;
@@ -211,12 +220,34 @@ function gesso_pagination() {
   ));
 }
 
+//Adds proper markup to pages content
+function gesso_link_pages() {
+  $gesso_links = array(
+      'before'      => '<nav class="page-links" role="navigation"><h2 class="page-links-title element-invisible">' . __( 'Pages:', 'gesso' ) . '</h2>',
+      'after'       => '</nav>',
+      'link_before' => '<span class="pager__item">',
+      'link_after'  => '</span>',
+    );
+  wp_link_pages($gesso_links);
+}
+
 
  // Remove thumbnail dimensions  
 function remove_thumbnail_dimensions( $html ) {
   $html = preg_replace('/(width|height)=\"\d*\"\s/', "", $html);
   return $html;
 }
+
+// Adds site name to title tag
+add_theme_support( 'title-tag' );
+
+// Allowing styles for post editor to match how it will actually be visually represented 
+function gesso_add_editor_styles() {
+    add_editor_style( 'css/custom-editor-style.css' );
+}
+
+// Adding theme support for HTML5
+add_theme_support( 'html5', array( 'comment-list', 'comment-form', 'search-form', 'gallery', 'caption' ) );
 
 
 add_action('init', 'gesso_header_scripts');  
@@ -227,3 +258,4 @@ add_action('init', 'register_gesso_menu');
 add_filter('body_class', 'add_slug_to_body_class');  
 add_filter('post_thumbnail_html', 'remove_thumbnail_dimensions', 10); // Remove width and height dynamic attributes to thumbnails
 add_filter('image_send_to_editor', 'remove_thumbnail_dimensions', 10); // Remove width and height dynamic attributes to post images
+add_action( 'admin_init', 'gesso_add_editor_styles' );

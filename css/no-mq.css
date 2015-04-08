@@ -1,4 +1,4 @@
-/* line 65, ../../../../../../../../var/lib/gems/1.9.1/gems/singularitygs-1.1.2/stylesheets/singularitygs/helpers/_clearfix.scss */
+/* line 65, ../../../../../../Ruby21-x64/lib/ruby/gems/2.1.0/gems/singularitygs-1.1.2/stylesheets/singularitygs/helpers/_clearfix.scss */
 .clearfix:after {
   content: "";
   display: table;
@@ -737,6 +737,11 @@ ul ul {
   margin: 0 0 1em 1em;
 }
 
+/* line 1, ../sass/partials/components/_bypostauthor.scss */
+.bypostauthor {
+  display: block;
+}
+
 /* line 1, ../sass/partials/components/_comment-list.scss */
 ul.comment-list {
   list-style: none;
@@ -752,6 +757,11 @@ ul.comment-list li {
 ul.comment-list ul {
   list-style: none;
   margin: 0.5em 0 0 1em;
+}
+
+/* line 1, ../sass/partials/components/_gallery-caption.scss */
+.gallery-caption {
+  max-width: 100%;
 }
 
 /* line 4, ../sass/partials/components/_mobile-menu.scss */
@@ -1026,7 +1036,16 @@ nav ul.nav {
   outline: 0;
 }
 
+/* line 1, ../sass/partials/components/_sticky.scss */
+.sticky {
+  display: block;
+}
+
 /* line 1, ../sass/partials/components/_wp-caption.scss */
 .wp-caption {
+  max-width: 100%;
+}
+/* line 3, ../sass/partials/components/_wp-caption.scss */
+.wp-caption .wp-caption-text {
   max-width: 100%;
 }
