@@ -19,7 +19,7 @@
 	<body <?php body_class(); ?>>
 		
 		<div class="skiplinks">
-      <a href="#main" class="skiplinks__link element-invisible element-focusable">Skip to main content</a>
+      <a href="#main" class="skiplinks__link element-focusable">Skip to main content</a>
     </div>
 
 		<header class="header" role="banner">

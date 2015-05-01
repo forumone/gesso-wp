@@ -144,9 +144,6 @@ function gesso_header_scripts() {
 
     if ( is_singular() ) wp_enqueue_script( "comment-reply" );
 
-    wp_register_script('gessoskiplinks', get_template_directory_uri() . '/js/skiplinks.js', array('jquery','modernizr') ); // Accessible skiplinks
-    wp_enqueue_script('gessoskiplinks');  
-
     wp_register_script('gessomobilemenu', get_template_directory_uri() . '/js/mobile-menu.js', array('jquery','modernizr') ); // Mobile menu
     wp_enqueue_script('gessomobilemenu');  
 

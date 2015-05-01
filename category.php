@@ -1,6 +1,6 @@
 <?php get_header(); ?>
 
-	<main id="main" class="main" role="main">	
+	<main id="main" class="main" role="main" tabindex="-1">	
     <?php if (has_visible_widgets('widget-area-1')) { $sidebarclasses = 'sidebar'; } else { $sidebarclasses = 'no-sidebar'; }?>
 		<div class="layout-main layout-constrain <?php echo $sidebarclasses; ?>">
 			
