@@ -12,10 +12,10 @@
 
 .layout-main {
 	@include clearfix;
+  @include add-grid(12 at 700px);
+  @include add-gutter(1);
   &.sidebar {
   	@include breakpoint(700px, $no-query: true) {
-    	$grids: 12;
-    	$gutters: 1;
     	.layout-main__content {
       	@include grid-span(8,1);
     	}

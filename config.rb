@@ -6,6 +6,9 @@
 # Change this to :production when ready to deploy the CSS to the live server.
 environment = :development
 
+# Enable generation of source map files in development mode.
+sourcemap = true
+
 # Location of the theme's resources.
 css_dir = "css"
 fonts_dir = "css/fonts"
@@ -19,11 +22,11 @@ require 'breakpoint'
 require 'singularitygs'
 require 'sass-globbing'
 
-# Set default file encoding.
-Encoding.default_external = "UTF-8"
-
 # Disable cache busting on image assets.
 asset_cache_buster :none
+
+# Set default file encoding.
+Encoding.default_external = "UTF-8"
 
 #
 # You probably don't need to edit anything below this.
@@ -38,8 +41,8 @@ output_style = (environment == :development) ? :expanded : :compressed
 # the absolute path to the theme from the server root.
 relative_assets = true
 
-# Show debugging comments during development.
-line_comments = (environment == :development) ? true : false
+# Don't show line comments.
+line_comments = false
 
 # Show debug information / partial location for FireSass and similar tools.
 # Uncomment to enable.
@@ -47,6 +50,9 @@ line_comments = (environment == :development) ? true : false
 
 # Output debugging info in development mode.
 sass_options = (environment == :development && debug == true) ? {:debug_info => true} : {}
+
+# Pass the "--sourcemap" option flag to compass/sass if in development mode.
+sass_options = (environment == :development && sourcemap == true) ? {:sourcemap => true} : sass_options
 
 # Increased decimal precision.
 # 33.33333% instead of 33.333%

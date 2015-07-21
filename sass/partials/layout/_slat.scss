@@ -1,0 +1,48 @@
+// @file
+// slat layout style
+
+$bp-first: 600px, 'no-query' true;
+$gutter: 1em;
+
+.layout-slat {
+  @include clearfix;
+}
+
+.layout-slat__media {
+  margin: 0;
+  padding: 0 0 rhythm(1);
+
+  @include breakpoint($bp-first) {
+    float: left;
+    padding-right: $gutter;
+  }
+
+  &:empty {
+    padding: 0;
+  }
+
+  a,
+  img {
+    display: block;
+  }
+}
+
+.layout-slat__content {
+  display: table-cell;
+  width: 10000px;
+
+  @if support-legacy-browser('ie', '6', '7') {
+    *width: auto;
+    *zoom: 1;
+  }
+}
+
+.layout-slat--reversed {
+  .layout-slat__media {
+    @include breakpoint($bp-first) {
+      float: right;
+      padding-left: $gutter;
+      padding-right: 0;
+    }
+  }
+}
