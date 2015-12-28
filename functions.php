@@ -6,8 +6,8 @@ if ( ! isset( $content_width ) ) {
 }
 
 if ( function_exists('add_theme_support') ) {
-    // Adding theme support for HTML5
-    add_theme_support( 'html5', array( 'comment-list', 'comment-form', 'search-form', 'gallery', 'caption' ) );
+	// Adding theme support for HTML5
+	add_theme_support( 'html5', array( 'comment-list', 'comment-form', 'search-form', 'gallery', 'caption', ) );
 	// Adds site name to title tag
 	add_theme_support( 'title-tag' );
 	// Add support for automatic links for feeds.
@@ -21,7 +21,7 @@ if ( function_exists('add_theme_support') ) {
 }
 
 
-function gesso_nav($location) {
+function gesso_nav( $location ) {
   wp_nav_menu(
   array(
 	'theme_location'  => $location,
@@ -38,7 +38,7 @@ function gesso_nav($location) {
 	'link_after'	  => '',
 	'items_wrap'	  => '<nav class="%1$s nav--' . $location . '" role="navigation"><ul class="nav">%3$s</ul></nav>',
 	'depth'		   => 0,
-	'walker'		  => new gesso_walker_nav_menu()
+	'walker'		  => new gesso_walker_nav_menu(),
 	)
   );
 }
@@ -135,7 +135,7 @@ function add_first_and_last($output) {
 	}
 	return $output;
 }
-add_filter('wp_nav_menu', 'add_first_and_last');
+add_filter( 'wp_nav_menu', 'add_first_and_last' );
 
 
 function gesso_header_scripts() {
@@ -170,9 +170,9 @@ add_action('wp_head', 'gesso_styles');
 
 
 function register_gesso_menu() {
-	register_nav_menus(array(
+	register_nav_menus( array(
 		'primary' => __('Primary', 'gesso'),
-		'secondary' => __('Secondary', 'gesso')
+		'secondary' => __('Secondary', 'gesso'),
 	));
 }
 add_action( 'init', 'register_gesso_menu' );
@@ -205,7 +205,7 @@ if ( function_exists('register_sidebar') ) {
 		'before_widget' => '<div id="%1$s" class="widget %2$s">',
 		'after_widget' => '</div>',
 		'before_title' => '<h3 class="widget__title">',
-		'after_title' => '</h3>'
+		'after_title' => '</h3>',
   ) );
 
 	register_sidebar( array(
@@ -215,7 +215,7 @@ if ( function_exists('register_sidebar') ) {
 		'before_widget' => '<div id="%1$s" class="widget %2$s">',
 		'after_widget' => '</div>',
 		'before_title' => '<h3 class="widget__title">',
-		'after_title' => '</h3>'
+		'after_title' => '</h3>',
 	) );
 }
 
