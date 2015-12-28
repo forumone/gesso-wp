@@ -139,34 +139,41 @@ add_filter( 'wp_nav_menu', 'add_first_and_last' );
 
 
 function gesso_header_scripts() {
-	if ($GLOBALS['pagenow'] != 'wp-login.php' && !is_admin()) {
+	global $wp_styles;
 
-		wp_deregister_script('jquery');
-		wp_register_script('jquery', 'http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js', array() ); // Google CDN jQuery
-		wp_enqueue_script('jquery');
+	wp_deregister_script('jquery');
+	wp_register_script('jquery', 'http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js', array() ); // Google CDN jQuery
+	wp_enqueue_script('jquery');
 
-		wp_register_script('modernizr', 'http://cdnjs.cloudflare.com/ajax/libs/modernizr/2.7.1/modernizr.min.js', array('jquery') ); // Modernizr
-		wp_enqueue_script('modernizr');
+	wp_register_script('modernizr', 'http://cdnjs.cloudflare.com/ajax/libs/modernizr/2.7.1/modernizr.min.js', array('jquery') ); // Modernizr
+	wp_enqueue_script('modernizr');
 
-		if ( is_singular() && comments_open() ) {
-			wp_enqueue_script( "comment-reply" );
-		}
-
-		wp_register_script('gessomobilemenu', get_template_directory_uri() . '/js/mobile-menu.js', array('jquery','modernizr') ); // Mobile menu
-		wp_enqueue_script('gessomobilemenu');
-
-		wp_register_script('gessoscripts', get_template_directory_uri() . '/js/scripts.js', array('jquery','modernizr') ); // Custom scripts
-		wp_enqueue_script('gessoscripts');
+	if ( is_singular() && comments_open() ) {
+		wp_enqueue_script( "comment-reply" );
 	}
-}
-add_action('init', 'gesso_header_scripts');
 
-// uses echo since wp_register_style() currently has no way to <!--[if gte IE 9]><!--> type conditional comments
-function gesso_styles() {
-	echo '<!--[if gte IE 9]><!--><link rel="stylesheet" href="' . get_template_directory_uri() . '/css/styles.css" media="all"><!--<![endif]-->';
-	echo '<!--[if lt IE 9]><link rel="stylesheet" href="' . get_template_directory_uri() . '/css/no-mq.css" media="all"><![endif]-->';
+	wp_register_script('gessomobilemenu', get_template_directory_uri() . '/js/mobile-menu.js', array('jquery','modernizr') ); // Mobile menu
+	wp_enqueue_script('gessomobilemenu');
+
+	wp_register_script('gessoscripts', get_template_directory_uri() . '/js/scripts.js', array('jquery','modernizr') ); // Custom scripts
+	wp_enqueue_script('gessoscripts');
+
+	wp_enqueue_style( 'style', get_stylesheet_directory_uri() . '/css/styles.css', array(), null, 'all' );
+
+	wp_enqueue_style( 'no-media-queries', get_stylesheet_directory_uri() . '/css/no-mq.css', array( 'style' ), null, 'all' );
+	$wp_styles->add_data( 'no-media-queries', 'conditional', 'lt IE 9' );
 }
-add_action('wp_head', 'gesso_styles');
+add_action( 'wp_enqueue_scripts', 'gesso_header_scripts' );
+
+function gesso_ie_comment_style_css( $html, $handle, $href ) {
+	if( $handle == 'style' ) {
+		// Weird IE conditional jibberish to trick it to ignore the main stylesheet in IE8 and below.
+		$html = '<!--[if gte IE 9]><!-->' . $html . '<!--<![endif]-->';
+	}
+
+	return $html;
+}
+add_filter( 'style_loader_tag', 'gesso_ie_comment_style_css', 10, 3 );
 
 
 function register_gesso_menu() {
