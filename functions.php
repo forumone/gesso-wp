@@ -206,7 +206,6 @@ add_action( 'widgets_init', 'gesso_widgets_init' );
       'after_title' => '</h3>'
     ));
   }
-}
 
 function gesso_pagination() {
   global $wp_query;
