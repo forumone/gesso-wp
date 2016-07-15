@@ -1,22 +1,18 @@
-<?php get_header(); ?>
+<?php
 
-	<main id="main" class="main" role="main" tabindex="-1">	
-    <?php if (has_visible_widgets('widget-area-1')) { $sidebarclasses = 'sidebar'; } else { $sidebarclasses = 'no-sidebar'; }?>
-		<div class="layout-main layout-constrain <?php echo $sidebarclasses; ?>">
-			
-			<div class="layout-main__content">
-				<section>
-					<h1 class="page-title"><?php _e( 'Categories for ', 'gesso' ); single_cat_title(); ?></h1>
-					<?php get_template_part('templates/loop'); ?>
-					<?php get_template_part('templates/pagination'); ?>
-				</section>
-			</div>
+$args = array(
+    'posts_per_page' => 2,
+    'paged' => $paged
+);
+query_posts($args);
+$data = Timber::get_context();
+//$data['posts'] = Timber::get_posts();
+$data['pagination'] = Timber::get_pagination();
+$data['archive_title'] = get_cat_name(get_query_var('cat'));
+$data['archive_description'] = term_description();
+$data['page'] = 'category';
+$template = 'category.twig';
 
-			<div class="layout-main__sidebar">
-				<?php get_sidebar(); ?>
-			</div>
-		
-		</div>
-	</main>
+Timber::render($template, $data);
 
-<?php get_footer(); ?>
+?>

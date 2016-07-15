@@ -265,3 +265,97 @@ function gesso_add_editor_styles() {
 	add_editor_style( 'css/custom-editor-style.css' );
 }
 add_action( 'admin_init', 'gesso_add_editor_styles' );
+
+
+
+//------------------------------------------------------
+//WooCommerce Support - Configured for Gesso
+//------------------------------------------------------
+remove_action( 'woocommerce_before_main_content', 'woocommerce_output_content_wrapper', 10);
+remove_action( 'woocommerce_after_main_content', 'woocommerce_output_content_wrapper_end', 10);
+
+add_action('woocommerce_before_main_content', 'my_theme_wrapper_start', 10);
+add_action('woocommerce_after_main_content', 'my_theme_wrapper_end', 10);
+
+function my_theme_wrapper_start() {
+  echo '<main id="main" class="site-main" role="main">';
+}
+
+function my_theme_wrapper_end() {
+  echo '</main>';
+}
+
+//Add WooCommerce support
+add_action( 'after_setup_theme', 'woocommerce_support' );
+function woocommerce_support() {
+    add_theme_support( 'woocommerce' );
+}
+
+
+
+//------------------------------------------------------
+// Timber Support - Starter Theme Functions
+//------------------------------------------------------
+if ( ! class_exists( 'Timber' ) ) {
+  add_action( 'admin_notices', function() {
+      echo '<div class="error"><p>Timber not activated. Make sure you activate the plugin in <a href="' . esc_url( admin_url( 'plugins.php#timber' ) ) . '">' . esc_url( admin_url( 'plugins.php' ) ) . '</a></p></div>';
+    } );
+  return;
+}
+
+Timber::$dirname = array('templates', 'views');
+
+class StarterSite extends TimberSite {
+
+  function __construct() {
+    add_theme_support( 'post-formats' );
+    add_theme_support( 'post-thumbnails' );
+    add_theme_support( 'menus' );
+    add_filter( 'timber_context', array( $this, 'add_to_context' ) );
+    add_filter( 'get_twig', array( $this, 'add_to_twig' ) );
+    add_action( 'init', array( $this, 'register_post_types' ) );
+    add_action( 'init', array( $this, 'register_taxonomies' ) );
+    parent::__construct();
+  }
+
+  function register_post_types() {
+    //this is where you can register custom post types
+  }
+
+  function register_taxonomies() {
+    //this is where you can register custom taxonomies
+  }
+
+  function add_to_context( $context ) {
+    $context['foo'] = 'bar';
+    $context['stuff'] = 'I am a value set in your functions.php file';
+    $context['notes'] = 'These values are available everytime you call Timber::get_context();';
+    $context['menu'] = new TimberMenu();
+    $context['site'] = $this;
+    return $context;
+  }
+
+  function add_to_twig( $twig ) {
+    /* this is where you can add your own fuctions to twig */
+    $twig->addExtension( new Twig_Extension_StringLoader() );
+    $twig->addFilter( 'myfoo', new Twig_Filter_Function( 'myfoo' ) );
+    return $twig;
+  }
+
+}
+
+new StarterSite();
+ 
+function myfoo( $text ) {
+  $text .= ' bar!';
+  return $text;
+}
+
+function sidebar_test() {
+  if (has_visible_widgets('widget-area-1')) { 
+    $sidebar = 'sidebar'; 
+  } else { 
+    $sidebar = 'no-sidebar'; 
+  }
+  return $sidebar;
+}
