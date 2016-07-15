@@ -215,7 +215,7 @@ add_action( 'widgets_init', 'gesso_widgets_init' );
       'before_title' => '<h3 class="widget__title">',
       'after_title' => '</h3>'
     ));
-    
+
     register_sidebar(array(
       'name' => __('Footer Widgets', 'gesso'),
       'description' => __('Footer Widgets', 'gesso'),
@@ -345,17 +345,17 @@ class StarterSite extends TimberSite {
 }
 
 new StarterSite();
- 
+
 function myfoo( $text ) {
   $text .= ' bar!';
   return $text;
 }
 
 function sidebar_test() {
-  if (has_visible_widgets('widget-area-1')) { 
-    $sidebar = 'sidebar'; 
-  } else { 
-    $sidebar = 'no-sidebar'; 
+  if (has_visible_widgets('widget-area-1')) {
+    $sidebar = 'has-sidebar';
+  } else {
+    $sidebar = 'no-sidebar';
   }
   return $sidebar;
 }
