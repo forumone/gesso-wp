@@ -51,12 +51,12 @@
   .nav__subnav-arrow {
     background: none;
     @include image-replace(100%, 44px);
-    @include svg-background(mobile-arrow-down);
+    @include svg-background-inline(mobile-arrow-down);
     background-position: 95% 50%;
     background-repeat: no-repeat;
     background-size: 19px 12px;
     border: 0;
-    @include box-shadow(none);
+    box-shadow: none;
     display: inline-block;
     height: em(44px);
     position: absolute;
@@ -70,7 +70,7 @@
     }
 
     &.is-active {
-      @include svg-background(mobile-arrow-up);
+      @include svg-background-inline(mobile-arrow-up);
     }
 
     [dir="rtl"] & {

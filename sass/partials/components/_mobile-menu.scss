@@ -10,15 +10,15 @@
 .mobile-menu__bar {
   background-color: $mobile-menu-bg-color;
   border-bottom: 1px solid $mobile-menu-border-color;
-  @include box-shadow(0 0px 2px 1px rgba(0, 0, 0, 0.4));
+  box-shadow: 0 0px 2px 1px rgba(0, 0, 0, 0.4);
   color: $mobile-menu-text-color;
   height: em(55px);
   text-align: center;
 }
 
 .mobile-menu__button {
-  @include border-radius(0);
-  @include box-shadow(none);
+  border-radius: 0;
+  box-shadow: none;
   background-color: transparent;
   border: 0;
   color: $mobile-menu-text-color;
@@ -57,11 +57,11 @@
 }
 
 %mobile-menu__icon--close {
-  @include svg-background(mobile-close);
+  @include svg-background-inline(mobile-close);
 }
 
 .mobile-menu__icon--menu {
-  @include svg-background(mobile-menu);
+  @include svg-background-inline(mobile-menu);
   background-size: 33px 22px;
   width: 33px;
 
@@ -72,7 +72,7 @@
 }
 
 .mobile-menu__icon--search {
-  @include svg-background(mobile-search);
+  @include svg-background-inline(mobile-search);
 
   .is-active & {
     @extend %mobile-menu__icon--close;
@@ -99,6 +99,6 @@
   }
 
   .form-text {
-    @include box-sizing(border-box);
+    box-sizing: border-box;
   }
 }
