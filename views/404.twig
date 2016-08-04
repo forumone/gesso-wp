@@ -1,5 +1,16 @@
 {% extends "base.twig" %}
 
 {% block content %}
-		<h1>404 PAGE from TIMBER Baby!</h1>
+  <div class="layout-main layout-constrain {{ sidebarclasses }}">
+    <div class="layout-main__content">
+      <section>
+        <article id="post-404">
+          <h1 class="page-title">Uh-Oh...Page not found!</h1>
+          <p>
+            <a href="{{site.url}}">Return to Homepage</a>
+          <p>
+        </article>
+      </section>
+    </div>
+  </div>
 {% endblock %}

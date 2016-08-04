@@ -1,5 +1,6 @@
 <?php
-$data = Timber::get_context();
+$context = Timber::get_context();
+$post = new TimberPost();
 $context['post'] = $post;
 Timber::render( '404.twig', $context );
 ?>
