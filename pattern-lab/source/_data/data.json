@@ -1,0 +1,64 @@
+{
+  "siteName": "Site Name",
+  "htmlClass": "",
+  "bodyClass": "",
+  "adminView": false,
+  "pageTitle": "Page Title",
+  "url": "#",
+  "title": "Title",
+  "summary": "<p>This is the summary, which can contain <abbr title='Hyper Text Markup Language'>HTML</abbr> markup. It should be 600 characters or less.</p>",
+  "file": {
+    "icon": "../../drupal/images/application-pdf.png",
+    "mime": "application/pdf",
+    "name": "file name",
+    "size": "115.83 KB"
+  },
+  "img": {
+    "icon": {
+      "src": "http://fpoimg.com/48x48?text=Icon",
+      "alt": "Icon"
+    },
+    "thumbnail": {
+      "src": "http://fpoimg.com/140x105?text=Thumbnail 4:3",
+      "alt": "Thumbnail 4:3"
+    },
+    "portrait": {
+      "src": "http://fpoimg.com/300x400?text=Portrait 3:4",
+      "alt": "Portrait 3:4"
+    },
+    "landscape": {
+      "src": "http://fpoimg.com/800x450?text=Landscape 16:9",
+      "alt": "Landscape 16:9"
+    }
+  },
+  "year": {
+    "long": "2013",
+    "short": "13"
+  },
+  "month": {
+    "long": "February",
+    "short": "Feb",
+    "digit": "02"
+  },
+  "weekday": {
+    "long": "Monday",
+    "short": "Mon"
+  },
+  "day": {
+    "long": "10",
+    "short": "10",
+    "ordinal": "th"
+  },
+  "hour": {
+    "long": "01",
+    "short": "1",
+    "military": "13",
+    "ampm": "pm"
+  },
+  "minute": {
+    "long": "20",
+    "short": "20"
+  },
+  "seconds": "31",
+  "body": "<p>This is the body content, which can contain <abbr title='Hyper Text Markup Language'>HTML</abbr> markup. There is no limit to how long this content can be.</p>"
+}

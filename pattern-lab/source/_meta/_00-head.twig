@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="ie6 lt-ie9 lt-ie8 lt-ie7 no-js {{ htmlClass }}" lang="en" dir="ltr"> <![endif]-->
+<!--[if IE 7]>         <html class="ie7 lt-ie9 lt-ie8 no-js {{ htmlClass }}" lang="en" dir="ltr"> <![endif]-->
+<!--[if IE 8]>         <html class="ie8 lt-ie9 no-js {{ htmlClass }}" lang="en" dir="ltr"> <![endif]-->
+<!--[if IE 9]>         <html class="ie9 no-js {{ htmlClass }}" lang="en" dir="ltr"> <![endif]-->
+<!--[if gt IE 9]><!--> <html class="no-js {{ htmlClass }}" lang="en" dir="ltr"> <!--<![endif]-->
+	<head>
+		<meta charset="utf-8">
+		<title>{{ pageTitle }} | {{ siteName }}</title>
+		<meta name="HandheldFriendly" content="true">
+		<meta name="MobileOptimized" content="width">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta http-equiv="cleartype" content="on">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+		<!--[if gte IE 9]><!-->
+		<link rel="stylesheet" href="../../../../css/styles.css?{{ cacheBuster }}" media="all">
+		<!--<![endif]-->
+
+		<!--[if lt IE 9]>
+		<link rel="stylesheet" href="../../../../css/no-mq.css?{{ cacheBuster }}" media="all">
+		<![endif]-->
+
+		<script src="../../drupal/misc/jquery.js?v=1.4.4"></script>
+		<script src="../../drupal/misc/jquery.once.js?v=1.2"></script>
+		<script src="../../drupal/misc/drupal.js?v=7.33"></script>
+
+		<script src="../../../../js/mobile-menu.js?{{ cacheBuster }}"></script>
+		<script src="../../../../js/scripts.js?{{ cacheBuster }}"></script>
+
+		<link rel="stylesheet" href="../../../../css/pattern-lab.css?{{ cacheBuster }}" media="all">
+
+		<!-- Begin Pattern Lab (Required for Pattern Lab to run properly) -->
+		{{ patternLabHead | raw }}
+		<!-- End Pattern Lab -->
+
+	</head>
+	<body class="{{ bodyClass }}">
+	  <div class="skiplinks">
+	    <a href="#main" class="skiplinks__link element-focusable">Skip to main content</a>
+	  </div>
