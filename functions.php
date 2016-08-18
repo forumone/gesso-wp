@@ -262,6 +262,6 @@ add_filter( 'image_send_to_editor', 'remove_thumbnail_dimensions', 10 ); // Remo
 
 // Allowing styles for post editor to match how it will actually be visually represented
 function gesso_add_editor_styles() {
-	add_editor_style( 'css/custom-editor-style.css' );
+	add_editor_style( 'css/custom-editor-styles.css' );
 }
 add_action( 'admin_init', 'gesso_add_editor_styles' );
