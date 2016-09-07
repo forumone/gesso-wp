@@ -17,14 +17,14 @@
 		<?php wp_head(); ?>
 	</head>
 	<body <?php body_class(); ?>>
-		
+
 		<div class="skiplinks">
-      <a href="#main" class="skiplinks__link element-focusable">Skip to main content</a>
+      <a href="#main" class="skiplinks__link focusable">Skip to main content</a>
     </div>
 
 		<header class="header" role="banner">
 			<div class="header-inner layout-constrain">
-				<?php gesso_nav('secondary'); ?>				 
+				<?php gesso_nav('secondary'); ?>
 				<a href="<?php echo home_url(); ?>" class="sitename"><?php bloginfo('name'); ?></a>
 				<?php get_template_part('templates/searchform'); ?>
 				<?php gesso_nav('primary'); ?>
