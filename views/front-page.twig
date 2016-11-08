@@ -10,7 +10,7 @@
 				</div>
 
 				<article class="post-{{ post.id }} {{ post.class }}">
-					<h3><a href="{{ post.guid }}">{{ post.title }}</a></h3>
+					<h3><a href="{{ post.link }}">{{ post.title }}</a></h3>
 					{{ function('gesso_link_pages') }}
 					<p>{{ function('edit_post_link', 'Edit', '<span class="edit-link">', '</span>', post.ID) }}</p>
 					<p>{{ function('comments_template', '', true) }}</p>
