@@ -6,7 +6,8 @@
 
   {% if posts %}
 
-      <h1 class="page-title"> Author Archives for {{ author }}</h1>
+      <h1 class="page-title"> {{ __('Author Archives for', 'gesso') }} {{ author }}</h1>
+
       {% if author.description %}
         <div class="">
           <div><img src="{{ author.avatar }}" alt=""> </div>
