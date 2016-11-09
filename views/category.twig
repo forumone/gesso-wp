@@ -9,10 +9,7 @@
         <h3>
             <a href="{{ post.link }}">{{ post.title }}</a>
         </h3>
-        <p>{{ post.slug }}</p>
+        <p>{{ post.exceprt }}</p>
     {% endfor %}
-
-    {{ function('gesso_pagination') }}
-    {#{{ pagination }}#}
 
 {% endblock %}

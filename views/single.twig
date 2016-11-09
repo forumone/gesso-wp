@@ -3,16 +3,13 @@
 {% block content %}
 		<h1>Using Single.Twig</h1>
 		<div class="content-wrapper">
-			<article class="post-type-{{post.post_type}}" id="post-{{post.ID}}">
-				<section class="article-content">
+			<article class="{{ post.class }}" id="post-{{post.ID}}">
 					<h2 class="article-title">{{post.title}}</h2>
+          <div class="article-author">Authored by: <a href="/author/{{user.display_name}}">{{user.display_name}}</a></div>
 					<div class="article-body">
 						{{post.content}}
 					</div>
-				</section>
 			</article>
 			{{comment_form}}
 		</div><!-- /content-wrapper -->
-
 {% endblock %}
-

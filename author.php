@@ -11,6 +11,7 @@
 global $wp_query;
 $context = Timber::get_context();
 $context['posts'] = Timber::get_posts();
+$context['date'] = get_the_date( 'l, F j Y' );
 if ( isset( $wp_query->query_vars['author'] ) ) {
 	$author = new TimberUser( $wp_query->query_vars['author'] );
 	$context['author'] = $author;
