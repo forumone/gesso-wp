@@ -9,10 +9,12 @@
 
 	<body {{ function('body_class')}}>
 
-		<div class="skiplinks">
-	    <a href="#main" class="skiplinks__link element-focusable">Skip to main content</a>
-	  </div>
-
+    {% block skiplinks %}
+    <div class="skiplinks">
+      <a href="#main" class="skiplinks__link element-focusable">Skip to main content</a>
+    </div>
+    {% endblock %}
+		
 		<header class="header" role="banner">
 			{% block header %}
 				<div class="header-inner layout-constrain">
