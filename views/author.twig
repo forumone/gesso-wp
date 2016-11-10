@@ -1,7 +1,9 @@
 {% extends "base.twig" %}
 
 {% block content %}
-
+<pre>
+   {{ dump(pagination) }}
+</pre>
   {% if posts %}
 
       <h1 class="page-title">{{ __('Author Archives for', 'gesso') }} {{ author }}</h1>
@@ -19,13 +21,12 @@
           <span class="date">{{ date }}</span>
           <div class="comments"></div>
         </article>
-
-        <div>{{ function('gesso_pagination') }}</div>
       {% endfor %}
+
   {% else %}
       <p>Sorry Nothing to Display</p>
   {% endif %}
 
-
+  {% include 'templates/pagination.twig' %}
 
 {% endblock %}

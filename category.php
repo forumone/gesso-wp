@@ -1,12 +1,11 @@
 <?php
 
 $args = array(
-    'posts_per_page' => 2,
+    'posts_per_page' => 5,
     'paged' => $paged
 );
 query_posts($args);
 $data = Timber::get_context();
-//$data['posts'] = Timber::get_posts();
 $data['pagination'] = Timber::get_pagination();
 $data['archive_title'] = get_cat_name(get_query_var('cat'));
 $data['archive_description'] = term_description();
