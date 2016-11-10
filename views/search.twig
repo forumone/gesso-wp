@@ -1,0 +1,11 @@
+{% extends "base.twig" %}
+
+{% block content %}
+<pre>
+ {{ dump(posts) }}
+</pre>
+  <h1>Search.twig search results</h1>
+  {% for post in posts %}
+    <p>{{post.title}}</p>
+  {% endfor %}
+{% endblock %}

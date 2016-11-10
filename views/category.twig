@@ -1,17 +1,15 @@
 {% extends "base.twig" %}
+
 {% block content %}
-<h1>Category.twig template </h1>
-<h3>{{ archive_title }}</h3>
-<h3>{{ archive_description }}</h3>
+    <h1>Category.twig template</h1>
+    <h3>{{ archive_title }}</h3>
+    <h3>{{ archive_description }}</h3>
 
-
-{% for post in posts %}
-	<h3><a href="{{ post.guid }}">{{ post.title }}</a></h3>
-	<p>{{ post.slug }}</p>
-{% endfor %}
-	<pre> {{ data | print_r  }}</pre>
-{#{{ function('gesso_pagination') }}#}
-	{#{{ pagination }}#}
+    {% for post in posts %}
+        <h3>
+            <a href="{{ post.link }}">{{ post.title }}</a>
+        </h3>
+        <p>{{ post.exceprt }}</p>
+    {% endfor %}
 
 {% endblock %}
-

@@ -8,15 +8,11 @@
 			<div class="layout-main__content">
 				<section>
 					<h1 class="page-title">Archives</h1>
-
-					<?php get_template_part('templates/loop'); ?>
-
-					<?php get_template_part('templates/pagination'); ?>
+          {% include 'templates/loop.twig' %}
+					{% include 'templates/pagination.twig' %}
 				</section>
 			</div>
-			<div class="layout-main__sidebar">
-				<?php get_sidebar(); ?>
-			</div>
+
 		</div>
 	</main>
 {% endblock %}

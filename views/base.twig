@@ -9,9 +9,11 @@
 
 	<body {{ function('body_class')}}>
 
-		<div class="skiplinks">
-	    <a href="#main" class="skiplinks__link element-focusable">Skip to main content</a>
-	  </div>
+    {% block skiplinks %}
+    <div class="skiplinks">
+      <a href="#main" class="skiplinks__link element-focusable">Skip to main content</a>
+    </div>
+    {% endblock %}
 
 		<header class="header" role="banner">
 			{% block header %}
@@ -19,7 +21,7 @@
 					{{ function('gesso_nav', 'secondary') }}
 					<a href="{{ site.url }}" class="sitename"><h1>{{ site.title }}</h1></a>
 					{{ function('gesso_nav', 'primary') }}
-					{{ function('get_template_part', 'templates/searchform') }}
+          {% include 'templates/searchform.twig' %}
 				</div>
 			{% endblock %}
 		</header>
@@ -37,7 +39,6 @@
 						{{ function('get_sidebar') }}
 					{% endblock %}
 				</div>
-
 			</div>
 		</main>
 

@@ -1,31 +1,10 @@
 {% extends "base.twig" %}
 
 {% block content %}
+
 		<h1>Front-Page.Twig</h1>
-		{% for post in posts %}
-			<section class="front-page-block"> 
-			
-				<div class="thumbnail">
-					<img src="{{post.thumbnail.src | resize(100, 100, 'bottom')}}" class="my-thumb-class" alt="Image for {{post.title}}" />
-				</div>
-
-				<article class="post-{{ post.id }} {{ post.class }}">
-					<h3><a href="{{ post.link }}">{{ post.title }}</a></h3>
-					{{ function('gesso_link_pages') }}
-					<p>{{ function('edit_post_link', 'Edit', '<span class="edit-link">', '</span>', post.ID) }}</p>
-					<p>{{ function('comments_template', '', true) }}</p>
-				</article>
-
-			</section>
-
-		{% else %}
-
-			<h2>Sorry, nothing to display.</h2>
-
-		{% endfor %}
-		{{ function('gesso_pagination') }}
+		
+    {% include 'templates/loop.twig' %}
+    {% include 'templates/pagination.twig' %}
 
 {% endblock %}
-
-
-		

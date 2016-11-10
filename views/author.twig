@@ -1,0 +1,32 @@
+{% extends "base.twig" %}
+
+{% block content %}
+<pre>
+   {{ dump(pagination) }}
+</pre>
+  {% if posts %}
+
+      <h1 class="page-title">{{ __('Author Archives for', 'gesso') }} {{ author }}</h1>
+
+      {% if author.description %}
+        <div class="">
+          <div><img src="{{ author.avatar }}" alt=""> </div>
+          <div>{{ author.description }}</div>
+        </div>
+      {% endif %}
+
+      {% for post in posts %}
+        <article class="">
+          <h2><a href="{{ post.link }}">{{ post.post_title }}</a></h2>
+          <span class="date">{{ date }}</span>
+          <div class="comments"></div>
+        </article>
+      {% endfor %}
+
+  {% else %}
+      <p>Sorry Nothing to Display</p>
+  {% endif %}
+
+  {% include 'templates/pagination.twig' %}
+
+{% endblock %}
