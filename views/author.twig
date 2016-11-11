@@ -1,7 +1,7 @@
 {% extends "base.twig" %}
 
 {% block content %}
-<pre>
+    <pre>
    {{ dump(pagination) }}
 </pre>
   {% if posts %}
@@ -22,11 +22,12 @@
           <div class="comments"></div>
         </article>
       {% endfor %}
+      {% include 'templates/pager.twig' %}
 
   {% else %}
       <p>Sorry Nothing to Display</p>
   {% endif %}
 
-  {% include 'templates/pagination.twig' %}
+
 
 {% endblock %}

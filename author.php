@@ -8,7 +8,12 @@
  * @subpackage  Timber
  * @since    Timber 0.1
  */
-global $wp_query;
+
+$args = array(
+    'posts_per_page' => -1,
+    'paged' => $paged
+);
+query_posts($args);
 $context = Timber::get_context();
 $context['posts'] = Timber::get_posts();
 $context['pagination'] = Timber::get_pagination();

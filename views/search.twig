@@ -1,11 +1,16 @@
 {% extends "base.twig" %}
 
 {% block content %}
-<pre>
- {{ dump(posts) }}
-</pre>
+  <pre>
+    {{ dump(pagination) }}
+  </pre>
+
   <h1>Search.twig search results</h1>
+
   {% for post in posts %}
     <p>{{post.title}}</p>
   {% endfor %}
+
+  {% include 'templates/pager.twig' %}
+
 {% endblock %}
