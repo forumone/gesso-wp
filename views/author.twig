@@ -1,10 +1,13 @@
 {% extends "base.twig" %}
 
 {% block content %}
+<!-- <pre>
+   {{ dump(author) }}
+</pre> -->
   <!-- Author.Twig -->
   {% if posts %}
 
-      <h1 class="page-title">{{ __('Author Archives for', 'gesso') }} {{ author }}</h1>
+      <h1 class="page-title">{{ __('Author Archives for', 'gesso') }} {{post.author.display_name}}</h1>
 
       {% if author.description %}
         <div class="">
@@ -20,6 +23,7 @@
           <div class="comments"></div>
         </article>
       {% endfor %}
+
       {% include 'templates/pager.twig' %}
 
   {% else %}

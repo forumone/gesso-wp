@@ -1,11 +1,12 @@
 {% extends "base.twig" %}
 
+
 {% block content %}
 
   <!-- tag.twig -->
 
   {% for post in posts %}
-    <p>{{post.title}}</p>
+    <a href="{{post.link}}">{{post.title}}</p>
   {% endfor %}
 
   {% include 'templates/pager.twig' %}
