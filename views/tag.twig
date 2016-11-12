@@ -1,11 +1,8 @@
 {% extends "base.twig" %}
 
 {% block content %}
-  <pre>
-    {{ dump() }}
-  </pre>
 
-  <h1>Tag.twig search results</h1>
+  <!-- tag.twig -->
 
   {% for post in posts %}
     <p>{{post.title}}</p>
