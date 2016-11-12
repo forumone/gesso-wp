@@ -359,10 +359,3 @@ function sidebar_test() {
   }
   return $sidebar;
 }
-
-function my_home_query( $query ) {
-    if ( $query->is_main_query() && !is_admin() ) {
-        $query->set( 'post_type', array( 'post' ));
-    }
-}
-add_action( 'pre_get_posts', 'my_home_query' );
