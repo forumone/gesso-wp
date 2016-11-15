@@ -8,15 +8,25 @@
  * @subpackage  Timber
  * @since    Timber 0.1
  */
+// var_dump($wp_query->query_vars);
+ if ( get_query_var('paged') ) {
+     $paged = get_query_var('paged');
+ } elseif ( get_query_var('page') ) {
+     $paged = get_query_var('page');
+ } else {
+     $paged = 1;
+ }
 
 $args = array(
-    'posts_per_page' => -1,
-    'paged' => $paged
+  'post_type' => 'post',
+	'post_status' => 'publish',
+  'posts_per_page' => -1,
+  'paged' => $paged
 );
-query_posts($args);
 $context = Timber::get_context();
-$context['posts'] = Timber::get_posts();
-$context['pagination'] = Timber::get_pagination();
+$context['posts'] = Timber::get_posts( $args );
+$context['pagination'] = Timber::get_pagination( $args );
+// $context['author_posts'] = new Timber\PostQuery( $args );
 $context['date'] = get_the_date( 'l, F j Y' );
 if ( isset( $wp_query->query_vars['author'] ) ) {
 	$author = new TimberUser( $wp_query->query_vars['author'] );
