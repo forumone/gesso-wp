@@ -1,5 +1,5 @@
 <?php
     $context = Timber::get_context();
     $context['pagination'] = Timber::get_pagination();
-    Timber::render( 'search-results.twig', $context );
+    Timber::render( 'search.twig', $context );
 ?>
