@@ -2,22 +2,25 @@
 
 // Setting main content width - update to match the width of your site's main content area.
 if ( ! isset( $content_width ) ) {
-	$content_width = 760;
+	$content_width = 840;
 }
 
 if ( function_exists('add_theme_support') ) {
 	// Adding theme support for HTML5
 	add_theme_support( 'html5', array( 'comment-list', 'comment-form', 'search-form', 'gallery', 'caption', ) );
-	// Adds site name to title tag
-	add_theme_support( 'title-tag' );
-	// Add support for automatic links for feeds.
-	add_theme_support( 'automatic-feed-links' );
 
-	add_theme_support( 'post-thumbnails' );
-	add_image_size( 'large', 700, '', true ); // Large Thumbnail
-	add_image_size( 'medium', 250, '', true ); // Medium Thumbnail
+  // Adds site name to title tag
+	add_theme_support( 'title-tag' );
+
+  // Add support for automatic links for feeds.
+	add_theme_support( 'automatic-feed-links' );
+  add_theme_support( 'post-thumbnails' );
+
+  # Define automatic thumbnail sizes
+  // add_image_size( 'large', 700, '', true ); // Large Thumbnail
+	// add_image_size( 'medium', 250, '', true ); // Medium Thumbnail
 	add_image_size( 'small', 120, '', true ); // Small Thumbnail
-	add_image_size( 'custom-size', 700, 200, true ); // Custom Thumbnail Size call using the_post_thumbnail('custom-size');
+	// add_image_size( 'custom-size', 700, 200, true ); // Custom Thumbnail Size call using the_post_thumbnail('custom-size');
 }
 
 
@@ -267,32 +270,6 @@ function gesso_add_editor_styles() {
 add_action( 'admin_init', 'gesso_add_editor_styles' );
 
 
-
-//------------------------------------------------------
-//WooCommerce Support - Configured for Gesso
-//------------------------------------------------------
-remove_action( 'woocommerce_before_main_content', 'woocommerce_output_content_wrapper', 10);
-remove_action( 'woocommerce_after_main_content', 'woocommerce_output_content_wrapper_end', 10);
-
-add_action('woocommerce_before_main_content', 'my_theme_wrapper_start', 10);
-add_action('woocommerce_after_main_content', 'my_theme_wrapper_end', 10);
-
-function my_theme_wrapper_start() {
-  echo '<main id="main" class="site-main" role="main">';
-}
-
-function my_theme_wrapper_end() {
-  echo '</main>';
-}
-
-//Add WooCommerce support
-add_action( 'after_setup_theme', 'woocommerce_support' );
-function woocommerce_support() {
-    add_theme_support( 'woocommerce' );
-}
-
-
-
 //------------------------------------------------------
 // Timber Support - Starter Theme Functions
 //------------------------------------------------------
@@ -345,11 +322,6 @@ class StarterSite extends TimberSite {
 }
 
 new StarterSite();
-
-function myfoo( $text ) {
-  $text .= ' bar!';
-  return $text;
-}
 
 function sidebar_test() {
   if (has_visible_widgets('widget-area-1')) {
