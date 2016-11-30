@@ -2,36 +2,38 @@
 
 {% block content %}
 
-<!-- Author.Twig -->
-<section>
-  {% if posts %}
+    <!-- Provided by views/author.twig -->
+    <section>
+        {% if posts %}
 
-  <h1 class="page-title">{{ title }}</h1>
+            <h1 class="page-title">{{ title }}</h1>
 
-  <div class="author-meta">
-    {% if author.avatar %}
-    <div class="author-meta__image"><img src="{{ author.avatar.abs_url }}" alt=""></div>
-    {% endif %}
+            <div class="author-meta">
+                {% if author.avatar %}
+                    <div class="author-meta__image"><img src="{{ author.avatar.abs_url }}" alt="author avater"></div>
+                {% endif %}
 
-    {% if author.description %}
-    <div class="author-meta__description">{{ author.description }}</div>
-    {% endif %}
-  </div>
+                {% if author.description %}
+                    <div class="author-meta__description">{{ author.description }}</div>
+                {% endif %}
+            </div>
 
-  {% for post in posts %}
-    <article class="author-article">
-      <h2 class="author-article__title"><a href="{{ post.link }}">{{ post.post_title }}</a></h2>
-      <span class="author-article__date">{{ post.date }}</span>
-      <div class="author-article__comments"></div>
-    </article>
-  {% endfor %}
+            {% for post in posts %}
+                <article class="author-article">
+                    <h2 class="author-article__title">
+                        <a href="{{ post.link }}">{{ post.post_title }}</a>
+                    </h2>
+                    <span class="author-article__date">{{ post.date }}</span>
+                    <div class="author-article__comments"></div>
+                </article>
+            {% endfor %}
 
-  {% include 'templates/pager.twig' %}
+            {% include 'templates/pager.twig' %}
 
-  {% else %}
-    <p>Sorry Nothing to Display</p>
-  {% endif %}
+        {% else %}
+            <p>{{__('Sorry Nothing to Display ','gesso') }}</p>
+        {% endif %}
 
-</section>
+    </section>
 
 {% endblock %}

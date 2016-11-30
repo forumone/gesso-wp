@@ -1,17 +1,17 @@
 {% extends "base.twig" %}
 
 {% block content %}
-    <section class="section section--category">
-      <!-- category.twig -->
-      <h2>{{__('Category Archive: ', 'gesso') }}{{ archive_title }}</h2>
-      <h4>{{ archive_description }}</h4>
+    <!-- Provided by views/category.twig -->
+    <section>
+        <h2>{{__('Category Archive: ', 'gesso') }}{{ archive_title }}</h2>
+        <h4>{{ archive_description }}</h4>
 
-      {% for post in posts %}
-          <h3>
-              <a href="{{ post.link }}">{{ post.title }}</a>
-          </h3>
-          <p>{{ post.exceprt }}</p>
-      {% endfor %}
+        {% for post in posts %}
+            <h3>
+                <a href="{{ post.link }}">{{ post.title }}</a>
+            </h3>
+            <p>{{ post.exceprt }}</p>
+        {% endfor %}
     </section>
     {% include 'templates/pager.twig' %}
 {% endblock %}

@@ -1,9 +1,8 @@
 {% extends "base.twig" %}
 
 {% block content %}
-   <!-- page.twig -->
-		<h1>Page.Twig</h1>
-    <p>View author: <a href="{{user.link}}">{{user.name}}</a></p>
+   <!-- Provided by views/page.twig -->
+    <p>{{ __('View author: ', 'gesso')}} <a href="{{user.link}}">{{user.name}}</a></p>
 		<div class="content-wrapper">
 			<article class="post-type-{{post.post_type}}" id="post-{{post.ID}}">
 				<section class="article-content">

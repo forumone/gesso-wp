@@ -1,17 +1,20 @@
 {% extends "base.twig" %}
 
-
 {% block content %}
 
-  <!-- tag.twig -->
-  <h2 class="page__title"> {{ __('Tag Archive: ' , 'gesso') }} {{ wp_title }}</h2>
+    <!-- Provided by views/tag.twig -->
+    <h2 class="page__title">
+        {{ __('Tag Archive: ' , 'gesso') }}
+        {{ wp_title }}</h2>
 
-  <section class="page__content">
-    {% for post in posts %}
-      <div class="result"><a href="{{post.link}}">{{post.title}}</a></div>
-    {% endfor %}
-  </section>
+    <section class="page__content">
+        {% for post in posts %}
+            <div class="result">
+                <a href="{{post.link}}">{{post.title}}</a>
+            </div>
+        {% endfor %}
+    </section>
 
-  {% include 'templates/pager.twig' %}
+    {% include 'templates/pager.twig' %}
 
 {% endblock %}

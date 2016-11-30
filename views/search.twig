@@ -2,8 +2,8 @@
 
 {% block content %}
 
-  <!-- Provided by search.twig -->
-  <h1>Search results for term: {{ request.get.s }}</h1>
+  <!-- Provided by views/search.twig -->
+  <h1>{{ __('Search results for term: ', 'gesso') }} {{ request.get.s }}</h1>
   <section class="section section__search-results">
     {% for post in posts %}
       <div class="result">
@@ -11,7 +11,6 @@
       </div>
     {% endfor %}
   </section>
-
 
   {% include 'templates/pager.twig' %}
 

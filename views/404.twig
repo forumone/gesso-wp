@@ -1,16 +1,11 @@
 {% extends "base.twig" %}
 
 {% block content %}
-  <div class="layout-main layout-constrain {{ sidebarclasses }}">
-    <div class="layout-main__content">
+    <!-- Provided by views/404.twig -->
       <section>
         <article id="post-404">
-          <h1 class="page-title">Uh-Oh...Page not found!</h1>
-          <p>
-            <a href="{{site.url}}">Return to Homepage</a>
-          <p>
+          <h1 class="page-title">{{ __('Uh-Oh...Page not found!', 'gesso') }}</h1>
+          <a href="{{site.url}}">{{ __('Return to Homepage','gesso') }}</a>
         </article>
       </section>
-    </div>
-  </div>
 {% endblock %}
