@@ -6,6 +6,13 @@ leverages [SMACSS](https://smacss.com/) for style organization. This
 encourages a component-based approach to theming through the creation of
 discrete, reusable UI elements.
 
+# Timber
+[Timber](https://upstatement.com/timber/) helps you create fully-customized WordPress themes faster with more sustainable code. With Timber, you write your HTML using the Twig Template Engine separate from your PHP files. This cleans-up your theme code so your PHP file can focus on supplying the data and logic, while your twig file can focus 100% on the display and HTML.
+
+### Timber Installation
+In order to use this theme you must download and enable the [Timber Library](http://wordpress.org/plugins/timber-library/) plugin from Wordpress.org.
+
+Additional information about installing and configuring the Timber Library can be found in the [Timber Documentation](http://timber.github.io/timber/#installation)
 
 ### Pattern Lab installation
 
@@ -70,7 +77,7 @@ based imports to Sass.
 
 
 ## Maintainers
- 
+
 The Gesso theme is maintained by Dan Mouyard, Corey Lafferty and Lindsey DiNapoli.
 
 Please use the Github issue queue: https://github.com/forumone/gesso-theme-wordpress/issues
