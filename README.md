@@ -1,4 +1,4 @@
-# Gesso + Timber
+# Gesso for Wordpress (w/ Timber)
 
 ### Gesso
 Gesso is a [Sass](http://sass-lang.com/)-based starter theme that outputs
