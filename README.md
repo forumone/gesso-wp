@@ -8,7 +8,7 @@ encourages a component-based approach to theming through the creation of
 discrete, reusable UI elements.
 
 ### Timber
-[Timber](https://upstatement.com/timber/) helps you create fully-customized WordPress themes faster with more sustainable code. With Timber, you write your HTML using the Twig Template Engine separate from your PHP files. This cleans-up your theme code so your PHP file can focus on supplying the data and logic, while your twig file can focus 100% on the display and HTML.
+[Timber](https://upstatement.com/timber/) helps you create fully-customized WordPress themes faster with more sustainable code. With Timber, you write your HTML using the [Twig Template Engine](http://twig.sensiolabs.org/doc/templates.html) separate from your PHP files. This cleans-up your theme code so your PHP file can focus on supplying the data and logic, while your twig file can focus 100% on the display and HTML.
 
 # Getting Started
 
