@@ -13,7 +13,7 @@ discrete, reusable UI elements.
 # Getting Started
 
 ### Timber Installation
-In order to use this theme you must download and enable the [Timber Library](http://wordpress.org/plugins/timber-library/) plugin from Wordpress.org.
+In order to use this theme you must download and activate the [Timber Library](http://wordpress.org/plugins/timber-library/) plugin from Wordpress.org.
 
 Additional information about installing and configuring the Timber Library can be found in the [Timber Documentation](http://timber.github.io/timber/#installation)
 
