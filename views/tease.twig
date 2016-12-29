@@ -1,12 +1,12 @@
 {% block content %}
     <!-- Provided by views/tease.twig -->
     <article class="tease tease-{{post.post_type}}" id="tease-{{post.ID}}">
-        <h2 class="h2">
-            <a href="{{post.link}}">{{post.title}}</a>
-        </h2>
-        <p>{{post.get_preview}}</p>
+        <div class="tease__title">
+            <a href="{{post.link}}"><h2>{{post.title}}</h2></a>
+        </div>
+        <div class="tease__preview">{{post.get_preview}}</div>
         {% if post.get_thumbnail %}
-            <img src="{{post.thumbnail.src}}"/>
+            <div class="tease__image"><img src="{{post.thumbnail.src}}"/></div>
         {% endif %}
     </article>
 {% endblock %}
