@@ -1,17 +1,19 @@
 {% extends "base.twig" %}
 
 {% block content %}
-   <!-- Provided by views/page.twig -->
-    <p>{{ __('View author: ', 'gesso')}} <a href="{{user.link}}">{{user.name}}</a></p>
-		<div class="content-wrapper">
-			<article class="post-type-{{post.post_type}}" id="post-{{post.ID}}">
-				<section class="article-content">
-					<h2 class="article-title">{{post.title}}</h2>
-					<div class="article-body">
-						{{post.content}}
-					</div>
-				</section>
-			</article>
-		</div><!-- /content-wrapper -->
+    <!-- Provided by views/page.twig -->
+    <article class="article--page post-type-{{post.post_type}}" id="post-{{post.ID}}">
+        <div class="page__title">
+            <h2>{{post.title}}</h2>
+        </div>
+        <div class="page__author">
+            <p>{{ __('Author - ', 'gesso')}}
+                <a href="{{user.link}}">{{user.name}}</a>
+            </p>
+        </div>
+        <div class="page__body">
+            {{post.content}}
+        </div>
+    </article>
 
 {% endblock %}
