@@ -3,30 +3,33 @@
 {% block content %}
 
     <!-- Provided by views/author.twig -->
-    <section>
+    <section class="section section--author">
         {% if posts %}
 
-            <h1 class="page-title">{{ title }}</h1>
+            <div class="author__title">
+                <h1>{{ title }}</h1>
+            </div>
 
-            <div class="author-meta">
+            <div class="author__meta">
                 {% if author.avatar %}
-                    <div class="author-meta__image"><img src="{{ author.avatar.abs_url }}" alt="author avater"></div>
+                    <div class="author__image"><img src="{{ author.avatar.abs_url }}" alt="author avater"></div>
                 {% endif %}
 
                 {% if author.description %}
-                    <div class="author-meta__description">{{ author.description }}</div>
+                    <div class="author__description">{{ author.description }}</div>
                 {% endif %}
             </div>
 
-            {% for post in posts %}
-                <article class="author-article">
-                    <h2 class="author-article__title">
-                        <a href="{{ post.link }}">{{ post.post_title }}</a>
-                    </h2>
-                    <span class="author-article__date">{{ post.date }}</span>
-                    <div class="author-article__comments"></div>
-                </article>
-            {% endfor %}
+            <div class="author__article-loop">
+                {% for post in posts %}
+                    <article class="author__article">
+                        <h2 class="article__title">
+                            <a href="{{ post.link }}">{{ post.post_title }}</a>
+                        </h2>
+                        <div class="article__date">{{ post.date }}</div>
+                    </article>
+                {% endfor %}
+            </div>
 
             {% include 'templates/pager.twig' %}
 
