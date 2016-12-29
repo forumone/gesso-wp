@@ -1,41 +1,53 @@
-{% for post in posts %}
+<section class="post-wrapper">
 
-  <section class="post-wrapper">
+    {% for post in posts %}
 
-    <article class="post-{{ post.id }} {{ post.class }}">
-      <header>
-        {% if post.thumbnail %}
-          <!-- Thumbnail -->
-          <div class="thumbnail">
-            <img src="{{post.thumbnail.src | resize(120, 120, 'bottom')}}" class="my-thumb-class" alt="Image for {{post.title}}" />
-          </div>
-        {% endif %}
-
-        <!-- Display -->
-        <h2 class="post-title"><a href="{{ post.link }}">{{ post.title }}</a></h2>
-        <div class="meta">
-          <div class="date">
-            <span>{{ function( 'the_time', 'F j, Y')}} </span>
-            <span>{{ function( 'the_time', 'g:i a')}} </span>
-          </div>
-          <div class="author">{{ __('Published by', 'gesso') }} <a href="{{ post.author.link }}">{{ post.author }} </a></div>
-          <div class="comments">
-            {% if post.comments %}
-              <span>Comments: {{ post.comments | length }}</span>
+        <article class="article post-{{ post.id }} {{ post.class }}">
+            {% if post.thumbnail %}
+                <!-- Thumbnail -->
+                <div class="article__thumbnail">
+                    <img src="{{post.thumbnail.src | resize(120, 120, 'bottom')}}" class="my-thumb-class" alt="Image for {{post.title}}"/>
+                </div>
             {% endif %}
-            <a href="{{post.link}}#respond">Leave a comment</a>
-          </div>
-        </div>
-      </header>
-      {{ function('gesso_link_pages') }}
-      <p>{{ function('edit_post_link', 'Edit', '<span class="edit-link">', '</span>', post.id) }}</p>
-      <p>{{ function('comments_template', '', true) }}</p>
-    </article>
 
-  </section>
+            <!-- Display -->
+            <div class="article__title">
+                <h2>
+                    <a href="{{ post.link }}">{{ post.title }}</a>
+                </h2>
+            </div>
+            <div class="article__meta--post">
+                <div class="article__date">
+                    <span>{{ function( 'the_time', 'F j, Y')}}
+                    </span>
+                    <span>{{ function( 'the_time', 'g:i a')}}
+                    </span>
+                </div>
+                <div class="article__author">{{ __('Published by', 'gesso') }}
+                    <a href="{{ post.author.link }}">{{ post.author }}
+                    </a>
+                </div>
+                <div class="article__comments">
+                    {% if post.comments %}
+                        <span>Comments:
+                            {{ post.comments | length }}</span>
+                    {% endif %}
+                    <a href="{{post.link}}#respond">Leave a comment</a>
+                </div>
+            </div>
 
-{% else %}
+            <!-- Admin Meta -->
+            <div class="article__meta--admin">
+                {{ function('gesso_link_pages') }}
+                <div class="article__edit">{{ function('edit_post_link', 'Edit', '<span class="edit-link">', '</span>', post.id) }}</div>
+                <div class="article__comments">{{ function('comments_template', '', true) }}</div>
+            </div>
+        </article>
 
-  <h2>Sorry, nothing to display.</h2>
+    {% else %}
 
-{% endfor %}
+        <h2>Sorry, nothing to display.</h2>
+
+    {% endfor %}
+
+</section>
