@@ -2,15 +2,13 @@
 
 {% block content %}
     <!-- Provided by views/archive.twig -->
-    <section class="archive">
-        <div class="archive__title">
-          <h1>{{__('Archives: ', 'gesso') }}{{ wp_title }}</h1>
+    <section class="section section--archive">
+        <div class="section__title">
+            <h1>{{__('Archives: ', 'gesso') }}{{ wp_title }}</h1>
         </div>
-        <div class="archive__post-loop">
-          {% include 'templates/loop.twig' %}
+        <div class="section__loop">
+            {% include 'templates/loop.twig' %}
         </div>
-        <div class="archive__pagination">
-          {% include 'templates/pager.twig' %}
-        </div>
+        {% include 'templates/pager.twig' %}
     </section>
 {% endblock %}

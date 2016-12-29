@@ -2,16 +2,19 @@
 
 {% block content %}
     <!-- Provided by views/category.twig -->
-    <section>
-        <h2>{{__('Category Archive: ', 'gesso') }}{{ archive_title }}</h2>
-        <h4>{{ archive_description }}</h4>
+    <section class="section section--category-archive">
+        <h2 class="section__title">{{__('Category Archive: ', 'gesso') }}{{ archive_title }}</h2>
+        <h4 class="section__description">{{ archive_description }}</h4>
 
-        {% for post in posts %}
-            <h3>
-                <a href="{{ post.link }}">{{ post.title }}</a>
-            </h3>
-            <p>{{ post.exceprt }}</p>
-        {% endfor %}
+        <div class="section__loop">
+            {% for post in posts %}
+              <h3 class="section__result">
+                  <a class="section__result-link " href="{{ post.link }}">{{ post.title }}</a>
+              </h3>
+              <p class="section__result-exceprt">{{ post.exceprt }}</p>
+            {% endfor %}
+        </div>
+
+        {% include 'templates/pager.twig' %}
     </section>
-    {% include 'templates/pager.twig' %}
 {% endblock %}

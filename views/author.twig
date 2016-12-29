@@ -6,11 +6,11 @@
     <section class="section section--author">
         {% if posts %}
 
-            <div class="author__title">
-                <h1>{{ title }}</h1>
-            </div>
-
             <div class="author__meta">
+                <div class="author__title">
+                    <h1>{{ title }}</h1>
+                </div>
+
                 {% if author.avatar %}
                     <div class="author__image"><img src="{{ author.avatar.abs_url }}" alt="author avater"></div>
                 {% endif %}
@@ -20,14 +20,14 @@
                 {% endif %}
             </div>
 
-            <div class="author__article-loop">
+            <div class="section__loop">
                 {% for post in posts %}
-                    <article class="author__article">
+                    <div class="author__article">
                         <h2 class="article__title">
                             <a href="{{ post.link }}">{{ post.post_title }}</a>
                         </h2>
                         <div class="article__date">{{ post.date }}</div>
-                    </article>
+                    </div>
                 {% endfor %}
             </div>
 

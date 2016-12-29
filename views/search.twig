@@ -3,15 +3,15 @@
 {% block content %}
 
   <!-- Provided by views/search.twig -->
-  <h1>{{ __('Search results for term: ', 'gesso') }} {{ request.get.s }}</h1>
-  <section class="section section__search-results">
+  <section class="section section--search-results">
+    <h1>{{ __('Search results for term: ', 'gesso') }} {{ request.get.s }}</h1>
     {% for post in posts %}
-      <div class="result">
+      <div class="search-result">
         <a href="{{ post.link }}">{{post.title}}</a>
       </div>
     {% endfor %}
+    {% include 'templates/pager.twig' %}
   </section>
 
-  {% include 'templates/pager.twig' %}
 
 {% endblock %}

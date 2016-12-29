@@ -2,7 +2,8 @@
 
 {% block content %}
     <!-- Provided by views/single.twig -->
-    <article class="article--single {{ post.class }}" id="post-{{post.ID}}">
+    <section class="section section--single">
+      <article class="article--single {{ post.class }}" id="post-{{post.ID}}">
         <h2 class="single__title">{{post.title}}</h2>
         <div class="single__author">{{__('Authored by', 'gesso') }}
             <a href="{{post.author.link}}">{{post.author.display_name}}</a>
@@ -14,5 +15,6 @@
     <div class="single__comment-form">
         {{comment_form}}
     </div>
+  </section>
 
 {% endblock %}
