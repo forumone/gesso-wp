@@ -2,17 +2,19 @@
 
 {% block content %}
     <!-- Provided by views/single.twig -->
-    <div class="content-wrapper">
-        <article class="{{ post.class }}" id="post-{{post.ID}}">
-            <h2 class="article-title">{{post.title}}</h2>
-            <div class="article-author">{{__('Authored by', 'gesso') }}
-                <a href="{{post.author.link}}">{{post.author.display_name}}</a>
-            </div>
-            <div class="article-body">
-                {{post.content}}
-            </div>
-        </article>
+    <section class="section section--single">
+      <article class="article--single {{ post.class }}" id="post-{{post.ID}}">
+        <h2 class="single__title">{{post.title}}</h2>
+        <div class="single__author">{{__('Authored by', 'gesso') }}
+            <a href="{{post.author.link}}">{{post.author.display_name}}</a>
+        </div>
+        <div class="single__body">
+            {{post.content}}
+        </div>
+    </article>
+    <div class="single__comment-form">
         {{comment_form}}
     </div>
-    <!-- /content-wrapper -->
+  </section>
+
 {% endblock %}

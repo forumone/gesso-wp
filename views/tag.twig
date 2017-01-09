@@ -3,18 +3,18 @@
 {% block content %}
 
     <!-- Provided by views/tag.twig -->
-    <h2 class="page__title">
-        {{ __('Tag Archive: ' , 'gesso') }}
-        {{ wp_title }}</h2>
+    <section class="section section--tag-archive">
+        <div class="tag__title">
+            <h2>{{ __('Tag Archive: ' , 'gesso') }}
+                {{ wp_title }}</h2>
+        </div>
 
-    <section class="page__content">
         {% for post in posts %}
-            <div class="result">
-                <a href="{{post.link}}">{{post.title}}</a>
+            <div class="tag__result">
+                <a class="tag__link" href="{{post.link}}">{{post.title}}</a>
             </div>
         {% endfor %}
+        {% include 'templates/pager.twig' %}
     </section>
-
-    {% include 'templates/pager.twig' %}
 
 {% endblock %}
