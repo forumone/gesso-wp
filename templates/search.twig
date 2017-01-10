@@ -1,0 +1,14 @@
+{% extends "base.twig" %}
+
+{% block content %}
+  <!-- Provided by templates/search.twig -->
+  <section>
+    <h1 class="page-title">{{ __('Search results for term: ', 'gesso') }} {{ request.get.s }}</h1>
+    {% for post in posts %}
+      <div class="search-result">
+        <a href="{{ post.link }}">{{ post.title }}</a>
+      </div>
+    {% endfor %}
+  </section>
+  {% include 'templates/components/pager.twig' %}
+{% endblock %}

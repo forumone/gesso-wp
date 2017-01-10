@@ -1,0 +1,12 @@
+{% extends "tease.twig" %}
+
+{% block content %}
+  <!-- Provided by templates/tease-post.twig -->
+  <article class="{{ post.class }} post-type-{{ post.post_type }}" id="post-{{ post.ID }}">
+    <h2 class="post-title"><a href="{{ post.link }}">{{ post.title }}</a></h2>
+    <p>{{ post.get_preview }}</p>
+    {% if post.get_thumbnail %}
+      <img src="{{ post.thumbnail.src }}">
+    {% endif %}
+  </article>
+{% endblock %}

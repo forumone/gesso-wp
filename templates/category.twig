@@ -1,0 +1,16 @@
+{% extends "base.twig" %}
+
+{% block content %}
+  <!-- Provided by templates/category.twig -->
+  <section>
+    <h1 class="page-title">{{ __('Category Archive: ', 'gesso') }}{{ archive_title }}</h1>
+    <h4>{{ archive_description }}</h4>
+    {% for post in posts %}
+      <h3>
+        <a href="{{ post.link }}">{{ post.title }}</a>
+      </h3>
+      <p>{{ post.excerpt }}</p>
+    {% endfor %}
+  </section>
+  {% include 'templates/components/pager.twig' %}
+{% endblock %}

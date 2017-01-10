@@ -1,29 +1,21 @@
 {% for post in posts %}
 
-  <section class="post-wrapper">
-
-    <article class="post-{{ post.id }} {{ post.class }}">
+    <article class="{{ post.class }} post-type-{{ post.post_type }}" id="post-{{ post.ID }}">
       <header>
         {% if post.thumbnail %}
-          <!-- Thumbnail -->
           <div class="thumbnail">
-            <img src="{{post.thumbnail.src | resize(120, 120, 'bottom')}}" class="my-thumb-class" alt="Image for {{post.title}}" />
+            <img src="{{ post.thumbnail.src | resize(120, 120, 'bottom') }}" alt="Image for {{ post.title }}" />
           </div>
         {% endif %}
-
-        <!-- Display -->
         <h2 class="post-title"><a href="{{ post.link }}">{{ post.title }}</a></h2>
         <div class="meta">
-          <div class="date">
-            <span>{{ function( 'the_time', 'F j, Y')}} </span>
-            <span>{{ function( 'the_time', 'g:i a')}} </span>
-          </div>
+          <div class="date">{{ post.date }}</div>
           <div class="author">{{ __('Published by', 'gesso') }} <a href="{{ post.author.link }}">{{ post.author }} </a></div>
           <div class="comments">
             {% if post.comments %}
-              <span>Comments: {{ post.comments | length }}</span>
+              <span>Comments: {{ post.comments|length }}</span>
             {% endif %}
-            <a href="{{post.link}}#respond">Leave a comment</a>
+            <a href="{{ post.link }}#respond">Leave a comment</a>
           </div>
         </div>
       </header>
@@ -31,8 +23,6 @@
       <p>{{ function('edit_post_link', 'Edit', '<span class="edit-link">', '</span>', post.id) }}</p>
       <p>{{ function('comments_template', '', true) }}</p>
     </article>
-
-  </section>
 
 {% else %}
 
