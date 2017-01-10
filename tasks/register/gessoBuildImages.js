@@ -1,5 +1,3 @@
 module.exports = function (grunt) {
-  grunt.registerTask('gessoBuildImages', [
-    'svg2png'
-  ]);
+  grunt.registerTask('gessoBuildImages', ['svg2png']);
 };
