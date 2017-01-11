@@ -1,0 +1,20 @@
+<article class="{{ post.class }} post-type-{{ post.post_type }}" id="post-{{ post.ID }}">
+  <h2 class="post-title">{{ post.title }}</h2>
+  <div class="author">{{ __('Authored by', 'gesso') }}
+    <a href="{{ post.author.link }}">{{ post.author.display_name }}</a>
+  </div>
+  
+  {% set audio = function( 'get_media_embedded_in_content', post.content, ['audio'] ) %}
+
+  {% if audio %}
+
+    {% for audio_html in audio %}
+      <div class="entry-audio">
+        {{ audio_html }}
+      </div>        
+    {% endfor %}
+
+  {% endif %}
+  
+</article>
+{{ comment_form }}
