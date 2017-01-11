@@ -14,7 +14,7 @@
         {% endif %}
       </div>
       {% for post in posts %}
-        <article class="{{ post.class }} post-type-{{ post.post_type }}" id="post-{{ post.ID }}">
+        <article class="{{ post.class }}" id="post-{{ post.ID }}">
           <h2 class="post-title"><a href="{{ post.link }}">{{ post.title }}</a></h2>
           <div class="meta">
             <div class="date">{{ post.date }}</div>
