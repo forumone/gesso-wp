@@ -14,7 +14,7 @@ if ( function_exists('add_theme_support') ) {
 
   // Add support for automatic links for feeds.
 	add_theme_support( 'automatic-feed-links' );
-  add_theme_support( 'post-thumbnails' );
+	add_theme_support( 'post-thumbnails' );
 
   # Define automatic thumbnail sizes
   // add_image_size( 'large', 700, '', true ); // Large Thumbnail
@@ -25,41 +25,41 @@ if ( function_exists('add_theme_support') ) {
 
 
 function gesso_nav( $location ) {
-  wp_nav_menu(
-  array(
-	'theme_location'  => $location,
-	'menu'			=> '',
-	'container'	   => '',
-	'container_class' => '',
-	'menu_class'	  => '',
-	'menu_id'		 => '',
-	'echo'			=> true,
-	'fallback_cb'	 => false,
-	'before'		  => '',
-	'after'		   => '',
-	'link_before'	 => '',
-	'link_after'	  => '',
-	'items_wrap'	  => '<nav class="%1$s nav--' . $location . '" role="navigation"><ul class="nav">%3$s</ul></nav>',
-	'depth'		   => 0,
-	'walker'		  => new gesso_walker_nav_menu(),
-	)
-  );
+	wp_nav_menu(
+		array(
+			'theme_location'  => $location,
+			'menu'			=> '',
+			'container'	   => '',
+			'container_class' => '',
+			'menu_class'	  => '',
+			'menu_id'		 => '',
+			'echo'			=> true,
+			'fallback_cb'	 => false,
+			'before'		  => '',
+			'after'		   => '',
+			'link_before'	 => '',
+			'link_after'	  => '',
+			'items_wrap'	  => '<nav class="%1$s nav--' . $location . '" role="navigation"><ul class="nav">%3$s</ul></nav>',
+			'depth'		   => 0,
+			'walker'		  => new gesso_walker_nav_menu(),
+			)
+		);
 }
 
 
 function has_visible_widgets( $sidebar_id ) {
-  if ( is_active_sidebar( $sidebar_id ) ) {
-	ob_start();
-	dynamic_sidebar( $sidebar_id );
-	$sidebar = ob_get_contents();
-	ob_end_clean();
-	if ( $sidebar == "" ) {
+	if ( is_active_sidebar( $sidebar_id ) ) {
+		ob_start();
+		dynamic_sidebar( $sidebar_id );
+		$sidebar = ob_get_contents();
+		ob_end_clean();
+		if ( $sidebar == "" ) {
+			return false;
+		}
+	} else {
 		return false;
 	}
-  } else {
-	return false;
-  }
-  return true;
+	return true;
 }
 
 
@@ -71,10 +71,10 @@ class gesso_walker_nav_menu extends Walker_Nav_Menu {
 		$indent = ( $depth > 0  ? str_repeat( "\t", $depth ) : '' ); // code indent
 		$display_depth = ( $depth + 1); // because it counts the first submenu as 0
 		$classes = array(
-		  'sub-menu',
-		  ( $display_depth >=2 ? 'sub-sub-menu' : '' ),
-		  'menu-depth-' . $display_depth
-		);
+			'sub-menu',
+			( $display_depth >=2 ? 'sub-sub-menu' : '' ),
+			'menu-depth-' . $display_depth
+			);
 		$class_names = implode( ' ', $classes );
 
 		// build html
@@ -90,7 +90,7 @@ class gesso_walker_nav_menu extends Walker_Nav_Menu {
 		$depth_classes = array(
 			( $depth == 0 ? 'main-menu__item' : 'sub-menu__item' ),
 			( $depth >=2 ? 'sub-sub-menu__item' : '' )
-		);
+			);
 		$depth_class_names = esc_attr( implode( ' ', $depth_classes ) );
 
 		// passed classes
@@ -119,11 +119,11 @@ class gesso_walker_nav_menu extends Walker_Nav_Menu {
 			apply_filters( 'the_title', $item->title, $item->ID ),
 			$args->link_after,
 			$args->after
-		);
+			);
 
 		// build html
 		$output .= apply_filters( 'walker_nav_menu_start_el', $item_output, $item, $depth, $args );
-  }
+	}
 }
 
 // add first/last classes to menus
@@ -183,7 +183,7 @@ function register_gesso_menu() {
 	register_nav_menus( array(
 		'primary' => __('Primary', 'gesso'),
 		'secondary' => __('Secondary', 'gesso'),
-	));
+		));
 }
 add_action( 'init', 'register_gesso_menu' );
 
@@ -202,33 +202,33 @@ function add_slug_to_body_class( $classes ) {
 		$classes[] = sanitize_html_class( $post->post_name );
 	}
 
-  return $classes;
+	return $classes;
 }
 add_filter( 'body_class', 'add_slug_to_body_class' );
 
 // Initial Sidebar and Footer Widget Areas
 add_action( 'widgets_init', 'gesso_widgets_init' );
-  function gesso_widgets_init() {
-    register_sidebar(array(
-      'name' => __('Widget Area 1', 'gesso'),
-      'description' => __('Widget Area 1', 'gesso'),
-      'id' => 'widget-area-1',
-      'before_widget' => '<div id="%1$s" class="widget %2$s">',
-      'after_widget' => '</div>',
-      'before_title' => '<h3 class="widget__title">',
-      'after_title' => '</h3>'
-    ));
+function gesso_widgets_init() {
+	register_sidebar(array(
+		'name' => __('Widget Area 1', 'gesso'),
+		'description' => __('Widget Area 1', 'gesso'),
+		'id' => 'widget-area-1',
+		'before_widget' => '<div id="%1$s" class="widget %2$s">',
+		'after_widget' => '</div>',
+		'before_title' => '<h3 class="widget__title">',
+		'after_title' => '</h3>'
+		));
 
-    register_sidebar(array(
-      'name' => __('Footer Widgets', 'gesso'),
-      'description' => __('Footer Widgets', 'gesso'),
-      'id' => 'footer-widgets',
-      'before_widget' => '<div id="%1$s" class="widget %2$s">',
-      'after_widget' => '</div>',
-      'before_title' => '<h3 class="widget__title">',
-      'after_title' => '</h3>'
-    ));
-  }
+	register_sidebar(array(
+		'name' => __('Footer Widgets', 'gesso'),
+		'description' => __('Footer Widgets', 'gesso'),
+		'id' => 'footer-widgets',
+		'before_widget' => '<div id="%1$s" class="widget %2$s">',
+		'after_widget' => '</div>',
+		'before_title' => '<h3 class="widget__title">',
+		'after_title' => '</h3>'
+		));
+}
 
 function gesso_pagination() {
 	global $wp_query;
@@ -238,7 +238,7 @@ function gesso_pagination() {
 		'format' => '?paged=%#%',
 		'current' => max( 1, get_query_var('paged') ),
 		'total' => $wp_query->max_num_pages,
-	) );
+		) );
 }
 add_action('init', 'gesso_pagination');
 
@@ -249,7 +249,7 @@ function gesso_link_pages() {
 		'after'	   => '</nav>',
 		'link_before' => '<span class="pager__item">',
 		'link_after'  => '</span>',
-	);
+		);
 	wp_link_pages( $gesso_links );
 }
 
@@ -274,61 +274,61 @@ add_action( 'admin_init', 'gesso_add_editor_styles' );
 // Timber Support - Starter Theme Functions
 //------------------------------------------------------
 if ( ! class_exists( 'Timber' ) ) {
-  add_action( 'admin_notices', function() {
-      echo '<div class="error"><p>Timber not activated. Make sure you activate the plugin in <a href="' . esc_url( admin_url( 'plugins.php#timber' ) ) . '">' . esc_url( admin_url( 'plugins.php' ) ) . '</a></p></div>';
-    } );
-  return;
+	add_action( 'admin_notices', function() {
+		echo '<div class="error"><p>Timber not activated. Make sure you activate the plugin in <a href="' . esc_url( admin_url( 'plugins.php#timber' ) ) . '">' . esc_url( admin_url( 'plugins.php' ) ) . '</a></p></div>';
+	} );
+	return;
 }
 
 Timber::$dirname = array('templates');
 
 class StarterSite extends TimberSite {
 
-  function __construct() {
-    add_theme_support( 'post-formats' );
-    add_theme_support( 'post-thumbnails' );
-    add_theme_support( 'menus' );
-    add_filter( 'timber_context', array( $this, 'add_to_context' ) );
-    add_filter( 'get_twig', array( $this, 'add_to_twig' ) );
-    add_action( 'init', array( $this, 'register_post_types' ) );
-    add_action( 'init', array( $this, 'register_taxonomies' ) );
-    parent::__construct();
-  }
+	function __construct() {
+		add_theme_support( 'post-formats', array( 'audio', 'gallery', 'image', 'video' ) );
+		add_theme_support( 'post-thumbnails' );
+		add_theme_support( 'menus' );
+		add_filter( 'timber_context', array( $this, 'add_to_context' ) );
+		add_filter( 'get_twig', array( $this, 'add_to_twig' ) );
+		add_action( 'init', array( $this, 'register_post_types' ) );
+		add_action( 'init', array( $this, 'register_taxonomies' ) );
+		parent::__construct();
+	}
 
-  function register_post_types() {
+	function register_post_types() {
     //this is where you can register custom post types
-  }
+	}
 
-  function register_taxonomies() {
+	function register_taxonomies() {
     //this is where you can register custom taxonomies
-  }
+	}
 
-  function add_to_context( $context ) {
-    $context['foo'] = 'bar';
-    $context['stuff'] = 'I am a value set in your functions.php file';
-    $context['notes'] = 'These values are available everytime you call Timber::get_context();';
-    $context['menu'] = new TimberMenu();
-    $context['current_year'] = date('Y');
-    $context['site'] = $this;
-    return $context;
-  }
+	function add_to_context( $context ) {
+		$context['foo'] = 'bar';
+		$context['stuff'] = 'I am a value set in your functions.php file';
+		$context['notes'] = 'These values are available everytime you call Timber::get_context();';
+		$context['menu'] = new TimberMenu();
+		$context['current_year'] = date('Y');
+		$context['site'] = $this;
+		return $context;
+	}
 
-  function add_to_twig( $twig ) {
-    /* this is where you can add your own fuctions to twig */
-    $twig->addExtension( new Twig_Extension_StringLoader() );
-    $twig->addFilter( 'myfoo', new Twig_Filter_Function( 'myfoo' ) );
-    return $twig;
-  }
+	function add_to_twig( $twig ) {
+		/* this is where you can add your own fuctions to twig */
+		$twig->addExtension( new Twig_Extension_StringLoader() );
+		$twig->addFilter( 'myfoo', new Twig_Filter_Function( 'myfoo' ) );
+		return $twig;
+	}
 
 }
 
 new StarterSite();
 
 function sidebar_test() {
-  if (has_visible_widgets('widget-area-1')) {
-    $sidebar = 'has-sidebar';
-  } else {
-    $sidebar = 'no-sidebar';
-  }
-  return $sidebar;
+	if (has_visible_widgets('widget-area-1')) {
+		$sidebar = 'has-sidebar';
+	} else {
+		$sidebar = 'no-sidebar';
+	}
+	return $sidebar;
 }
