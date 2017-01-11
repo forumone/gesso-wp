@@ -6,7 +6,7 @@
   
   {% set audio = function( 'get_media_embedded_in_content', post.content, ['audio'] ) %}
 
-  {% if audio %}
+  {% if '' != audio %}
 
     {% for audio_html in audio %}
       <div class="entry-audio">
