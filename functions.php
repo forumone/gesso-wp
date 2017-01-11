@@ -201,32 +201,32 @@ function add_slug_to_body_class( $classes ) {
     $classes[] = sanitize_html_class( $post->post_name );
   }
 
-	return $classes;
+  return $classes;
 }
 add_filter( 'body_class', 'add_slug_to_body_class' );
 
 // Initial Sidebar and Footer Widget Areas
 add_action( 'widgets_init', 'gesso_widgets_init' );
 function gesso_widgets_init() {
-	register_sidebar(array(
-		'name' => __('Widget Area 1', 'gesso'),
-		'description' => __('Widget Area 1', 'gesso'),
-		'id' => 'widget-area-1',
-		'before_widget' => '<div id="%1$s" class="widget %2$s">',
-		'after_widget' => '</div>',
-		'before_title' => '<h3 class="widget__title">',
-		'after_title' => '</h3>'
-	));
+  register_sidebar(array(
+    'name' => __('Widget Area 1', 'gesso'),
+    'description' => __('Widget Area 1', 'gesso'),
+    'id' => 'widget-area-1',
+    'before_widget' => '<div id="%1$s" class="widget %2$s">',
+    'after_widget' => '</div>',
+    'before_title' => '<h3 class="widget__title">',
+    'after_title' => '</h3>'
+  ));
 
-	register_sidebar(array(
-		'name' => __('Footer Widgets', 'gesso'),
-		'description' => __('Footer Widgets', 'gesso'),
-		'id' => 'footer-widgets',
-		'before_widget' => '<div id="%1$s" class="widget %2$s">',
-		'after_widget' => '</div>',
-		'before_title' => '<h3 class="widget__title">',
-		'after_title' => '</h3>'
-	));
+  register_sidebar(array(
+    'name' => __('Footer Widgets', 'gesso'),
+    'description' => __('Footer Widgets', 'gesso'),
+    'id' => 'footer-widgets',
+    'before_widget' => '<div id="%1$s" class="widget %2$s">',
+    'after_widget' => '</div>',
+    'before_title' => '<h3 class="widget__title">',
+    'after_title' => '</h3>'
+  ));
 }
 
 function gesso_pagination() {
@@ -302,7 +302,7 @@ class StarterSite extends TimberSite {
   }
 
   function add_to_twig( $twig ) {
-    // this is where you can add your own fuctions to twig  
+    // this is where you can add your own fuctions to twig
     $twig->addExtension( new Twig_Extension_StringLoader() );
     $twig->addFilter( 'myfoo', new Twig_Filter_Function( 'myfoo' ) );
     return $twig;
@@ -313,10 +313,10 @@ class StarterSite extends TimberSite {
 new StarterSite();
 
 function sidebar_test() {
-	if (has_visible_widgets('widget-area-1')) {
-		$sidebar = 'has-sidebar';
-	} else {
-		$sidebar = 'no-sidebar';
-	}
-	return $sidebar;
+  if (has_visible_widgets('widget-area-1')) {
+    $sidebar = 'has-sidebar';
+  } else {
+    $sidebar = 'no-sidebar';
+  }
+  return $sidebar;
 }
