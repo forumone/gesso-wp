@@ -1,0 +1,36 @@
+{% extends "base.twig" %}
+
+{% block content %}
+  <!-- Provided by templates/author.twig -->
+  <section>
+    {% if posts %}
+      <h1 class="page-title">{{ title }}</h1>
+      <div class="author">
+        {% if author.avatar %}
+          <div class="author__image"><img src="{{ author.avatar.abs_url }}" alt="author image"></div>
+        {% endif %}
+        {% if author.description %}
+          <div class="author__description">{{ author.description }}</div>
+        {% endif %}
+      </div>
+      {% for post in posts %}
+        <article class="post post--type-{{ post.type}} post--display-mode-teaser" id="post-{{ post.ID }}">
+          <h2 class="post__title"><a href="{{ post.link }}">{{ post.title }}</a></h2>
+          <div class="post__meta">
+            <div class="date">{{ post.date }}</div>
+            <div class="comment-summary">
+              {% if post.comments %}
+                <span>Comments: {{ post.comments|length }}</span>
+              {% endif %}
+              <a href="{{ post.link }}#respond">Leave a comment</a>
+            </div>
+          </div>
+        </article>
+      {% endfor %}
+      {% include 'templates/components/pagination.twig' %}
+    {% else %}
+      <p>{{ __('Sorry Nothing to Display ','gesso') }}</p>
+    {% endif %}
+  </section>
+
+{% endblock %}

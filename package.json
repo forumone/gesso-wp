@@ -2,10 +2,10 @@
   "name": "gesso",
   "version": "0.1.0",
   "description": "A WordPress theme.",
-  "bugs": "https://github.com/forumone/gesso-theme-wordpress/issues",
+  "bugs": "https://github.com/forumone/gesso-wp/issues",
   "repository": {
     "type": "git",
-    "url": "https://github.com/forumone/gesso-theme-wordpress.git"
+    "url": "https://github.com/forumone/gesso-wp.git"
   },
   "license": "GPL-2.0+",
   "private": true,

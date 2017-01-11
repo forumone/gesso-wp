@@ -1,21 +1,16 @@
-<?php get_header(); ?>
+<?php
+if ( ! class_exists( 'Timber' ) ) {
+	echo 'Timber not activated. Make sure you activate the plugin in <a href="/wp-admin/plugins.php#timber">/wp-admin/plugins.php</a>';
+	return;
+}
 
-	<main id="main" class="main" role="main" tabindex="-1">	
-    <?php if (has_visible_widgets('widget-area-1')) { $sidebarclasses = 'sidebar'; } else { $sidebarclasses = 'no-sidebar'; }?>
-		<div class="layout-main layout-constrain <?php echo $sidebarclasses; ?>">
-			
-			<div class="layout-main__content">
-				<section>
-					<?php get_template_part('templates/loop'); ?>
-					<?php get_template_part('templates/pagination'); ?>
-				</section>
-			</div>
-			
-			<div class="layout-main__sidebar">
-				<?php get_sidebar(); ?>
-			</div>
-		
-		</div>
-	</main>
+$context = Timber::get_context();
+$context['posts'] = Timber::get_posts();
+$context['pagination'] = Timber::get_pagination();
+$templates = array( 'index.twig' );
+if ( is_home() ) {
+	array_unshift( $templates, 'front-page.twig' );
+}
+Timber::render( $templates, $context );
 
-<?php get_footer(); ?>
+?>

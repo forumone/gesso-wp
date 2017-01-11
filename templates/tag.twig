@@ -1,0 +1,14 @@
+{% extends "base.twig" %}
+
+{% block content %}
+  <!-- Provided by templates/tag.twig -->
+  <h2>{{ __('Tag Archive: ' , 'gesso') }} {{ wp_title }}</h2>
+  <section>
+    {% for post in posts %}
+      <article class="post post--type-{{ post.type}} post--display-mode-teaser" id="post-{{ post.ID }}">
+        <h2 class="post__title"><a href="{{ post.link }}">{{ post.title }}</a></h2>
+      </article>
+    {% endfor %}
+  </section>
+  {% include 'templates/components/pagination.twig' %}
+{% endblock %}

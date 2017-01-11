@@ -1,0 +1,15 @@
+<article class="post post--type-{{ post.type}} post--display-mode-full" id="post-{{ post.ID }}">
+  <h2 class="post__title">{{ post.title }}</h2>
+  <div class="post__meta">
+    <div class="author">{{ __('Authored by', 'gesso') }}
+      <a href="{{ post.author.link }}">{{ post.author.display_name }}</a>
+    </div>
+  </div>
+  <div class="post__content">
+    {{ post.content }}
+  </div>
+  <div class="post__comments">
+    {% include 'templates/components/comments.twig' %}
+  </div>
+</article>
+{{ comment_form }}
