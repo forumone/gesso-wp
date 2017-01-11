@@ -17,31 +17,31 @@ if ( function_exists('add_theme_support') ) {
   add_theme_support( 'post-thumbnails' );
 
   # Define automatic thumbnail sizes
-  // add_image_size( 'large', 700, '', true ); // Large Thumbnail
-	// add_image_size( 'medium', 250, '', true ); // Medium Thumbnail
+  add_image_size( 'large', 700, '', true ); // Large Thumbnail
+	add_image_size( 'medium', 250, '', true ); // Medium Thumbnail
 	add_image_size( 'small', 120, '', true ); // Small Thumbnail
-	// add_image_size( 'custom-size', 700, 200, true ); // Custom Thumbnail Size call using the_post_thumbnail('custom-size');
+	//add_image_size( 'custom-size', 700, 200, true ); // Custom Thumbnail Size call using the_post_thumbnail('custom-size');
 }
 
 
 function gesso_nav( $location ) {
   wp_nav_menu(
   array(
-	'theme_location'  => $location,
-	'menu'			=> '',
-	'container'	   => '',
-	'container_class' => '',
-	'menu_class'	  => '',
-	'menu_id'		 => '',
-	'echo'			=> true,
-	'fallback_cb'	 => false,
-	'before'		  => '',
-	'after'		   => '',
-	'link_before'	 => '',
-	'link_after'	  => '',
-	'items_wrap'	  => '<nav class="%1$s nav--' . $location . '" role="navigation"><ul class="nav">%3$s</ul></nav>',
-	'depth'		   => 0,
-	'walker'		  => new gesso_walker_nav_menu(),
+		'theme_location'  => $location,
+		'menu'			=> '',
+		'container'	   => '',
+		'container_class' => '',
+		'menu_class'	  => '',
+		'menu_id'		 => '',
+		'echo'			=> true,
+		'fallback_cb'	 => false,
+		'before'		  => '',
+		'after'		   => '',
+		'link_before'	 => '',
+		'link_after'	  => '',
+		'items_wrap'	  => '<nav class="%1$s nav--' . $location . '" role="navigation"><ul class="nav">%3$s</ul></nav>',
+		'depth'		   => 0,
+		'walker'		  => new gesso_walker_nav_menu(),
 	)
   );
 }
@@ -49,15 +49,15 @@ function gesso_nav( $location ) {
 
 function has_visible_widgets( $sidebar_id ) {
   if ( is_active_sidebar( $sidebar_id ) ) {
-	ob_start();
-	dynamic_sidebar( $sidebar_id );
-	$sidebar = ob_get_contents();
-	ob_end_clean();
-	if ( $sidebar == "" ) {
-		return false;
-	}
+		ob_start();
+		dynamic_sidebar( $sidebar_id );
+		$sidebar = ob_get_contents();
+		ob_end_clean();
+		if ( $sidebar == "" ) {
+			return false;
+		}
   } else {
-	return false;
+		return false;
   }
   return true;
 }
@@ -257,7 +257,6 @@ function gesso_link_pages() {
  // Remove thumbnail dimensions
 function remove_thumbnail_dimensions( $html ) {
 	$html = preg_replace( '/(width|height)=\"\d*\"\s/', '', $html );
-
 	return $html;
 }
 add_filter( 'post_thumbnail_html', 'remove_thumbnail_dimensions', 10 ); // Remove width and height attributes from thumbnails
@@ -275,8 +274,8 @@ add_action( 'admin_init', 'gesso_add_editor_styles' );
 //------------------------------------------------------
 if ( ! class_exists( 'Timber' ) ) {
   add_action( 'admin_notices', function() {
-      echo '<div class="error"><p>Timber not activated. Make sure you activate the plugin in <a href="' . esc_url( admin_url( 'plugins.php#timber' ) ) . '">' . esc_url( admin_url( 'plugins.php' ) ) . '</a></p></div>';
-    } );
+    echo '<div class="error"><p>Timber not activated. Make sure you activate the plugin in <a href="' . esc_url( admin_url( 'plugins.php#timber' ) ) . '">' . esc_url( admin_url( 'plugins.php' ) ) . '</a></p></div>';
+  } );
   return;
 }
 
