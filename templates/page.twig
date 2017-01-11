@@ -4,7 +4,7 @@
   <!-- Provided by templates/page.twig -->
   <p>{{ __('View author: ', 'gesso') }} <a href="{{ user.link }}">{{ user.name }}</a></p>
 
-	<article class="{{ post.class }} post--type-{{ post.type}} post--display-mode-full" id="post-{{ post.ID }}">
+	<article class="post post--type-{{ post.type}} post--display-mode-full" id="post-{{ post.ID }}">
 		<h1 class="page-title">{{ post.title }}</h1>
 		<div class="post__content">
       {{ post.content }}
