@@ -1,20 +1,22 @@
-<article class="{{ post.class }}" id="post-{{ post.ID }}">
-  <h2 class="post-title">{{ post.title }}</h2>
-  <div class="author">{{ __('Authored by', 'gesso') }}
-    <a href="{{ post.author.link }}">{{ post.author.display_name }}</a>
+<article class="post post--type-{{ post.type}} post--display-mode-full" id="post-{{ post.ID }}">
+  <h2 class="post__title">{{ post.title }}</h2>
+  <div class="post__meta">
+    <div class="author">{{ __('Authored by', 'gesso') }}
+      <a href="{{ post.author.link }}">{{ post.author.display_name }}</a>
+    </div>
   </div>
-  
   {% set video = function( 'get_media_embedded_in_content', post.content, ['video', 'object', 'embed', 'iframe'] ) %}
-
-  {% if '' != video %}
-
-    {% for video_html in video %}
-      <div class="entry-video">
-        {{ video_html }}
-      </div>        
-    {% endfor %}
-
-  {% endif %}
-
+  <div class="post__content">
+    {% if '' != video %}
+        {% for video_html in video %}
+        <div class="video">
+          {{ video_html }}
+        </div>
+      {% endfor %}
+    {% endif %}
+  </div>
+  <div class="post__comments">
+    {% include 'templates/components/comments.twig' %}
+  </div>
 </article>
 {{ comment_form }}
