@@ -7,7 +7,7 @@
   </div>
   <div class="post__content">
     {% if '' != function( 'get_the_post_thumbnail' ) %}
-    	<div class="post__image">
+    	<div class="image">
     		<a href="{{ post.link }}">
     			{{ function( 'the_post_thumbnail', 'large' ) }}
     		</a>
