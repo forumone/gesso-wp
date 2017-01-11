@@ -83,4 +83,4 @@ based imports to Sass.
 
 The Gesso theme is maintained by Dan Mouyard, Corey Lafferty, Lindsey DiNapoli, Derek Moon, Karen Kitchens and Elvis Morales.
 
-Please use the Github issue queue: https://github.com/forumone/gesso-theme-wordpress/issues
+Please use the Github issue queue: https://github.com/forumone/gesso-wp/issues
