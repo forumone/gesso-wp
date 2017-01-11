@@ -14,11 +14,11 @@
         {% endif %}
       </div>
       {% for post in posts %}
-        <article class="{{ post.class }}" id="post-{{ post.ID }}">
-          <h2 class="post-title"><a href="{{ post.link }}">{{ post.title }}</a></h2>
-          <div class="meta">
+        <article class="post post--type-{{ post.type}} post--display-mode-teaser" id="post-{{ post.ID }}">
+          <h2 class="post__title"><a href="{{ post.link }}">{{ post.title }}</a></h2>
+          <div class="post__meta">
             <div class="date">{{ post.date }}</div>
-            <div class="comments">
+            <div class="comment-summary">
               {% if post.comments %}
                 <span>Comments: {{ post.comments|length }}</span>
               {% endif %}

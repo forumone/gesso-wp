@@ -6,10 +6,12 @@
     <h1 class="page-title">{{ __('Category Archive: ', 'gesso') }}{{ archive_title }}</h1>
     <h4>{{ archive_description }}</h4>
     {% for post in posts %}
-      <h3>
-        <a href="{{ post.link }}">{{ post.title }}</a>
-      </h3>
-      <p>{{ post.excerpt }}</p>
+      <article class="post post--type-{{ post.type}} post--display-mode-teaser" id="post-{{ post.ID }}">
+        <h2 class="post__title"><a href="{{ post.link }}">{{ post.title }}</a></h2>
+        <div class="post__content">
+          {{ post.excerpt }}
+        </div>
+      </article>
     {% endfor %}
   </section>
   {% include 'templates/components/pagination.twig' %}

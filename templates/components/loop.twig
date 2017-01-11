@@ -1,24 +1,28 @@
 {% for post in posts %}
 
-    <article class="{{ post.class }}" id="post-{{ post.ID }}">
-      <header>
+    <article class="post post--type-{{ post.type}} post--display-mode-teaser" id="post-{{ post.ID }}">
+      <div class="layout-slat">
         {% if post.thumbnail %}
-          <div class="thumbnail">
-            <img src="{{ post.thumbnail.src | resize(120, 120, 'bottom') }}" alt="Image for {{ post.title }}" />
+          <div class="layout-slat__media">
+            <div class="thumbnail">
+              <img src="{{ post.thumbnail.src('small') }}" alt="{{ post.thumbnail.alt }}">
+            </div>
           </div>
         {% endif %}
-        <h2 class="post-title"><a href="{{ post.link }}">{{ post.title }}</a></h2>
-        <div class="meta">
-          <div class="date">{{ post.date }}</div>
-          <div class="author">{{ __('Published by', 'gesso') }} <a href="{{ post.author.link }}">{{ post.author }} </a></div>
-          <div class="comments">
-            {% if post.comments %}
-              <span>Comments: {{ post.comments|length }}</span>
-            {% endif %}
-            <a href="{{ post.link }}#respond">Leave a comment</a>
+        <div class="layout-slat__content">
+          <h2 class="post__title"><a href="{{ post.link }}">{{ post.title }}</a></h2>
+          <div class="post__meta">
+            <div class="date">{{ post.date }}</div>
+            <div class="author">{{ __('Published by', 'gesso') }} <a href="{{ post.author.link }}">{{ post.author }}</a></div>
+            <div class="comment-summary">
+              {% if post.comments %}
+                <span>Comments: {{ post.comments|length }}</span>
+              {% endif %}
+              <a href="{{ post.link }}#respond">Leave a comment</a>
+            </div>
           </div>
         </div>
-      </header>
+      </div>
       {{ function('gesso_link_pages') }}
       <p>{{ function('edit_post_link', 'Edit', '<span class="edit-link">', '</span>', post.id) }}</p>
       <p>{{ function('comments_template', '', true) }}</p>

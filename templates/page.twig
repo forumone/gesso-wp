@@ -4,8 +4,13 @@
   <!-- Provided by templates/page.twig -->
   <p>{{ __('View author: ', 'gesso') }} <a href="{{ user.link }}">{{ user.name }}</a></p>
 
-	<article class="{{ post.class }}" id="post-{{ post.ID }}">
+	<article class="{{ post.class }} post--type-{{ post.type}} post--display-mode-full" id="post-{{ post.ID }}">
 		<h1 class="page-title">{{ post.title }}</h1>
-		{{ post.content }}
+		<div class="post__content">
+      {{ post.content }}
+    </div>
+    <div class="post__comments">
+      {% include 'templates/components/comments.twig' %}
+    </div>
 	</article>
 {% endblock %}
