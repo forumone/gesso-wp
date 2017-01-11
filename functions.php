@@ -98,7 +98,7 @@ class gesso_walker_nav_menu extends Walker_Nav_Menu {
 
     // add active class
     if ( is_array($class_names) ) { // make sure the menu is an array and not empty or only a single item
-      $class_names .= in_array("current_page_item",$item->classes) ? ' active' : '';
+      $class_names .= in_array("current_page_item",$item->classes) ? ' is-active' : '';
     }
 
     // build html
