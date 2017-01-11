@@ -26,23 +26,23 @@ if ( function_exists('add_theme_support') ) {
 
 function gesso_nav( $location ) {
   wp_nav_menu(
-  array(
-    'theme_location'  => $location,
-    'menu'      => '',
-    'container'     => '',
-    'container_class' => '',
-    'menu_class'    => '',
-    'menu_id'     => '',
-    'echo'      => true,
-    'fallback_cb'   => false,
-    'before'      => '',
-    'after'       => '',
-    'link_before'   => '',
-    'link_after'    => '',
-    'items_wrap'    => '<nav class="%1$s nav--' . $location . '" role="navigation"><ul class="nav">%3$s</ul></nav>',
-    'depth'       => 0,
-    'walker'      => new gesso_walker_nav_menu(),
-  )
+    array(
+      'theme_location'  => $location,
+      'menu'      => '',
+      'container'     => '',
+      'container_class' => '',
+      'menu_class'    => '',
+      'menu_id'     => '',
+      'echo'      => true,
+      'fallback_cb'   => false,
+      'before'      => '',
+      'after'       => '',
+      'link_before'   => '',
+      'link_after'    => '',
+      'items_wrap'    => '<nav class="%1$s nav--' . $location . '" role="navigation"><ul class="nav">%3$s</ul></nav>',
+      'depth'       => 0,
+      'walker'      => new gesso_walker_nav_menu(),
+    )
   );
 }
 
@@ -64,7 +64,6 @@ function has_visible_widgets( $sidebar_id ) {
 
 
 class gesso_walker_nav_menu extends Walker_Nav_Menu {
-
   // add classes to ul sub-menus
   function start_lvl( &$output, $depth = 0, $args = array() ) {
     // depth dependent classes
@@ -208,27 +207,27 @@ add_filter( 'body_class', 'add_slug_to_body_class' );
 
 // Initial Sidebar and Footer Widget Areas
 add_action( 'widgets_init', 'gesso_widgets_init' );
-  function gesso_widgets_init() {
-    register_sidebar(array(
-      'name' => __('Widget Area 1', 'gesso'),
-      'description' => __('Widget Area 1', 'gesso'),
-      'id' => 'widget-area-1',
-      'before_widget' => '<div id="%1$s" class="widget %2$s">',
-      'after_widget' => '</div>',
-      'before_title' => '<h3 class="widget__title">',
-      'after_title' => '</h3>'
-    ));
+function gesso_widgets_init() {
+  register_sidebar(array(
+    'name' => __('Widget Area 1', 'gesso'),
+    'description' => __('Widget Area 1', 'gesso'),
+    'id' => 'widget-area-1',
+    'before_widget' => '<div id="%1$s" class="widget %2$s">',
+    'after_widget' => '</div>',
+    'before_title' => '<h3 class="widget__title">',
+    'after_title' => '</h3>'
+  ));
 
-    register_sidebar(array(
-      'name' => __('Footer Widgets', 'gesso'),
-      'description' => __('Footer Widgets', 'gesso'),
-      'id' => 'footer-widgets',
-      'before_widget' => '<div id="%1$s" class="widget %2$s">',
-      'after_widget' => '</div>',
-      'before_title' => '<h3 class="widget__title">',
-      'after_title' => '</h3>'
-    ));
-  }
+  register_sidebar(array(
+    'name' => __('Footer Widgets', 'gesso'),
+    'description' => __('Footer Widgets', 'gesso'),
+    'id' => 'footer-widgets',
+    'before_widget' => '<div id="%1$s" class="widget %2$s">',
+    'after_widget' => '</div>',
+    'before_title' => '<h3 class="widget__title">',
+    'after_title' => '</h3>'
+  ));
+}
 
 function gesso_pagination() {
   global $wp_query;
@@ -303,7 +302,7 @@ class StarterSite extends TimberSite {
   }
 
   function add_to_twig( $twig ) {
-    /* this is where you can add your own fuctions to twig */
+    // this is where you can add your own fuctions to twig
     $twig->addExtension( new Twig_Extension_StringLoader() );
     $twig->addFilter( 'myfoo', new Twig_Filter_Function( 'myfoo' ) );
     return $twig;
