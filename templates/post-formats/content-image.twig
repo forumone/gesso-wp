@@ -1,0 +1,17 @@
+<article class="{{ post.class }} post-type-{{ post.post_type }}" id="post-{{ post.ID }}">
+  <h2 class="post-title">{{ post.title }}</h2>
+  <div class="author">{{ __('Authored by', 'gesso') }}
+    <a href="{{ post.author.link }}">{{ post.author.display_name }}</a>
+  </div>
+
+  {% if '' != function( 'get_the_post_thumbnail' ) %}
+  	<div class="post-thumbnail-image">
+  		<a href="{{ post.link }}">
+  			{{ function( 'the_post_thumbnail', 'large' ) }}
+  		</a>
+  	</div>
+  {% endif %}
+
+  {{ post.content }}
+</article>
+{{ comment_form }}
