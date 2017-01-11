@@ -1,27 +1,30 @@
-<div class="pagination">
-  {% if pagination.prev %}
-    <div class="pane pane--first">
-      <a href="{{ pagination.prev.link }}" class="prev {{ pagination.prev.link|length ? '' : 'invisible' }}">Prev</a>
-    </div>
-  {% endif %}
+<nav role="navigation" aria-labelledby="pagination-heading">
+  <h2 id="pagination-heading" class="visually-hidden">Pagination</h2>
+  <ul class="pager">
+  {% spaceless %}
+    {% if pagination.prev %}
+      <li class="pager__item pager__item--previous">
+        <a class="pager__link pager__link--previous" href="{{ pagination.prev.link }}" title="Go to previous page">Previous page</a>
+      </li>
+    {% endif %}
 
-  <div class="pane pane--second">
-    <ul class="pages">
-      {% for page in pagination.pages %}
-        <li>
-          {% if page.link %}
-            <a href="{{ page.link }}" class="{{ page.class }}">{{ page.title }}</a>
-          {% else %}
+    {% for page in pagination.pages %}
+        {% if page.link %}
+          <li class="pager__item">
+            <a href="{{ page.link }}" class="pager__link {{ page.class }}">{{ page.title }}</a>
+          </li>
+        {% else %}
+          <li class="pager__item pager__item--current">
             <span class="{{ page.class }}">{{ page.title }}</span>
-          {% endif %}
-        </li>
-      {% endfor %}
-    </ul>
-  </div>
+          </li>
+        {% endif %}
+    {% endfor %}
 
-  {% if pagination.next %}
-    <div class="pane pane--third">
-      <a href="{{ pagination.next.link }}" class="next {{ pagination.next.link|length ? '' : 'invisible' }}">Next</a>
-    </div>
-  {% endif %}
-</div>
+    {% if pagination.next %}
+      <li class="pager__item pager__item--next">
+        <a class="pager__link pager__link--next" href="{{ pagination.next.link }}" title="Go to next page">Next page</a>
+      </li>
+    {% endif %}
+  {% endspaceless %}
+  </ul>
+</nav>
