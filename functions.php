@@ -70,7 +70,7 @@ class gesso_walker_nav_menu extends Walker_Nav_Menu {
     $indent = ( $depth > 0  ? str_repeat( "\t", $depth ) : '' ); // code indent
     $display_depth = ( $depth + 1); // because it counts the first submenu as 0
     $classes = array(
-      'nav--subnav',
+      'nav__subnav',
       'sub-menu',
       ( $display_depth >=2 ? 'sub-sub-menu' : '' ),
       'menu-depth-' . $display_depth
