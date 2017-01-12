@@ -18,7 +18,7 @@
 
   <header class="header" role="banner">
     {% block header %}
-      <div class="layout-constrain">
+      <div class="l-constrain">
         {{ function('gesso_nav', 'secondary') }}
         <a href="{{ site.url }}" class="sitename">
           <h1>{{ site.title }}</h1>
@@ -30,13 +30,13 @@
   </header>
 
   <main id="main" class="main" role="main" tabindex="-1">
-    <div class="layout-constrain">
-      <div class="layout-sidebar {{ function('sidebar_test') }}">
-        <div class="layout-sidebar__main">
+    <div class="l-constrain">
+      <div class="l-sidebar {{ function('sidebar_test') }}">
+        <div class="l-sidebar__main">
           {% block content %}
           {% endblock %}
         </div>
-        <div class="layout-sidebar__sidebar">
+        <div class="l-sidebar__sidebar">
           {% block sidebar %}
             {{ function('get_sidebar') }}
           {% endblock %}
