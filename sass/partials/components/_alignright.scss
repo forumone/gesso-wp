@@ -6,10 +6,10 @@
   float: none;
   margin: 0;
 }
-	
-@include breakpoint(700px, $no-query: true) {
-  .alignright { 
-    float: right; 
+
+@include breakpoint(700px) {
+  .alignright {
+    float: right;
     margin: 0 0 1em 1em;
   }
 }

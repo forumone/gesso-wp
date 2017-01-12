@@ -8,7 +8,7 @@ $pager-bg-color-active: #d6d7d9;
 .pager {
   clear: both;
   list-style: none;
-  margin: 1em 0;
+  margin: em($vertical-spacing * 2) 0;
   padding: 0;
   text-align: center;
 }

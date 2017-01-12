@@ -3,7 +3,7 @@
 
 .nav--primary {
   display: none;
-  @include breakpoint($mobile-menu-bp, $no-query: true) {
+  @include breakpoint($bp-hide-mobile-menu) {
     display: block;
   }
   ul.nav {

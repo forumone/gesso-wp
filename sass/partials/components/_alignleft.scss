@@ -6,9 +6,9 @@
   float: none;
   margin: 0;
 }
-	
-@include breakpoint(700px, $no-query: true) {
-  .alignleft { 
+
+@include breakpoint(700px) {
+  .alignleft {
     float: left;
     margin: 0 1em 1em 0;
   }

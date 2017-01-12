@@ -70,6 +70,7 @@ class gesso_walker_nav_menu extends Walker_Nav_Menu {
     $indent = ( $depth > 0  ? str_repeat( "\t", $depth ) : '' ); // code indent
     $display_depth = ( $depth + 1); // because it counts the first submenu as 0
     $classes = array(
+      'nav--subnav',
       'sub-menu',
       ( $display_depth >=2 ? 'sub-sub-menu' : '' ),
       'menu-depth-' . $display_depth
@@ -147,36 +148,23 @@ function gesso_header_scripts() {
   wp_register_script('jquery', 'http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js', array() ); // Google CDN jQuery
   wp_enqueue_script('jquery');
 
-  wp_register_script('modernizr', 'http://cdnjs.cloudflare.com/ajax/libs/modernizr/2.7.1/modernizr.min.js', array('jquery') ); // Modernizr
-  wp_enqueue_script('modernizr');
+  wp_register_script('gessomodernizr', get_template_directory_uri() . '/js/lib/modernizr.min.js', array('jquery') ); // Modernizr
+  wp_enqueue_script('gessomodernizr');
 
   if ( is_singular() && comments_open() ) {
     wp_enqueue_script( "comment-reply" );
   }
 
-  wp_register_script('gessomobilemenu', get_template_directory_uri() . '/js/mobile-menu.js', array('jquery','modernizr') ); // Mobile menu
+  wp_register_script('gessomobilemenu', get_template_directory_uri() . '/js/mobile-menu.js', array('jquery','gessomodernizr') ); // Mobile menu
   wp_enqueue_script('gessomobilemenu');
 
-  wp_register_script('gessoscripts', get_template_directory_uri() . '/js/scripts.js', array('jquery','modernizr') ); // Custom scripts
+  wp_register_script('gessoscripts', get_template_directory_uri() . '/js/scripts.js', array('jquery','gessomodernizr') ); // Custom scripts
   wp_enqueue_script('gessoscripts');
 
   wp_enqueue_style( 'style', get_stylesheet_directory_uri() . '/css/styles.css', array(), null, 'all' );
 
-  wp_enqueue_style( 'no-media-queries', get_stylesheet_directory_uri() . '/css/no-mq.css', array( 'style' ), null, 'all' );
-  $wp_styles->add_data( 'no-media-queries', 'conditional', 'lt IE 9' );
 }
 add_action( 'wp_enqueue_scripts', 'gesso_header_scripts' );
-
-function gesso_ie_comment_style_css( $html, $handle, $href ) {
-  if( $handle == 'style' ) {
-    // Weird IE conditional jibberish to trick it to ignore the main stylesheet in IE8 and below.
-    $html = '<!--[if gte IE 9]><!-->' . $html . '<!--<![endif]-->';
-  }
-
-  return $html;
-}
-add_filter( 'style_loader_tag', 'gesso_ie_comment_style_css', 10, 3 );
-
 
 function register_gesso_menu() {
   register_nav_menus( array(
@@ -244,10 +232,10 @@ add_action('init', 'gesso_pagination');
 //Adds proper markup to pages content
 function gesso_link_pages() {
   $gesso_links = array(
-    'before'    => '<nav class="page-links" role="navigation"><h2 class="page-links-title element-invisible">' . __( 'Pages:', 'gesso' ) . '</h2>',
-    'after'     => '</nav>',
-    'link_before' => '<span class="pager__item">',
-    'link_after'  => '</span>',
+    'before'    => '<nav role="navigation" aria-labelledby="pagination-heading"><h2 id="pagination-heading" class="visually-hidden">Pagination</h2><ul class="pager">',
+    'after'     => '</ul></nav>',
+    'link_before' => '<li class="pager__item>',
+    'link_after'  => '</li>',
   );
   wp_link_pages( $gesso_links );
 }
