@@ -299,12 +299,3 @@ class StarterSite extends TimberSite {
 }
 
 new StarterSite();
-
-function sidebar_test() {
-  if (has_visible_widgets('widget-area-1')) {
-    $sidebar = 'has-sidebar';
-  } else {
-    $sidebar = 'no-sidebar';
-  }
-  return $sidebar;
-}

@@ -31,12 +31,12 @@
 
   <main id="main" class="main" role="main" tabindex="-1">
     <div class="l-constrain">
-      <div class="l-sidebar {{ function('sidebar_test') }}">
-        <div class="l-sidebar__main">
+      <div class="l-sidebars">
+        <div class="l-sidebars__main">
           {% block content %}
           {% endblock %}
         </div>
-        <div class="l-sidebar__sidebar">
+        <div class="l-sidebars__sidebar">
           {% block sidebar %}
             {{ function('get_sidebar') }}
           {% endblock %}
