@@ -18,12 +18,11 @@ module.exports = function (grunt) {
             '<%= pkg.themePath %>/'
             ]
           ,
-          hostname: '127.0.0.1',
+          hostname: '*',
           keepalive: true,
           livereload: true, // needed for live reload setting in Watch tasks
           open: true, // open in a new tab when started
           port: 3333,
-          // debug: true
         }
       }
     }
