@@ -9,7 +9,7 @@ module.exports = function (grunt) {
         }
       },
       patternlab: {
-        files: ['pattern-lab/source/**/*'], // IMPORTANT, You cannot use a package.json variable in this area. Must be configured to direct path to patternlab instance. Otherwise, new PL patterns will not load without restarting grunt.
+        files: ['pattern-lab/source/**/*'], // IMPORTANT, You cannot use a package.json variable in this area. Must be configured to use direct path to patternlab instance. Otherwise, new PL patterns will not load without restarting grunt.
         tasks: ['shell:patternlab'],
         options: {
           livereload: true
