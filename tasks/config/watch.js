@@ -9,7 +9,7 @@ module.exports = function (grunt) {
         }
       },
       patternlab: {
-        files: ['public/wp-content/themes/gesso/pattern-lab/source/**/*'],
+        files: ['pattern-lab/source/**/*'], // IMPORTANT, You cannot use a package.json variable in this area. Must be configured to direct path to patternlab instance. Otherwise, new PL patterns will not load without restarting grunt.
         tasks: ['shell:patternlab'],
         options: {
           livereload: true
