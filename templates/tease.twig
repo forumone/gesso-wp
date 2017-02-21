@@ -1,0 +1,19 @@
+{% block content %}
+  <!-- Provided by templates/tease.twig -->
+  <article class="post post--type-{{ post.type}} post--display-mode-teaser" id="post-{{ post.ID }}">
+    <div class="l-slat">
+      {% if post.thumbnail %}
+        <div class="l-slat__media">
+          <div class="thumbnail">
+            <img src="{{ post.thumbnail.src('small') }}" alt="{{ post.thumbnail.alt }}">
+          </div>
+        </div>
+      {% endif %}
+      <div class="l-slat__content">
+        <h2 class="post__title"><a href="{{ post.link }}">{{ post.title }}</a></h2>
+        <div class="post__content">
+          {{ post.preview }}
+        </div>
+      </div>
+  </article>
+{% endblock %}

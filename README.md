@@ -72,8 +72,6 @@ mixins, selector inheritance, and more.
 * [Sass Globbing](https://github.com/DennisBecker/grunt-sass-globbing): Adds glob-
 based imports to Sass.
 
-* [Singularity](http://singularity.gs): Grid-based layout system.
-
 * [SVG2PNG](https://github.com/dbushell/grunt-svg2png): Rasterizes SVG to PNG images using PhantomJS.
 
 * [Autoprefixer](https://github.com/postcss/autoprefixer): Adds necessary browser CSS property prefixes during Sass compilation.
@@ -81,6 +79,6 @@ based imports to Sass.
 
 ## Maintainers
 
-The Gesso theme is maintained by Dan Mouyard, Corey Lafferty, Lindsey DiNapoli and Derek Moon.
+The Gesso theme is maintained by Dan Mouyard, Corey Lafferty, Lindsey DiNapoli, Derek Moon, Karen Kitchens and Elvis Morales.
 
-Please use the Github issue queue: https://github.com/forumone/gesso-theme-wordpress/issues
+Please use the Github issue queue: https://github.com/forumone/gesso-wp/issues

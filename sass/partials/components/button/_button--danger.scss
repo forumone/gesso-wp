@@ -1,0 +1,18 @@
+// @file
+// Styles for danger buttons.
+
+.button--danger {
+  background-color: #e31c3d;
+  color: #fff;
+
+  &:focus,
+  &:hover {
+    background-color: #cd2026;
+    color: #fff;
+  }
+
+  &:active {
+    background-color: #981b1e;
+    color: #fff;
+  }
+}

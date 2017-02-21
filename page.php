@@ -8,7 +8,7 @@
  * different template.
  *
  * To generate specific templates for your pages you can use:
- * /mytheme/views/page-mypage.twig
+ * /mytheme/templates/page-mypage.twig
  * (which will still route through this PHP file)
  * OR
  * /mytheme/page-mypage.php
@@ -24,4 +24,4 @@
 $context = Timber::get_context();
 $post = new TimberPost();
 $context['post'] = $post;
-Timber::render( array( 'page-' . $post->post_name . '.twig', 'page.twig' ), $context );
+Timber::render( array( 'page-' . $post->post_name . '.twig', 'page-' . $post->ID . '.twig', 'page.twig' ), $context );

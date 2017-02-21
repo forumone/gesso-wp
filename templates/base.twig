@@ -1,0 +1,54 @@
+{% block html_head_container %}
+  {% include 'html-header.twig' %}
+{% endblock %}
+
+{% block page_header %}
+  {# This is where you would stick another header, if different than #}
+  {{ function('get_header') }}
+{% endblock %}
+
+<!-- Provided by templates/base.twig -->
+<body {{ function('body_class')}}>
+
+  {% block skiplinks %}
+    <div class="skiplinks">
+      <a href="#main" class="skiplinks__link focusable">Skip to main content</a>
+    </div>
+  {% endblock %}
+
+  <header class="header" role="banner">
+    {% block header %}
+      <div class="l-constrain">
+        {{ function('gesso_nav', 'secondary') }}
+        <a href="{{ site.url }}" class="sitename">
+          <h1>{{ site.title }}</h1>
+        </a>
+        {{ function('gesso_nav', 'primary') }}
+        {% include 'templates/components/searchform.twig' %}
+      </div>
+    {% endblock %}
+  </header>
+
+  <main id="main" class="main" role="main" tabindex="-1">
+    <div class="l-constrain">
+      <div class="l-sidebars">
+        <div class="l-sidebars__main">
+          {% block content %}
+          {% endblock %}
+        </div>
+        <div class="l-sidebars__sidebar">
+          {% block sidebar %}
+            {{ function('get_sidebar') }}
+          {% endblock %}
+        </div>
+      </div>
+    </div>
+  </main>
+
+  {% block footer %}
+    {% include 'footer.twig' %}
+    {{ function('wp_footer') }}
+  {% endblock %}
+
+</body>
+</html>
