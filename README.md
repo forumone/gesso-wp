@@ -10,13 +10,13 @@ discrete, reusable UI elements.
 ### Timber
 [Timber](https://upstatement.com/timber/) helps you create fully-customized WordPress themes faster with more sustainable code. With Timber, you write your HTML using the [Twig Template Engine](http://twig.sensiolabs.org/doc/templates.html) separate from your PHP files. This cleans-up your theme code so your PHP file can focus on supplying the data and logic, while your twig file can focus 100% on the display and HTML.
 
-# Getting Started
-
 ## Prerequistes 
 
 - [`composer`](https://getcomposer.org)
 - [`npm`](https://www.npmjs.com/get-npm)
 - [`grunt`](https://gruntjs.com/getting-started)
+
+# Getting Started
 
 ### Timber Installation
 In order to use this theme you must download and activate the [Timber Library](http://wordpress.org/plugins/timber-library/) plugin from Wordpress.org.
@@ -60,13 +60,13 @@ To run the Grunt build task, run
 grunt
 ```
 
-
 ### Build Artifacts
+
+If PatternLab was installed, a local development server for components dev and testing will open at `http://localhost:3333` on your browser with LiveReload, which monitor changes in the file system. As soon as you save a file the browser is refreshed automatically.
 
 By default, the compiled Pattern Lab and Sass files (e.g., /pattern-lab/public/
 and /css/) are ignored by Git as these files are built during deployment.
 To change this, edit the included .gitignore file.
-
 
 ### Sass/Grunt dependencies
 
