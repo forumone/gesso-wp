@@ -12,6 +12,12 @@ discrete, reusable UI elements.
 
 # Getting Started
 
+## Prerequistes 
+
+- [`composer`](https://getcomposer.org)
+- [`npm`](https://www.npmjs.com/get-npm)
+- [`grunt`](https://gruntjs.com/getting-started)
+
 ### Timber Installation
 In order to use this theme you must download and activate the [Timber Library](http://wordpress.org/plugins/timber-library/) plugin from Wordpress.org.
 
