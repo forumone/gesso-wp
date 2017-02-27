@@ -1,4 +1,4 @@
-# Gesso for Wordpress (w/ Timber)
+# Gesso for WordPress (w/ Timber)
 
 ### Gesso
 Gesso is a [Sass](http://sass-lang.com/)-based starter theme that outputs
@@ -85,6 +85,6 @@ based imports to Sass.
 
 ## Maintainers
 
-The Gesso theme is maintained by Dan Mouyard, Corey Lafferty, Lindsey DiNapoli, Derek Moon, Karen Kitchens and Elvis Morales.
+The Gesso theme for WordPress is maintained by [Dan Mouyard](https://github.com/dcmouyard), [Corey Lafferty](https://github.com/coreylafferty), [Lindsey DiNapoli](https://github.com/cssgirl), [Derek Moon](https://github.com/dmoon79), [Karen Kitchens](https://github.com/karenkitchens) and [Elvis Morales](https://github.com/elvismdev).
 
 Please use the Github issue queue: https://github.com/forumone/gesso-wp/issues
