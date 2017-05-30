@@ -10,9 +10,17 @@
 $context = Timber::get_context();
 $post = Timber::query_post();
 $context['post'] = $post;
+// Define generic templates.
+$templates = array( 
+	'single-' . $post->post_type . '-' . $post->slug . '.twig', 
+	'single-' . $post->ID . '.twig', 
+	'single-' . $post->post_type . '.twig',
+	'single.twig'
+	);
 $context['comment_form'] = TimberHelper::get_comment_form();
+// Render twig template.
 if ( post_password_required( $post->ID ) ) {
 	Timber::render( 'single-password.twig', $context );
 } else {
-	Timber::render( array( 'single-' . $post->post_type . '-' . $post->slug . '.twig', 'single-' . $post->ID . '.twig', 'single-' . $post->post_type . '.twig', 'single.twig' ), $context );
+	Timber::render( $templates, $context );
 }
