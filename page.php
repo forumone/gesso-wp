@@ -23,4 +23,13 @@
 $context = Timber::get_context();
 $post = new TimberPost();
 $context['post'] = $post;
-Timber::render( array( 'page-' . $post->post_name . '.twig', 'page-' . $post->ID . '.twig', 'page.twig' ), $context );
+// Define generic templates.
+$templates = array( 
+	'page-' . $post->post_name . '.twig', 
+	'page-' . $post->ID . '.twig', 
+	'page.twig' 
+	);
+// Set the Homepage template.
+if ( is_front_page() ) array_unshift( $templates, 'front-page.twig' );
+// Render twig template.
+Timber::render( $templates, $context );
