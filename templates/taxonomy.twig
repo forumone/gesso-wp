@@ -1,0 +1,10 @@
+{% extends "base.twig" %}
+
+{% block content %}
+<!-- Provided by templates/taxonomy.twig -->
+<section>
+	<h1 class="page-title">{{ __('Taxonomy Archives: ', 'gesso') }} {{ title }}</h1>
+	{% include 'templates/components/loop.twig' %}
+	{% include 'templates/components/pagination.twig' %}
+</section>
+{% endblock %}
