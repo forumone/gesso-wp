@@ -16,7 +16,6 @@
     {% endif %}
   </div>
   <div class="post__comments">
-    {% include 'templates/components/comments.twig' %}
+    {{ function('comments_template') }}
   </div>
 </article>
-{{ comment_form }}

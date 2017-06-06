@@ -1,9 +1,0 @@
-<div class="comments">
-  <h4>Comments:</h4>
-  {% for comment in post.comments %}
-    <div class="comments__item comments__item-order-{{loop.index}}" id="comment-{{comment.ID}}">
-      <div class="comments__author">{{comment.author.name}}</div>
-      <div class="comments__content">{{comment.content}}</div>
-    </div>
-  {% endfor %}
-</div>

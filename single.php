@@ -16,9 +16,7 @@ $templates = array(
 	'single-' . $post->ID . '.twig', 
 	'single-' . $post->post_type . '.twig',
 	'single.twig'
-	);
-$context['comment_form'] = TimberHelper::get_comment_form();
-// Render twig template.
+);
 if ( post_password_required( $post->ID ) ) {
 	Timber::render( 'single-password.twig', $context );
 } else {
