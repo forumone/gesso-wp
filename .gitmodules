@@ -1,0 +1,3 @@
+[submodule "gesso-wp.wiki"]
+	path = gesso-wp.wiki
+	url = https://github.com/forumone/gesso-wp.wiki.git
