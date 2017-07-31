@@ -5,5 +5,5 @@ site_description: Gesso is a Sass-based starter theme that outputs accessible HT
 docs_dir: gesso-wp.wiki
 theme: readthedocs
 pages:
-  - 'Home': 'index.md'
-  - 'Helper Functions': 'helper-functions.md'
+  - 'Home': 'Home.md'
+  - 'Helper Functions': 'Helper-Functions.md'
