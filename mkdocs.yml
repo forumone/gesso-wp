@@ -5,3 +5,4 @@ site_description: Gesso is a Sass-based starter theme that outputs accessible HT
 theme: readthedocs
 pages:
   - About: index.md
+  - Getting Started: getting-started.md
