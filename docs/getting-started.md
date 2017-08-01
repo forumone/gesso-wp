@@ -1,9 +1,9 @@
-### Timber Installation
+## Timber Installation
 In order to use this theme you must download and activate the [Timber Library](http://wordpress.org/plugins/timber-library/) plugin from Wordpress.org.
 
 Additional information about installing and configuring the Timber Library can be found in the [Timber Documentation](http://timber.github.io/timber/#installation)
 
-### Pattern Lab installation
+## Pattern Lab installation
 
 The included Grunt tasks look for an instance of the Drupal standard edition of
 Pattern Lab and [the Gesso Twig starter kit](https://github.com/forumone/starterkit-twig-drupal-gesso)
@@ -22,7 +22,7 @@ When prompted, select /forumone/starterkit-twig-drupal-gesso as the starterkit.
 If prompted, select 'r' to overwrite existing /source/ files.
 
 
-### Compiling Sass
+## Compiling Sass
 
 [LibSass](http://sass-lang.com/libsass) is required to compile the Sass into
 CSS. Gesso includes Grunt tasks to compile the CSS/Pattern Lab files and to
@@ -41,14 +41,14 @@ grunt
 ```
 
 
-### Build Artifacts
+## Build Artifacts
 
 By default, the compiled Pattern Lab and Sass files (e.g., /pattern-lab/public/
 and /css/) are ignored by Git as these files are built during deployment.
 To change this, edit the included .gitignore file.
 
 
-### Sass/Grunt dependencies
+## Sass/Grunt dependencies
 
 * [Breakpoint](http://breakpoint-sass.com): Easy to write media queries.
 
