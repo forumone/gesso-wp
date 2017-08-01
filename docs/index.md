@@ -20,10 +20,14 @@ Gesso (pronounced JEH-so) is an art term for the white paint mixture used to pre
 
 - [Timber documentation](https://timber.github.io/docs/)
 
-#About Twig
+# About Twig
 [Twig](https://twig.symfony.com) is a modern template engine for PHP. It allows you to write your HTML separate from your PHP files. This cleans-up your theme code so your PHP file can focus on supplying the data and logic, while your twig file can focus 100% on the display and HTML.
 
 - [Twig documentation](https://twig.symfony.com/doc/2.x/)
+
+## Accessibility
+
+We pledge to make this theme as [accessible as it can be](https://codex.wordpress.org/Accessibility). If you find any flaws, please [submit an issue](https://github.com/forumone/gesso-wp/issues). Help us fix them if you can.
 
 ## Github
 Project source code is [hosted on GitHub](https://github.com/forumone/gesso-wp).
