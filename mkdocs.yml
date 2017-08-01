@@ -1,6 +1,7 @@
 site_name: Gesso WordPress Theme
 repo_url: https://github.com/forumone/gesso-wp
 repo_name: forumone/gesso-wp
+edit_uri: edit/master/docs
 site_author: Forum One
 site_description: A WordPress starter theme.
 theme: material
