@@ -31,3 +31,7 @@ extra:
       link: https://twitter.com/forumone
     - type: linkedin
       link: https://linkedin.com/company-beta/24315
+
+markdown_extensions:
+  - toc:
+      permalink: true
