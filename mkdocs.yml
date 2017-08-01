@@ -20,8 +20,8 @@ extra:
   feature:
     tabs: false
   palette:
-    primary: indigo
-    accent: indigo
+    primary: red
+    accent: red
   social:
     - type: globe
       link: https://forumone.com
