@@ -12,3 +12,8 @@ Gesso (pronounced JEH-so) is an art term for the white paint mixture used to pre
 # About gesso-wp
 
 **gesso-wp** is the [WordPress](https://github.com/forumone/gesso-wp) port of it's [Drupal](https://www.drupal.org/project/gesso) version where the theme was first created.
+
+
+# About Timber
+
+[Timber](https://upstatement.com/timber/) helps you create fully-customized WordPress themes faster with more sustainable code. With Timber, you write your HTML using the [Twig Template Engine](http://twig.sensiolabs.org/doc/templates.html) separate from your PHP files. This cleans-up your theme code so your PHP file can focus on supplying the data and logic, while your twig file can focus 100% on the display and HTML.
