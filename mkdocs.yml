@@ -6,3 +6,4 @@ theme: readthedocs
 pages:
   - About: index.md
   - Getting Started: getting-started.md
+  - Helper Functions: helper-functions.md
