@@ -1,9 +1,29 @@
 site_name: Gesso WordPress Theme
 repo_url: https://github.com/forumone/gesso-wp/
+repo_name: forumone/gesso-wp
 site_author: Forum One
-site_description: Gesso is a Sass-based starter theme that outputs accessible HTML5 markup. It uses a mobile-first responsive approach and leverages SMACSS for style organization. This encourages a component-based approach to theming through the creation of discrete, reusable UI elements.
-theme: readthedocs
+site_description: A WordPress starter theme.
+theme: material
 pages:
   - About: index.md
   - Getting Started: getting-started.md
   - Helper Functions: helper-functions.md
+
+
+
+# Options
+extra:
+  feature:
+    tabs: false
+  palette:
+    primary: indigo
+    accent: indigo
+  social:
+    - type: globe
+      link: https://forumone.com
+    - type: github-alt
+      link: https://github.com/forumone
+    - type: twitter
+      link: https://twitter.com/forumone
+    - type: linkedin
+      link: https://linkedin.com/company-beta/24315
