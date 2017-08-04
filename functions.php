@@ -1,5 +1,15 @@
 <?php
 
+/*------------------------------------------------------------------*
+ * Helper Functions
+/*------------------------------------------------------------------*/
+
+require_once( get_template_directory() . '/inc/helpers.php' );
+
+/*------------------------------------------------------------------*
+ * Core Theme Features
+/*------------------------------------------------------------------*/
+
 // Setting main content width - update to match the width of your site's main content area.
 if ( ! isset( $content_width ) ) {
   $content_width = 840;
@@ -42,8 +52,8 @@ function gesso_nav( $location ) {
       'items_wrap'    => '<nav class="%1$s nav--' . $location . '" role="navigation"><ul class="nav">%3$s</ul></nav>',
       'depth'       => 0,
       'walker'      => new gesso_walker_nav_menu(),
-    )
-  );
+      )
+    );
 }
 
 
@@ -74,7 +84,7 @@ class gesso_walker_nav_menu extends Walker_Nav_Menu {
       'sub-menu',
       ( $display_depth >=2 ? 'sub-sub-menu' : '' ),
       'menu-depth-' . $display_depth
-    );
+      );
     $class_names = implode( ' ', $classes );
 
     // build html
@@ -90,7 +100,7 @@ class gesso_walker_nav_menu extends Walker_Nav_Menu {
     $depth_classes = array(
       ( $depth == 0 ? 'main-menu__item' : 'sub-menu__item' ),
       ( $depth >=2 ? 'sub-sub-menu__item' : '' )
-    );
+      );
     $depth_class_names = esc_attr( implode( ' ', $depth_classes ) );
 
     // passed classes
@@ -119,7 +129,7 @@ class gesso_walker_nav_menu extends Walker_Nav_Menu {
       apply_filters( 'the_title', $item->title, $item->ID ),
       $args->link_after,
       $args->after
-    );
+      );
 
     // build html
     $output .= apply_filters( 'walker_nav_menu_start_el', $item_output, $item, $depth, $args );
@@ -170,7 +180,7 @@ function register_gesso_menu() {
   register_nav_menus( array(
     'primary' => __('Primary', 'gesso'),
     'secondary' => __('Secondary', 'gesso'),
-  ));
+    ));
 }
 add_action( 'init', 'register_gesso_menu' );
 
@@ -204,7 +214,7 @@ function gesso_widgets_init() {
     'after_widget' => '</div>',
     'before_title' => '<h3 class="widget__title">',
     'after_title' => '</h3>'
-  ));
+    ));
 
   register_sidebar(array(
     'name' => __('Footer Widgets', 'gesso'),
@@ -214,7 +224,7 @@ function gesso_widgets_init() {
     'after_widget' => '</div>',
     'before_title' => '<h3 class="widget__title">',
     'after_title' => '</h3>'
-  ));
+    ));
 }
 
 function gesso_pagination() {
@@ -225,7 +235,7 @@ function gesso_pagination() {
     'format' => '?paged=%#%',
     'current' => max( 1, get_query_var('paged') ),
     'total' => $wp_query->max_num_pages,
-  ) );
+    ) );
 }
 add_action('init', 'gesso_pagination');
 
@@ -236,7 +246,7 @@ function gesso_link_pages() {
     'after'     => '</ul></nav>',
     'link_before' => '<li class="pager__item>',
     'link_after'  => '</li>',
-  );
+    );
   wp_link_pages( $gesso_links );
 }
 
