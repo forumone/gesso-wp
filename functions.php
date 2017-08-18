@@ -309,3 +309,29 @@ class StarterSite extends TimberSite {
 }
 
 new StarterSite();
+
+
+/**
+ * Override default WordPress gallery markup, outputs in BEM format.
+ * @param string $gallery
+ * @param array $attr
+ * @return string
+ */
+function gesso_bem_gallery( $gallery, $attr ) {
+
+  // [ thumbnail | medium | large | full ]
+  $size   = 'large'; 
+  $output = "<div class=\"gallery\">";
+  $posts  = get_posts( array( 'include' => $attr['ids'], 'post_type' => 'attachment' ) );
+
+  foreach ( $posts as $image_post ) {
+    $src = wp_get_attachment_image_src( $image_post->ID, $size );
+    $output .= "<div class=\"gallery-item\"><a href=" . $src[0] . "><img class=\"gallery-item__image\" src='" . $src[0] . "'></a>";
+    $output .= "<div class=\"gallery-item__caption\">" . $image_post->post_excerpt . "</div></div>";
+  }
+
+  $output .= "</div>";
+
+  return $output;
+}
+add_filter( 'post_gallery', 'gesso_bem_gallery', 10, 2 );
