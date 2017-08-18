@@ -321,16 +321,17 @@ function gesso_bem_gallery( $gallery, $attr ) {
 
   // [ thumbnail | medium | large | full ]
   $size   = 'large'; 
-  $output = "<div class=\"gallery\">";
+  $output = '<div class="gallery">';
   $posts  = get_posts( array( 'include' => $attr['ids'], 'post_type' => 'attachment' ) );
 
   foreach ( $posts as $image_post ) {
-    $src = wp_get_attachment_image_src( $image_post->ID, $size );
-    $output .= "<div class=\"gallery-item\"><a href=" . $src[0] . "><img class=\"gallery-item__image\" src='" . $src[0] . "'></a>";
-    $output .= "<div class=\"gallery-item__caption\">" . $image_post->post_excerpt . "</div></div>";
+    $src      = wp_get_attachment_image_src( $image_post->ID, $size );
+    $alt_text = get_post_meta( $image_post->ID, '_wp_attachment_image_alt', true );
+    $output .= '<div class="gallery-item"><a href="' . $src[0] . '"><img alt="' . $alt_text . '" class="gallery-item__image" src="' . $src[0] . '"></a>';
+    $output .= '<div class="gallery-item__caption">' . $image_post->post_excerpt . '</div></div>';
   }
 
-  $output .= "</div>";
+  $output .= '</div>';
 
   return $output;
 }
