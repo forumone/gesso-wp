@@ -320,7 +320,7 @@ new StarterSite();
 function gesso_bem_gallery( $gallery, $attr ) {
 
   // [ thumbnail | medium | large | full ]
-  $size   = 'large'; 
+  $size   = 'thumbnail'; 
   $output = '<div class="gallery">';
   $posts  = get_posts( array( 'include' => $attr['ids'], 'post_type' => 'attachment' ) );
 
