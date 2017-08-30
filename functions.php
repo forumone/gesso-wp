@@ -152,7 +152,6 @@ add_filter( 'wp_nav_menu', 'add_first_and_last' );
 
 
 function gesso_header_scripts() {
-  global $wp_styles;
 
   wp_deregister_script('jquery');
   wp_register_script('jquery', 'http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js', array() ); // Google CDN jQuery
