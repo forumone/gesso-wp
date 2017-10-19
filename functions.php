@@ -33,27 +33,32 @@ if ( function_exists('add_theme_support') ) {
   //add_image_size( 'custom-size', 700, 200, true ); // Custom Thumbnail Size call using the_post_thumbnail('custom-size');
 }
 
-
-function gesso_nav( $location ) {
-  wp_nav_menu(
-    array(
-      'theme_location'  => $location,
-      'menu'      => '',
-      'container'     => '',
-      'container_class' => '',
-      'menu_class'    => '',
-      'menu_id'     => '',
-      'echo'      => true,
-      'fallback_cb'   => false,
-      'before'      => '',
-      'after'       => '',
-      'link_before'   => '',
-      'link_after'    => '',
-      'items_wrap'    => '<nav class="%1$s nav--' . $location . '" role="navigation"><ul class="nav">%3$s</ul></nav>',
-      'depth'       => 0,
-      'walker'      => new gesso_walker_nav_menu(),
-      )
-    );
+/**
+ * Generate navigation from menu.
+ *
+ * @param string $location machine name of the menu.
+ * @param array  $args optional arguments.
+ */
+function gesso_nav( $location, array $args = array() ) {
+  $default_args = array(
+    'theme_location'  => $location,
+    'menu'      => '',
+    'container'     => '',
+    'container_class' => '',
+    'menu_class'    => '',
+    'menu_id'     => '',
+    'echo'      => true,
+    'fallback_cb'   => false,
+    'before'      => '',
+    'after'       => '',
+    'link_before'   => '',
+    'link_after'    => '',
+    'items_wrap'    => '<nav class="%1$s nav--' . $location . '" role="navigation"><ul class="nav">%3$s</ul></nav>',
+    'depth'       => 0,
+    'walker'      => new gesso_walker_nav_menu(),
+  );
+  $args += $default_args;
+  wp_nav_menu( $args );
 }
 
 
