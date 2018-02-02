@@ -1,14 +1,21 @@
 # Gesso for WordPress (w/ Timber)
 
-### Gesso
 Gesso is a [Sass](http://sass-lang.com/)-based starter theme that outputs
 accessible HTML5 markup. It uses a mobile-first responsive approach and
-leverages [SMACSS](https://smacss.com/) for style organization. This
+leverages [SMACSS] (https://smacss.com/) for style organization. This
 encourages a component-based approach to theming through the creation of
-discrete, reusable UI elements.
+discrete, reusable UI elements. Gesso is heavily integrated with
+[Pattern Lab] (http://patternlab.io/), allowing WordPress and Pattern Lab
+to share the same markup.
 
-### Global Prerequistes
-The following packages need to be installed on your system, in order to use Gesso WP.
+For more information, view the
+[Gesso WordPress GitHub repo](https://github.com/forumone/gesso-wp).
+To submit bug reports or feature requests, visit the
+[Gesso WordPressissue queue](https://github.com/forumone/gesso-wp/issues).
+
+### Global Prerequisites
+The following packages need to be installed on your system in order to use
+Gesso WordPress.
 
 - [composer](https://getcomposer.org)
 - [npm](https://www.npmjs.com/get-npm)
@@ -34,30 +41,11 @@ Additional information about installing and configuring the Timber Library can
 be found in the
 [Timber Documentation](http://timber.github.io/timber/#installation)
 
-### Pattern Lab installation (optional)
-
-The included Grunt tasks look for an instance of the Drupal standard edition
-of Pattern Lab and [the Gesso Twig starter kit](https://github.com/forumone/starterkit-twig-drupal-gesso)
-in a subdirectory of the theme called 'pattern-lab'.  The Grunt build task will
-skip building Pattern Lab if this directory is not found.
-
-To install Pattern Lab, run the following Composer command in
-the theme directory.
-
-```
-$ composer create-project pattern-lab/edition-drupal-standard pattern-lab
-```
-
-When prompted, select /forumone/starterkit-twig-drupal-gesso as the starterkit.
-
-If prompted, select 'r' to overwrite existing /source/ files.
-
-
 ### Compiling Sass
 
 [LibSass](http://sass-lang.com/libsass) is required to compile the Sass into
 CSS. Gesso includes Grunt tasks to compile the CSS/Pattern Lab files and to
-watch them for changes.  To use these tasks, run the following NPM command in
+watch them for changes. To use these tasks, run the following NPM command in
 the theme folder (Windows users may need to include the `--no-bin-links` flag
 at the end of the command).
 
@@ -98,6 +86,6 @@ browser CSS property prefixes during Sass compilation.
 
 ## Maintainers
 
-The Gesso theme for WordPress is maintained by [Dan Mouyard](https://github.com/dcmouyard), [Corey Lafferty](https://github.com/coreylafferty), [Lindsey DiNapoli](https://github.com/cssgirl), [Karen Kitchens](https://github.com/karenkitchens) and [Elvis Morales](https://github.com/elvismdev).
+The Gesso theme for WordPress is maintained by [Corey Lafferty](https://github.com/coreylafferty), [Lindsey DiNapoli](https://github.com/cssgirl), [Karen Kitchens](https://github.com/karenkitchens) and [Elvis Morales](https://github.com/elvismdev).
 
 Please use the Github issue queue: https://github.com/forumone/gesso-wp/issues

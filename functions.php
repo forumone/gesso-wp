@@ -324,7 +324,7 @@ new StarterSite();
 function gesso_bem_gallery( $gallery, $attr ) {
 
   // [ thumbnail | medium | large | full ]
-  $size   = 'thumbnail'; 
+  $size   = 'thumbnail';
   $output = '<div class="gallery">';
   $posts  = get_posts( array( 'include' => $attr['ids'], 'post_type' => 'attachment' ) );
 
@@ -340,3 +340,12 @@ function gesso_bem_gallery( $gallery, $attr ) {
   return $output;
 }
 add_filter( 'post_gallery', 'gesso_bem_gallery', 10, 2 );
+
+add_filter('timber/loader/loader', function($loader){
+	$loader->addPath(__DIR__ . "/pattern-lab/source/_patterns/01-base", "base");
+	$loader->addPath(__DIR__ . "/pattern-lab/source/_patterns/02-layouts", "layouts");
+	$loader->addPath(__DIR__ . "/pattern-lab/source/_patterns/03-components", "components");
+	$loader->addPath(__DIR__ . "/pattern-lab/source/_patterns/04-templates", "templates");
+	$loader->addPath(__DIR__ . "/pattern-lab/source/_patterns/05-pages", "pages");
+	return $loader;
+});

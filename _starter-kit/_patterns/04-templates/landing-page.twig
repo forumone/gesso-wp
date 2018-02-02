@@ -1,0 +1,12 @@
+{% include 'layouts-header' %}
+{% include 'layouts-navigation' %}
+{% include 'layouts-preface' %}
+
+<main id="main" class="main" role="main" tabindex="-1">
+  {% include 'layouts-content' with {
+      content: content
+  } %}
+</main>
+
+{% include 'layouts-postscript' %}
+{% include 'layouts-footer' %}

@@ -1,0 +1,55 @@
+{% if not hide_section_classes %}
+  {% if not classes %}
+    {% set classes = [] %}
+  {% endif %}
+  {% set classes =
+    classes|merge(['l-section'])|join(' ')|trim
+  %}
+  {% if not title_classes %}
+    {% set title_classes = [] %}
+  {% endif %}
+  {% set title_classes =
+    title_classes|merge(['l-section__title'])|join(' ')|trim
+  %}
+
+  {% if not content_classes %}
+    {% set content_classes = [] %}
+  {% endif %}
+  {% set content_classes =
+    content_classes|merge(['l-section__content'])|join(' ')|trim
+  %}
+{% endif %}
+
+{% if has_wrapper %}
+  <{{ element ?: "section" }}{{- attributes.addClass(classes)|raw -}}>
+{% endif %}
+
+  {% if has_constrain %}
+    <div class="{{ constrain_classes ?: "l-constrain" }}">
+  {% endif %}
+
+  {% if has_label %}
+    {{ title_prefix }}
+    <{{ label_element ?: "h2" }}{{- title_attributes.addClass(title_classes)|raw -}}>{{ label }}</{{ label_element ?: "h2" }}>
+    {{ title_suffix }}
+  {% endif %}
+
+  {% if has_content_wrapper %}
+    <{{ content_element ?: "div" }}{{- content_attributes.addClass(content_classes)|raw -}}>
+  {% endif %}
+
+  {% block content %}
+    {{ content|raw }}
+  {% endblock %}
+
+  {% if has_content_wrapper %}
+    </{{ content_element ?: "div" }}>
+  {% endif %}
+
+  {% if has_constrain %}
+    </div>
+  {% endif %}
+
+{% if has_wrapper %}
+  </{{ element ?: 'section' }}>
+{% endif %}

@@ -16,40 +16,32 @@
     </div>
   {% endblock %}
 
-  <header class="header" role="banner">
-    {% block header %}
-      <div class="l-constrain">
-        {{ function('gesso_nav', 'secondary') }}
-        <a href="{{ site.url }}" class="sitename">
-          <h1>{{ site.title }}</h1>
-        </a>
-        {{ function('gesso_nav', 'primary') }}
-        {% include 'templates/components/searchform.twig' %}
-      </div>
-    {% endblock %}
-  </header>
+  {% embed '@layouts/regions/header/header.twig' %}
+    {% block content %}
+      {% include '@components/site-name/site-name.twig' with {
+        url: site.url,
+        site_name: site.title
+      }
+      %}
+
+      {% include 'components/menu.twig' with {
+        items: primary_menu.items,
+        menu_name: 'menu--main'
+      }
+      %}
+    {% endblock  %}
+  {% endembed %}
 
   <main id="main" class="main" role="main" tabindex="-1">
-    <div class="l-constrain">
-      <div class="l-sidebars">
-        <div class="l-sidebars__main">
-          {% block content %}
-          {% endblock %}
-        </div>
-        <div class="l-sidebars__sidebar">
-          {% block sidebar %}
-            {{ function('get_sidebar') }}
-          {% endblock %}
-        </div>
-      </div>
-    </div>
+    {% block content %}
+    {% endblock %}
   </main>
 
   {% block footer %}
     {% include 'footer.twig' %}
     {{ function('wp_footer') }}
   {% endblock %}
-  
+
   {% block javascripts %}
   {% endblock %}
 
