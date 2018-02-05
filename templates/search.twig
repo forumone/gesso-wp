@@ -2,13 +2,17 @@
 
 {% block content %}
   <!-- Provided by templates/search.twig -->
-  <section>
-    <h1 class="page-title">{{ __('Search results for term: ', 'gesso') }} {{ request.get.s }}</h1>
-    {% for post in posts %}
-      <article class="post post--type-{{ post.type}} post--display-mode-teaser" id="post-{{ post.ID }}">
-        <h2 class="post__title"><a href="{{ post.link }}">{{ post.title }}</a></h2>
-      </article>
-    {% endfor %}
-  </section>
-  {% include '@components/pager/pager.twig' %}
+  {% embed '@layouts/regions/content/content.twig' %}
+    {% block content %}
+      <section>
+        <h1 class="page-title">{{ __('Search results for term: ', 'gesso') }} {{ request.get.s }}</h1>
+        {% for post in posts %}
+          <article class="post post--type-{{ post.type}} post--display-mode-teaser" id="post-{{ post.ID }}">
+            <h2 class="post__title"><a href="{{ post.link }}">{{ post.title }}</a></h2>
+          </article>
+        {% endfor %}
+      </section>
+      {% include '@components/pager/pager.twig' %}
+    {% endblock %}
+  {% endembed %}
 {% endblock %}

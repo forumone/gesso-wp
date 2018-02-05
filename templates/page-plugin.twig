@@ -2,5 +2,9 @@
 
 {% block content %}
   <!-- Provided by templates/page-plugin.twig -->
-  {{content}}
+  {% embed '@layouts/regions/content/content.twig' %}
+    {% block content %}
+      {{ content }}
+    {% endblock %}
+  {% endembed %}
 {% endblock %}
