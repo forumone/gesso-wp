@@ -1,2 +1,6 @@
-{% import 'menu.twig' as menu %}
-{{ menu.menu_links(items, attributes, 0, menu_name) }}
+{% include 'components-menu'
+  with {
+    menu_name: menu_name,
+    items: items
+  }
+%}

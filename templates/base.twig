@@ -18,16 +18,18 @@
 
   {% embed '@layouts/regions/header/header.twig' %}
     {% block content %}
-      {% include '@components/site-name/site-name.twig' with {
-        url: site.url,
-        site_name: site.title
-      }
+      {% include '@components/site-name/site-name.twig'
+        with {
+          url: site.url,
+          site_name: site.title
+        }
       %}
 
-      {% include 'components/menu.twig' with {
-        items: primary_menu.items,
-        menu_name: 'menu--main'
-      }
+      {% include '@components/menu/menu.twig'
+        with {
+          items: primary_menu.items,
+          menu_name: 'main'
+        }
       %}
     {% endblock  %}
   {% endembed %}

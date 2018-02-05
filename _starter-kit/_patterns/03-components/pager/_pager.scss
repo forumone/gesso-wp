@@ -1,7 +1,6 @@
 // @file
 // Styles for Pager.
 
-$bp-ellipsis: 800px;
 $bp-pager: 600px;
 $pager-bg-color: #f1f1f1;
 $pager-bg-color-active: #d6d7d9;
@@ -9,7 +8,7 @@ $pager-bg-color-active: #d6d7d9;
 .pager {}
 
 .pager__items {
-  @include list-inline();
+  @include list-clean();
   clear: both;
   margin: em($vertical-spacing * 2) 0;
   padding: 0;
@@ -17,6 +16,7 @@ $pager-bg-color-active: #d6d7d9;
 }
 
 .pager__item {
+  display: inline-block;
   font-weight: bold;
   line-height: 1;
   margin: 0;
@@ -38,15 +38,6 @@ $pager-bg-color-active: #d6d7d9;
   color: #212121;
   min-width: rem(44px);
   padding: em(13px);
-}
-
-.pager__item--ellipsis {
-  @extend %pager__link;
-  display: none;
-
-  @include breakpoint($bp-ellipsis) {
-    display: inline-block;
-  }
 }
 
 .pager__item--current {

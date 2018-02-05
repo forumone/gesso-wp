@@ -1,22 +1,28 @@
 ---
-items:
+pagination:
   pages:
     1:
+      title: 1
       url: "#"
+      link: true
     2:
+      title: 2
       url: "#"
+      link: true
     3:
+      title: 3
       url: "#"
+      link: true
     4:
+      title: 4
       url: "#"
+      link: true
     5:
+      title: 5
       url: "#"
     6:
+      title: 6
       url: "#"
-  first: false
-  previous: true
+      link: true
+  prev: true
   next: true
-  last: false
-  ellipses:
-    previous: true
-    next: true
