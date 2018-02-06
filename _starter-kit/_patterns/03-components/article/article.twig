@@ -2,10 +2,10 @@
   {% set classes = [] %}
 {% endif %}
 {% set classes =
-  classes|merge(['article','article--full'])|join(' ')|trim
+  classes|merge(['article'])|join(' ')|trim
 %}
 
-<article{{- attributes.addClass(classes)|raw -}}>
+<article class="{{ classes }}" {% if wp_id %} id="{{ wp_id }}"{% endif %}role="article">
   {% block title %}
     {{ title|raw }}
   {% endblock %}
@@ -20,5 +20,8 @@
 
   {% block main %}
     {{ content|raw }}
+  {% endblock %}
+  {% block comments %}
+    {# used by WordPress #}
   {% endblock %}
 </article>

@@ -1,21 +1,11 @@
-<article class="post post--type-{{ post.type}} post--display-mode-full" id="post-{{ post.ID }}">
-  <h2 class="post__title">{{ post.title }}</h2>
-  <div class="post__meta">
-    <div class="author">{{ __('Authored by', 'gesso') }}
-      <a href="{{ post.author.link }}">{{ post.author.display_name }}</a>
-    </div>
-  </div>
-  <div class="post__content">
-    {% if '' != function( 'get_the_post_thumbnail' ) %}
-    	<div class="image">
-    		<a href="{{ post.link }}">
-    			{{ function( 'the_post_thumbnail', 'large' ) }}
-    		</a>
-    	</div>
-    {% endif %}
-    {{ post.content }}
-  </div>
-  <div class="post__comments">
-    {{ function('comments_template') }}
-  </div>
-</article>
+{% extends 'content.twig' %}
+
+{% block main %}
+  <!-- Provided by templates/post-formats/content-image.twig -->
+  {% if '' != function( 'get_the_post_thumbnail' ) %}
+    <a href="{{ post.link }}">
+      {{ function( 'the_post_thumbnail', 'large' ) }}
+    </a>
+  {% endif %}
+  {{ post.content }}
+{% endblock %}

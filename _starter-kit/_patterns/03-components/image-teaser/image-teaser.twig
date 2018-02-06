@@ -1,12 +1,19 @@
-<article class="image-teaser" role="article">
+<article class="image-teaser"{% if wp_id %} id="{{ wp_id }}"{% endif %} role="article">
   <div class="l-media">
-    <div class="l-media__object">
-      <a href="{{ url }}">{{ image|raw }}</a>
-    </div>
+    {% if image %}
+      <div class="l-media__object">
+        <a href="{{ url }}">{{ image|raw }}</a>
+      </div>
+    {% endif %}
     <div class="l-media__content">
       <h2><a href="{{ url }}">{{ title }}</a></h2>
       {{ date|raw }}
-      {{ summary | raw }}
+      {{ author|raw }}
+      {{ summary|raw }}
+      {{ comments|raw }}
+      {% block functions %}
+        {# used by WordPress #}
+      {% endblock %}
     </div>
   </div>
 </article>

@@ -1,32 +1,36 @@
 {% for post in posts %}
 
-    <article class="post post--type-{{ post.type}} post--display-mode-teaser" id="post-{{ post.ID }}">
-      <div class="l-slat">
-        {% if post.thumbnail %}
-          <div class="l-slat__media">
-            <div class="thumbnail">
-              <img src="{{ post.thumbnail.src('small') }}" alt="{{ post.thumbnail.alt }}">
-            </div>
-          </div>
-        {% endif %}
-        <div class="l-slat__content">
-          <h2 class="post__title"><a href="{{ post.link }}">{{ post.title }}</a></h2>
-          <div class="post__meta">
-            <div class="date">{{ post.date }}</div>
-            <div class="author">{{ __('Published by', 'gesso') }} <a href="{{ post.author.link }}">{{ post.author }}</a></div>
-            <div class="comment-summary">
-              {% if post.comments %}
-                <span>Comments: {{ post.comments|length }}</span>
-              {% endif %}
-              <a href="{{ post.link }}#respond">Leave a comment</a>
-            </div>
-          </div>
-        </div>
-      </div>
+  {% embed "@components/image-teaser/image-teaser.twig"
+    with {
+      wp_id: post.id,
+      url: post.link,
+      title: post.title,
+      date: include('@components/date/date.twig', {
+        content: post.date
+      }),
+      author: include('@components/author/author.twig', {
+        url: post.author.link,
+        author: post.author
+      }),
+      image: post.thumbnail ? include('@base/images/thumbnail-image.twig', {
+        img: {
+          thumbnail: {
+            src: post.thumbnail.src('small'),
+            alt: post.thumnbail.alt
+          }
+        }
+      }),
+      comments: include('@components/comment-summary/comment-summary.twig', {
+        comments: post.comments ? post.comments|length,
+        url: post.link
+      })
+    }
+  %}
+    {% block functions %}
       {{ function('gesso_link_pages') }}
-      <p>{{ function('edit_post_link', 'Edit', '<span class="edit-link">', '</span>', post.id) }}</p>
-    </article>
-
+      <div>{{ function('edit_post_link', 'Edit', '<span class="edit-link">', '</span>', post.id) }}</div>
+    {% endblock %}
+  {% endembed %}
 {% else %}
 
   <h2>Sorry, nothing to display.</h2>

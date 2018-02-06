@@ -4,18 +4,22 @@
   <!-- Provided by templates/category.twig -->
   {% embed '@layouts/regions/content/content.twig' %}
     {% block content %}
-      <section>
-        <h1 class="page-title">{{ __('Category Archive: ', 'gesso') }}{{ archive_title }}</h1>
-        <h4>{{ archive_description }}</h4>
-        {% for post in posts %}
-          <article class="post post--type-{{ post.type}} post--display-mode-teaser" id="post-{{ post.ID }}">
-            <h2 class="post__title"><a href="{{ post.link }}">{{ post.title }}</a></h2>
-            <div class="post__content">
-              {{ post.excerpt }}
-            </div>
-          </article>
-        {% endfor %}
-      </section>
+      {% include "@components/page-title/page-title.twig" with
+			  {
+				  page_title: __('Category Archive: ', 'gesso') ~ archive_title
+				}
+			%}
+      <h4>{{ archive_description }}</h4>
+      {% for post in posts %}
+        {% include "@components/teaser/teaser.twig" with
+          {
+            wp_id: post.id,
+            url: post.link,
+            title: post.title,
+            summary: post.excerpt
+          }
+        %}
+      {% endfor %}
       {% include '@components/pager/pager.twig' %}
     {% endblock %}
   {% endembed %}

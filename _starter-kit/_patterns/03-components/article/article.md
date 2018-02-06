@@ -12,3 +12,4 @@ _Component for Article_
 * has_footer: [boolean] True/False whether article has footer.
 * footer: [object] content for _footer_ twig block.
 * content: [object] content for _main_ twig block.
+* wp_id: [string] ID of component (used by WordPress)

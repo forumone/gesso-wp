@@ -4,14 +4,20 @@
   <!-- Provided by templates/tag.twig -->
   {% embed '@layouts/regions/content/content.twig' %}
     {% block content %}
-      <h2>{{ __('Tag Archive: ' , 'gesso') }} {{ wp_title }}</h2>
-      <section>
-        {% for post in posts %}
-          <article class="post post--type-{{ post.type}} post--display-mode-teaser" id="post-{{ post.ID }}">
-            <h2 class="post__title"><a href="{{ post.link }}">{{ post.title }}</a></h2>
-          </article>
-        {% endfor %}
-      </section>
+      {% include "@components/page-title/page-title.twig" with
+        {
+          page_title: __('Tag Archive: ', 'gesso') ~ wp_title
+        }
+      %}
+      {% for post in posts %}
+        {% include "@components/teaser/teaser.twig" with
+          {
+            wp_id: post.id,
+            url: post.link,
+            title: post.title
+          }
+        %}
+      {% endfor %}
       {% include '@components/pager/pager.twig' %}
     {% endblock %}
   {% endembed %}

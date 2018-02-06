@@ -1,11 +1,12 @@
 <!-- Provided by templates/footer.twig -->
 {% embed '@layouts/regions/footer/footer.twig' %}
-
 	{% block content %}
 		{{ function('get_sidebar', 'footer') }}
-		<p class="copyright">
-			&copy; {{ current_year }} Copyright {{ site.name }}.
-		</p>
+		{% include '@components/copyright/copyright.twig' with
+		  {
+				year: current_year,
+				name: site.name
+			}
+		%}
 	{% endblock %}
-
-	{% endembed %}
+{% endembed %}
