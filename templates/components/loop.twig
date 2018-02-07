@@ -13,8 +13,12 @@
         author: post.author
       }),
       image: post.thumbnail ? include('@base/images/thumbnail-image.twig', {
-        src: post.thumbnail.src('small'),
-        alt: post.thumnbail.alt
+        img: {
+          thumbnail: {
+            src: post.thumbnail.src('small'),
+            alt: post.thumnbail.alt
+          }
+        }
       }),
       comments: include('@components/comment-summary/comment-summary.twig', {
         comments: post.comments ? post.comments|length,

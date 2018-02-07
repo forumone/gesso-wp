@@ -11,8 +11,12 @@
     {% include "@layouts/media/media.twig"
       with {
         media: author.avatar ? include('@base/images/thumbnail-image.twig', {
-          src: author.avatar.abs_url,
-          alt: "author image"
+          img: {
+            thumbnail: {
+              src: author.avatar.abs_url,
+              alt: "author image"
+            }
+          }
         }),
         content: author.description
       }
@@ -27,8 +31,12 @@
             content: post.date
           }),
           image: post.thumbnail ? include('@base/images/thumbnail-image.twig', {
-            src: post.thumbnail.src('small'),
-            alt: post.thumnbail.alt
+            img: {
+              thumbnail: {
+                src: post.thumbnail.src('small'),
+                alt: post.thumnbail.alt
+              }
+            }
           }),
           comments: include('@components/comment-summary/comment-summary.twig', {
             comments: post.comments ? post.comments|length,

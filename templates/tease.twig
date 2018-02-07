@@ -6,8 +6,12 @@
       url: post.link,
       title: post.title,
       image: post.thumbnail ? include('@base/images/thumbnail-image.twig', {
-        src: post.thumbnail.src('small'),
-        alt: post.thumnbail.alt
+        img: {
+          thumbnail: {
+            src: post.thumbnail.src('small'),
+            alt: post.thumnbail.alt
+          }
+        }
       }),
       summary: post.preview
     }

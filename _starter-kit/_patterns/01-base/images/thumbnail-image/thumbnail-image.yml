@@ -1,6 +1,0 @@
----
-custom_classes: false
-src: img.thumbnail.src
-alt: img.thumbnail.alt
-height: img.thumbnail.height
-width: img.thumbnail.width
