@@ -4,8 +4,10 @@
 		{{ function('get_sidebar', 'footer') }}
 		{% include '@components/copyright/copyright.twig' with
 		  {
-				year: current_year,
-				name: site.name
+				year: {
+					long: current_year
+				},
+				site_name: site.name
 			}
 		%}
 	{% endblock %}

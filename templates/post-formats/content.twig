@@ -1,9 +1,5 @@
 <!-- Provided by templates/post-formats/content.twig -->
-{% embed "@components/article/article.twig" with
-  {
-    wp_id: post.id
-  }
-%}
+{% embed "@components/article/article.twig" %}
   {% block title %}
     {% include "@components/page-title/page-title.twig" with
       {
