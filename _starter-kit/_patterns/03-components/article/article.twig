@@ -1,11 +1,11 @@
-{% if not classes %}
-  {% set classes = [] %}
-{% endif %}
-{% set classes =
-  classes|merge(['article'])|join(' ')|trim
+{%
+  set classes = [
+    'article',
+    custom_classes ? custom_classes,
+  ]|join(' ')|trim
 %}
 
-<article class="{{ classes }}" {% if wp_id %} id="{{ wp_id }}"{% endif %}role="article">
+<article class="{{ classes }}" role="article">
   {% block title %}
     {{ title|raw }}
   {% endblock %}
@@ -22,6 +22,5 @@
     {{ content|raw }}
   {% endblock %}
   {% block comments %}
-    {# used by WordPress #}
   {% endblock %}
 </article>

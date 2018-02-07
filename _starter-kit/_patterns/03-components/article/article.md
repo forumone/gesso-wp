@@ -5,11 +5,8 @@ title: Article
 _Component for Article_
 
 ### Variables:
-* classes: [array] Allows for merging PL and Drupal classes.
-* attributes: [array] HTML attributes for the article.
-  * class: [string] any classed added by user or system
+* custom_classes: [string] Classes to modify the default component styling.
 * title: [object] content for _title_ twig block.
 * has_footer: [boolean] True/False whether article has footer.
 * footer: [object] content for _footer_ twig block.
 * content: [object] content for _main_ twig block.
-* wp_id: [string] ID of component (used by WordPress)

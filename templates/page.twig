@@ -5,11 +5,7 @@
   {% embed '@layouts/regions/content/content.twig' %}
     {% block content %}
       <p>{{ __('View author: ', 'gesso') }} <a href="{{ user.link }}">{{ user.name }}</a></p>
-      {% embed "@components/article/article.twig" with
-        {
-          wp_id: post.id
-        }
-      %}
+      {% embed "@components/article/article.twig" %}
         {% block title %}
           {% include "@components/page-title/page-title.twig" with
             {

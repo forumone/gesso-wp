@@ -13,7 +13,6 @@
       {% for post in posts %}
         {% include "@components/teaser/teaser.twig" with
           {
-            wp_id: post.id,
             url: post.link,
             title: post.title,
             summary: post.excerpt

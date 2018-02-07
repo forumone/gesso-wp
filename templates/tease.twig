@@ -2,7 +2,6 @@
   <!-- Provided by templates/tease.twig -->
   {% include "@components/image-teaser/image-teaser.twig" with
     {
-      wp_id: post.id,
       url: post.link,
       title: post.title,
       image: post.thumbnail ? include('@base/images/thumbnail-image.twig', {

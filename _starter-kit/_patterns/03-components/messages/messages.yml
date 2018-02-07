@@ -1,9 +1,5 @@
 ---
-attributes:
-  Attribute():
-    class:
-      - messages
-      - messages--status
+modifer_classes: messages--status
 type: "status"
 heading: "Status message"
 messages:

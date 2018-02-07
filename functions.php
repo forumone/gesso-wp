@@ -33,35 +33,6 @@ if ( function_exists('add_theme_support') ) {
   //add_image_size( 'custom-size', 700, 200, true ); // Custom Thumbnail Size call using the_post_thumbnail('custom-size');
 }
 
-/**
- * Generate navigation from menu.
- *
- * @param string $location machine name of the menu.
- * @param array  $args optional arguments.
- */
-function gesso_nav( $location, array $args = array() ) {
-  $default_args = array(
-    'theme_location'  => $location,
-    'menu'      => '',
-    'container'     => '',
-    'container_class' => '',
-    'menu_class'    => '',
-    'menu_id'     => '',
-    'echo'      => true,
-    'fallback_cb'   => false,
-    'before'      => '',
-    'after'       => '',
-    'link_before'   => '',
-    'link_after'    => '',
-    'items_wrap'    => '<nav class="%1$s nav--' . $location . '" role="navigation"><ul class="nav">%3$s</ul></nav>',
-    'depth'       => 0,
-    'walker'      => new gesso_walker_nav_menu(),
-  );
-  $args += $default_args;
-  wp_nav_menu( $args );
-}
-
-
 function has_visible_widgets( $sidebar_id ) {
   if ( is_active_sidebar( $sidebar_id ) ) {
     ob_start();
@@ -76,85 +47,6 @@ function has_visible_widgets( $sidebar_id ) {
   }
   return true;
 }
-
-
-class gesso_walker_nav_menu extends Walker_Nav_Menu {
-  // add classes to ul sub-menus
-  function start_lvl( &$output, $depth = 0, $args = array() ) {
-    // depth dependent classes
-    $indent = ( $depth > 0  ? str_repeat( "\t", $depth ) : '' ); // code indent
-    $display_depth = ( $depth + 1); // because it counts the first submenu as 0
-    $classes = array(
-      'nav__subnav',
-      'sub-menu',
-      ( $display_depth >=2 ? 'sub-sub-menu' : '' ),
-      'menu-depth-' . $display_depth
-      );
-    $class_names = implode( ' ', $classes );
-
-    // build html
-    $output .= "\n" . $indent . '<ul class="' . $class_names . '">' . "\n";
-  }
-
-  // add main/sub classes to li's and links
-  function start_el( &$output, $item, $depth = 0, $args = array(), $id = 0 ) {
-    global $wp_query;
-    $indent = ( $depth > 0 ? str_repeat( "\t", $depth ) : '' ); // code indent
-
-    // depth dependent classes
-    $depth_classes = array(
-      ( $depth == 0 ? 'main-menu__item' : 'sub-menu__item' ),
-      ( $depth >=2 ? 'sub-sub-menu__item' : '' )
-      );
-    $depth_class_names = esc_attr( implode( ' ', $depth_classes ) );
-
-    // passed classes
-    $classes = empty( $item->classes ) ? array() : (array) $item->classes;
-    $class_names = esc_attr( implode( ' ', apply_filters( 'nav_menu_css_class', array_filter( $classes ), $item ) ) );
-
-    // add active class
-    if ( is_array($class_names) ) { // make sure the menu is an array and not empty or only a single item
-      $class_names .= in_array("current_page_item",$item->classes) ? ' is-active' : '';
-    }
-
-    // build html
-    $output .= $indent . '<li class="nav__item ' . $depth_class_names . $class_names .'">';
-
-    // link attributes
-    $attributes  = ! empty( $item->attr_title ) ? ' title="'  . esc_attr( $item->attr_title ) .'"' : '';
-    $attributes .= ! empty( $item->target )   ? ' target="' . esc_attr( $item->target   ) .'"' : '';
-    $attributes .= ! empty( $item->xfn )    ? ' rel="'  . esc_attr( $item->xfn    ) .'"' : '';
-    $attributes .= ! empty( $item->url )    ? ' href="'   . esc_attr( $item->url    ) .'"' : '';
-    $attributes .= ' class="nav__link ' . ( $depth > 0 ? 'sub-menu__link' : 'main-menu__link' ) . '"';
-
-    $item_output = sprintf( '%1$s<a%2$s>%3$s%4$s%5$s</a>%6$s',
-      $args->before,
-      $attributes,
-      $args->link_before,
-      apply_filters( 'the_title', $item->title, $item->ID ),
-      $args->link_after,
-      $args->after
-      );
-
-    // build html
-    $output .= apply_filters( 'walker_nav_menu_start_el', $item_output, $item, $depth, $args );
-  }
-}
-
-// add first/last classes to menus
-function add_first_and_last($output) {
-  // See if the menus have the applied nav__item class, if not the output will remain default
-  // TODO: try to apply this class system to custom menus in widgets or in undefined locations
-  if (preg_match('/class="nav__item/', $output)) {
-    if (count($output) > 1) {
-      $output = preg_replace('/class="nav__item/', 'class="first nav__item', $output, 1);
-      $output = substr_replace($output, 'class="last nav__item', strripos($output, 'class="nav__item'), strlen('class="menu-item'));
-    }
-  }
-  return $output;
-}
-add_filter( 'wp_nav_menu', 'add_first_and_last' );
-
 
 function gesso_header_scripts() {
 
@@ -184,7 +76,7 @@ function register_gesso_menu() {
   register_nav_menus( array(
     'primary' => __('Primary', 'gesso'),
     'secondary' => __('Secondary', 'gesso'),
-    ));
+  ));
 }
 add_action( 'init', 'register_gesso_menu' );
 
@@ -218,7 +110,7 @@ function gesso_widgets_init() {
     'after_widget' => '</div>',
     'before_title' => '<h3 class="widget__title">',
     'after_title' => '</h3>'
-    ));
+  ));
 
   register_sidebar(array(
     'name' => __('Footer Widgets', 'gesso'),
@@ -228,7 +120,7 @@ function gesso_widgets_init() {
     'after_widget' => '</div>',
     'before_title' => '<h3 class="widget__title">',
     'after_title' => '</h3>'
-    ));
+  ));
 }
 
 function gesso_pagination() {
@@ -239,7 +131,7 @@ function gesso_pagination() {
     'format' => '?paged=%#%',
     'current' => max( 1, get_query_var('paged') ),
     'total' => $wp_query->max_num_pages,
-    ) );
+  ) );
 }
 add_action('init', 'gesso_pagination');
 
@@ -297,6 +189,8 @@ class StarterSite extends TimberSite {
     $context['foo'] = 'bar';
     $context['stuff'] = 'I am a value set in your functions.php file';
     $context['notes'] = 'These values are available everytime you call Timber::get_context();';
+    $context['primary_menu'] = new TimberMenu('primary');
+    $context['secondary_menu'] = new TimberMenu('secondary');
     $context['menu'] = new TimberMenu();
     $context['current_year'] = date('Y');
     $context['site'] = $this;

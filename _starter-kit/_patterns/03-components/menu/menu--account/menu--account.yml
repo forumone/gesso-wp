@@ -1,19 +1,7 @@
 ---
 menu_name: "account"
-attributes:
-  Attribute():
-    class:
-      - menu
 items:
 - title: My Account
-  url: "#"
-  attributes:
-    Attribute():
-      class:
-        -
+  link: "#"
 - title: Logout
-  url: "#"
-  attributes:
-    Attribute():
-      class:
-        -
+  link: "#"

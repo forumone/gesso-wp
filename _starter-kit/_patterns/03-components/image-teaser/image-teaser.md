@@ -11,5 +11,4 @@ _Component for Image Teaser_
 * date: [string] Teaser date of component.
 * author: [string] Teaser author of component.
 * summary: [string] Teaser summary of component.
-* comments: [string] Teaser comments of component
-* wp_id: [string] ID of component (used by WordPress)
+* comments: [string] Teaser comments of component.
