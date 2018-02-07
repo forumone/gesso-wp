@@ -1,27 +1,24 @@
-{% if not hide_section_classes %}
-  {% if not classes %}
-    {% set classes = [] %}
-  {% endif %}
-  {% set classes =
-    classes|merge(['l-section'])|join(' ')|trim
-  %}
-  {% if not title_classes %}
-    {% set title_classes = [] %}
-  {% endif %}
-  {% set title_classes =
-    title_classes|merge(['l-section__title'])|join(' ')|trim
-  %}
-
-  {% if not content_classes %}
-    {% set content_classes = [] %}
-  {% endif %}
-  {% set content_classes =
-    content_classes|merge(['l-section__content'])|join(' ')|trim
-  %}
-{% endif %}
+{%
+  set classes = [
+    hide_section_classes ?: 'l-section',
+    custom_classes ? custom_classes,
+  ]|join(' ')|trim
+%}
+{%
+  set title_classes = [
+    hide_section_classes ?: 'l-section__title',
+    custom_title_classes ? custom_title_classes,
+  ]|join(' ')|trim
+%}
+{%
+  set content_classes = [
+    hide_section_classes ?: 'l-section__content',
+    custom_content_classes ? custom_content_classes,
+  ]|join(' ')|trim
+%}
 
 {% if has_wrapper %}
-  <{{ element ?: "section" }}{{- attributes.addClass(classes)|raw -}}>
+  <{{ element ?: "section" }} class="{{ classes }}">
 {% endif %}
 
   {% if has_constrain %}
@@ -29,13 +26,11 @@
   {% endif %}
 
   {% if has_label %}
-    {{ title_prefix }}
-    <{{ label_element ?: "h2" }}{{- title_attributes.addClass(title_classes)|raw -}}>{{ label }}</{{ label_element ?: "h2" }}>
-    {{ title_suffix }}
+    <{{ label_element ?: "h2" }} classes="{{ title_classes }}">{{ label }}</{{ label_element ?: "h2" }}>
   {% endif %}
 
   {% if has_content_wrapper %}
-    <{{ content_element ?: "div" }}{{- content_attributes.addClass(content_classes)|raw -}}>
+    <{{ content_element ?: "div" }} classes="{{ content_classes }}">
   {% endif %}
 
   {% block content %}
