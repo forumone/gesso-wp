@@ -1,18 +1,18 @@
 {%
   set classes = [
-    hide_section_classes ?: 'l-section',
+    'l-section',
     custom_classes ? custom_classes,
   ]|join(' ')|trim
 %}
 {%
   set title_classes = [
-    hide_section_classes ?: 'l-section__title',
+    'l-section__title',
     custom_title_classes ? custom_title_classes,
   ]|join(' ')|trim
 %}
 {%
   set content_classes = [
-    hide_section_classes ?: 'l-section__content',
+    'l-section__content',
     custom_content_classes ? custom_content_classes,
   ]|join(' ')|trim
 %}
