@@ -5,5 +5,3 @@ content:
         pattern: components-menu--footer
     - include():
         pattern: components-copyright
-
-

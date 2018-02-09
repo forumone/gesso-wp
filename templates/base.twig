@@ -24,6 +24,11 @@
           site_name: site.title
         }
       %}
+    {% endblock  %}
+  {% endembed %}
+
+  {% embed '@layouts/regions/navigation/navigation.twig' %}
+    {% block content %}
       {% include '@components/menu/menu.twig' with
         {
           items: primary_menu.items,
@@ -34,8 +39,22 @@
   {% endembed %}
 
   <main id="main" class="main" role="main" tabindex="-1">
+    {% embed '@layouts/regions/preface/preface.twig' %}
+      {% block content %}
+      {% endblock %}
+    {% endembed %}
+
     {% block content %}
+      {% embed '@layouts/regions/content/content.twig' %}
+        {% block content %}
+        {% endblock %}
+      {% endembed %}
     {% endblock %}
+
+    {% embed '@layouts/regions/postscript/postscript.twig' %}
+      {% block content %}
+      {% endblock %}
+    {% endembed %}
   </main>
 
   {% block footer %}
