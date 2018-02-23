@@ -2,16 +2,16 @@
 
 Gesso is a [Sass](http://sass-lang.com/)-based starter theme that outputs
 accessible HTML5 markup. It uses a mobile-first responsive approach and
-leverages [SMACSS] (https://smacss.com/) for style organization. This
+leverages [SMACSS](https://smacss.com/) for style organization. This
 encourages a component-based approach to theming through the creation of
 discrete, reusable UI elements. Gesso is heavily integrated with
-[Pattern Lab] (http://patternlab.io/), allowing WordPress and Pattern Lab
+[Pattern Lab](http://patternlab.io/), allowing WordPress and Pattern Lab
 to share the same markup.
 
 For more information, view the
 [Gesso WordPress GitHub repo](https://github.com/forumone/gesso-wp).
 To submit bug reports or feature requests, visit the
-[Gesso WordPressissue queue](https://github.com/forumone/gesso-wp/issues).
+[Gesso WordPress issue queue](https://github.com/forumone/gesso-wp/issues).
 
 ### Global Prerequisites
 The following packages need to be installed on your system in order to use
