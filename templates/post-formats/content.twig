@@ -19,6 +19,6 @@
     {{ post.content }}
   {% endblock %}
   {% block comments %}
-    {{ function('comments_template') }}
+    {% include 'components/comments.twig' %}
   {% endblock %}
 {% endembed %}
