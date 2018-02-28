@@ -7,12 +7,11 @@
 
 /**
  * Adds a post_type_label filter for twig
- * @param object $twig
- * @return object
+ * @param Twig_Environment $twig
+ * @return Twig_Environment
  */
-function f1__add_post_type_label_filter( $twig ) {
-	$twig->addExtension( new Twig_Extension_StringLoader() );
-	$twig->addFilter( new Twig_SimpleFilter( 'post_type_label', 'f1__get_post_type_label' ) );
+function f1__add_post_type_label_filter( \Twig_Environment $twig ) {
+	$twig->addFilter( new \Twig_SimpleFilter( 'post_type_label', 'f1__get_post_type_label' ) );
 	return $twig;
 }
 add_filter( 'timber/twig', 'f1__add_post_type_label_filter' );
