@@ -181,7 +181,7 @@ class StarterSite extends TimberSite {
     add_theme_support( 'post-thumbnails' );
     add_theme_support( 'menus' );
     add_filter( 'timber_context', array( $this, 'add_to_context' ) );
-    add_filter( 'get_twig', array( $this, 'add_to_twig' ) );
+    add_filter( 'timber/twig', array( $this, 'add_to_twig' ) );
     parent::__construct();
   }
 
@@ -189,18 +189,19 @@ class StarterSite extends TimberSite {
     $context['foo'] = 'bar';
     $context['stuff'] = 'I am a value set in your functions.php file';
     $context['notes'] = 'These values are available everytime you call Timber::get_context();';
-    $context['primary_menu'] = new TimberMenu('primary');
-    $context['secondary_menu'] = new TimberMenu('secondary');
-    $context['menu'] = new TimberMenu();
+    $context['primary_menu'] = new Timber\Menu('primary');
+    $context['secondary_menu'] = new Timber\Menu('secondary');
+    $context['menu'] = new Timber\Menu();
     $context['current_year'] = date('Y');
     $context['site'] = $this;
     return $context;
   }
 
-  function add_to_twig( $twig ) {
-    // this is where you can add your own fuctions to twig
-    $twig->addExtension( new Twig_Extension_StringLoader() );
-    $twig->addFilter( 'myfoo', new Twig_Filter_Function( 'myfoo' ) );
+  function add_to_twig( \Twig_Environment $twig ) {
+    // This is where you can add your own fuctions to twig
+    // https://timber.github.io/docs/guides/extending-timber/#adding-to-twig
+    $twig->addExtension( new \Twig_Extension_StringLoader() );		  
+    $twig->addFilter( new \Twig_SimpleFilter( 'myfoo', 'my_foo' ) );
     return $twig;
   }
 
