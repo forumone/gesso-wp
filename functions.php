@@ -180,7 +180,7 @@ class StarterSite extends TimberSite {
     add_theme_support( 'post-formats' );
     add_theme_support( 'post-thumbnails' );
     add_theme_support( 'menus' );
-    add_filter( 'timber_context', array( $this, 'add_to_context' ) );
+    add_filter( 'timber/context', array( $this, 'add_to_context' ) );
     add_filter( 'timber/twig', array( $this, 'add_to_twig' ) );
     parent::__construct();
   }
