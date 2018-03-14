@@ -25,5 +25,7 @@ Gesso (pronounced JEH-so) is an art term for the white paint mixture used to pre
 
 We pledge to make this starter theme as [accessible as it can be](https://codex.wordpress.org/Accessibility). If you find any flaws, please [submit an issue](https://github.com/forumone/gesso-wp/issues). Help us fix them if you can.
 
-## Github
+## Maintainers
+The Gesso theme for WordPress is maintained by [Corey Lafferty](https://github.com/coreylafferty) ([@coreylafferty](https://github.com/coreylafferty)), [Lindsey DiNapoli](https://github.com/cssgirl) ([@cssgirl](https://github.com/cssgirl)), [Karen Kitchens](https://github.com/karenkitchens) ([@karenkitchens](https://github.com/karenkitchens)) and [Elvis Morales](https://github.com/elvismdev) ([@elvismdev](https://github.com/elvismdev)).
+
 Project source code is [hosted on GitHub](https://github.com/forumone/gesso-wp).
