@@ -1,10 +1,16 @@
 {% extends "base.twig" %}
 
 {% block content %}
-<!-- Provided by templates/taxonomy.twig -->
-<section>
-	<h1 class="page-title">{{ __('Taxonomy Archives: ', 'gesso') }} {{ title }}</h1>
-	{% include 'templates/components/loop.twig' %}
-	{% include 'templates/components/pagination.twig' %}
-</section>
+	<!-- Provided by templates/taxonomy.twig -->
+	{% embed '@layouts/regions/content/content.twig' %}
+	  {% block content %}
+			{% include "@components/page-title/page-title.twig" with
+				{
+					page_title: __('Taxonomy Archives: ', 'gesso') ~ title
+				}
+			%}
+			{% include 'templates/components/loop.twig' %}
+			{% include '@components/pager/pager.twig' %}
+		{% endblock %}
+	{% endembed %}
 {% endblock %}

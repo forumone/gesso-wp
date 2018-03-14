@@ -1,0 +1,26 @@
+{%
+  set classes = [
+    'article',
+    custom_classes ? custom_classes,
+  ]|join(' ')|trim
+%}
+
+<article class="{{ classes }}" role="article">
+  {% block title %}
+    {{ title|raw }}
+  {% endblock %}
+
+  {% if has_footer %}
+    <footer>
+      {% block footer %}
+        {{ footer|raw }}
+      {% endblock %}
+    </footer>
+  {% endif %}
+
+  {% block main %}
+    {{ content|raw }}
+  {% endblock %}
+  {% block comments %}
+  {% endblock %}
+</article>

@@ -1,0 +1,16 @@
+<ul class="menu menu--{{menu_name}}">
+  {% for item in items %}
+    <li class="menu__item">
+      <a class="menu__link{% if item.current %} is-active{% endif %}" href="{{ item.link }}">{{ item.title }}</a>
+      {% if item.children %}
+        <ul class="menu__subnav">
+          {% for child in item.children %}
+            <li class="menu__item">
+              <a class="menu__link{% if child.current %} is-active{% endif %}" href="{{ child.link }}">{{ child.title }}</a>
+            </li>
+          {% endfor %}
+        </ul>
+      {% endif %}
+    </li>
+  {% endfor %}
+</ul>

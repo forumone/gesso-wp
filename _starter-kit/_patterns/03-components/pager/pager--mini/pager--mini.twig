@@ -1,0 +1,34 @@
+{% if pagination.prev or pagination.next %}
+  <nav class="pager pager--mini" role="navigation" aria-labelledby="pagination-heading">
+    <h4 id="pagination-heading" class="visually-hidden">{{ heading|default('Pagination') }}</h4>
+    <ul class="pager__items js-pager__items">
+
+      {% if pagination.prev %}
+        <li class="pager__item pager__item--previous">
+          <a class="pager__link pager__link--previous" href="{{ pagination.prev.link }}" title="{{ 'Go to previous page' }} " rel="prev">
+            <span class="visually-hidden">{{ 'Previous page' }}</span>
+            <span aria-hidden="true">‹</span>
+          </a>
+        </li>
+      {% endif %}
+
+      {% for page in pagination.pages %}
+        {% if not page.link %}
+          <li class="pager__item pager__item--current">
+            <span class="{{ page.class }}">{{ page.title }}</span>
+          </li>
+        {% endif %}
+      {% endfor %}
+
+      {% if pagination.next %}
+        <li class="pager__item pager__item--next">
+          <a class="pager__link pager__link--next" href="{{ pagination.next.href }}" title="{{ 'Go to next page' }}" rel="next">
+            <span class="visually-hidden">{{ 'Next page' }}</span>
+            <span aria-hidden="true">›</span>
+          </a>
+        </li>
+      {% endif %}
+
+    </ul>
+  </nav>
+{% endif %}

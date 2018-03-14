@@ -1,0 +1,14 @@
+{% if post.get_comment_count() > 0 %}
+  {% for comment in post.comments %}
+    {{ comment.author.name }} - {{ comment.date }}
+
+    {{ comment.content }}
+
+    {% if comment.children() %}
+      {% for reply in comment.children() %}
+        {{ reply.content }}
+      {% endfor %}
+    {% endif %}
+  {% endfor %}
+{% endif %}
+{{ fn('comment_form') }}

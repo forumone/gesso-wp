@@ -1,21 +1,13 @@
-<article class="post post--type-{{ post.type}} post--display-mode-full" id="post-{{ post.ID }}">
-  <h2 class="post__title">{{ post.title }}</h2>
-  <div class="post__meta">
-    <div class="author">{{ __('Authored by', 'gesso') }}
-      <a href="{{ post.author.link }}">{{ post.author.display_name }}</a>
-    </div>
-  </div>
+{% extends 'content.twig' %}
+
+{% block main %}
+  <!-- Provided by templates/post-formats/content-audio.twig -->
   {% set audio = function( 'get_media_embedded_in_content', post.content, ['audio'] ) %}
-  <div class="post__content">
-    {% if '' != audio %}
-      {% for audio_html in audio %}
-        <div class="audio">
-          {{ audio_html }}
-        </div>
-      {% endfor %}
-    {% endif %}
-  </div>
-  <div class="post__comments">
-    {{ function('comments_template') }}
-  </div>
-</article>
+  {% if '' != audio %}
+    {% for audio_html in audio %}
+      <div>
+        {{ audio_html }}
+      </div>
+    {% endfor %}
+  {% endif %}
+{% endblock %}

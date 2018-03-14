@@ -1,9 +1,14 @@
 <!-- Provided by templates/footer.twig -->
-<footer class="footer" role="contentinfo">
-	<div class="l-constrain">
+{% embed '@layouts/regions/footer/footer.twig' %}
+	{% block content %}
 		{{ function('get_sidebar', 'footer') }}
-		<p class="copyright">
-			&copy; {{ current_year }} Copyright {{ site.name }}.
-		</p>
-	</div>
-</footer>
+		{% include '@components/copyright/copyright.twig' with
+		  {
+				year: {
+					long: current_year
+				},
+				site_name: site.name
+			}
+		%}
+	{% endblock %}
+{% endembed %}

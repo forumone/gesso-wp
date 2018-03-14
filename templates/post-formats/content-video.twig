@@ -1,21 +1,13 @@
-<article class="post post--type-{{ post.type}} post--display-mode-full" id="post-{{ post.ID }}">
-  <h2 class="post__title">{{ post.title }}</h2>
-  <div class="post__meta">
-    <div class="author">{{ __('Authored by', 'gesso') }}
-      <a href="{{ post.author.link }}">{{ post.author.display_name }}</a>
-    </div>
-  </div>
+{% extends 'content.twig' %}
+
+{% block main %}
+  <!-- Provided by templates/post-formats/content-video.twig -->
   {% set video = function( 'get_media_embedded_in_content', post.content, ['video', 'object', 'embed', 'iframe'] ) %}
-  <div class="post__content">
-    {% if '' != video %}
-        {% for video_html in video %}
-        <div class="video">
-          {{ video_html }}
-        </div>
-      {% endfor %}
-    {% endif %}
-  </div>
-  <div class="post__comments">
-    {{ function('comments_template') }}
-  </div>
-</article>
+  {% if '' != video %}
+    {% for video_html in video %}
+      <div>
+        {{ video_html }}
+      </div>
+    {% endfor %}
+  {% endif %}
+{% endblock %}

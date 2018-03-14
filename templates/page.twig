@@ -2,15 +2,32 @@
 
 {% block content %}
   <!-- Provided by templates/page.twig -->
-  <p>{{ __('View author: ', 'gesso') }} <a href="{{ user.link }}">{{ user.name }}</a></p>
-
-	<article class="post post--type-{{ post.type}} post--display-mode-full" id="post-{{ post.ID }}">
-		<h1 class="page-title">{{ post.title }}</h1>
-		<div class="post__content">
-      {{ post.content }}
-    </div>
-    <div class="post__comments">
-      {{ function('comments_template') }}
-    </div>
-	</article>
+  {% embed '@layouts/regions/content/content.twig' %}
+    {% block content %}
+      <p>{{ __('View author: ', 'gesso') }} <a href="{{ user.link }}">{{ user.name }}</a></p>
+      {% embed "@components/article/article.twig" %}
+        {% block title %}
+          {% include "@components/page-title/page-title.twig" with
+            {
+              page_title: post.title
+            }
+          %}
+        {% endblock %}
+        {% block footer %}
+          {% include "@components/author/author.twig" with
+            {
+              url: post.author.link,
+              author: post.author.display_name
+            }
+          %}
+        {% endblock %}
+        {% block main %}
+          {{ post.content }}
+        {% endblock %}
+        {% block comments %}
+          {% include 'components/comments.twig' %}
+        {% endblock %}
+      {% endembed %}
+    {% endblock %}
+  {% endembed %}
 {% endblock %}

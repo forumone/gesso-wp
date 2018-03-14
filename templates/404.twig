@@ -2,8 +2,14 @@
 
 {% block content %}
   <!-- Provided by templates/404.twig -->
-  <section>
-    <h1 class="page-title">{{ __('Uh-Oh...Page not found!', 'gesso') }}</h1>
-    <h2><a href="{{site.url}}">{{ __('Return to Homepage','gesso') }}</a></h2>
-  </section>
+  {% embed '@layouts/regions/content/content.twig' %}
+    {% block content %}
+      {% include "@components/page-title/page-title.twig" with
+        {
+          page_title: __('Uh-Oh...Page not found! ', 'gesso')
+        }
+      %}
+      <h2><a href="{{site.url}}">{{ __('Return to Homepage','gesso') }}</a></h2>
+    {% endblock %}
+  {% endembed %}
 {% endblock %}

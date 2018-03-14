@@ -1,5 +1,8 @@
-<form class="search" method="get" action="{{ site.url}}" role="search">
-	<label for="s" class="element-hidden">Search</label>
-	<input class="search__input" type="search" name="s" placeholder="{{ __('To search, type and hit enter.', 'gesso') }}">
-	<button class="button" type="submit" role="button">{{ __('Search', 'gesso') }}</button>
-</form>
+{% include "@components/searchform/searchform.twig" with
+  {
+		action: site.url,
+		label: 'Search',
+		placeholder: __('To search, type and hit enter.', 'gesso'),
+		button_label: __('Search', 'gesso')
+	}
+%}

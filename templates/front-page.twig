@@ -2,6 +2,10 @@
 
 {% block content %}
   <!-- Provided by templates/front-page.twig -->
-  {% include 'templates/components/loop.twig' %}
-  {% include 'templates/components/pagination.twig' %}
+  {% embed '@layouts/regions/content/content.twig' %}
+    {% block content %}
+      {% include 'templates/components/loop.twig' %}
+      {% include '@components/pager/pager.twig' %}
+    {% endblock %}
+  {% endembed %}
 {% endblock %}
