@@ -1,9 +1,18 @@
+## Global Prerequisites
+
+The following packages needs to be installed on your system in order to use Gesso for WordPress.
+
+* [composer](https://getcomposer.org/)
+* [npm](https://www.npmjs.com/get-npm)
+* [grunt](https://gruntjs.com/getting-started)
+
+
 ## Timber Installation
-In order to use this theme you must download and activate the [Timber Library](http://wordpress.org/plugins/timber-library/) plugin from Wordpress.org.
+In order to develop using this starter theme you must download and activate the [Timber Library](http://wordpress.org/plugins/timber-library/) plugin from Wordpress.org.
 
-Additional information about installing and configuring the Timber Library can be found in the [Timber Documentation](http://timber.github.io/timber/#installation)
+Additional information about installing and configuring the Timber Library can be found in the [Timber Documentation](https://timber.github.io/docs/getting-started/setup)
 
-## Pattern Lab installation
+## Pattern Lab installation (optional)
 
 The included Grunt tasks look for an instance of the Drupal standard edition of
 Pattern Lab and [the Gesso Twig starter kit](https://github.com/forumone/starterkit-twig-drupal-gesso)
@@ -17,35 +26,41 @@ the theme directory.
 $ composer create-project pattern-lab/edition-drupal-standard pattern-lab
 ```
 
-When prompted, select /forumone/starterkit-twig-drupal-gesso as the starterkit.
+When prompted, select `/forumone/starterkit-twig-drupal-gesso as the starterkit`.
 
-If prompted, select 'r' to overwrite existing /source/ files.
+If prompted, select '`r`' to overwrite existing `/source/` files.
 
 
-## Compiling Sass
+## Compiling Pattern Lab and Sass
 
 [LibSass](http://sass-lang.com/libsass) is required to compile the Sass into
-CSS. Gesso includes Grunt tasks to compile the CSS/Pattern Lab files and to
-watch them for changes.  To use these tasks, run the following NPM command in
-the theme folder (Windows users may need to include the `--no-bin-links` flag at
-the end of the command).
+CSS. Gesso includes Grunt tasks to compile the CSS and generate the compiled Pattern Lab files (if included) and to watch both for changes.  To use these tasks, first run the following NPM command in the theme folder (Windows users may need to include the --no-bin-links flag at the end of the command).
 
 ```
 npm install
 ```
 
-To run the Grunt build task, run
+Once the above command is run, the `_starter-kit` folder that comes with Gesso will be renamed to `pattern-lab/source`. This directory contains all of the Pattern Lab Twig templates and Sass files.
+
+To initiate the Grunt build tasks that compile the Sass and Pattern Lab files, run the following command in the theme directory:
 
 ```
 grunt
 ```
 
+## Creating New Components
+
+Gesso includes a script to generate new component files. To use, run the following command in the theme folder.
+
+```
+node component
+```
 
 ## Build Artifacts
 
-By default, the compiled Pattern Lab and Sass files (e.g., /pattern-lab/public/
-and /css/) are ignored by Git as these files are built during deployment.
-To change this, edit the included .gitignore file.
+By default, the compiled Pattern Lab and Sass files (e.g., `/pattern-lab/public/`
+and `/css/`) are ignored by Git as these files are built during deployment.
+To change this, edit the included `.gitignore` file.
 
 
 ## Sass/Grunt dependencies
