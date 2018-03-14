@@ -1,27 +1,18 @@
 site_name: Gesso WordPress Theme
 repo_url: https://github.com/forumone/gesso-wp
 repo_name: forumone/gesso-wp
-edit_uri: edit/master/docs
 site_author: Forum One
 site_description: A WordPress starter theme.
-theme: material
-pages:
-  - About: index.md
-  - Getting Started: getting-started.md
-  - Helper Functions: helper-functions.md
-
-
-# Copyright
 copyright: 'Copyright &copy; 2016 - 2017 Forum One'
 
-
-# Options
-extra:
-  feature:
-    tabs: false
+theme:
+  name: 'material'
   palette:
     primary: red
     accent: red
+
+# Options
+extra:
   social:
     - type: globe
       link: https://forumone.com
@@ -30,8 +21,17 @@ extra:
     - type: twitter
       link: https://twitter.com/forumone
     - type: linkedin
-      link: https://linkedin.com/company-beta/24315
+      link: https://www.linkedin.com/company/forum-one
 
 markdown_extensions:
+  - admonition
+  - codehilite:
+      linenums: true
   - toc:
       permalink: true
+
+# Page tree
+pages:
+  - About: index.md
+  - Getting Started: getting-started.md
+  - Helper Functions: helper-functions.md
