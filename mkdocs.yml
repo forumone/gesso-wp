@@ -3,7 +3,7 @@ repo_url: https://github.com/forumone/gesso-wp
 repo_name: forumone/gesso-wp
 site_author: Forum One
 site_description: A WordPress starter theme.
-copyright: 'Copyright &copy; 2016 - 2017 Forum One'
+copyright: 'Copyright &copy; 2016 - 2018 Forum One'
 
 theme:
   name: 'material'
