@@ -28,7 +28,7 @@ function gesso_get_posts( $collection = null ) {
 
 /**
  * Returns a Timber\Post object of posts related by single taxonomy.
- * @param string $post_type
+ * @param string|array $post_type
  * @param string $taxonomy
  * @param array $terms
  * @param int $qty

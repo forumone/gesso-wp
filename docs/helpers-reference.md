@@ -12,7 +12,7 @@ Retrieves a list of posts from given ID's. *Useful when working with [ACF Relati
 
 * (array) `$post_IDs`: a list of Post ID's.
 
-**Returns:** an array of `Timber\Post` objects | `null`
+**Returns:** An array of `Timber\Post` objects | `null`
 
 **Example:**
 
@@ -35,6 +35,13 @@ if ( $post->featured_content ) {
 
 ### `gesso_get_posts_by_tax()`
 
+Retrieves a list of posts from given taxonomy terms. *Useful to populate a component of related contents by taxonomy under a single post detail page*.
+
+**Parameters:**
+
+* (string|array) `$post_type`: single or multiple post type slugs. 
+
+* (string) `$taxonomy`: taxonomy name.
 
 
 ### `gesso_get_posts_with_pagination()`
