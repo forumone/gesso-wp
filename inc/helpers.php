@@ -5,17 +5,6 @@
  * DRY principle: https://en.wikipedia.org/wiki/Don't_repeat_yourself
 /*------------------------------------------------------------------*/
 
-/**
- * Adds a post_type_label filter for twig
- * @param Twig_Environment $twig
- * @return Twig_Environment
- */
-function gesso_add_post_type_label_filter( \Twig_Environment $twig ) {
-	$twig->addFilter( new \Twig_SimpleFilter( 'post_type_label', 'gesso_get_post_type_label' ) );
-	return $twig;
-}
-add_filter( 'timber/twig', 'gesso_add_post_type_label_filter' );
-
 
 /**
  * Returns an array of Timber\Post objects, or null.
@@ -132,7 +121,7 @@ function gesso_get_sidebar( $id ) {
  */
 function gesso_get_post_type_label( $post_type ) {
 	$obj = get_post_type_object( $post_type );
-	return apply_filters( 'f1/get_post_type_label' , $obj->labels->singular_name, $obj );
+	return apply_filters( 'gesso/get_post_type_label' , $obj->labels->singular_name, $obj );
 }
 
 
@@ -158,4 +147,21 @@ function gesso_add_post_type_labels( $posts ) {
 function gesso_get_menu( $menu ) {
 	return TimberHelper::function_wrapper( 'wp_nav_menu', array( 'menu' => $menu ) );
 }
+
+
+/*------------------------------------------------------------------*
+ * Twig filters.
+/*------------------------------------------------------------------*/
+
+
+/**
+ * Adds a post_type_label filter for twig
+ * @param Twig_Environment $twig
+ * @return Twig_Environment
+ */
+function gesso_add_post_type_label_filter( \Twig_Environment $twig ) {
+	$twig->addFilter( new \Twig_SimpleFilter( 'post_type_label', 'gesso_get_post_type_label' ) );
+	return $twig;
+}
+add_filter( 'timber/twig', 'gesso_add_post_type_label_filter' );
 

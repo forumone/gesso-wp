@@ -35,5 +35,5 @@ markdown_extensions:
 # Page tree
 pages:
   - Overview: index.md
-  - Getting Started: getting-started.md
-  - Helper Functions: helper-functions.md
+  - Getting started: getting-started.md
+  - Helpers reference: helpers-reference.md
