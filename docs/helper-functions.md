@@ -6,6 +6,31 @@ Source code is located in [inc/helpers.php](https://github.com/forumone/gesso-wp
 
 ### `gesso_get_posts()`
 
+Retrieves a list of posts from given ID's. *Useful when working with [ACF Relationship](https://www.advancedcustomfields.com/resources/relationship/) field*.
+
+**Parameters:**
+
+* (array) `$post_IDs`: a list of Post ID's.
+
+**Returns:** an array of `Timber\Post` objects | `null`
+
+**Example:**
+
+```php
+// single.php
+<?php
+
+$context = Timber::get_context();
+$post = Timber::query_post();
+$context['post'] = $post;
+
+// ...
+
+// If ACF relationship field has posts selected, let's pull their contents.
+if ( $post->featured_content ) {
+	$context['featured_content'] = gesso_get_posts( $post->featured_content );
+}
+```
 
 
 ### `gesso_get_posts_by_tax()`

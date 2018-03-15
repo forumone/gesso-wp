@@ -18,7 +18,7 @@ add_filter( 'timber/twig', 'gesso_add_post_type_label_filter' );
 
 
 /**
- * Returns a Timber\Post object of posts.
+ * Returns an array of Timber\Post objects, or null.
  * @param array $collection
  * @return array/null
  */
