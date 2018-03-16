@@ -20,10 +20,6 @@ Retrieves a list of posts from given ID's. *Useful when working with [ACF Relati
 // single.php
 <?php
 
-$context = Timber::get_context();
-$post = Timber::query_post();
-$context['post'] = $post;
-
 // ...
 
 // If ACF relationship field has posts selected, let's pull their contents.
@@ -32,6 +28,7 @@ if ( $post->featured_content ) {
 }
 ```
 
+***
 
 ### `gesso_get_posts_by_tax()`
 
@@ -39,9 +36,41 @@ Retrieves a list of posts from given taxonomy terms. *Useful to populate a compo
 
 **Parameters:**
 
-* (string|array) `$post_type`: single or multiple post type slugs. 
+* (string | array) `$post_type`: single or multiple post type slugs. 
 
 * (string) `$taxonomy`: taxonomy name.
+
+* (array) `$terms`: array of `Timber\Term` objects.
+
+* (int) `$qty`[optional]: quantity of posts results to return (default: `posts_per_page` WordPress global setting).
+
+* (int) `$excl`[optional]: ID of post to exclude (default: `null`).
+
+**Returns:** An array of `Timber\Post` objects | `null`
+
+**Example:**
+
+```php
+// single.php
+<?php
+
+// ...
+
+// Set post types to query.
+$post_types = ['post', 'project', 'event'];
+// Get current post topics.
+$topics = $post->get_terms( 'topic' );
+// Get other related contents by topics.
+$context['related_content'] = gesso_get_posts_by_tax( 
+	$post_types, 	// Query for Blog Posts, Projects and Events.
+	'topic', 		// Having under the Topic taxonomy.
+	$topics, 		// This topics terms.
+	3, 				// Return only 3 post results.
+	$post->ID 		// Exclude the current post.
+	);
+```
+
+***
 
 
 ### `gesso_get_posts_with_pagination()`

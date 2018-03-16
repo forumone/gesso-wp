@@ -32,10 +32,10 @@ function gesso_get_posts( $collection = null ) {
  * @param string $taxonomy
  * @param array $terms
  * @param int $qty
- * @param int $exclude
+ * @param int $excl
  * @return array
  */
-function gesso_get_posts_by_tax( $post_type = 'post', $taxonomy = null, $terms = null, $qty = null, $exclude = null ) {
+function gesso_get_posts_by_tax( $post_type, $taxonomy, $terms, $qty = null, $excl = null ) {
 	if ( !is_array( $terms ) )
 		return null;
 	$result = Timber::get_posts(
@@ -44,12 +44,12 @@ function gesso_get_posts_by_tax( $post_type = 'post', $taxonomy = null, $terms =
 			'tax_query' => array(
 				array(
 					'taxonomy' => $taxonomy,
-					'field'    => 'term_id',
+					'field'    => 'slug',
 					'terms'    => $terms
 				)
 			),
 			'posts_per_page' => $qty,
-			'post__not_in' => array( $exclude )
+			'post__not_in' => array( $excl )
 		)
 	);
 	return $result;
