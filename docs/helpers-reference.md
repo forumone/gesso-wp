@@ -103,3 +103,9 @@ $context['related_content'] = gesso_get_posts_by_tax(
 ## Twig filters
 
 ### `post_type_label`
+
+## WordPress filters
+
+### `gesso/get_post_type_label`
+
+
