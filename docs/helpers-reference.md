@@ -1,4 +1,4 @@
-Gesso for WordPress includes a set of pre-defined functions that you might find useful to speed up your development experience. These functions are designed to help you follow [DRY principles](https://en.wikipedia.org/wiki/Don't_repeat_yourself) while they also cover many common scenarios.
+Gesso for WordPress includes a set of pre-defined functions and filters that you might find useful to speed up your development experience. These are designed to help you follow [DRY principles](https://en.wikipedia.org/wiki/Don't_repeat_yourself) while they also cover many common scenarios.
 
 Source code is located in [inc/helpers.php](https://github.com/forumone/gesso-wp/blob/master/inc/helpers.php)
 
