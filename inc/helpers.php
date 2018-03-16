@@ -61,7 +61,7 @@ function gesso_get_posts_by_tax( $post_type, $taxonomy, $terms, $qty = null, $ex
  * @param string $post_type
  * @return array
  */
-function gesso_get_posts_with_pagination( $post_type = 'post' ) {
+function gesso_get_posts_with_pagination( $post_type ) {
 	global $paged;
 	if ( !isset( $paged ) || !$paged ) {
 		$paged = 1;
