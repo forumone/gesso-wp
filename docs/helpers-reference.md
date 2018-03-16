@@ -64,7 +64,7 @@ $topics = $post->get_terms( 'topic' );
 $context['related_content'] = gesso_get_posts_by_tax( 
 	$post_types, 	// Query for Blog Posts, Projects and Events.
 	'topic', 		// Having under the Topic taxonomy.
-	$topics, 		// This topics terms.
+	$topics, 		// This topic terms.
 	3, 				// Return only 3 post results.
 	$post->ID 		// Exclude the current post.
 	);
