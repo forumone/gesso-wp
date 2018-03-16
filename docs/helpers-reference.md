@@ -75,7 +75,13 @@ $context['related_content'] = gesso_get_posts_by_tax(
 
 ### `gesso_get_posts_with_pagination()`
 
+Retrieves a list of posts with pagination included. *Good for providing a paginated list of content items on any page.*
 
+**Parameters:**
+
+* (string | array) `$post_type`: single or multiple post type slugs.
+
+**Returns:** An array of `Timber\Post` objects and a `Timber\Pagination` object to construct the pager.
 
 ### `gesso_get_image()`
 
