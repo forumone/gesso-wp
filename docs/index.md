@@ -21,6 +21,12 @@ Gesso (pronounced JEH-so) is an art term for the white paint mixture used to pre
 
 - [Twig documentation](https://twig.symfony.com/doc/2.x/)
 
+## About Pattern Lab
+
+[Pattern Lab](http://patternlab.io/) ... ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec velit neque, auctor sit amet aliquam vel, ullamcorper sit amet ligula. Mauris blandit aliquet elit, eget tincidunt nibh pulvinar a.
+
+- [Pattern Lab documentation](http://patternlab.io/docs/index.html)
+
 ## Accessibility
 
 We pledge to make this starter theme as [accessible as it can be](https://codex.wordpress.org/Accessibility). If you find any flaws, please [submit an issue](https://github.com/forumone/gesso-wp/issues). Help us fix them if you can.

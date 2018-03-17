@@ -12,11 +12,11 @@ In order to develop using this starter theme you must download and activate the 
 
 Additional information about installing and configuring the Timber Library can be found in the [Timber Documentation](https://timber.github.io/docs/getting-started/setup)
 
-## Pattern Lab installation (optional)
+## Pattern Lab installation 
 
 The included Grunt tasks look for an instance of the Drupal standard edition of
 Pattern Lab and [the Gesso Twig starter kit](https://github.com/forumone/starterkit-twig-drupal-gesso)
-in a subdirectory of the theme called 'pattern-lab'.  The Grunt build task will
+in a subdirectory of the theme called `pattern-lab`.  The Grunt build task will
 skip building Pattern Lab if this directory is not found.
 
 To install Pattern Lab, run the following Composer command in
