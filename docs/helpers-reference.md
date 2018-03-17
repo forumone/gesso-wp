@@ -73,7 +73,7 @@ $context['related_content'] = gesso_get_posts_by_tax(
 ***
 
 
-### `gesso_get_posts_with_pagination()`
+### `gesso_get_paged_posts()`
 
 Retrieves a list of posts with pagination included. *Good for providing a paginated list of content items on any page.*
 
@@ -81,7 +81,32 @@ Retrieves a list of posts with pagination included. *Good for providing a pagina
 
 * (string | array) `$post_type`: single or multiple post type slugs.
 
-**Returns:** An array of `Timber\Post` objects and a `Timber\Pagination` object to construct the pager.
+**Returns:** An array of `Timber\Post` objects with `Timber\Pagination` to construct the pager.
+
+**Example:**
+
+```php
+// single.php
+<?php
+
+// ...
+
+// Get collection of paged posts.
+$context['paged_posts'] = gesso_get_paged_posts( 'post' );
+```
+
+**FED:**
+
+```twig
+{# ... #}
+
+{# pattern-lab/source/_patterns/03-components/pager/pager.twig #}
+{% include '@components/pager/pager.twig' with
+{
+  pagination: paged_posts.pagination
+}
+%}
+```
 
 ### `gesso_get_image()`
 
