@@ -13,6 +13,9 @@ theme:
     primary: red
     accent: red
 
+extra_css:
+    - css/extra.css
+
 # Options
 extra:
   social:
