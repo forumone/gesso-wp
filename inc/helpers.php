@@ -89,16 +89,6 @@ function gesso_get_image( $id ) {
 
 
 /**
- * Returns a Timber\TimberFunctionWrapper widget sidebar.
- * @param int $id
- * @return array
- */
-function gesso_get_sidebar( $id ) {
-	return Timber::get_widgets( $id );
-}
-
-
-/**
  * Check the post type and return a label for it.
  * @param string $post_type
  * @return string

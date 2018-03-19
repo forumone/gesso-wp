@@ -151,18 +151,67 @@ if ( $post->hero_image ) {
 
 ***
 
-
-### `gesso_get_sidebar()`
-
-
-
 ### `gesso_get_post_type_label()`
 
+Get the singular name of a post type.
 
+**Parameters:**
+
+* (string) `$post_type`: a WordPress post type slug.
+
+**Returns:** the singular name of the post type.
+
+**Example:**
+
+```php
+// single.php
+<?php
+
+$context = Timber::get_context();
+$post = Timber::query_post();
+$context['post'] = $post;
+
+// Add a post_type_label property to this single Post.
+$context['post']->post_type_label = gesso_get_post_type_label( $post->post_type );
+
+// ...
+```
+
+!!! info
+    This function applies [`gesso/get_post_type_label`](#gessoget_post_type_label) filter before `return`.
+
+***
 
 ### `gesso_add_post_type_labels()`
 
+Adds a `$post_type_label` property to each post.
 
+**Parameters:**
+
+* (array) `$posts`: array of `Timber\Post` objects.
+
+**Returns:** An array of `Timber\Post` objects with `$post_type_label`.
+
+**Example:**
+
+```php
+// single.php
+<?php
+
+// ...
+
+// Get collection of paged posts. Add a post type label to each post.
+$context['paged_posts'] = gesso_add_post_type_labels( 
+	gesso_get_paged_posts( 
+		['post', 'event', 'campaign', 'report', 'press_release'] 
+	) 
+);
+```
+
+!!! info
+    This function uses [`gesso_get_post_type_label()`](#gesso_get_post_type_label) and applies [`gesso/get_post_type_label`](#gessoget_post_type_label) filter to each post before `return`.
+
+***
 
 ### `gesso_get_menu()`
 
