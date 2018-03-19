@@ -11,7 +11,7 @@
  * @param array $collection
  * @return array/null
  */
-function gesso_get_posts( $collection = null ) {
+function gesso_get_posts_by_id( $collection = null ) {
 	if ( !is_array( $collection ) )
 		return null;
 	

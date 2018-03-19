@@ -4,7 +4,7 @@ Source code is located in [inc/helpers.php](https://github.com/forumone/gesso-wp
 
 ## Functions
 
-### `gesso_get_posts()`
+### `gesso_get_posts_by_id()`
 
 Retrieves a list of posts from given ID's. *Useful when working with [ACF Relationship](https://www.advancedcustomfields.com/resources/relationship/) field*.
 
@@ -24,7 +24,7 @@ Retrieves a list of posts from given ID's. *Useful when working with [ACF Relati
 
 // If ACF relationship field has posts selected, let's pull their contents.
 if ( $post->featured_content ) {
-	$context['featured_content'] = gesso_get_posts( $post->featured_content );
+	$context['featured_content'] = gesso_get_posts_by_id( $post->featured_content );
 }
 ```
 
