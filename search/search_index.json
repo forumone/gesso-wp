@@ -1,0 +1,149 @@
+{
+    "docs": [
+        {
+            "location": "/", 
+            "text": "Gesso \nfor WordPress (w/ Timber)\n\n\nAbout Gesso\n\n\nGesso is a \nSass\n-based starter theme that outputs\naccessible HTML5 markup. It uses a mobile-first responsive approach and\nleverages \nSMACSS\n for style organization. This\nencourages a component-based approach to theming through the creation of\ndiscrete, reusable UI elements. It is heavily integrated with \nPattern Lab\n, allowing WordPress and Pattern Lab to share the same markup.\n\n\nGesso (pronounced JEH-so) is an art term for the white paint mixture used to prepare a canvas or sculpture for painting. Likewise, the Gesso starter theme prepares WordPress frontend markup and styles to give us a clean starting point. This is the \nWordPress\n port of it's \nDrupal\n version where the theme was first created.\n\n\nAbout Timber\n\n\nTimber Library\n is a WordPress plugin and a dependency for this theme. It provides the \nTwig Template Engine\n to the WordPress context for you create fully-customized themes faster with more sustainable code.\n\n\n\n\nTimber documentation\n\n\n\n\nAbout Twig\n\n\nTwig\n is a modern template engine for PHP. It allows you to write your HTML separate from your PHP files. This cleans-up your theme code so your PHP file can focus on supplying the data and logic, while your twig file can focus 100% on the display and HTML.\n\n\n\n\nTwig documentation\n\n\n\n\nAbout Pattern Lab\n\n\nPattern Lab\n ... ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec velit neque, auctor sit amet aliquam vel, ullamcorper sit amet ligula. Mauris blandit aliquet elit, eget tincidunt nibh pulvinar a.\n\n\n\n\nPattern Lab documentation\n\n\n\n\nAccessibility\n\n\nWe pledge to make this starter theme as \naccessible as it can be\n. If you find any flaws, please \nsubmit an issue\n. Help us fix them if you can.\n\n\nMaintainers\n\n\nThe Gesso theme for WordPress is maintained by \nCorey Lafferty\n (\n@coreylafferty\n), \nLindsey DiNapoli\n (\n@cssgirl\n), \nKaren Kitchens\n (\n@karenkitchens\n) and \nElvis Morales\n (\n@elvismdev\n).\n\n\nProject source code is \nhosted on GitHub\n.", 
+            "title": "Overview"
+        }, 
+        {
+            "location": "/#gesso-for-wordpress-w-timber", 
+            "text": "", 
+            "title": "Gesso for WordPress (w/ Timber)"
+        }, 
+        {
+            "location": "/#about-gesso", 
+            "text": "Gesso is a  Sass -based starter theme that outputs\naccessible HTML5 markup. It uses a mobile-first responsive approach and\nleverages  SMACSS  for style organization. This\nencourages a component-based approach to theming through the creation of\ndiscrete, reusable UI elements. It is heavily integrated with  Pattern Lab , allowing WordPress and Pattern Lab to share the same markup.  Gesso (pronounced JEH-so) is an art term for the white paint mixture used to prepare a canvas or sculpture for painting. Likewise, the Gesso starter theme prepares WordPress frontend markup and styles to give us a clean starting point. This is the  WordPress  port of it's  Drupal  version where the theme was first created.", 
+            "title": "About Gesso"
+        }, 
+        {
+            "location": "/#about-timber", 
+            "text": "Timber Library  is a WordPress plugin and a dependency for this theme. It provides the  Twig Template Engine  to the WordPress context for you create fully-customized themes faster with more sustainable code.   Timber documentation", 
+            "title": "About Timber"
+        }, 
+        {
+            "location": "/#about-twig", 
+            "text": "Twig  is a modern template engine for PHP. It allows you to write your HTML separate from your PHP files. This cleans-up your theme code so your PHP file can focus on supplying the data and logic, while your twig file can focus 100% on the display and HTML.   Twig documentation", 
+            "title": "About Twig"
+        }, 
+        {
+            "location": "/#about-pattern-lab", 
+            "text": "Pattern Lab  ... ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec velit neque, auctor sit amet aliquam vel, ullamcorper sit amet ligula. Mauris blandit aliquet elit, eget tincidunt nibh pulvinar a.   Pattern Lab documentation", 
+            "title": "About Pattern Lab"
+        }, 
+        {
+            "location": "/#accessibility", 
+            "text": "We pledge to make this starter theme as  accessible as it can be . If you find any flaws, please  submit an issue . Help us fix them if you can.", 
+            "title": "Accessibility"
+        }, 
+        {
+            "location": "/#maintainers", 
+            "text": "The Gesso theme for WordPress is maintained by  Corey Lafferty  ( @coreylafferty ),  Lindsey DiNapoli  ( @cssgirl ),  Karen Kitchens  ( @karenkitchens ) and  Elvis Morales  ( @elvismdev ).  Project source code is  hosted on GitHub .", 
+            "title": "Maintainers"
+        }, 
+        {
+            "location": "/getting-started/", 
+            "text": "Global Prerequisites\n\n\nThe following packages needs to be installed on your system in order to use Gesso for WordPress.\n\n\n\n\ncomposer\n\n\nnpm\n\n\ngrunt\n\n\n\n\nTimber Installation\n\n\nIn order to develop using this starter theme you must download and activate the \nTimber Library\n plugin from Wordpress.org.\n\n\nAdditional information about installing and configuring the Timber Library can be found in the \nTimber Documentation\n\n\nPattern Lab installation\n\n\nThe included Grunt tasks look for an instance of the Drupal standard edition of\nPattern Lab and \nthe Gesso Twig starter kit\n\nin a subdirectory of the theme called \npattern-lab\n.  The Grunt build task will\nskip building Pattern Lab if this directory is not found.\n\n\nTo install Pattern Lab, run the following Composer command in\nthe theme directory.\n\n\n1\n$ composer create-project pattern-lab/edition-drupal-standard pattern-lab\n\n\n\n\n\n\nWhen prompted, select \n/forumone/starterkit-twig-drupal-gesso as the starterkit\n.\n\n\nIf prompted, select '\nr\n' to overwrite existing \n/source/\n files.\n\n\nCompiling Pattern Lab and Sass\n\n\nLibSass\n is required to compile the Sass into\nCSS. Gesso includes Grunt tasks to compile the CSS and generate the compiled Pattern Lab files (if included) and to watch both for changes.  To use these tasks, first run the following NPM command in the theme folder (Windows users may need to include the --no-bin-links flag at the end of the command).\n\n\n1\nnpm install\n\n\n\n\n\n\nOnce the above command is run, the \n_starter-kit\n folder that comes with Gesso will be renamed to \npattern-lab/source\n. This directory contains all of the Pattern Lab Twig templates and Sass files.\n\n\nTo initiate the Grunt build tasks that compile the Sass and Pattern Lab files, run the following command in the theme directory:\n\n\n1\ngrunt\n\n\n\n\n\n\nCreating New Components\n\n\nGesso includes a script to generate new component files. To use, run the following command in the theme folder.\n\n\n1\nnode component\n\n\n\n\n\n\nBuild Artifacts\n\n\nBy default, the compiled Pattern Lab and Sass files (e.g., \n/pattern-lab/public/\n\nand \n/css/\n) are ignored by Git as these files are built during deployment.\nTo change this, edit the included \n.gitignore\n file.\n\n\nSass/Grunt dependencies\n\n\n\n\n\n\nBreakpoint\n: Easy to write media queries.\n\n\n\n\n\n\nSass\n: CSS on steroids. Adds nested rules, variables,\nmixins, selector inheritance, and more.\n\n\n\n\n\n\nSass Globbing\n: Adds glob-\nbased imports to Sass.\n\n\n\n\n\n\nSVG2PNG\n: Rasterizes SVG to PNG images using PhantomJS.\n\n\n\n\n\n\nAutoprefixer\n: Adds necessary browser CSS property prefixes during Sass compilation.", 
+            "title": "Getting started"
+        }, 
+        {
+            "location": "/getting-started/#global-prerequisites", 
+            "text": "The following packages needs to be installed on your system in order to use Gesso for WordPress.   composer  npm  grunt", 
+            "title": "Global Prerequisites"
+        }, 
+        {
+            "location": "/getting-started/#timber-installation", 
+            "text": "In order to develop using this starter theme you must download and activate the  Timber Library  plugin from Wordpress.org.  Additional information about installing and configuring the Timber Library can be found in the  Timber Documentation", 
+            "title": "Timber Installation"
+        }, 
+        {
+            "location": "/getting-started/#pattern-lab-installation", 
+            "text": "The included Grunt tasks look for an instance of the Drupal standard edition of\nPattern Lab and  the Gesso Twig starter kit \nin a subdirectory of the theme called  pattern-lab .  The Grunt build task will\nskip building Pattern Lab if this directory is not found.  To install Pattern Lab, run the following Composer command in\nthe theme directory.  1 $ composer create-project pattern-lab/edition-drupal-standard pattern-lab   When prompted, select  /forumone/starterkit-twig-drupal-gesso as the starterkit .  If prompted, select ' r ' to overwrite existing  /source/  files.", 
+            "title": "Pattern Lab installation"
+        }, 
+        {
+            "location": "/getting-started/#compiling-pattern-lab-and-sass", 
+            "text": "LibSass  is required to compile the Sass into\nCSS. Gesso includes Grunt tasks to compile the CSS and generate the compiled Pattern Lab files (if included) and to watch both for changes.  To use these tasks, first run the following NPM command in the theme folder (Windows users may need to include the --no-bin-links flag at the end of the command).  1 npm install   Once the above command is run, the  _starter-kit  folder that comes with Gesso will be renamed to  pattern-lab/source . This directory contains all of the Pattern Lab Twig templates and Sass files.  To initiate the Grunt build tasks that compile the Sass and Pattern Lab files, run the following command in the theme directory:  1 grunt", 
+            "title": "Compiling Pattern Lab and Sass"
+        }, 
+        {
+            "location": "/getting-started/#creating-new-components", 
+            "text": "Gesso includes a script to generate new component files. To use, run the following command in the theme folder.  1 node component", 
+            "title": "Creating New Components"
+        }, 
+        {
+            "location": "/getting-started/#build-artifacts", 
+            "text": "By default, the compiled Pattern Lab and Sass files (e.g.,  /pattern-lab/public/ \nand  /css/ ) are ignored by Git as these files are built during deployment.\nTo change this, edit the included  .gitignore  file.", 
+            "title": "Build Artifacts"
+        }, 
+        {
+            "location": "/getting-started/#sassgrunt-dependencies", 
+            "text": "Breakpoint : Easy to write media queries.    Sass : CSS on steroids. Adds nested rules, variables,\nmixins, selector inheritance, and more.    Sass Globbing : Adds glob-\nbased imports to Sass.    SVG2PNG : Rasterizes SVG to PNG images using PhantomJS.    Autoprefixer : Adds necessary browser CSS property prefixes during Sass compilation.", 
+            "title": "Sass/Grunt dependencies"
+        }, 
+        {
+            "location": "/helpers-reference/", 
+            "text": "Gesso for WordPress includes a set of pre-defined functions and filters that you might find useful to speed up your development experience. These are designed to help you follow \nDRY principles\n while they also cover many common scenarios.\n\n\nSource code is located in \ninc/helpers.php\n\n\nFunctions\n\n\ngesso_get_posts_by_id()\n\n\nRetrieves a list of posts from given ID's. \nUseful when working with \nACF Relationship\n field\n.\n\n\nParameters:\n\n\n\n\n(array) \n$post_IDs\n: a list of Post ID's.\n\n\n\n\nReturns:\n An array of \nTimber\\Post\n objects | \nnull\n\n\nExample:\n\n\n1\n2\n3\n4\n5\n6\n7\n8\n9\n// single.php\n\n\n?php\n\n\n\n// ...\n\n\n\n// If ACF relationship field has posts selected, let\ns pull their contents.\n\n\nif\n \n(\n \n$post\n-\nfeatured_content\n \n)\n \n{\n\n    \n$context\n[\nfeatured_content\n]\n \n=\n \ngesso_get_posts_by_id\n(\n \n$post\n-\nfeatured_content\n \n);\n\n\n}\n\n\n\n\n\n\n\n\n\ngesso_get_posts_by_tax()\n\n\nRetrieves a list of posts from given taxonomy terms. \nUseful to populate a component of related contents by taxonomy under a single post detail page\n.\n\n\nParameters:\n\n\n\n\n\n\n(string | array) \n$post_type\n: single or multiple post type slugs. \n\n\n\n\n\n\n(string) \n$taxonomy\n: taxonomy name.\n\n\n\n\n\n\n(array) \n$terms\n: array of \nTimber\\Term\n objects.\n\n\n\n\n\n\n(int) \n$qty\n[optional]: quantity of posts results to return (default: \nposts_per_page\n WordPress global setting).\n\n\n\n\n\n\n(int) \n$excl\n[optional]: ID of post to exclude (default: \nnull\n).\n\n\n\n\n\n\nReturns:\n An array of \nTimber\\Post\n objects | \nnull\n\n\nExample:\n\n\n 1\n 2\n 3\n 4\n 5\n 6\n 7\n 8\n 9\n10\n11\n12\n13\n14\n15\n16\n17\n// single.php\n\n\n?php\n\n\n\n// ...\n\n\n\n// Set post types to query.\n\n\n$post_types\n \n=\n \n[\npost\n,\n \nproject\n,\n \nevent\n];\n\n\n// Get current post topics.\n\n\n$topics\n \n=\n \n$post\n-\nget_terms\n(\n \ntopic\n \n);\n\n\n// Get other related contents by topics.\n\n\n$context\n[\nrelated_content\n]\n \n=\n \ngesso_get_posts_by_tax\n(\n \n    \n$post_types\n,\n    \n// Query for Blog Posts, Projects and Events.\n\n    \ntopic\n,\n        \n// Having under the Topic taxonomy.\n\n    \n$topics\n,\n        \n// This topic terms.\n\n    \n3\n,\n              \n// Return only 3 post results.\n\n    \n$post\n-\nID\n       \n// Exclude the current post.\n\n    \n);\n\n\n\n\n\n\n\n\n\ngesso_get_paged_posts()\n\n\nRetrieves a list of posts with pagination included. \nGood for providing a paginated list of content items on any page.\n\n\nParameters:\n\n\n\n\n(string | array) \n$post_type\n: single or multiple post type slugs.\n\n\n\n\nReturns:\n An array of \nTimber\\Post\n objects with \nTimber\\Pagination\n to construct the pager.\n\n\nExample:\n\n\n1\n2\n3\n4\n5\n6\n7\n// single.php\n\n\n?php\n\n\n\n// ...\n\n\n\n// Get collection of paged posts.\n\n\n$context\n[\npaged_posts\n]\n \n=\n \ngesso_get_paged_posts\n(\n \npost\n \n);\n\n\n\n\n\n\n\nFED:\n\n\n1\n2\n3\n4\n5\n6\n7\n8\n{# ... #}\n\n\n\n{# pattern-lab/source/_patterns/03-components/pager/pager.twig #}\n\n\n{%\n \ninclude\n \n@components/pager/pager.twig\n \nwith\n\n\n{\n\n  \npagination\n:\n \npaged_posts.pagination\n\n\n}\n\n\n%}\n\n\n\n\n\n\n\n\n\ngesso_get_image()\n\n\nRetrieves an image object from a given WordPress media ID. \nGood for \nACF Image\n fields and other special situations where we have only the image ID\n.\n\n\nParameters:\n\n\n\n\n(int) \n$id\n: a WordPress media ID.\n\n\n\n\nReturns:\n a \nTimber\\Image\n object.\n\n\nExample:\n\n\n 1\n 2\n 3\n 4\n 5\n 6\n 7\n 8\n 9\n10\n11\n12\n13\n14\n// single.php\n\n\n?php\n\n\n\n$context\n \n=\n \nTimber\n::\nget_context\n();\n\n\n$post\n \n=\n \nTimber\n::\nquery_post\n();\n\n\n$context\n[\npost\n]\n \n=\n \n$post\n;\n\n\n\n// ...\n\n\n\n// If the ACF hero_image field had an image selected, \n\n\n// replace the media ID value for a Timber\\Image object.\n\n\nif\n \n(\n \n$post\n-\nhero_image\n \n)\n \n{\n\n    \n$context\n[\npost\n]\n-\nhero_image\n \n=\n \ngesso_get_image\n(\n \n$post\n-\nhero_image\n \n);\n\n\n}\n\n\n\n\n\n\n\nFED:\n\n\n1\n2\n3\ndiv\n \nclass\n=\nhero-bg-image\n \nstyle\n=\nbackground-image: url( {{ post.hero_image.src }} );\n\n  ...\n\n/\ndiv\n\n\n\n\n\n\n\n\n\nTip\n\n\nYou can also do \n{{ TimberImage( post.hero_image ).src }}\n directly from Twig and get the same results.\n\n\n\n\n\n\ngesso_get_post_type_label()\n\n\nGet the singular name of a post type.\n\n\nParameters:\n\n\n\n\n(string) \n$post_type\n: a WordPress post type slug.\n\n\n\n\nReturns:\n the singular name of the post type.\n\n\nExample:\n\n\n 1\n 2\n 3\n 4\n 5\n 6\n 7\n 8\n 9\n10\n11\n// single.php\n\n\n?php\n\n\n\n$context\n \n=\n \nTimber\n::\nget_context\n();\n\n\n$post\n \n=\n \nTimber\n::\nquery_post\n();\n\n\n$context\n[\npost\n]\n \n=\n \n$post\n;\n\n\n\n// Add a post_type_label property to this single Post.\n\n\n$context\n[\npost\n]\n-\npost_type_label\n \n=\n \ngesso_get_post_type_label\n(\n \n$post\n-\npost_type\n \n);\n\n\n\n// ...\n\n\n\n\n\n\n\n\n\nInfo\n\n\nThis function applies \ngesso/get_post_type_label\n filter before \nreturn\n.\n\n\n\n\n\n\ngesso_add_post_type_labels()\n\n\nAdds a \n$post_type_label\n property to each post.\n\n\nParameters:\n\n\n\n\n(array) \n$posts\n: array of \nTimber\\Post\n objects.\n\n\n\n\nReturns:\n An array of \nTimber\\Post\n objects with \n$post_type_label\n.\n\n\nExample:\n\n\n 1\n 2\n 3\n 4\n 5\n 6\n 7\n 8\n 9\n10\n11\n// single.php\n\n\n?php\n\n\n\n// ...\n\n\n\n// Get collection of paged posts. Add a post type label to each post.\n\n\n$context\n[\npaged_posts\n]\n \n=\n \ngesso_add_post_type_labels\n(\n \n    \ngesso_get_paged_posts\n(\n \n        \n[\npost\n,\n \nevent\n,\n \ncampaign\n,\n \nreport\n,\n \npress_release\n]\n \n    \n)\n \n\n);\n\n\n\n\n\n\n\n\n\nInfo\n\n\nThis function uses \ngesso_get_post_type_label()\n and applies \ngesso/get_post_type_label\n filter to each post before \nreturn\n.\n\n\n\n\n\n\ngesso_get_menu()\n\n\nReturns a WordPress menu.\n\n\nParameters:\n\n\n\n\n(int | string) \n$menu\n: The WordPress menu \nID\n or \nslug\n.\n\n\n\n\nReturns:\n a \nTimber\\Menu\n object.\n\n\nExample:\n\n\n1\n2\n3\n4\n5\n6\n7\n8\n// page.php\n\n\n?php\n\n\n\n// ...\n\n\n\nif\n \n(\n \nis_page\n(\n \nabout\n \n)\n \n)\n \n{\n\n    \n$context\n[\nabout_submenu\n]\n \n=\n \ngesso_get_menu\n(\n \nabout-menu\n \n);\n\n\n}\n\n\n\n\n\n\n\n\n\nTwig filters\n\n\npost_type_label\n\n\nReturns the post type label.\n\n\nExample:\n\n\n1\n2\n3\n!-- ... --\n\n\ndiv\n \nclass\n=\ncard__label\n{{ post.post_type | post_type_label }}\n/\ndiv\n\n\n!-- ... --\n\n\n\n\n\n\n\n\n\nInfo\n\n\nThis Twig filter is affected by \ngesso/get_post_type_label\n filter before \nreturn\n.\n\n\n\n\n\n\nWordPress filters\n\n\ngesso/get_post_type_label\n\n\nFilters singular post type label before return on \ngesso_get_post_type_label()\n.\n\n\nParameters:\n\n\n\n\n(string) \n$label\n: The post type singular name.\n\n\n\n\nReturns:\n \nstring\n.\n\n\nExample:\n\n\n 1\n 2\n 3\n 4\n 5\n 6\n 7\n 8\n 9\n10\n11\n12\n// functions.php\n\n\n?php\n\n\n\n// ...\n\n\n\nadd_filter\n(\n \ngesso/get_post_type_label\n,\n \nfunction\n(\n \n$label\n \n)\n \n{\n\n    \n// The default WordPress Post is the Blog.\n\n    \nif\n \n(\n \n$label\n \n==\n \nPost\n \n)\n \n{\n\n        \n$label\n \n=\n \nBlog\n;\n\n    \n}\n\n    \nreturn\n \n$label\n;\n\n\n});", 
+            "title": "Helpers reference"
+        }, 
+        {
+            "location": "/helpers-reference/#functions", 
+            "text": "", 
+            "title": "Functions"
+        }, 
+        {
+            "location": "/helpers-reference/#gesso_get_posts_by_id", 
+            "text": "Retrieves a list of posts from given ID's.  Useful when working with  ACF Relationship  field .  Parameters:   (array)  $post_IDs : a list of Post ID's.   Returns:  An array of  Timber\\Post  objects |  null  Example:  1\n2\n3\n4\n5\n6\n7\n8\n9 // single.php  ?php  // ...  // If ACF relationship field has posts selected, let s pull their contents.  if   (   $post - featured_content   )   { \n     $context [ featured_content ]   =   gesso_get_posts_by_id (   $post - featured_content   );  }", 
+            "title": "gesso_get_posts_by_id()"
+        }, 
+        {
+            "location": "/helpers-reference/#gesso_get_posts_by_tax", 
+            "text": "Retrieves a list of posts from given taxonomy terms.  Useful to populate a component of related contents by taxonomy under a single post detail page .  Parameters:    (string | array)  $post_type : single or multiple post type slugs.     (string)  $taxonomy : taxonomy name.    (array)  $terms : array of  Timber\\Term  objects.    (int)  $qty [optional]: quantity of posts results to return (default:  posts_per_page  WordPress global setting).    (int)  $excl [optional]: ID of post to exclude (default:  null ).    Returns:  An array of  Timber\\Post  objects |  null  Example:   1\n 2\n 3\n 4\n 5\n 6\n 7\n 8\n 9\n10\n11\n12\n13\n14\n15\n16\n17 // single.php  ?php  // ...  // Set post types to query.  $post_types   =   [ post ,   project ,   event ];  // Get current post topics.  $topics   =   $post - get_terms (   topic   );  // Get other related contents by topics.  $context [ related_content ]   =   gesso_get_posts_by_tax (  \n     $post_types ,      // Query for Blog Posts, Projects and Events. \n     topic ,          // Having under the Topic taxonomy. \n     $topics ,          // This topic terms. \n     3 ,                // Return only 3 post results. \n     $post - ID         // Exclude the current post. \n     );", 
+            "title": "gesso_get_posts_by_tax()"
+        }, 
+        {
+            "location": "/helpers-reference/#gesso_get_paged_posts", 
+            "text": "Retrieves a list of posts with pagination included.  Good for providing a paginated list of content items on any page.  Parameters:   (string | array)  $post_type : single or multiple post type slugs.   Returns:  An array of  Timber\\Post  objects with  Timber\\Pagination  to construct the pager.  Example:  1\n2\n3\n4\n5\n6\n7 // single.php  ?php  // ...  // Get collection of paged posts.  $context [ paged_posts ]   =   gesso_get_paged_posts (   post   );    FED:  1\n2\n3\n4\n5\n6\n7\n8 {# ... #}  {# pattern-lab/source/_patterns/03-components/pager/pager.twig #}  {%   include   @components/pager/pager.twig   with  { \n   pagination :   paged_posts.pagination  }  %}", 
+            "title": "gesso_get_paged_posts()"
+        }, 
+        {
+            "location": "/helpers-reference/#gesso_get_image", 
+            "text": "Retrieves an image object from a given WordPress media ID.  Good for  ACF Image  fields and other special situations where we have only the image ID .  Parameters:   (int)  $id : a WordPress media ID.   Returns:  a  Timber\\Image  object.  Example:   1\n 2\n 3\n 4\n 5\n 6\n 7\n 8\n 9\n10\n11\n12\n13\n14 // single.php  ?php  $context   =   Timber :: get_context ();  $post   =   Timber :: query_post ();  $context [ post ]   =   $post ;  // ...  // If the ACF hero_image field had an image selected,   // replace the media ID value for a Timber\\Image object.  if   (   $post - hero_image   )   { \n     $context [ post ] - hero_image   =   gesso_get_image (   $post - hero_image   );  }    FED:  1\n2\n3 div   class = hero-bg-image   style = background-image: url( {{ post.hero_image.src }} ); \n  ... / div     Tip  You can also do  {{ TimberImage( post.hero_image ).src }}  directly from Twig and get the same results.", 
+            "title": "gesso_get_image()"
+        }, 
+        {
+            "location": "/helpers-reference/#gesso_get_post_type_label", 
+            "text": "Get the singular name of a post type.  Parameters:   (string)  $post_type : a WordPress post type slug.   Returns:  the singular name of the post type.  Example:   1\n 2\n 3\n 4\n 5\n 6\n 7\n 8\n 9\n10\n11 // single.php  ?php  $context   =   Timber :: get_context ();  $post   =   Timber :: query_post ();  $context [ post ]   =   $post ;  // Add a post_type_label property to this single Post.  $context [ post ] - post_type_label   =   gesso_get_post_type_label (   $post - post_type   );  // ...     Info  This function applies  gesso/get_post_type_label  filter before  return .", 
+            "title": "gesso_get_post_type_label()"
+        }, 
+        {
+            "location": "/helpers-reference/#gesso_add_post_type_labels", 
+            "text": "Adds a  $post_type_label  property to each post.  Parameters:   (array)  $posts : array of  Timber\\Post  objects.   Returns:  An array of  Timber\\Post  objects with  $post_type_label .  Example:   1\n 2\n 3\n 4\n 5\n 6\n 7\n 8\n 9\n10\n11 // single.php  ?php  // ...  // Get collection of paged posts. Add a post type label to each post.  $context [ paged_posts ]   =   gesso_add_post_type_labels (  \n     gesso_get_paged_posts (  \n         [ post ,   event ,   campaign ,   report ,   press_release ]  \n     )   );     Info  This function uses  gesso_get_post_type_label()  and applies  gesso/get_post_type_label  filter to each post before  return .", 
+            "title": "gesso_add_post_type_labels()"
+        }, 
+        {
+            "location": "/helpers-reference/#gesso_get_menu", 
+            "text": "Returns a WordPress menu.  Parameters:   (int | string)  $menu : The WordPress menu  ID  or  slug .   Returns:  a  Timber\\Menu  object.  Example:  1\n2\n3\n4\n5\n6\n7\n8 // page.php  ?php  // ...  if   (   is_page (   about   )   )   { \n     $context [ about_submenu ]   =   gesso_get_menu (   about-menu   );  }", 
+            "title": "gesso_get_menu()"
+        }, 
+        {
+            "location": "/helpers-reference/#twig-filters", 
+            "text": "", 
+            "title": "Twig filters"
+        }, 
+        {
+            "location": "/helpers-reference/#post_type_label", 
+            "text": "Returns the post type label.  Example:  1\n2\n3 !-- ... --  div   class = card__label {{ post.post_type | post_type_label }} / div  !-- ... --     Info  This Twig filter is affected by  gesso/get_post_type_label  filter before  return .", 
+            "title": "post_type_label"
+        }, 
+        {
+            "location": "/helpers-reference/#wordpress-filters", 
+            "text": "", 
+            "title": "WordPress filters"
+        }, 
+        {
+            "location": "/helpers-reference/#gessoget_post_type_label", 
+            "text": "Filters singular post type label before return on  gesso_get_post_type_label() .  Parameters:   (string)  $label : The post type singular name.   Returns:   string .  Example:   1\n 2\n 3\n 4\n 5\n 6\n 7\n 8\n 9\n10\n11\n12 // functions.php  ?php  // ...  add_filter (   gesso/get_post_type_label ,   function (   $label   )   { \n     // The default WordPress Post is the Blog. \n     if   (   $label   ==   Post   )   { \n         $label   =   Blog ; \n     } \n     return   $label ;  });", 
+            "title": "gesso/get_post_type_label"
+        }
+    ]
+}
