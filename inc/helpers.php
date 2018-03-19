@@ -89,22 +89,6 @@ function gesso_get_image( $id ) {
 
 
 /**
- * Returns a given ammount of Timber\Post objects.
- * @param mixed $post_type
- * @param int $qty
- * @return array
- */
-function gesso_get_posts_block( $post_type, $qty ) {
-	return Timber::get_posts(
-		array(
-			'post_type' => $post_type,
-			'posts_per_page' => $qty,
-		)
-	);
-}
-
-
-/**
  * Returns a Timber\TimberFunctionWrapper widget sidebar.
  * @param int $id
  * @return array

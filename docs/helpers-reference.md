@@ -151,9 +151,6 @@ if ( $post->hero_image ) {
 
 ***
 
-### `gesso_get_posts_block()`
-
-
 
 ### `gesso_get_sidebar()`
 
