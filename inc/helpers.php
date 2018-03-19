@@ -119,7 +119,7 @@ function gesso_add_post_type_labels( $posts ) {
  * @return object
  */
 function gesso_get_menu( $menu ) {
-	return TimberHelper::function_wrapper( 'wp_nav_menu', array( 'menu' => $menu ) );
+	return new Timber\Menu( $menu );
 }
 
 

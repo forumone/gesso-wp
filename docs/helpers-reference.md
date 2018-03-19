@@ -215,6 +215,25 @@ $context['paged_posts'] = gesso_add_post_type_labels(
 
 ### `gesso_get_menu()`
 
+Returns a WordPress menu.
+
+**Parameters:**
+
+* (int | string) `$menu`: The WordPress menu `ID` or `slug`.
+
+**Returns:** a `Timber\Menu` object.
+
+```php
+// page.php
+<?php
+
+// ...
+
+if ( is_page( 'about' ) ) {
+	$context['about_submenu'] = gesso_get_menu( 'about-menu' );
+}
+```
+
 
 ## Twig filters
 
