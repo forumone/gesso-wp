@@ -223,6 +223,8 @@ Returns a WordPress menu.
 
 **Returns:** a `Timber\Menu` object.
 
+**Example:**
+
 ```php
 // page.php
 <?php
@@ -234,10 +236,24 @@ if ( is_page( 'about' ) ) {
 }
 ```
 
+***
 
 ## Twig filters
 
 ### `post_type_label`
+
+Returns the post type label.
+
+**Example:**
+
+```html
+<!-- ... -->
+<div class="card__label">{{ post.post_type | post_type_label }}</div>
+<!-- ... -->
+```
+
+!!! info
+    This Twig filter is affected by [`gesso/get_post_type_label`](#gessoget_post_type_label) filter before `return`.
 
 ## WordPress filters
 
