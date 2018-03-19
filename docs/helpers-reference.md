@@ -255,8 +255,36 @@ Returns the post type label.
 !!! info
     This Twig filter is affected by [`gesso/get_post_type_label`](#gessoget_post_type_label) filter before `return`.
 
+***
+
 ## WordPress filters
 
 ### `gesso/get_post_type_label`
 
+Filters singular post type label before return on [`gesso_get_post_type_label()`](#gesso_get_post_type_label).
 
+**Parameters:**
+
+* (string) `$label`: The post type singular name.
+
+**Returns:** `string`.
+
+**Example:**
+
+```php
+// functions.php
+<?php
+
+// ...
+
+add_filter( 'gesso/get_post_type_label', function( $label ) {
+	// The default WordPress Post is the Blog.
+	if ( $label == 'Post' ) {
+		$label = 'Blog';
+	}
+	return $label;
+});
+
+```
+
+***
