@@ -23,7 +23,7 @@ Gesso (pronounced JEH-so) is an art term for the white paint mixture used to pre
 
 ## About Pattern Lab
 
-[Pattern Lab](http://patternlab.io/) is the Front End canonical source of markup for Gesso. Pattern Lab allows for an organized design system that is based on repeatable design patterns. Gesso comes with a Pattern Lab starter-kit that includes commonly used components, regions, and pages with some minimalistic styling. Once you have compiled the starter-kit, you will see the many components that have been included that are ready to be pulled into Wordpress. All styling is done at the component level, so within a component directory you will find a scss file that relates to that component’s markup. The scss then gets globbed into the primary styles.css when the sass in compiled.
+[Pattern Lab](http://patternlab.io/) is the Front End canonical source of markup for Gesso allowing for an organized design system that is based on repeatable design patterns. Gesso comes with a Pattern Lab starter-kit that includes commonly used components, regions, and pages with some minimalistic styling. Once you have compiled the starter-kit, you will see the many components that have been included that are ready to be pulled into Wordpress. All styling is done at the component level, so within a component directory you will find a scss file that relates to that component’s markup. The scss then gets globbed into the primary styles.css when the sass in compiled.
 
 - [Pattern Lab documentation](http://patternlab.io/docs/index.html)
 
