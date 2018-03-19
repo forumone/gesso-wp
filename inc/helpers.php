@@ -81,7 +81,7 @@ function gesso_get_paged_posts( $post_type ) {
  */
 function gesso_get_image( $id ) {
 	if ( strlen( $id ) ) {
-		return new TimberImage( $id );
+		return new Timber\Image( $id );
 	} else {
 		return null;
 	}

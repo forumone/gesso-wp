@@ -72,7 +72,6 @@ $context['related_content'] = gesso_get_posts_by_tax(
 
 ***
 
-
 ### `gesso_get_paged_posts()`
 
 Retrieves a list of posts with pagination included. *Good for providing a paginated list of content items on any page.*
@@ -108,9 +107,49 @@ $context['paged_posts'] = gesso_get_paged_posts( 'post' );
 %}
 ```
 
+***
+
 ### `gesso_get_image()`
 
+Retrieves an image object from a given WordPress media ID. *Good for [ACF Image](https://www.advancedcustomfields.com/resources/image/) fields and other special situations where we have only the image ID*.
 
+**Parameters:**
+
+* (int) `$id`: a WordPress media ID.
+
+**Returns:** a `Timber\Image` object.
+
+**Example:**
+
+```php
+// single.php
+<?php
+
+$context = Timber::get_context();
+$post = Timber::query_post();
+$context['post'] = $post;
+
+// ...
+
+// If the ACF hero_image field had an image selected, 
+// replace the media ID value for a Timber\Image object.
+if ( $post->hero_image ) {
+	$context['post']->hero_image = gesso_get_image( $post->hero_image );
+}
+```
+
+**FED:**
+
+```html
+<div class="hero-bg-image" style="background-image: url( {{ post.hero_image.src }} );">
+  ...
+</div>
+```
+
+!!! tip
+    You can also do `{{ TimberImage( post.hero_image ).src }}` directly from Twig and get the same results.
+
+***
 
 ### `gesso_get_posts_block()`
 
