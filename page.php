@@ -32,4 +32,8 @@ $templates = array(
 // Set the Homepage template.
 if ( is_front_page() ) array_unshift( $templates, 'front-page.twig' );
 // Render twig template.
-Timber::render( $templates, $context );
+if ( post_password_required( $post->ID ) ) {
+	Timber::render( 'components/password-form.twig', $context );
+} else {
+	Timber::render( $templates, $context );
+}

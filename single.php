@@ -18,7 +18,7 @@ $templates = array(
 	'single.twig'
 );
 if ( post_password_required( $post->ID ) ) {
-	Timber::render( 'single-password.twig', $context );
+	Timber::render( 'components/password-form.twig', $context );
 } else {
 	Timber::render( $templates, $context );
 }
