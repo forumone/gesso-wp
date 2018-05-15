@@ -51,7 +51,7 @@ function has_visible_widgets( $sidebar_id ) {
 function gesso_header_scripts() {
 
   wp_deregister_script('jquery');
-  wp_register_script('jquery', 'http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js', array() ); // Google CDN jQuery
+  wp_register_script('jquery', '//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js', array() ); // Google CDN jQuery
   wp_enqueue_script('jquery');
 
   wp_register_script('gessomodernizr', get_template_directory_uri() . '/js/lib/modernizr.min.js', array('jquery') ); // Modernizr
