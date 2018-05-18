@@ -8,7 +8,7 @@ The following packages needs to be installed on your system in order to use Gess
 
 
 ## Timber Installation
-In order to develop using this starter theme you must download and activate the [Timber Library](http://wordpress.org/plugins/timber-library/) plugin from Wordpress.org.
+In order to develop using this starter theme you must download and activate the [Timber Library](http://wordpress.org/plugins/timber-library/) plugin from WordPress.org.
 
 Additional information about installing and configuring the Timber Library can be found in the [Timber Documentation](https://timber.github.io/docs/getting-started/setup)
 
