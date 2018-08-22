@@ -5,14 +5,9 @@
   {% embed '@layouts/regions/content/content.twig' %}
     {% block content %}
       <p>{{ __('View author: ', 'gesso') }} <a href="{{ user.link }}">{{ user.name }}</a></p>
-      {% embed "@components/article/article.twig" %}
-        {% block title %}
-          {% include "@components/page-title/page-title.twig" with
-            {
-              page_title: post.title
-            }
-          %}
-        {% endblock %}
+      {% embed "@components/article/article.twig" with {
+        'article_page_title': post.title
+      } %}
         {% block footer %}
           {% include "@components/author/author.twig" with
             {

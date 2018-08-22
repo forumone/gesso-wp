@@ -1,1 +1,14 @@
-{% include 'templates-homepage' %}
+{% include 'layouts-header' %}
+{% include 'layouts-navigation' %}
+
+<main id="main" class="main" role="main" tabindex="-1">
+  {% include 'layouts-preface' %}
+  {% include 'layouts-content' with
+    {
+      content: content
+    }
+  %}
+  {% include 'layouts-postscript' %}
+</main>
+
+{% include 'layouts-footer' %}
