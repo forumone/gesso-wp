@@ -217,7 +217,6 @@ new StarterSite();
  * @return string
  */
 function gesso_bem_gallery( $gallery, $attr ) {
-
   // [ thumbnail | medium | large | full ]
   $size   = 'thumbnail';
   $output = '<div class="gallery">';
@@ -226,8 +225,12 @@ function gesso_bem_gallery( $gallery, $attr ) {
   foreach ( $posts as $image_post ) {
     $src      = wp_get_attachment_image_src( $image_post->ID, $size );
     $alt_text = get_post_meta( $image_post->ID, '_wp_attachment_image_alt', true );
-    $output .= '<div class="gallery__item"><a href="' . $src[0] . '"><img alt="' . $alt_text . '" class="gallery__item-image" src="' . $src[0] . '"></a>';
-    $output .= '<div class="galler__item-caption">' . $image_post->post_excerpt . '</div></div>';
+    $output .= '<div class="gallery__item">';
+    $output .= '<a href="' . $src[0] . '"><img alt="' . $alt_text . '" class="gallery__item-image" src="' . $src[0] . '"></a>';
+    $output .= '<div class="gallery__item-title">' . $image_post->post_title . '</div>';
+    $output .= '<div class="gallery__item-caption">' . $image_post->post_excerpt . '</div>';
+    $output .= '<div class="gallery__item-description">' . $image_post->post_content . '</div>';
+    $output .= '</div>';
   }
 
   $output .= '</div>';
