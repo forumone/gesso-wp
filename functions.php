@@ -236,6 +236,11 @@ function gesso_bem_gallery( $gallery, $attr ) {
 }
 add_filter( 'post_gallery', 'gesso_bem_gallery', 10, 2 );
 
+/**
+ * Register Twig namespaces to Pattern Lab patterns. 
+ * @param Twig_Loader_Filesystem $loader
+ * @return Twig_Loader_Filesystem
+ */
 add_filter('timber/loader/loader', function($loader){
 	$loader->addPath(__DIR__ . "/pattern-lab/source/_patterns/01-base", "base");
 	$loader->addPath(__DIR__ . "/pattern-lab/source/_patterns/02-layouts", "layouts");
