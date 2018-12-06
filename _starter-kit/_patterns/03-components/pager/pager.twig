@@ -15,7 +15,7 @@
   <h4 id="pagination-heading" class="visually-hidden">{{ heading|default('Pagination') }}</h4>
   <ul class="pager__items js-pager__items">
   {% spaceless %}
-    {% if pagination.prev %}
+    {% if previous_link %}
       <li class="pager__item pager__item--previous">
         <a class="pager__link pager__link--previous" href="{{ previous_link }}" title="{{ 'Go to previous page' }}" rel="prev">
           <span class="visually-hidden">{{ 'Previous page' }}</span>
@@ -37,7 +37,7 @@
       {% endif %}
     {% endfor %}
 
-    {% if pagination.next %}
+    {% if next_link %}
       <li class="pager__item pager__item--next">
         <a class="pager__link pager__link--next" href="{{ next_link }}" title="{{ 'Go to next page' }}" rel="next">
           <span class="visually-hidden">{{ 'Next page' }}</span>
