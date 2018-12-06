@@ -1,0 +1,8 @@
+{% embed '@components/pager/pager.twig' with {
+    previous_link: pagination.prev.link|e( 'esc_url' ),
+    next_link: pagination.next.link|e( 'esc_url' )
+} %}
+    {% block page %}
+        <a href="{{ page.link|e( 'esc_url' ) }}" class="pager__link {{ page.class }}">{{ page.title }}</a>
+    {% endblock %}
+{% endembed %}

@@ -17,7 +17,7 @@
   {% spaceless %}
     {% if pagination.prev %}
       <li class="pager__item pager__item--previous">
-        <a class="pager__link pager__link--previous" href="{{ pagination.prev.link }}" title="{{ 'Go to previous page' }}" rel="prev">
+        <a class="pager__link pager__link--previous" href="{{ previous_link }}" title="{{ 'Go to previous page' }}" rel="prev">
           <span class="visually-hidden">{{ 'Previous page' }}</span>
           <span aria-hidden="true">Previous</span>
         </a>
@@ -27,7 +27,8 @@
     {% for page in pagination.pages %}
       {% if page.link %}
         <li class="pager__item">
-          <a href="{{ page.link }}" class="pager__link {{ page.class }}">{{ page.title }}</a>
+          {% block page %}
+          {% endblock %}
         </li>
       {% else %}
         <li class="pager__item pager__item--current">
@@ -38,7 +39,7 @@
 
     {% if pagination.next %}
       <li class="pager__item pager__item--next">
-        <a class="pager__link pager__link--next" href="{{ pagination.next.link }}" title="{{ 'Go to next page' }}" rel="next">
+        <a class="pager__link pager__link--next" href="{{ next_link }}" title="{{ 'Go to next page' }}" rel="next">
           <span class="visually-hidden">{{ 'Next page' }}</span>
           <span aria-hidden="true">Next</span>
         </a>
