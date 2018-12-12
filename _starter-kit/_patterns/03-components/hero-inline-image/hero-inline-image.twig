@@ -20,10 +20,10 @@
     {% if summary %}
       <div class="hero-inline-image__text">{{ summary|raw }}</div>
     {% endif %}
-    {% if call_to_action %}
+    {% if call_to_action_content %}
       <div class="hero-inline-image__call-to-action">
         {% block call_to_action %}
-          {{ call_to_action|raw }}
+          {{ call_to_action_content|raw }}
         {% endblock %}
       </div>
     {% endif %}
