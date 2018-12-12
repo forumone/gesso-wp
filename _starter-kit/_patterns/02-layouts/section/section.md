@@ -9,7 +9,6 @@ _Layout for Section_.
 * element: [string] HTML element to use for main wrapper.
 * has_constrain: [boolean] True/False whether to add a constraint to block.
 * constrain_classes: [string] Constrain classes used to control layout.
-* has_label: [boolean] True/False whether block label should be displayed.
 * label_element: [string] HTML element to use for block label.
 * label: [string] The configured label of the block if visible.
 * has_content_wrapper: [boolean] True/False whether a wrapping element should be added around block content.
