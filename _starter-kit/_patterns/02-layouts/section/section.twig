@@ -25,8 +25,8 @@
     <div class="{{ constrain_classes ?: "l-constrain" }}">
   {% endif %}
 
-  {% if has_label %}
-    <{{ label_element ?: "h2" }} classes="{{ title_classes }}">{{ label }}</{{ label_element ?: "h2" }}>
+  {% if label %}
+    <{{ label_element ?: "h2" }} classes="{{ title_classes }}">{{ label|raw }}</{{ label_element ?: "h2" }}>
   {% endif %}
 
   {% if has_content_wrapper %}
