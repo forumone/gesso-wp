@@ -177,6 +177,7 @@ Timber::$dirname = array('templates');
 class StarterSite extends TimberSite {
 
   function __construct() {
+    // add_theme_support( 'post-formats' ); // uncomment to enable post formats
     add_theme_support( 'post-thumbnails' );
     add_theme_support( 'menus' );
     add_filter( 'timber/context', array( $this, 'add_to_context' ) );
