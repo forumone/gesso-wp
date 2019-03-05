@@ -3,26 +3,23 @@ pagination:
   pages:
     1:
       title: 1
-      url: "#"
-      link: true
+      link: "#"
     2:
       title: 2
-      url: "#"
-      link: true
+      link: "#"
     3:
       title: 3
-      url: "#"
-      link: true
+      link: "#"
     4:
       title: 4
-      url: "#"
-      link: true
+      link: "#"
     5:
       title: 5
-      url: "#"
+      link: "#"
     6:
       title: 6
-      url: "#"
-      link: true
-  prev: true
-  next: true
+      link: "#"
+  prev:
+    link: '#'
+  next:
+    link: '#'

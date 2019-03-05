@@ -10,6 +10,11 @@
   *   - url: [string] URL of the item (optional).
   */
 #}
+{% if pattern_lab %}
+  {% set escape_method = 'url' %}
+{% else %}
+  {% set escape_method = 'esc_url' %}
+{% endif %}
 
 <nav class="pager {{ modifier_classes }}" role="navigation" aria-labelledby="pagination-heading">
   <h4 id="pagination-heading" class="visually-hidden">{{ heading|default('Pagination')|raw }}</h4>
@@ -17,7 +22,7 @@
   {% spaceless %}
     {% if pagination.prev %}
       <li class="pager__item pager__item--previous">
-        <a class="pager__link pager__link--previous" href="{{ pagination.prev.link }}" title="{{ 'Go to previous page' }}" rel="prev">
+        <a class="pager__link pager__link--previous" href="{{ pagination.prev.link|e(escape_method) }}" title="{{ 'Go to previous page' }}" rel="prev">
           <span class="visually-hidden">{{ 'Previous page' }}</span>
           <span aria-hidden="true">Previous</span>
         </a>
@@ -27,7 +32,7 @@
     {% for page in pagination.pages %}
       {% if page.link %}
         <li class="pager__item">
-          <a href="{{ page.link }}" class="pager__link {{ page.class }}">{{ page.title }}</a>
+          <a href="{{ page.link|e(escape_method) }}" class="pager__link {{ page.class }}">{{ page.title }}</a>
         </li>
       {% else %}
         <li class="pager__item pager__item--current">
@@ -38,7 +43,7 @@
 
     {% if pagination.next %}
       <li class="pager__item pager__item--next">
-        <a class="pager__link pager__link--next" href="{{ pagination.next.link }}" title="{{ 'Go to next page' }}" rel="next">
+        <a class="pager__link pager__link--next" href="{{ pagination.next.link|e(escape_method) }}" title="{{ 'Go to next page' }}" rel="next">
           <span class="visually-hidden">{{ 'Next page' }}</span>
           <span aria-hidden="true">Next</span>
         </a>
