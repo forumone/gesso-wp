@@ -6,7 +6,7 @@
     {% block content %}
       {% include "@components/page-title/page-title.twig" with
         {
-          page_title: __('Search results for term: ', 'gesso') ~ request.get.s
+          page_title: __('Search results for term: ', 'gesso') ~ function('get_search_query')
         }
       %}
       {% for post in posts %}
