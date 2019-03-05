@@ -3,7 +3,6 @@ has_wrapper: true
 element: section
 has_constrain: false
 constrain_classes: l-constrain
-has_label: true
 label_element: h2
 label: Section title
 has_content_wrapper: true

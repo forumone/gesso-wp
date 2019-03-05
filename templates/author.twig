@@ -44,7 +44,7 @@
         }
       %}
     {% endfor %}
-    {% include 'templates/components/pagination.twig' %}
+    {% include '@components/pager/pager.twig' %}
   {% else %}
     <p>{{ __('Sorry Nothing to Display ','gesso') }}</p>
   {% endif %}
