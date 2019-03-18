@@ -1,50 +1,19 @@
-{%
-  set classes = [
-    'l-section',
-    custom_classes ? custom_classes,
-  ]|join(' ')|trim
-%}
-{%
-  set title_classes = [
-    'l-section__title',
-    custom_title_classes ? custom_title_classes,
-  ]|join(' ')|trim
-%}
-{%
-  set content_classes = [
-    'l-section__content',
-    custom_content_classes ? custom_content_classes,
-  ]|join(' ')|trim
-%}
-
-{% if has_wrapper %}
-  <{{ element ?: "section" }} class="{{ classes }}">
-{% endif %}
-
+<section class="l-section">
   {% if has_constrain %}
     <div class="{{ constrain_classes ?: "l-constrain" }}">
   {% endif %}
 
-  {% if label %}
-    <{{ label_element ?: "h2" }} classes="{{ title_classes }}">{{ label|raw }}</{{ label_element ?: "h2" }}>
+  {% if section_title %}
+    <{{ section_title_element ?: "h2" }} class="l-section__title">{{ section_title|raw }}</{{ label_element ?: "h2" }}>
   {% endif %}
 
-  {% if has_content_wrapper %}
-    <{{ content_element ?: "div" }} classes="{{ content_classes }}">
-  {% endif %}
-
-  {% block content %}
-    {{ content|raw }}
-  {% endblock %}
-
-  {% if has_content_wrapper %}
-    </{{ content_element ?: "div" }}>
-  {% endif %}
+  <div class="l-section__content">
+    {% block content %}
+      {{ section_content|raw }}
+    {% endblock %}
+  </div>
 
   {% if has_constrain %}
     </div>
   {% endif %}
-
-{% if has_wrapper %}
-  </{{ element ?: 'section' }}>
-{% endif %}
+</section>
