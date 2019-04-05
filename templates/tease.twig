@@ -1,18 +1,16 @@
 {% block content %}
   <!-- Provided by templates/tease.twig -->
-  {% include "@components/image-teaser/image-teaser.twig" with
-    {
-      url: post.link,
-      title: post.title,
-      image: post.thumbnail ? include('@base/images/thumbnail-image.twig', {
-        img: {
-          thumbnail: {
-            src: post.thumbnail.src('small'),
-            alt: post.thumnbail.alt
-          }
+  {% include '@components/image-teaser/image-teaser.twig' with {
+    'url': post.link,
+    'title': post.title,
+    'image': post.thumbnail ? include('@base/images/thumbnail-image.twig', {
+      'img': {
+        'thumbnail': {
+          'src': post.thumbnail.src('small'),
+          'alt': post.thumnbail.alt
         }
-      }),
-      summary: post.preview
-    }
-  %}
+      }
+    }),
+    'summary': post.preview
+  } %}
 {% endblock %}

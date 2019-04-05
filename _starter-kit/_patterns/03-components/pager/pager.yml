@@ -2,23 +2,23 @@
 pagination:
   pages:
     1:
-      title: 1
-      link: "#"
+      title: '1'
+      link: '#'
     2:
-      title: 2
-      link: "#"
+      title: '2'
+      link: '#'
     3:
-      title: 3
-      link: "#"
+      title: '3'
+      link: '#'
     4:
-      title: 4
-      link: "#"
+      title: '4'
+      link: '#'
     5:
-      title: 5
-      link: "#"
+      title: '5'
+      link: '#'
     6:
-      title: 6
-      link: "#"
+      title: '6'
+      link: '#'
   prev:
     link: '#'
   next:

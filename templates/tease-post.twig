@@ -1,20 +1,18 @@
-{% extends "tease.twig" %}
+{% extends 'tease.twig' %}
 
 {% block content %}
   <!-- Provided by templates/tease-post.twig -->
-  {% include "@components/image-teaser/image-teaser.twig" with
-    {
-      url: post.link,
-      title: post.title,
-      image: post.thumbnail ? include('@base/images/thumbnail-image.twig', {
-        img: {
-          thumbnail: {
-            src: post.thumbnail.src('small'),
-            alt: post.thumnbail.alt
-          }
+  {% include '@components/image-teaser/image-teaser.twig' with {
+    'url': post.link,
+    'title': post.title,
+    'image': post.thumbnail ? include('@base/images/thumbnail-image.twig', {
+      'img': {
+        'thumbnail': {
+          'src': post.thumbnail.src('small'),
+          'alt': post.thumnbail.alt
         }
-      }),
-      summary: post.get_preview
-    }
-  %}
+      }
+    }),
+    'summary': post.get_preview
+  } %}
 {% endblock %}

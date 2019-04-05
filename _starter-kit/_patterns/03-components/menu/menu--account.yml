@@ -1,0 +1,7 @@
+---
+menu_name: 'account'
+items:
+- title: 'Account Link 1'
+  link: '#'
+- title: 'Account Link 2'
+  link: '#'

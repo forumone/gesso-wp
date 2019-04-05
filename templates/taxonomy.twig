@@ -1,14 +1,12 @@
-{% extends "base.twig" %}
+{% extends 'base.twig' %}
 
 {% block content %}
 	<!-- Provided by templates/taxonomy.twig -->
 	{% embed '@layouts/regions/content/content.twig' %}
 	  {% block content %}
-			{% include "@components/page-title/page-title.twig" with
-				{
-					page_title: __('Taxonomy Archives: ', 'gesso') ~ title
-				}
-			%}
+			{% include '@components/page-title/page-title.twig' with {
+				'page_title': __('Taxonomy Archives: ', 'gesso') ~ title
+			} %}
 			{% include 'templates/components/loop.twig' %}
 			{% include '@components/pager/pager.twig' %}
 		{% endblock %}

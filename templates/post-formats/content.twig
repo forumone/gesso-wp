@@ -1,14 +1,12 @@
 <!-- Provided by templates/post-formats/content.twig -->
-{% embed "@components/article/article.twig" with {
+{% embed '@components/article/article.twig' with {
   'article_page_title': post.title
 } %}
   {% block footer %}
-    {% include "@components/author/author.twig" with
-      {
-        url: post.author.link,
-        author: post.author.display_name
-      }
-    %}
+    {% include '@components/author/author.twig' with {
+      'url': post.author.link,
+      'author': post.author.display_name
+    } %}
   {% endblock %}
   {% block main %}
     {{ post.content }}
