@@ -1,21 +1,17 @@
-{% extends "base.twig" %}
+{% extends 'base.twig' %}
 
 {% block content %}
   <!-- Provided by templates/search.twig -->
   {% embed '@layouts/regions/content/content.twig' %}
     {% block content %}
-      {% include "@components/page-title/page-title.twig" with
-        {
-          page_title: __('Search results for term: ', 'gesso') ~ function('get_search_query')
-        }
-      %}
+      {% include '@components/page-title/page-title.twig' with {
+        'page_title': __('Search results for term: ', 'gesso') ~ function('get_search_query')
+      } %}
       {% for post in posts %}
-        {% include "@components/teaser/teaser.twig" with
-          {
-            url: post.link,
-            title: post.title
-          }
-        %}
+        {% include '@components/teaser/teaser.twig' with {
+          'url': post.link,
+          'title': post.title
+        } %}
       {% endfor %}
       {% include '@components/pager/pager.twig' %}
     {% endblock %}

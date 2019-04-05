@@ -1,4 +1,12 @@
-<div class="messages {{ modifier_classes }}"{% if type == 'error' %} role="alert" {% else %} role="contentinfo" {% endif %} {% if heading %}aria-label="{{ heading|raw }}"{% endif %}>
+{% if type == 'error' %}
+  {% set message_classes = 'messages messages--error' %}
+{% elseif type == 'warning' %}
+  {% set message_classes = 'messages messages--warning' %}
+{% else %}
+  {% set message_classes = 'messages messages--status' %}
+{% endif %}
+
+<div class="{{ message_classes }}"{% if type == 'error' %} role="alert" {% else %} role="contentinfo" {% endif %} {% if heading %}aria-label="{{ heading|raw }}"{% endif %}>
   {% if messages|length > 1 %}
     <h2 class="visually-hidden">{{ heading|raw }}</h2>
     <ul class="messages__list">

@@ -1,13 +1,11 @@
-{% extends "base.twig" %}
+{% extends 'base.twig' %}
 
 {% block content %}
   <!-- Provided by templates/author.twig -->
   {% if posts %}
-    {% include "@components/page-title/page-title.twig" with
-      {
-        page_title: title
-      }
-    %}
+    {% include '@components/page-title/page-title.twig' with {
+      'page_title': title
+    } %}
     {% include "@layouts/media/media.twig"
       with {
         media: author.avatar ? include('@base/images/thumbnail-image.twig', {

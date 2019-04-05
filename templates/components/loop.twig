@@ -1,30 +1,28 @@
 {% for post in posts %}
 
-  {% embed "@components/image-teaser/image-teaser.twig"
-    with {
-      url: post.link,
-      title: post.title,
-      date: include('@components/date/date.twig', {
-        content: post.date
-      }),
-      author: include('@components/author/author.twig', {
-        url: post.author.link,
-        author: post.author
-      }),
-      image: post.thumbnail ? include('@base/images/thumbnail-image.twig', {
-        img: {
-          thumbnail: {
-            src: post.thumbnail.src('small'),
-            alt: post.thumnbail.alt
-          }
+  {% embed '@components/image-teaser/image-teaser.twig' with {
+    'url': post.link,
+    'title': post.title,
+    'date': include('@components/date/date.twig', {
+      'content': post.date
+    }),
+    'author': include('@components/author/author.twig', {
+      'url': post.author.link,
+      'author': post.author
+    }),
+    'image': post.thumbnail ? include('@base/images/thumbnail-image.twig', {
+      'img': {
+        'thumbnail': {
+          'src': post.thumbnail.src('small'),
+          'alt': post.thumnbail.alt
         }
-      }),
-      comments: include('@components/comment-summary/comment-summary.twig', {
-        comments: post.comments ? post.comments|length,
-        url: post.link
-      })
-    }
-  %}
+      }
+    }),
+    'comments': include('@components/comment-summary/comment-summary.twig', {
+      'comments': post.comments ? post.comments|length,
+      'url': post.link
+    })
+  } %}
     {% block functions %}
       {{ function('gesso_link_pages') }}
       <div>{{ function('edit_post_link', 'Edit', '<span class="edit-link">', '</span>', post.id) }}</div>

@@ -1,20 +1,18 @@
-{% extends "base.twig" %}
+{% extends 'base.twig' %}
 
 {% block content %}
   <!-- Provided by templates/page.twig -->
   {% embed '@layouts/regions/content/content.twig' %}
     {% block content %}
       <p>{{ __('View author: ', 'gesso') }} <a href="{{ user.link }}">{{ user.name }}</a></p>
-      {% embed "@components/article/article.twig" with {
+      {% embed '@components/article/article.twig' with {
         'article_page_title': post.title
       } %}
         {% block footer %}
-          {% include "@components/author/author.twig" with
-            {
-              url: post.author.link,
-              author: post.author.display_name
-            }
-          %}
+          {% include '@components/author/author.twig' with {
+            'url': post.author.link,
+            'author': post.author.display_name
+          } %}
         {% endblock %}
         {% block main %}
           {{ post.content }}

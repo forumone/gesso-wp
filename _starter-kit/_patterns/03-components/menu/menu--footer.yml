@@ -1,0 +1,11 @@
+---
+menu_name: 'footer'
+items:
+- title: 'Footer Link 1'
+  link: '#'
+- title: 'Footer Link 2'
+  link: '#'
+- title: 'Footer Link 3'
+  link: '#'
+- title: 'Footer Link 4'
+  link: '#'

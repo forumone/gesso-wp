@@ -1,0 +1,11 @@
+---
+menu_name: 'main'
+items:
+- title: 'Main Link 1'
+  link: '#'
+- title: 'Main Link 2'
+  link: '#'
+- title: 'Main Link 3'
+  link: '#'
+- title: 'Main Link 4'
+  link: '#'
