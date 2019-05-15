@@ -6,39 +6,55 @@
     {% include '@components/page-title/page-title.twig' with {
       'page_title': title
     } %}
-    {% include "@layouts/media/media.twig"
-      with {
-        media: author.avatar ? include('@base/images/thumbnail-image.twig', {
-          img: {
-            thumbnail: {
-              src: author.avatar.abs_url,
-              alt: "author image"
+    {% if author.avatar %}
+      {% set media_media %}
+        {% include '@base/images/thumbnail-image.twig' with {
+          'img': {
+            'thumbnail': {
+              'src': author.avatar.abs_url,
+              'alt': 'author image'
             }
           }
-        }),
-        content: author.description
+        } %}
+      {% endset %}
+    {% endif %}
+    {% include "@layouts/media/media.twig"
+      with {
+        'media': media_media ? media_media : false,
+        'content': author.description
       }
     %}
     {% for post in posts %}
-      {% include "@components/image-teaser/image-teaser.twig"
-        with {
-          url: post.link,
-          title: post.title,
-          date: include('@components/date/date.twig', {
-            content: post.date
-          }),
-          image: post.thumbnail ? include('@base/images/thumbnail-image.twig', {
-            img: {
-              thumbnail: {
-                src: post.thumbnail.src('small'),
-                alt: post.thumnbail.alt
+      {% set image_teaser_date %}
+        {% include '@components/date/date.twig' with {
+          'content': post.date
+        } %}
+      {% endset %}
+      {% if post.thumbnail %}
+        {% set image_teaser_image %}
+          {% include '@base/images/thumbnail-image.twig' with {
+            'img': {
+              'thumbnail': {
+                'src': post.thumbnail.src('small'),
+                'alt': post.thumnbail.alt
               }
             }
-          }),
-          comments: include('@components/comment-summary/comment-summary.twig', {
-            comments: post.comments ? post.comments|length,
-            url: post.link
-          })
+          } %}
+        {% endset %}
+      {% endif %}
+      {% set image_teaser_comments %}
+        {% include '@components/comment-summary/comment-summary.twig' with {
+          'comments': post.comments ? post.comments|length,
+          'url': post.link
+        } %}
+      {% endset %}
+      {% include "@components/image-teaser/image-teaser.twig"
+        with {
+          'url': post.link,
+          'title': post.title,
+          'date': image_teaser_date,
+          'image': image_teaser_image ? image_teaser_image : false,
+          'comments': image_teaser_comments
         }
       %}
     {% endfor %}

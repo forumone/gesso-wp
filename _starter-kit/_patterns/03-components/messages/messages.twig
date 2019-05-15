@@ -6,18 +6,18 @@
   {% set message_classes = 'messages messages--status' %}
 {% endif %}
 
-<div class="{{ message_classes }}"{% if type == 'error' %} role="alert" {% else %} role="contentinfo" {% endif %} {% if heading %}aria-label="{{ heading|raw }}"{% endif %}>
+<div class="{{ message_classes }}"{% if type == 'error' %} role="alert" {% else %} role="contentinfo" {% endif %} {% if heading %}aria-label="{{ heading }}"{% endif %}>
   {% if messages|length > 1 %}
-    <h2 class="visually-hidden">{{ heading|raw }}</h2>
+    <h2 class="visually-hidden">{{ heading }}</h2>
     <ul class="messages__list">
       {% for message in messages %}
-        <li class="messages__item">{{- message|raw -}}</li>
+        <li class="messages__item">{{- message -}}</li>
       {% endfor %}
     </ul>
   {% else %}
     <div class="messages__content">
-      <h2 class="visually-hidden">{{ heading|raw }}</h2>
-      {{- messages|first|raw -}}
+      <h2 class="visually-hidden">{{ heading }}</h2>
+      {{- messages|first -}}
     </div>
   {% endif %}
 </div>
