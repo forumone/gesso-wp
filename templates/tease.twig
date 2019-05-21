@@ -1,16 +1,21 @@
 {% block content %}
+  {% if post.thumbnail %}
+    {% set image_teaser_image %}
+      {% include '@base/images/thumbnail-image.twig' with {
+        'img': {
+          'thumbnail': {
+            'src': post.thumbnail.src('small'),
+            'alt': post.thumnbail.alt
+          }
+        }
+      } %}
+    {% endset %}
+  {% endif %}
   <!-- Provided by templates/tease.twig -->
   {% include '@components/image-teaser/image-teaser.twig' with {
     'url': post.link,
     'title': post.title,
-    'image': post.thumbnail ? include('@base/images/thumbnail-image.twig', {
-      'img': {
-        'thumbnail': {
-          'src': post.thumbnail.src('small'),
-          'alt': post.thumnbail.alt
-        }
-      }
-    }),
+    'image': image_teaser_image ? image_teaser_image : false,
     'summary': post.preview
   } %}
 {% endblock %}
