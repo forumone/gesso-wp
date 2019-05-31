@@ -17,9 +17,10 @@ To submit bug reports or feature requests, visit the
 The following packages need to be installed on your system in order to use
 Gesso WordPress.
 
-- [composer](https://getcomposer.org)
 - [npm](https://www.npmjs.com/get-npm)
 - [grunt](https://gruntjs.com/getting-started)
+
+In addition, in order to compile Twig files, Pattern Lab requires that PHP be available on the command line.
 
 ### Timber
 [Timber](https://upstatement.com/timber/) helps you create fully-customized
@@ -46,22 +47,22 @@ be found in the
 [LibSass](http://sass-lang.com/libsass) is required to compile the Sass into
 CSS. Gesso includes Grunt tasks to compile the CSS and generate the compiled
 Pattern Lab files and to watch both for changes. To use these tasks, first run
-the following NPM command in the theme folder (Windows users may need to
-include the `--no-bin-links` flag at the end of the command).
+the following NPM command in the theme folder.
 
 ```
 npm install
 ```
 
-Once the above command is run, the _starter-kit folder that comes with Gesso
-will be renamed to pattern-lab/source. This directory contains all of the
-Pattern Lab Twig templates and Sass files.
-
-To initiate the Grunt build tasks that compile the Sass and Pattern Lab files,
-run the following command in the theme directory:
+To initiate the Grunt build tasks that compile the Sass and Pattern Lab files and watch for changes, run the following command in the theme directory:
 
 ```
 grunt
+```
+
+To initiate the Grunt build tasks only (without watching for changes), run the following command in the theme directory:
+
+```
+grunt gessoBuild
 ```
 
 
@@ -77,7 +78,7 @@ node component
 
 ### Build Artifacts
 
-By default, the compiled Pattern Lab and Sass files (e.g., /pattern-lab/public/
+By default, the compiled Pattern Lab and Sass files (e.g., /pattern-lab/
 and /css/) are ignored by Git as these files are built during deployment.
 To change this, edit the included .gitignore file.
 

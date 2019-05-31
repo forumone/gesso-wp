@@ -200,7 +200,7 @@ class StarterSite extends TimberSite {
   function add_to_twig( \Twig_Environment $twig ) {
     // This is where you can add your own fuctions to twig
     // https://timber.github.io/docs/guides/extending-timber/#adding-to-twig
-    $twig->addExtension( new \Twig_Extension_StringLoader() );		  
+    $twig->addExtension( new \Twig_Extension_StringLoader() );
     $twig->addFilter( new \Twig_SimpleFilter( 'myfoo', 'my_foo' ) );
     return $twig;
   }
@@ -240,15 +240,15 @@ function gesso_bem_gallery( $gallery, $attr ) {
 add_filter( 'post_gallery', 'gesso_bem_gallery', 10, 2 );
 
 /**
- * Register Twig namespaces to Pattern Lab patterns. 
+ * Register Twig namespaces to Pattern Lab patterns.
  * @param Twig_Loader_Filesystem $loader
  * @return Twig_Loader_Filesystem
  */
 add_filter('timber/loader/loader', function($loader){
-	$loader->addPath(__DIR__ . "/pattern-lab/source/_patterns/01-base", "base");
-	$loader->addPath(__DIR__ . "/pattern-lab/source/_patterns/02-layouts", "layouts");
-	$loader->addPath(__DIR__ . "/pattern-lab/source/_patterns/03-components", "components");
-	$loader->addPath(__DIR__ . "/pattern-lab/source/_patterns/04-templates", "templates");
-	$loader->addPath(__DIR__ . "/pattern-lab/source/_patterns/05-pages", "pages");
+	$loader->addPath(__DIR__ . "/source/_patterns/01-base", "base");
+	$loader->addPath(__DIR__ . "/source/_patterns/02-layouts", "layouts");
+	$loader->addPath(__DIR__ . "/source/_patterns/03-components", "components");
+	$loader->addPath(__DIR__ . "/source/_patterns/04-templates", "templates");
+	$loader->addPath(__DIR__ . "/source/_patterns/05-pages", "pages");
 	return $loader;
 });
