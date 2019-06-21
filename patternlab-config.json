@@ -189,7 +189,7 @@
       ],
       "alterTwigEnv": [
         {
-          "file": "alter-twig.php",
+          "file": "source/_twig-components/alter-twig.php",
           "functions": [
             "addCustomExtension"
           ]

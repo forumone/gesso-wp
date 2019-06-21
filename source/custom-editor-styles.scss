@@ -1,2 +1,3 @@
-@import '_patterns/00-global';
+@import 'breakpoint';
+@import '_patterns/00-global/**/*';
 @import '_patterns/custom-editor-styles';
