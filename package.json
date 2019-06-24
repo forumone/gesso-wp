@@ -19,13 +19,16 @@
     "@pattern-lab/uikit-workshop": "^1.0.1-alpha.0",
     "autoprefixer": "^9.6.0",
     "breakpoint-sass": "^2.7.1",
-    "del": "^4.1.1",
     "gulp": "^4.0.2",
     "gulp-postcss": "^8.0.0",
     "gulp-sass": "^4.0.2",
     "gulp-sass-glob": "^1.0.9",
     "gulp-sourcemaps": "^2.6.5",
-    "postcss-assets": "^5.0.0"
+    "gulp-stylelint": "^9.0.0",
+    "postcss-assets": "^5.0.0",
+    "stylelint": "^10.1.0",
+    "stylelint-config-prettier": "^5.2.0",
+    "stylelint-config-sass-guidelines": "^6.0.0"
   },
   "scripts": {
     "component": "node component.js"

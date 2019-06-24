@@ -1,13 +1,21 @@
 'use strict';
 
-const { watch, dest, src, series, parallel } = require('gulp');
+const { dest, lastRun, parallel, series, src, watch } = require('gulp');
 const sass = require('gulp-sass');
 const sourcemaps = require('gulp-sourcemaps');
 const sassGlob = require('gulp-sass-glob');
+const stylelint = require('gulp-stylelint');
 const postcss = require('gulp-postcss');
-const del = require('del');
 const config = require('./patternlab-config.json');
 const patternlab = require('@pattern-lab/core')(config);
+
+function lintStyles() {
+  return src('**/*.scss', { cwd: './source', since: lastRun(lintStyles) })
+    .pipe(stylelint({
+      failAfterError: true,
+      reporters: [{ formatter: 'string', console: true }]
+    }));
+}
 
 function buildStyles() {
   return src('*.scss', { cwd: './source' })
@@ -29,13 +37,6 @@ function buildStyles() {
     .pipe(dest('css'));
 }
 
-
-function cleanPatternlab() {
-  return del([
-    'pattern-lab/public',
-  ]);
-}
-
 function buildPatternlab() {
   return patternlab.build({cleanPublic: true, watch: false});
 }
@@ -44,20 +45,20 @@ function fileWatch() {
   watch(
     ['source/**/*.scss', 'images/*.svg'],
     { usePolling: true, interval: 1500 },
-    buildStyles
+    series(
+      lintStyles,
+      buildStyles
+    ),
   );
   watch(
     'source/**/*.{twig,json,yaml,yml,md}',
     { usePolling: true, interval: 1500 },
-    series(
-      cleanPatternlab,
-      buildPatternlab
-    ),
+    buildPatternlab
   );
 }
 
-const gessoBuildPatternlab = exports.gessoBuildPatternlab = series(cleanPatternlab, buildPatternlab);
-const gessoBuildStyles = exports.gessoBuildStyles = buildStyles;
+const gessoBuildPatternlab = exports.gessoBuildPatternlab = buildPatternlab;
+const gessoBuildStyles = exports.gessoBuildStyles = series(lintStyles, buildStyles);
 const gessoBuild = exports.gessoBuild = parallel(gessoBuildStyles, gessoBuildPatternlab);
 const gessoWatch = exports.gessoWatch = fileWatch;
 
@@ -65,10 +66,3 @@ exports.default = series(
   gessoBuild,
   gessoWatch
 );
-
-
-
-
-
-
-
