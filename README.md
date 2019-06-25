@@ -1,6 +1,6 @@
 # Gesso for WordPress (w/ Timber)
 
-Gesso is a [Sass](http://sass-lang.com/)-based starter theme that outputs
+Gesso is a [Sass](http://sass-lang.com/)-based and [Pattern Lab](https://patternlab.io) integrated starter theme that outputs
 accessible HTML5 markup. It uses a mobile-first responsive approach and
 leverages [SMACSS](https://smacss.com/) for style organization. This
 encourages a component-based approach to theming through the creation of
@@ -11,7 +11,7 @@ to share the same markup.
 For more information, view the
 [Gesso WordPress GitHub repo](https://github.com/forumone/gesso-wp).
 To submit bug reports or feature requests, visit the
-[Gesso WordPress issue queue](https://github.com/forumone/gesso-wp/issues).
+[Gesso WordPress issue queue](https://github.com/forumone/gesso-wp/issues).  Also available for [Drupal](https://github/forumone/gesso).
 
 ### Global Prerequisites
 The following packages need to be installed on your system in order to use
