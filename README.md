@@ -11,7 +11,7 @@ to share the same markup.
 For more information, view the
 [Gesso WordPress GitHub repo](https://github.com/forumone/gesso-wp).
 To submit bug reports or feature requests, visit the
-[Gesso WordPress issue queue](https://github.com/forumone/gesso-wp/issues).  Also available for [Drupal](https://github/forumone/gesso).
+[Gesso WordPress issue queue](https://github.com/forumone/gesso-wp/issues).  Also available for [Drupal](https://github.com/forumone/gesso).
 
 ### Global Prerequisites
 The following packages need to be installed on your system in order to use
