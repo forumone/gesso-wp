@@ -52,10 +52,8 @@ function gesso_scripts() {
 
   wp_deregister_script('jquery');
   wp_register_script('jquery', '//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js', array() ); // Google CDN jQuery
-  wp_enqueue_script('jquery');
 
-  wp_register_script('gessomodernizr', get_template_directory_uri() . '/js/lib/modernizr.min.js', array('jquery') ); // Modernizr
-  wp_enqueue_script('gessomodernizr');
+  wp_register_script('gessomodernizr', get_template_directory_uri() . '/js/lib/modernizr.min.js', array() ); // Modernizr
 
   if ( is_singular() && comments_open() ) {
     wp_enqueue_script( "comment-reply" );
@@ -64,7 +62,7 @@ function gesso_scripts() {
   wp_register_script('gessomobilemenu', get_template_directory_uri() . '/js/mobile-menu.js', array('jquery','gessomodernizr') ); // Mobile menu
   wp_enqueue_script('gessomobilemenu');
 
-  wp_register_script('gessoscripts', get_template_directory_uri() . '/js/scripts.js', array('jquery','gessomodernizr') ); // Custom scripts
+  wp_register_script('gessoscripts', get_template_directory_uri() . '/js/dist/scripts.min.js', array('gessomodernizr') ); // Custom scripts
   wp_enqueue_script('gessoscripts');
 
   wp_enqueue_style( 'style', get_stylesheet_directory_uri() . '/css/styles.css', array(), null, 'all' );
