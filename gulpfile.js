@@ -9,6 +9,10 @@ const postcss = require('gulp-postcss');
 const config = require('./patternlab-config.json');
 const patternlab = require('@pattern-lab/core')(config);
 
+const webpack = require('webpack');
+const util = require('util');
+const asyncWebpack = util.promisify(webpack);
+
 function lintStyles() {
   return src('**/*.scss', { cwd: './source', since: lastRun(lintStyles) }).pipe(
     stylelint({
@@ -43,6 +47,17 @@ function buildPatternlab() {
   return patternlab.build({cleanPublic: true, watch: false});
 }
 
+async function bundleScripts(mode) {
+  const webpackConfig = require('./webpack.config')(mode);
+  const stats = await asyncWebpack(webpackConfig);
+  if (stats.hasErrors()) {
+    throw new Error(stats.compilation.errors.join('\n'));
+  }
+}
+
+const gessoBundleScripts = (exports.gessoBundleScripts = () => bundleScripts('production'));
+const gessoBundleScriptsDev = () => bundleScripts('development');
+
 function fileWatch() {
   watch(
     ['source/**/*.scss', 'images/*.svg'],
@@ -61,10 +76,13 @@ function fileWatch() {
 
 const gessoBuildPatternlab = exports.gessoBuildPatternlab = buildPatternlab;
 const gessoBuildStyles = exports.gessoBuildStyles = series(lintStyles, buildStyles);
-const gessoBuild = exports.gessoBuild = parallel(gessoBuildStyles, gessoBuildPatternlab);
+
+const buildTasks = (isProduction = true) => {
+  const scriptTask = isProduction ? gessoBundleScripts : gessoBundleScriptsDev;
+  return parallel(scriptTask, gessoBuildStyles, gessoBuildPatternlab);
+};
+
+exports.gessoBuild = buildTasks(true);
 const gessoWatch = exports.gessoWatch = fileWatch;
 
-exports.default = series(
-  gessoBuild,
-  gessoWatch
-);
+exports.default = series(buildTasks(false), gessoWatch);

@@ -4,4 +4,8 @@ node_modules
 pattern-lab/
 css/*.css
 css/*.map
+js/dist/*.js
+js/dist/*.map
 dependencyGraph.json
+.vscode
+.idea
