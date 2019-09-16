@@ -1,4 +1,4 @@
-const MobileMenu = (function() {
+const MobileMenu = function() {
   const KEYCODE = {
     esc: 27,
     tab: 9,
@@ -226,6 +226,6 @@ const MobileMenu = (function() {
     close: closeMenu,
     open: openMenu,
   };
-})();
+};
 
-MobileMenu.init();
+export default MobileMenu;

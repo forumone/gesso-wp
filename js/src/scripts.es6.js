@@ -1,6 +1,15 @@
-// Custom scripts file
+/**
+ * @file
+ * Global scripts.
+ */
+import MobileMenu from './modules/MobileMenu.js';
+
 (function() {
   'use strict';
+
+  // Mobile menu
+  const mobileMenu = new MobileMenu();
+  mobileMenu.init();
 
   // Generic function that runs on window resize.
   // An empty function is allowed here because it's meant as a placeholder,
