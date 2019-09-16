@@ -5,7 +5,7 @@ const MobileMenu = function() {
   };
   const optionDefault = {
     toggleSubNav: true, // Enable subnav toggle
-    navMenu: '#primary-menu .menu--main', // Selector for primary nave
+    navMenu: '.l-navigation .menu--main', // Selector for primary nav
     searchBlock: false, // Selector for search block
     utilityMenu: false, // Selector for utitlity nav
     toggleButton: '.mobile-menu__toggle', //Selector for Menu toggle
