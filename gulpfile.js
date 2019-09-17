@@ -73,7 +73,7 @@ function fileWatch() {
     buildPatternlab
   );
   watch(
-    'source/**/*.js',
+    'js/src/**/*.js',
     { usePolling: true, interval: 1500 },
     gessoBundleScriptsDev
   );

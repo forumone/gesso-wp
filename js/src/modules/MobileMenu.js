@@ -7,12 +7,14 @@ const MobileMenu = function() {
     toggleSubNav: true, // Enable subnav toggle
     navMenu: '.l-navigation .menu--main', // Selector for primary nav
     searchBlock: false, // Selector for search block
-    utilityMenu: false, // Selector for utitlity nav
-    toggleButton: '.mobile-menu__toggle', //Selector for Menu toggle
+    utilityMenu: false, // Selector for utility nav
+    header: '.l-header', // Selector for site header
+    toggleButton: '.mobile-menu__button', //Selector for Menu toggle
     container: '.mobile-menu-container', // Selector Destination container for mobile nav
+    mobileNavClass: 'mobile-menu-nav', // Classname for nav wrapping the mobile menu
     mobileMenuClass: 'mobile-menu', // Classname for navigation section
     mobileSearchClass: 'mobile-search-block', //Classname for search section
-    mobileUtilityMenuClass: 'mobile-account-menu', //Classname for utitlity section
+    mobileUtilityMenuClass: 'mobile-account-menu', //Classname for utility section
     closeButtonClass: 'mobile-menu__close', //Classname for generated close button
     overlayClass: 'mobile-menu__overlay', //Overlay Classname
   };
@@ -36,21 +38,38 @@ const MobileMenu = function() {
       const navMenu = document.querySelector(currOptions.navMenu);
       const searchBlock = document.querySelector(currOptions.searchBlock);
       const utilityMenu = document.querySelector(currOptions.utilityMenu);
+      const header = document.querySelector(currOptions.header);
       const closeButton = document.createElement('button');
-      const toggleButton = document.querySelector('.mobile-menu__toggle');
+      let toggleButton = document.querySelector(currOptions.toggleButton);
       overlay = document.createElement('div');
       container = document.querySelector(currOptions.container);
+
+      if (container === null) {
+        container = document.createElement('nav');
+        container.classList.add(currOptions.container.substr(1));
+        if (header) {
+          header.insertAdjacentElement('afterend', container);
+        } else {
+          document.body.insertAdjacentElement('afterbegin', container);
+        }
+      }
 
       closeButton.classList.add(currOptions.closeButtonClass);
       closeButton.innerHTML = 'X';
       closeButton.addEventListener('click', closeMenu);
 
+      if (toggleButton === null) {
+        toggleButton = document.createElement('button');
+        toggleButton.classList.add(currOptions.toggleButton.substr(1));
+        toggleButton.innerHTML =
+          '<span class="mobile-menu__icon mobile-menu__icon--menu">Menu</span>';
+        header.insertAdjacentElement('beforeend', toggleButton);
+      }
       toggleButton.addEventListener('click', function() {
         openMenu();
       });
 
       overlay.classList.add(currOptions.overlayClass);
-
       container.appendChild(closeButton);
 
       if (searchBlock) {
@@ -61,6 +80,7 @@ const MobileMenu = function() {
         container.appendChild(cloneMenu(utilityMenu, 'account'));
       }
       container.appendChild(overlay);
+      closeMenu();
 
       document.body.classList.add('mobile-menu-processed');
     }
@@ -123,7 +143,7 @@ const MobileMenu = function() {
     });
 
     container.classList.remove('is-open');
-    container.querySelector('ul').setAttribute('style', 'display: none;');
+    container.setAttribute('style', 'display: none;');
 
     prevFocused.focus();
   }
@@ -146,7 +166,7 @@ const MobileMenu = function() {
       setTabIndex(btn, 0);
       btn.addEventListener('click', closeMenu);
     });
-    container.querySelector('ul').setAttribute('style', 'display: block;');
+    container.setAttribute('style', 'display: block;');
 
     document.addEventListener('keydown', handleKeyDown);
   }
@@ -167,14 +187,14 @@ const MobileMenu = function() {
     }
 
     // Trap Tab
-    if (e.keyCode === KEYCODE.tab && event.shiftKey) {
+    if (e.keyCode === KEYCODE.tab && e.shiftKey) {
       if (document.activeElement === firstFocusableElement) {
-        event.preventDefault();
+        e.preventDefault();
         lastFocusableElement.focus();
       }
     } else if (e.keyCode === KEYCODE.tab) {
       if (document.activeElement === lastFocusableElement) {
-        event.preventDefault();
+        e.preventDefault();
         firstFocusableElement.focus();
       }
     }

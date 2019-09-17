@@ -37,6 +37,10 @@ $mobile-menu-text-color: #555559 !default;
   padding: 0 1em;
   text-decoration: none;
 
+  @include breakpoint($bp-hide-mobile-menu) {
+    display: none;
+  }
+
   &:focus {
     outline: thin dotted;
   }
