@@ -72,6 +72,11 @@ function fileWatch() {
     { usePolling: true, interval: 1500 },
     buildPatternlab
   );
+  watch(
+    'source/**/*.js',
+    { usePolling: true, interval: 1500 },
+    gessoBundleScriptsDev
+  );
 }
 
 const gessoBuildPatternlab = exports.gessoBuildPatternlab = buildPatternlab;
