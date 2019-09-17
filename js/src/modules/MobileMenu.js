@@ -34,6 +34,9 @@ class MobileMenu {
       : null;
     this.container = container ? document.querySelector(container) : null;
     this.prevFocused = null;
+    // Necessary so removeEventListener will work properly.
+    this._handleKeyDown = this._handleKeyDown.bind(this);
+    this.close = this.close.bind(this);
   }
 
   _cleanString(string) {
