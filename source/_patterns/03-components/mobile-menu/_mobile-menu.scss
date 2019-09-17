@@ -55,7 +55,7 @@ $mobile-menu-text-color: #555559 !default;
   margin-top: 1em;
 }
 
-%mobile-menu__icon--close {
+.mobile-menu__icon--close {
   @include svg-background-inline(mobile-close);
 }
 
@@ -67,10 +67,6 @@ $mobile-menu-text-color: #555559 !default;
 
 .mobile-menu__icon--search {
   @include svg-background-inline(mobile-search);
-
-  .is-active & {
-    @extend %mobile-menu__icon--close;
-  }
 }
 
 .mobile-menu__search {
