@@ -154,6 +154,8 @@ class MobileMenu {
       // Set up the overlay.
       this.overlay = document.createElement('nav');
       this.overlay.classList.add(this.options.overlayClass);
+      this.overlay.setAttribute('aria-role', 'menu');
+      this.overlay.setAttribute('aria-modal', 'true');
 
       // Create and set up the close button.
       // Multiple calls to classList.add() here because IE doesn't support multiple arguments. :(
@@ -171,6 +173,7 @@ class MobileMenu {
         this.toggleButton.classList.add(this.options.buttonClass);
         this.toggleButton.innerHTML =
           '<span class="mobile-menu__icon mobile-menu__icon--menu">Menu</span>';
+        this.toggleButton.setAttribute('aria-haspopup', 'menu');
         if (this.header) {
           this.header.insertAdjacentElement('beforeend', this.toggleButton);
         } else {
@@ -214,23 +217,25 @@ class MobileMenu {
     // Stash the element currently in focus.
     this.prevFocused = document.activeElement;
 
-    const links = [...this.overlay.querySelectorAll('.menu__link')];
-    this._setTabIndex(links, 0);
-
     this._setTabIndex(this.closeButton, 0);
     this.closeButton.addEventListener('click', this.close);
 
+    const links = [...this.overlay.querySelectorAll('.menu__link')];
+    this._setTabIndex(links, 0);
+
     this.overlay.classList.add('is-open');
     this.overlay.setAttribute('style', 'display: block;');
+
+    this.toggleButton.setAttribute('aria-expanded', 'true');
 
     document.addEventListener('keydown', this._handleKeyDown);
   }
 
   close() {
     // Remove menu items from the tab flow.
+    this._setTabIndex(this.closeButton, -1);
     const links = [...this.overlay.querySelectorAll('.menu__link')];
     this._setTabIndex(links, -1);
-    this._setTabIndex(this.closeButton, -1);
 
     // Remove Event Listeners
     document.removeEventListener('keydown', this._handleKeyDown);
@@ -238,6 +243,8 @@ class MobileMenu {
 
     this.overlay.classList.remove('is-open');
     this.overlay.setAttribute('style', 'display: none;');
+
+    this.toggleButton.removeAttribute('aria-expanded');
 
     // Restore focus to the original item.
     if (this.prevFocused) {
