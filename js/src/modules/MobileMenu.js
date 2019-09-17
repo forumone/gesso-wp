@@ -9,6 +9,7 @@ class MobileMenu {
     header = '.l-header', // Selector for site header
     toggleButton = '.mobile-menu__button', // Selector for Menu toggle
     container = '.mobile-menu-container', // Selector for destination container for mobile nav
+    menuLink = '.menu__link', // Selector for individual menu links
     overlayClass = 'mobile-menu', // Overlay class name
     mobileMenuClass = 'mobile-nav', // Class name for navigation section
     mobileSearchClass = 'mobile-search-block', // Class name for search section
@@ -18,6 +19,7 @@ class MobileMenu {
   } = {}) {
     this.options = {
       toggleSubNav,
+      menuLink,
       overlayClass,
       mobileMenuClass,
       mobileSearchClass,
@@ -46,7 +48,7 @@ class MobileMenu {
   _processLinks(elem, controlled, index) {
     const thisNode = elem;
     const toggleButton = document.createElement('button');
-    const firstLink = [...controlled.querySelectorAll('.menu__link')];
+    const firstLink = [...controlled.querySelectorAll(this.options.menuLink)];
 
     const elemID = this._cleanString(
       `menu-${elem.innerText}${index ? index : ''}`
@@ -90,7 +92,7 @@ class MobileMenu {
       menuClone.classList.add(subNavClass);
 
       // Prep subnav menus, if there are any.
-      const links = menuClone.querySelectorAll('.menu__link');
+      const links = menuClone.querySelectorAll(this.options.menuLink);
       if (links.length) {
         links.forEach((item, index) => {
           const nextElement = item.nextElementSibling;
@@ -223,7 +225,7 @@ class MobileMenu {
     const links = [...this.overlay.querySelectorAll('.menu__link')];
     this._setTabIndex(links, 0);
 
-    this.overlay.classList.add('is-open');
+    document.body.classList.add('has-open-mobile-menu');
     this.overlay.setAttribute('style', 'display: block;');
 
     this.toggleButton.setAttribute('aria-expanded', 'true');
@@ -241,7 +243,7 @@ class MobileMenu {
     document.removeEventListener('keydown', this._handleKeyDown);
     this.closeButton.removeEventListener('click', this.close);
 
-    this.overlay.classList.remove('is-open');
+    document.body.classList.remove('has-open-mobile-menu');
     this.overlay.setAttribute('style', 'display: none;');
 
     this.toggleButton.removeAttribute('aria-expanded');
