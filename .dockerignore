@@ -1,0 +1,13 @@
+*
+!package.json
+!package-lock.json
+!gulpfile.js
+!.stylelintignore
+!.stylelintrc.yml
+!.babelrc
+!.eslintrc.js
+!.prettierrc
+!.browserlistrc
+!webpack.config.js
+!pattern-lab-config.json
+!lib
