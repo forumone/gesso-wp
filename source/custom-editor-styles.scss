@@ -1,3 +1,4 @@
 @import 'breakpoint';
-@import '_patterns/00-global/**/*';
+@import '_patterns/00-config/**/*.scss';
+@import '_patterns/01-global/**/*.scss';
 @import '_patterns/custom-editor-styles';

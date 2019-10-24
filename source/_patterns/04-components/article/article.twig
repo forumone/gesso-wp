@@ -1,8 +1,11 @@
-{% set additional_attributes = {
-  'class': ['article']
-} %}
+{%
+  set classes = [
+    'article',
+    custom_classes ? custom_classes,
+  ]|join(' ')|trim
+%}
 
-<article {{ add_attributes(additional_attributes) }}>
+<article class="{{ classes }}" role="article">
   {% block title %}
     {% include '@components/page-title/page-title.twig' with {
       'page_title': article_page_title
@@ -35,5 +38,7 @@
 
   {% block main %}
     {{ content }}
+  {% endblock %}
+  {% block comments %}
   {% endblock %}
 </article>

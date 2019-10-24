@@ -1,11 +1,7 @@
 // @file
 // Styles for text meant only for screen readers.
 .screen-reader-text {
-	clip: rect(1px, 1px, 1px, 1px);
-	height: 1px;
-	overflow: hidden;
-	position: absolute !important;
-	width: 1px;
+	@include visually-hidden(true);
 }
 
 .screen-reader-text:focus {

@@ -1,5 +1,5 @@
 {% extends '@layouts/site-container/site-container.twig' %}
-  {% block content %}
+  {% block site_content %}
 
     {% embed '@layouts/header/header.twig' with {
       'has_constrain': true
@@ -8,8 +8,8 @@
         {% include '@components/menu/menu.twig' with {
           'menu_name': 'account',
           'items': [
-            { 'title': 'My Account', 'url': '#' },
-            { 'title': 'Logout', 'url': '#' }
+            { 'title': 'My Account', 'link': '#' },
+            { 'title': 'Logout', 'link': '#' }
           ]
         } %}
         {% include '@components/site-name/site-name.twig' %}
@@ -24,21 +24,21 @@
         {% include '@components/menu/menu.twig' with {
           'menu_name': 'main',
           'items': [
-            { 'title': 'Home', 'url': '#' },
-            { 'title': 'About', 'url': '#', 'below': [
-              { 'title': 'Submenu item one', 'url': '#' },
-              { 'title': 'Submenu item two', 'url': '#', 'below': [
-                { 'title': 'Submenu item one', 'url': '#' },
-                { 'title': 'Submenu item two', 'url': '#' },
-                { 'title': 'Submenu item three', 'url': '#' }
+            { 'title': 'Home', 'link': '#' },
+            { 'title': 'About', 'link': '#', 'children': [
+              { 'title': 'Submenu item one', 'link': '#' },
+              { 'title': 'Submenu item two', 'link': '#', 'children': [
+                { 'title': 'Submenu item one', 'link': '#' },
+                { 'title': 'Submenu item two', 'link': '#' },
+                { 'title': 'Submenu item three', 'link': '#' }
               ]},
-              { 'title': 'Submenu item three', 'url': '#' }
+              { 'title': 'Submenu item three', 'link': '#' }
             ]},
-            { 'title': 'Resources', 'url': '#', 'below': [
-              { 'title': 'Submenu item one', 'url': '#' },
-              { 'title': 'Submenu item two', 'url': '#' }
+            { 'title': 'Resources', 'link': '#', 'children': [
+              { 'title': 'Submenu item one', 'link': '#' },
+              { 'title': 'Submenu item two', 'link': '#' }
             ]},
-            { 'title': 'Contact', 'url': '#' }
+            { 'title': 'Contact', 'link': '#' }
           ]
         } %}
       {% endblock %}
@@ -111,10 +111,10 @@
         {% include '@components/menu/menu.twig' with {
           'menu_name': 'footer',
           'items': [
-            { 'title': 'Careers', 'url': '#' },
-            { 'title': 'Contact', 'url': '#' },
-            { 'title': 'Credits', 'url': '#' },
-            { 'title': 'Terms of Use', 'url': '#' }
+            { 'title': 'Careers', 'link': '#' },
+            { 'title': 'Contact', 'link': '#' },
+            { 'title': 'Credits', 'link': '#' },
+            { 'title': 'Terms of Use', 'link': '#' }
           ]
         } %}
         {% include '@components/copyright/copyright.twig' %}

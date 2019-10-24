@@ -1,18 +1,12 @@
 {% if type == 'error' %}
-  {% set additional_attributes = {
-    'class': ['message','message--error']
-  } %}
+  {% set message_classes = 'message message--error' %}
 {% elseif type == 'warning' %}
-  {% set additional_attributes = {
-    'class': ['message','message--warning']
-  } %}
+  {% set message_classes = 'message message--warning' %}
 {% else %}
-  {% set additional_attributes = {
-    'class': ['message','message--status']
-  } %}
+  {% set message_classes = 'message message--status' %}
 {% endif %}
 
-<div {% if type == 'error' %} role="alert" {% else %} role="contentinfo" {% endif %} {% if heading %}aria-label="{{ heading }}"{% endif %} {{ add_attributes(additional_attributes) }}>
+<div class="{{ message_classes }}"{% if type == 'error' %} role="alert" {% else %} role="contentinfo" {% endif %} {% if heading %}aria-label="{{ heading }}"{% endif %}>
   {% if messages|length > 1 %}
     <h2 class="visually-hidden">{{ heading }}</h2>
     <ul class="message__list">

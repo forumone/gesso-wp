@@ -7,7 +7,6 @@ $pager-background-color-active: gesso-color(ui, generic, accent-dark) !default;
 $pager-link-color: gesso-color(text, on-light) !default;
 $pager-link-color-active: gesso-color(text, on-dark) !default;
 $pager-link-focus-outline-color: gesso-color(ui, generic, border-dark) !default;
-$pager-ellipsis-bp: 800px !default;
 $pager-bp: 600px !default;
 
 .pager__items {
@@ -45,15 +44,6 @@ $pager-bp: 600px !default;
 
   &:focus {
     outline: 1px dotted $pager-link-focus-outline-color;
-  }
-}
-
-.pager__item--ellipsis {
-  @extend %pager__link;
-  display: none;
-
-  @include breakpoint($pager-ellipsis-bp) {
-    display: inline-block;
   }
 }
 

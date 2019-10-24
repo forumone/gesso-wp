@@ -13,6 +13,6 @@
 @include breakpoint(700px) {
   .alignright {
     float: right;
-    margin: 0 0 1em 1em;
+    margin: 0 0 gesso-spacing(sm) gesso-spacing(sm);
   }
 }
