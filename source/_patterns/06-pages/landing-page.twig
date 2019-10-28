@@ -1,0 +1,49 @@
+{% set page_content %}
+
+  {# define some cards as dummy content #}
+  {% set grid_content %}
+    {% for card in grid_cards %}
+      {% include '@components/card/card.twig' with {
+        'title': card.title,
+        'url': card.url,
+        'media': card.media,
+        'date': card.date,
+        'tags': card.tags,
+        'read_more': card.read_more,
+        'content': card.content
+      } %}
+    {% endfor %}
+  {% endset %}
+
+  {# define the content for the landing page template, using dummy content from above #}
+  {% set content %}
+    {% include '@layouts/grid/grid.twig' with {
+      'modifier_classes': 'l-grid--3col',
+      'content': grid_content
+    } %}
+    {% include '@components/pager/pager.twig' with {
+      'pagination': {
+        'pages': {
+          '1': { title: '1', link: '#' },
+          '2': { title: '2', link: '#' },
+          '3': { title: '3', link: '#' },
+          '4': { title: '4', link: '#' }
+        },
+        'next': { link: '#' },
+        'prev': { link: '#' }
+      }
+    } %}
+  {% endset %}
+
+  {# include landing page template #}
+  {% include '@templates/landing-page.twig' with {
+    'landing_page_title': title,
+    'landing_page_content': content
+  } %}
+
+{% endset %}
+
+{# pass page_content to default page wrapper #}
+{% include '@pages/_page-default.twig' with {
+  'content': page_content
+} %}

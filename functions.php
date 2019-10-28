@@ -52,19 +52,25 @@ function gesso_scripts() {
 
   wp_deregister_script('jquery');
   wp_register_script('jquery', '//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js', array() ); // Google CDN jQuery
-  wp_enqueue_script('jquery');
+  // wp_enqueue_script('jquery');
 
-  wp_register_script('gessomodernizr', get_template_directory_uri() . '/js/lib/modernizr.min.js', array('jquery') ); // Modernizr
+  wp_register_script('gessocommon', get_template_directory_uri() . '/js/dist/common.min.js', array('jquery') ); // Modernizr
+  wp_enqueue_script('gessocommon');
+
+  wp_register_script('gessomodernizr', get_template_directory_uri() . '/js/libraries/modernizr.min.js', array('jquery') ); // Modernizr
   wp_enqueue_script('gessomodernizr');
 
   if ( is_singular() && comments_open() ) {
     wp_enqueue_script( "comment-reply" );
   }
 
-  wp_register_script('gessomobilemenu', get_template_directory_uri() . '/js/mobile-menu.js', array('jquery','gessomodernizr') ); // Mobile menu
+  wp_register_script('gessomobilemenu', get_template_directory_uri() . '/js/dist/mobile-menu.min.js', array('jquery','gessocommon','gessomodernizr') ); // Mobile menu
   wp_enqueue_script('gessomobilemenu');
 
-  wp_register_script('gessoscripts', get_template_directory_uri() . '/js/scripts.js', array('jquery','gessomodernizr') ); // Custom scripts
+  wp_register_script('gessoprimarymenu', get_template_directory_uri() . '/js/dist/primary-menu.min.js', array('jquery','gessocommon','gessomodernizr') ); // Mobile menu
+  wp_enqueue_script('gessoprimarymenu');
+
+  wp_register_script('gessoscripts', get_template_directory_uri() . '/js/dist/scripts.min.js', array('jquery','gessocommon','gessomodernizr') ); // Custom scripts
   wp_enqueue_script('gessoscripts');
 
   wp_enqueue_style( 'style', get_stylesheet_directory_uri() . '/css/styles.css', array(), null, 'all' );
@@ -245,10 +251,10 @@ add_filter( 'post_gallery', 'gesso_bem_gallery', 10, 2 );
  * @return Twig_Loader_Filesystem
  */
 add_filter('timber/loader/loader', function($loader){
-	$loader->addPath(__DIR__ . "/source/_patterns/01-base", "base");
-	$loader->addPath(__DIR__ . "/source/_patterns/02-layouts", "layouts");
-	$loader->addPath(__DIR__ . "/source/_patterns/03-components", "components");
-	$loader->addPath(__DIR__ . "/source/_patterns/04-templates", "templates");
-	$loader->addPath(__DIR__ . "/source/_patterns/05-pages", "pages");
+	$loader->addPath(__DIR__ . "/source/_patterns/02-base", "base");
+	$loader->addPath(__DIR__ . "/source/_patterns/03-layouts", "layouts");
+	$loader->addPath(__DIR__ . "/source/_patterns/04-components", "components");
+	$loader->addPath(__DIR__ . "/source/_patterns/05-templates", "templates");
+	$loader->addPath(__DIR__ . "/source/_patterns/06-pages", "pages");
 	return $loader;
 });

@@ -1,0 +1,14 @@
+---
+menu_name: 'submenu'
+items:
+  - title: 'Menu item one'
+    link: '#'
+  - title: 'Menu item two'
+    link: '#'
+    children:
+      - title: 'Submenu item one'
+        link: '#'
+      - title: 'Submenu item two'
+        link: '#'
+      - title: 'Submenu item three'
+        link: '#'

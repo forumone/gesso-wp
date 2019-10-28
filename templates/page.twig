@@ -2,7 +2,7 @@
 
 {% block content %}
   <!-- Provided by templates/page.twig -->
-  {% embed '@layouts/regions/content/content.twig' %}
+  {% embed '@layouts/content/content.twig' %}
     {% block content %}
       <p>{{ __('View author: ', 'gesso') }} <a href="{{ user.link }}">{{ user.name }}</a></p>
       {% embed '@components/article/article.twig' with {

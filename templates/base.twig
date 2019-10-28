@@ -16,47 +16,54 @@
     </div>
   {% endblock %}
 
-  {% embed '@layouts/regions/header/header.twig' %}
-    {% block content %}
-      {% include '@components/site-name/site-name.twig' with {
-        'url': site.url,
-        'site_name': site.title
-      } %}
-    {% endblock  %}
-  {% endembed %}
+  {% embed '@layouts/site-container/site-container.twig' %}
+    {% block site_content %}
 
-  {% embed '@layouts/regions/navigation/navigation.twig' %}
-    {% block content %}
-      {% include '@components/menus/menu.twig' with {
-        'items': primary_menu.items,
-        'menu_name': 'main'
-      } %}
-    {% endblock  %}
-  {% endembed %}
-
-  <main id="main" class="main" role="main" tabindex="-1">
-    {% embed '@layouts/regions/preface/preface.twig' %}
-      {% block content %}
-      {% endblock %}
-    {% endembed %}
-
-    {% block content %}
-      {% embed '@layouts/regions/content/content.twig' %}
+      {% embed '@layouts/header/header.twig' %}
         {% block content %}
-        {% endblock %}
+          {% include '@components/site-name/site-name.twig' with {
+            'url': site.url,
+            'site_name': site.title
+          } %}
+        {% endblock  %}
       {% endembed %}
+
+      {% embed '@layouts/region/region.twig' %}
+        {% block content %}
+          {% include '@components/menu/menu.twig' with {
+            'items': primary_menu.items,
+            'menu_name': 'main'
+          } %}
+        {% endblock  %}
+      {% endembed %}
+
+      <main id="main" class="main" role="main" tabindex="-1">
+        {% embed '@layouts/region/region.twig' %}
+          {% block content %}
+          {% endblock %}
+        {% endembed %}
+
+        {% block content %}
+          {% embed '@layouts/content/content.twig' %}
+            {% block content %}
+            {% endblock %}
+          {% endembed %}
+        {% endblock %}
+
+        {% embed '@layouts/region/region.twig' %}
+          {% block content %}
+          {% endblock %}
+        {% endembed %}
+      </main>
+
+      {% block footer %}
+        {% include 'footer.twig' %}
+        {{ function('wp_footer') }}
+      {% endblock %}
+
     {% endblock %}
 
-    {% embed '@layouts/regions/postscript/postscript.twig' %}
-      {% block content %}
-      {% endblock %}
-    {% endembed %}
-  </main>
-
-  {% block footer %}
-    {% include 'footer.twig' %}
-    {{ function('wp_footer') }}
-  {% endblock %}
+  {% endembed %}
 
   {% block javascripts %}
   {% endblock %}
