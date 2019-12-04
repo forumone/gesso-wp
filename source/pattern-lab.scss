@@ -9,7 +9,7 @@
 .pl-c-pattern-index {
   box-sizing: border-box !important;
   max-width: em(gesso-constrain(lg));
-  padding: 0 1em;
+  padding: 0 1em !important;
 }
 
 // <html> tag class around content in Pattern Lab (see _00-head.twig)
@@ -17,25 +17,7 @@
   min-height: 0;
 }
 
-.sg-subtype {
-  h2 {
-    font-size: 24px;
-    margin: 3em 0 0.25em;
-    text-transform: capitalize;
-  }
-
-  a {
-    color: #666;
-    text-decoration: none;
-
-    &:hover,
-    &:focus {
-      color: #333;
-    }
-  }
-}
-
-// override styles leaking into PL's tag class
+// Override styles leaking into PL’s tag class.
 .pl-c-pattern-info {
   .token.tag {
     border: 0;
@@ -52,84 +34,58 @@
 }
 
 // Color Swatches
-.pattern-lab-color-list {
+$swatch-size: rem(150px);
+$swatch-padding: 1rem;
+
+.pattern-lab-color__group {
+  border-bottom: 1px solid #eee;
   display: flex;
-  flex-direction: column;
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  text-align: center;
-
-  li {
-    display: block;
-    width: 100%;
-
-    @include breakpoint(800px) {
-      margin: 1% 1% 1% 0;
-    }
-  }
-
-  @include breakpoint(800px) {
-    flex-direction: row;
-  }
+  flex-wrap: wrap;
+  margin-bottom: $swatch-padding;
 }
 
-.pattern-lab-color-list__set {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  width: 100%;
-
-  li {
-    margin-top: 1.2em;
-    width: 100%;
-  }
+.pattern-lab-color-swatch {
+  border: 1px solid #c1c1c1;
+  flex: 0 0 ($swatch-size + 2 * $swatch-padding);
+  margin: 0 $swatch-padding / 2 $swatch-padding;
+  max-width: ($swatch-size + 2 * $swatch-padding);
+  padding: $swatch-padding;
 }
 
-.pattern-lab-swatch {
-  color: #546673;
+.pattern-lab-color-swatch__indicator {
+  height: $swatch-size;
+  margin-bottom: $swatch-padding;
+  width: $swatch-size;
+}
+
+.pattern-lab-color-swatch__meta {
+  line-height: 1.2;
+}
+
+.pattern-lab-color-swatch__name {
+  margin-bottom: rem(8px);
+}
+
+.pattern-lab-color-swatch__hex {
+  font-family: Menlo, Consolas, "Lucida Console", "Liberation Mono", "Courier New", monospace, sans-serif;
+  font-size: rem(14px);
+}
+
+.pattern-lab-color-swatch__sass-code {
   display: block;
-  font-size: 32px;
-  height: 2.5em;
-  margin: 0;
-  overflow: hidden;
-  position: relative;
-  width: 100%;
+  font-size: rem(12px);
+  margin-top: rem(4px);
 }
 
-.pattern-lab-swatch__meta-data {
-  bottom: 0;
-  display: block;
-  left: 0;
-  position: absolute;
-  right: 0;
-  top: 0.55em;
-  transition: 0.2s all;
-}
-
-.pattern-lab-swatch__variable {
-  display: block;
-  font-size: 11px;
-}
-
-.pattern-lab-swatch__hex {
-  display: block;
-  font-size: 14px;
-}
-
-.pattern-lab-swatch--light-text {
-  color: #fff;
-}
-
-// Typography
+// Font Families
 .pattern-lab-font {
-  margin-bottom: 30px;
+  margin-bottom: rem(45px);
 }
 
 .pattern-lab-font__family {
-  font-size: 20px;
+  font-size: rem(20px);
   font-weight: 700;
-  margin-bottom: 5px;
+  margin-bottom: rem(5px);
   text-align: center;
 
   @include breakpoint(800px) {
@@ -140,7 +96,7 @@
 .pattern-lab-font__item {
   display: flex;
   flex-direction: column;
-  margin: 30px 0;
+  margin: rem(30px) 0;
 
   @include breakpoint(800px) {
     flex-direction: row;
@@ -149,33 +105,34 @@
 
 .pattern-lab-font__preview {
   border-bottom: 2px solid #eee;
-  font-size: 18px;
+  font-size: rem(18px);
   font-style: normal;
   font-weight: 400;
-  padding: 20px 0;
+  padding: rem(20px) 0;
   text-align: center;
   width: 100%;
 
   @include breakpoint(800px) {
     border-bottom: 0;
     border-right: 2px solid #eee;
-    margin: 5px 30px 0 0;
-    padding: 0 20px;
+    margin: rem(5px) rem(30px) 0 0;
+    padding: 0 rem(20px);
     text-align: left;
     width: 65%;
   }
 }
 
 .pattern-lab-font__preview-character {
-  font-size: 75px;
+  font-size: rem(75px);
   font-weight: 400;
   line-height: 1;
   text-align: center;
   width: 100%;
 
   @include breakpoint(800px) {
+    flex-shrink: 0;
     text-align: left;
-    width: 25%;
+    width: 35%;
   }
 }
 
@@ -196,76 +153,48 @@
   color: #565454;
   font-size: 0.9rem;
   line-height: 1.5;
-  margin: 5px 0;
+  margin: rem(5px) 0;
 }
 
 .pattern-lab-font__weight {
   color: #000;
-  font-size: 13px;
-  margin-bottom: 5px;
+  font-size: rem(13px);
+  margin-bottom: rem(5px);
 }
 
 .pattern-lab-font__style {
   color: #000;
-  font-size: 13px;
-  margin-bottom: 5px;
+  font-size: rem(13px);
+  margin-bottom: rem(5px);
 }
 
-// Box Shadow Group
-.pattern-lab__box-shadow-group {
+// Box Shadows
+$shadow-swatch: rem(200px);
+$shadow-gutter: rem(50px);
+
+.pattern-lab-box-shadow {
   display: flex;
   flex-wrap: wrap;
 }
 
-.pattern-lab__box-shadow-label {
+.pattern-lab-box-shadow__item {
+  display: flex;
+  flex: 0 0 $shadow-swatch;
+  height: $shadow-swatch;
+  margin: 0 ($shadow-gutter / 2) $shadow-gutter;
+  width: $shadow-swatch;
+}
+
+.pattern-lab-box-shadow__label {
   margin: auto;
   padding: 1rem;
   text-align: center;
 }
-.pattern-lab__box-shadow-item {
-  display: flex;
-  flex: 0 0 200px;
-  height: 200px;
-  margin: 0 1rem 1rem;
-  width: 200px;
-}
 
-// Easing
-.pattern-lab-easing__wrapper {
-  background-color: #eee;
-  padding: 1rem;
-}
-
-.pattern-lab-easing__help-text {
-  margin-bottom: 1rem;
-}
-.pattern-lab-easing__indicator {
-  background-color: #666;
-  border-radius: 10%;
-  height: 75px;
-  left: 0;
-  margin-bottom: 0.5rem;
-  position: relative;
-  transition-duration: 1s;
-  transition-property: left;
-  width: 75px;
-}
-
-.pattern-lab-easing__item {
-  margin-bottom: 1rem;
-}
-
-.pattern-lab-easing__group {
-  padding: 0 150px 0 1rem;
-
-  &:hover {
-    .pattern-lab-easing__indicator {
-      left: 100%;
-    }
-  }
-}
 // Duration
-.pattern-lab-duration__wrapper {
+$duration-swatch: rem(40px);
+
+.pattern-lab-duration {
   margin-bottom: 1rem;
 }
 
@@ -276,15 +205,15 @@
   background-color: #666;
   border-radius: 50%;
   display: inline-block;
-  height: 40px;
+  height: $duration-swatch;
   margin-bottom: 2rem;
   position: relative;
   transition: all 2s ease-out;
-  width: 40px;
+  width: $duration-swatch;
 }
 
 .pattern-lab-duration__item {
-  flex: 0 0 150px;
+  flex: 0 0 rem(150px);
   padding: 1rem;
   text-align: center;
 }
@@ -298,6 +227,44 @@
   &:hover {
     .pattern-lab-duration__indicator {
       transform: scale(1.5);
+    }
+  }
+}
+
+// Easing
+$easing-swatch: rem(75px);
+
+.pattern-lab-easing {
+  background-color: #eee;
+  padding: 1rem;
+}
+
+.pattern-lab-easing__help-text {
+  margin-bottom: 1rem;
+}
+
+.pattern-lab-easing__indicator {
+  background-color: #666;
+  border-radius: 10%;
+  height: $easing-swatch;
+  left: 0;
+  margin-bottom: 0.5rem;
+  position: relative;
+  transition-duration: 1s;
+  transition-property: left;
+  width: $easing-swatch;
+}
+
+.pattern-lab-easing__item {
+  margin-bottom: 1rem;
+}
+
+.pattern-lab-easing__group {
+  padding: 0 rem(150px) 0 1rem;
+
+  &:hover {
+    .pattern-lab-easing__indicator {
+      left: 100%;
     }
   }
 }
@@ -333,3 +300,25 @@ $swatch-padding: 1rem;
 .pattern-lab-text-style__label {
   text-transform: uppercase;
 }
+
+// For components used on a dark background. (e.g., `--inverse` variants)
+$dark-bg-padding: 1em;
+
+/* stylelint-disable selector-max-id */
+[id*="--inverse"].pl-c-pattern {
+  background: #212121;
+  color: #fff;
+  margin-left: -$dark-bg-padding;
+  margin-right: -$dark-bg-padding;
+  padding: 0 $dark-bg-padding $dark-bg-padding;
+
+  .pl-c-pattern__title-link:hover,
+  .pl-c-pattern__title-link:focus {
+    color: #fff !important;
+  }
+
+  .pl-c-pattern__extra {
+    color: #212121;
+  }
+}
+/* stylelint-enable */

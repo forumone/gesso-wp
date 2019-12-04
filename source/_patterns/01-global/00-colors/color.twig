@@ -1,5 +1,4 @@
-<div class="pattern-lab__color-groups">
-
+<div class="pattern-lab-color">
   <h4>Brand</h4>
 
   {% for key, list in gesso.palette.brand %}
@@ -8,7 +7,7 @@
     {% set base = {} %}
     {% set other = {} %}
 
-    <div class="pattern-lab__color-group">
+    <div class="pattern-lab-color__group">
       {% for color_key, color in list %}
 
         {% if color_key starts with 'light' %}
@@ -25,7 +24,7 @@
 
       {% if base|length > 0 %}
         {% for base_key, base_value in base %}
-          {% include '@global/_color-item.twig' with  {
+          {% include '@global/00-colors/_color-item.twig' with  {
                 color: base_value,
                 name: key ~'-'~ base_key
               } %}
@@ -34,7 +33,7 @@
 
       {% if light|length > 0 %}
         {% for light_key, light_value in light %}
-          {% include '@global/_color-item.twig' with  {
+          {% include '@global/00-colors/_color-item.twig' with  {
                 color: light_value,
                 name: key ~'-'~ light_key
               } %}
@@ -43,16 +42,16 @@
 
       {% if dark|length > 0 %}
         {% for dark_key, dark_value in dark %}
-          {% include '@global/_color-item.twig' with  {
+          {% include '@global/00-colors/_color-item.twig' with  {
                 color: dark_value,
-                 name: key ~'-'~ dark_key
+                  name: key ~'-'~ dark_key
               } %}
         {% endfor %}
       {% endif %}
 
       {% if other|length > 0 %}
         {% for other_key, other_value in other %}
-          {% include '@global/_color-item.twig' with  {
+          {% include '@global/00-colors/_color-item.twig' with  {
                 color: other_value,
                 name: key ~'-'~ other_key
               } %}
@@ -64,11 +63,10 @@
 </div>
 
 <h4>Grayscale</h4>
-
-<div class="pattern-lab__color-groups">
-  <div class="pattern-lab__color-group">
+<div class="pattern-lab-color">
+  <div class="pattern-lab-color__group">
     {% for name, color in gesso.palette.grayscale %}
-      {% include '@global/_color-item.twig' with  {
+      {% include '@global/00-colors/_color-item.twig' with  {
         color: color,
           name: name
       } %}
@@ -76,17 +74,15 @@
   </div>
 </div>
 
-
 <h4>Other</h4>
-
-<div class="pattern-lab__color-groups">
+<div class="pattern-lab-color">
   {% for key, list in gesso.palette.other %}
     {% set light = {} %}
     {% set dark = {} %}
     {% set base = {} %}
     {% set other = {} %}
 
-    <div class="pattern-lab__color-group">
+    <div class="pattern-lab-color__group">
       {% for color_key, color in list %}
 
         {% if color_key starts with 'light' %}
@@ -103,7 +99,7 @@
 
       {% if base|length > 0 %}
         {% for base_key, base_value in base %}
-          {% include '@global/_color-item.twig' with  {
+          {% include '@global/00-colors/_color-item.twig' with  {
                 color: base_value,
                 name: key ~'-'~ base_key
               } %}
@@ -112,7 +108,7 @@
 
       {% if light|length > 0 %}
         {% for light_key, light_value in light %}
-          {% include '@global/_color-item.twig' with  {
+          {% include '@global/00-colors/_color-item.twig' with  {
                 color: light_value,
                 name: key ~'-'~ light_key
               } %}
@@ -121,16 +117,16 @@
 
       {% if dark|length > 0 %}
         {% for dark_key, dark_value in dark %}
-          {% include '@global/_color-item.twig' with  {
+          {% include '@global/00-colors/_color-item.twig' with  {
                 color: dark_value,
-                 name: key ~'-'~ dark_key
+                  name: key ~'-'~ dark_key
               } %}
         {% endfor %}
       {% endif %}
 
       {% if other|length > 0 %}
         {% for other_key, other_value in other %}
-          {% include '@global/_color-item.twig' with  {
+          {% include '@global/00-colors/_color-item.twig' with  {
                 color: other_value,
                 name: key ~'-'~ other_key
               } %}
