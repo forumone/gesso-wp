@@ -2,7 +2,9 @@
 
 {% block content %}
   <!-- Provided by templates/front-page.twig -->
-  {% embed '@layouts/content/content.twig' %}
+  {% embed '@layouts/content/content.twig' with {
+    'has_constrain': true
+  } %}
     {% block content %}
       {% include 'templates/components/loop.twig' %}
       {% include '@components/pager/pager.twig' %}

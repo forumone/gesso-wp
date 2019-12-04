@@ -58,24 +58,6 @@
       {% endblock %}
     {% endembed %}
 
-    {% embed '@layouts/region/region.twig' with {
-      'region_name': 'highlighted',
-      'has_constrain': true
-    } %}
-      {% block content %}
-
-      {% endblock %}
-    {% endembed %}
-
-    {% embed '@layouts/region/region.twig' with {
-      'region_name': 'help',
-      'has_constrain': true
-    } %}
-      {% block content %}
-
-      {% endblock %}
-    {% endembed %}
-
     <main id="main" class="main" role="main" tabindex="-1">
       {% embed '@layouts/region/region.twig' with {
         'region_name': 'preface',

@@ -1,5 +1,7 @@
 <!-- Provided by templates/footer.twig -->
-{% embed '@layouts/footer/footer.twig' %}
+{% embed '@layouts/footer/footer.twig' with {
+	'has_constrain': true
+} %}
 	{% block content %}
 		{{ function('get_sidebar', 'footer') }}
 		{% include '@components/copyright/copyright.twig' with {
