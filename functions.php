@@ -73,6 +73,10 @@ function gesso_scripts() {
   wp_register_script('gessoscripts', get_template_directory_uri() . '/js/dist/scripts.min.js', array('jquery','gessocommon','gessomodernizr') ); // Custom scripts
   wp_enqueue_script('gessoscripts');
 
+  // Add Google Fonts
+  wp_register_style('gessoFonts', 'https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,300i,400,400i,600,600i,700,700i&display=swap');
+  wp_enqueue_style( 'gessoFonts');
+
   wp_enqueue_style( 'style', get_stylesheet_directory_uri() . '/css/styles.css', array(), null, 'all' );
 
 }

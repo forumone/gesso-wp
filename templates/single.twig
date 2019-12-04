@@ -2,7 +2,9 @@
 
 {% block content %}
   <!-- Provided by templates/single.twig -->
-  {% embed '@layouts/content/content.twig' %}
+  {% embed '@layouts/content/content.twig' with {
+    'has_constrain': true
+  } %}
     {% block content %}
       {% if function( 'get_post_format' ) %}
         {% include 'post-formats/content-' ~ function( 'get_post_format' ) ~ '.twig' %}

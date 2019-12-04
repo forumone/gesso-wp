@@ -2,7 +2,9 @@
 
 {% block content %}
 	<!-- Provided by templates/index.twig -->
-	{% embed '@layouts/content/content.twig' %}
+	{% embed '@layouts/content/content.twig' with {
+		'has_constrain': true
+	} %}
 		{% block content %}
 			{% for post in posts %}
 				{% include ['tease-'~post.post_type~'.twig', 'tease.twig'] %}

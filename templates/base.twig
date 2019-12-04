@@ -14,9 +14,12 @@
     {% include '@components/skiplinks/skiplinks.twig' %}
   {% endblock %}
 
-  <div class="l-site-container">
+  {# set the content of the site as a variable to be passed to site-container.twig #}
+  {% set site_content %}
 
-    {% embed '@layouts/header/header.twig' %}
+    {% embed '@layouts/header/header.twig' with {
+      'has_constrain': true
+    } %}
       {% block content %}
         {% include '@components/site-name/site-name.twig' with {
           'url': site.url,
@@ -25,7 +28,10 @@
       {% endblock  %}
     {% endembed %}
 
-    {% embed '@layouts/region/region.twig' %}
+    {% embed '@layouts/region/region.twig' with {
+      'region_name': 'navigation',
+      'has_constrain': true
+    } %}
       {% block content %}
         {% include '@components/menu/menu.twig' with {
           'items': primary_menu.items,
@@ -35,19 +41,27 @@
     {% endembed %}
 
     <main id="main" class="main" role="main" tabindex="-1">
-      {% embed '@layouts/region/region.twig' %}
+      {% embed '@layouts/region/region.twig' with {
+        'region_name': 'preface',
+        'has_constrain': true
+      } %}
         {% block content %}
         {% endblock %}
       {% endembed %}
 
       {% block content %}
-        {% embed '@layouts/content/content.twig' %}
+        {% embed '@layouts/content/content.twig' with {
+          'has_constrain': true
+        } %}
           {% block content %}
           {% endblock %}
         {% endembed %}
       {% endblock %}
 
-      {% embed '@layouts/region/region.twig' %}
+      {% embed '@layouts/region/region.twig' with {
+        'region_name': 'postscript',
+        'has_constrain': true
+      } %}
         {% block content %}
         {% endblock %}
       {% endembed %}
@@ -58,7 +72,13 @@
       {{ function('wp_footer') }}
     {% endblock %}
 
-  </div>
+  {% endset %}
+
+  {% embed '@layouts/site-container/site-container.twig' %}
+    {% block site_content %}
+      {{ site_content }}
+    {% endblock %}
+  {% endembed %}
 
   {% block javascripts %}
   {% endblock %}
