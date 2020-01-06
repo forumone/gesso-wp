@@ -17,7 +17,7 @@ To submit bug reports or feature requests, visit the
 
 The following packages need to be installed on your system in order to use
 Gesso WordPress.
-
+- Node version 10 or greater. [Long-term stable recommended.](https://nodejs.org/en/)
 - [npm](https://www.npmjs.com/get-npm)
 - [gulp](https://gulpjs.com/docs/en/getting-started/quick-start)
 
