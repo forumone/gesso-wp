@@ -12,7 +12,9 @@
 
 @include breakpoint(700px) {
   .alignleft {
+    @include vertical-spacing(rem(gesso-spacing(sm)));
     float: left;
-    margin: 0 gesso-spacing(sm) gesso-spacing(sm) 0;
+    margin-bottom: rem(gesso-spacing(sm));
+    margin-right: rem(gesso-spacing(sm));
   }
 }
