@@ -2,7 +2,7 @@
 // Styles WYSIWYG center alignment.
 
 .aligncenter {
-	@include vertical-spacing(rem(gesso-spacing(sm)));
+	@include vertical-spacing(rem(gesso-spacing(2)));
 	display: block;
 	margin-left: auto;
 	margin-right: auto;
