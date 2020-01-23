@@ -189,6 +189,10 @@
       ],
       "alterTwigEnv": [
         {
+          "file": "source/_twig-components/filters/keysort.filter.php",
+          "functions": ["addKeySortFilter"]
+        },
+        {
           "file": "source/_twig-components/alter-twig.php",
           "functions": [
             "addCustomExtension"
