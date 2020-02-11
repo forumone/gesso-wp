@@ -221,6 +221,28 @@ example:
 z-index: gesso-z-index(modal);
 ```
 
+### Design Tokens in JavaScript
+
+The values in Gesso's configuration file are also exported to JavaScript objects
+so that the same values can be used in CSS and JS. The JS objects can be found
+in `js/src/constants/_GESSO.es6.js`. This file is also rebuilt whenever `gulp`
+or `gulp build` is run.
+
+For example, to use a breakpoint in a script:
+```
+import { BREAKPOINTS } from '../constants/_GESSO.es6';
+if (window.matchMedia(`min-width: ${BREAKPOINTS.desktop}`).matches) {
+  // Some script that should only run on larger screens.
+}
+```
+This will use the same breakpoint as `breakpoint(gesso-breakpoint(desktop))` in
+your Sass.
+
+If your token value is a Sass function, the JavaScript will use the fallback
+value, if available. If there is no fallback value, the token will be omitted
+from the JavaScript objects. In general, if you want to share a value between
+CSS and JavaScript, you should use simple strings or numbers.
+
 ### Creating New Components
 
 Gesso includes a script to generate new component files. To use, run
@@ -252,6 +274,7 @@ when the Gulp tasks run. To change this, edit the included `.gitignore` file.
 - [Autoprefixer](https://github.com/postcss/autoprefixer): Adds necessary
   browser CSS property prefixes during Sass compilation.
 
+## Linting
 
 ### Stylelint
 
@@ -265,7 +288,33 @@ have it ignore code in two ways:
 2. To ignore several lines, add `/* stylelint-disable */` before the code in
    question and add `/* stylelint-enable */` afterwards.
 
-### JavaScript
+The Stylelint rules can be changed in the `.stylelintrc.yml` file. By default,
+Gesso follows the [sass-guideline.es](https://github.com/bjankord/stylelint-config-sass-guidelines)
+and [Prettier's recommended guidelines](https://github.com/prettier/stylelint-config-prettier),
+with some additional customizations.
+
+### ESLint
+
+[ESLint](https://eslint.org/) is used to lint JavaScript files. If you have a
+valid reason to break one of the rules, you can ignore a specific line using
+any of the options in the [ESLint documentation](https://eslint.org/docs/user-guide/configuring#disabling-rules-with-inline-comments).
+
+The ESLint config can be changed in the `.eslintrc.js` file. Gesso follows the
+[ESLint recommended](https://eslint.org/docs/rules/) rules and [Prettier's
+recommended rules](https://github.com/prettier/eslint-plugin-prettier) with
+some additional customizations.
+
+### Prettier
+
+[Prettier](https://prettier.io/) is used by both ESLint and Stylelint to enforce
+code style consistency. The Prettier config can be changed in the `.prettierrc`
+file.
+
+[Prettier plugins are available for many code editors](https://prettier.io/docs/en/editors.html). If your editor is
+supported, we recommended installing the plugin to more easily reformat your
+code.
+
+## JavaScript
 
 See the README.md file in the /js directory for details on included scripts
 (e.g., mobile menu, primary menu, etc.).
