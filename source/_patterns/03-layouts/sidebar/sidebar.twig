@@ -1,8 +1,8 @@
 <div class="l-sidebar{{ has_multiple_sidebar ? ' l-sidebar--multi-2' }} {{ modifier_classes }}">
 
-  {% if header_content %}
+  {% if sidebar_header_content %}
     <div class="l-sidebar__full">
-      {{ header_content }}
+      {{ sidebar_header_content }}
     </div>
   {% endif %}
 
@@ -12,9 +12,9 @@
     </aside>
   {% endif %}
 
-  {% if main_content %}
+  {% if sidebar_main_content %}
     <div class="l-sidebar__main">
-      {{ main_content }}
+      {{ sidebar_main_content }}
     </div>
   {% endif %}
 
