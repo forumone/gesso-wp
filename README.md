@@ -231,6 +231,7 @@ or `gulp build` is run.
 For example, to use a breakpoint in a script:
 ```
 import { BREAKPOINTS } from '../constants/_GESSO.es6';
+
 if (window.matchMedia(`min-width: ${BREAKPOINTS.desktop}`).matches) {
   // Some script that should only run on larger screens.
 }
