@@ -262,6 +262,7 @@ add_filter('timber/loader/loader', function($loader){
 	$loader->addPath(__DIR__ . "/source/_patterns/03-layouts", "layouts");
 	$loader->addPath(__DIR__ . "/source/_patterns/04-components", "components");
 	$loader->addPath(__DIR__ . "/source/_patterns/05-templates", "templates");
-	$loader->addPath(__DIR__ . "/source/_patterns/06-pages", "pages");
+  $loader->addPath(__DIR__ . "/source/_patterns/06-pages", "pages");
+  $loader->addPath(__DIR__ . "/source/_macros", "macros");
 	return $loader;
 });
