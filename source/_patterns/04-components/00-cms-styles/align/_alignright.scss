@@ -2,17 +2,11 @@
 // Styles WYSIWYG right alignment.
 
 .alignright {
-  max-width: 100%;
-}
-
-.alignright {
   float: none;
   margin: 0;
-}
+  max-width: 100%;
 
-@include breakpoint(700px) {
-  .alignright {
-    @include vertical-spacing(rem(gesso-spacing(2)));
+  @include breakpoint(700px) {
     float: right;
     margin-bottom: rem(gesso-spacing(2));
     margin-left: rem(gesso-spacing(2));
