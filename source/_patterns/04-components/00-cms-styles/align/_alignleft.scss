@@ -2,17 +2,11 @@
 // Styles WYSIWYG left alignment.
 
 .alignleft {
-  max-width: 100%;
-}
-
-.alignleft {
   float: none;
   margin: 0;
-}
+  max-width: 100%;
 
-@include breakpoint(700px) {
-  .alignleft {
-    @include vertical-spacing(rem(gesso-spacing(2)));
+  @include breakpoint(700px) {
     float: left;
     margin-bottom: rem(gesso-spacing(2));
     margin-right: rem(gesso-spacing(2));
