@@ -8,7 +8,7 @@ $context = Timber::get_context();
 $context['posts'] = Timber::get_posts();
 $context['pagination'] = Timber::get_pagination();
 $templates = array( 'index.twig' );
-if ( is_home() ) {
+if ( is_front_page() ) {
 	array_unshift( $templates, 'front-page.twig' );
 }
 Timber::render( $templates, $context );
