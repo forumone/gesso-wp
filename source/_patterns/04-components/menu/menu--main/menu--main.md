@@ -9,4 +9,4 @@ __Variables:__
   * title: [string] Title of the menu item.
   * link: [string] URL of the menu item.
   * current: [boolean] Whether menu item is active.
-  *
+  * children: [array] Child menu items.
