@@ -207,6 +207,7 @@ class StarterSite extends TimberSite {
     $context['menu'] = new Timber\Menu();
     $context['current_year'] = date('Y');
     $context['site'] = $this;
+    $context['gesso_image_path'] = get_template_directory_uri() . '/images';
     return $context;
   }
 

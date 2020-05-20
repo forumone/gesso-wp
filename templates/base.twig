@@ -7,8 +7,10 @@
   {{ function('get_header') }}
 {% endblock %}
 
+{% set body_id = 'body_top' %}
+
 <!-- Provided by templates/base.twig -->
-<body {{ function('body_class')}}>
+<body {{ function('body_class')}} id="{{ body_id }}">
 
   {% block skiplinks %}
     {% include '@components/skiplinks/skiplinks.twig' %}
@@ -79,6 +81,12 @@
       {{ site_content }}
     {% endblock %}
   {% endembed %}
+
+  {% include '@components/back-to-top/back-to-top.twig' with {
+    text: 'Back to top',
+    top_element: body_id,
+    gesso_image_path: gesso_image_path
+  }%}
 
   {% block javascripts %}
   {% endblock %}
