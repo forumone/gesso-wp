@@ -103,4 +103,9 @@
       {% endblock %}
     {% endembed %}
 
+    {% include '@components/back-to-top/back-to-top.twig' with {
+      'text': 'Back to top',
+      'top_element': 'top'
+    }%}
+
   {% endblock %}
