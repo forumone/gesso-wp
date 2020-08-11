@@ -53,9 +53,21 @@ function gesso_scripts() {
   // Get Gesso-WP version.
   $gesso_version = wp_get_theme()->get( 'Version' );
 
-  wp_deregister_script('jquery');
-  wp_register_script('jquery', '//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js', array() ); // Google CDN jQuery
-  // wp_enqueue_script('jquery');
+	global $wp_scripts;
+
+	// Load jQuery from the Google CDN.
+	if ( ! is_admin() ) {
+
+		$ver = '1.12.4'; // Current stable/secure 1.x version.
+
+		if ( isset( $wp_scripts->registered['jquery']->ver ) ) {
+			$ver = str_replace( '-wp', '', $wp_scripts->registered['jquery']->ver );
+		}
+
+		wp_deregister_script( 'jquery' );
+		wp_register_script( 'jquery', '//ajax.googleapis.com/ajax/libs/jquery/' . $ver . '/jquery.min.js', array(), $ver );
+
+	}
 
   wp_register_script('gessocommon', get_template_directory_uri() . '/js/dist/common.min.js', array('jquery'), $gesso_version );
   wp_enqueue_script('gessocommon');
