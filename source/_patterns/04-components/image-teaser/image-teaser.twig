@@ -8,7 +8,10 @@
     <div class="l-media__content">
       <h2><a href="{{ url }}">{{ title }}</a></h2>
       {{ date }}
-      {{ summary }}
+      {{ author }}
+      {{ comments }}
+      {% block functions %}
+      {% endblock %}
     </div>
   </div>
 </article>
