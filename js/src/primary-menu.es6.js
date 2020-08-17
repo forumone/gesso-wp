@@ -1,6 +1,6 @@
 import { MenuBar } from './modules/_Menu.es6';
 
-const callback = function() {
+const callback = function () {
   'use strict';
 
   // The styling for this mobile menu is located in source/_patterns/04-components/menus/menu--main/.
