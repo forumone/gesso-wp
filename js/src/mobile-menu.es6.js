@@ -1,6 +1,6 @@
 import MobileMenu from './modules/_MobileMenu.es6';
 
-const callback = function() {
+const callback = function () {
   'use strict';
 
   // The styling for this mobile menu is located in source/_patterns/04-components/mobile-menu/_mobile-menu.scss.
