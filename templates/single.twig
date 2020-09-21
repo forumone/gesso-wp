@@ -1,16 +1,16 @@
 {% extends 'base.twig' %}
 
 {% block content %}
-  <!-- Provided by templates/single.twig -->
-  {% embed '@layouts/content/content.twig' with {
-    'has_constrain': true
-  } %}
-    {% block content %}
-      {% if function( 'get_post_format' ) %}
-        {% include 'post-formats/content-' ~ function( 'get_post_format' ) ~ '.twig' %}
-      {% else %}
-        {% include 'post-formats/content.twig' %}
-      {% endif %}
-    {% endblock %}
-  {% endembed %}
+	<!-- Provided by templates/single.twig -->
+	{% embed '@layouts/content/content.twig' with {
+		'has_constrain': true
+	} %}
+		{% block content %}
+			{% if fn( 'get_post_type' ) %}
+				{% include 'content/content-' ~ fn( 'get_post_type' ) ~ '.twig' %}
+			{% else %}
+				{% include 'content/content.twig' %}
+			{% endif %}
+		{% endblock %}
+	{% endembed %}
 {% endblock %}
