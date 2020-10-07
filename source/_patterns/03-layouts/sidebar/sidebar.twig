@@ -1,10 +1,8 @@
-{% set additional_attributes = {
-  'class': [
-    'l-sidebar',
-    has_multiple_sidebar ? ' l-sidebar--multi-2',
-    modifier_classes ? modifier_classes,
-  ],
-} %}
+{% set classes = [
+  'l-sidebar',
+  has_multiple_sidebar ? ' l-sidebar--multi-2',
+  modifier_classes ? modifier_classes,
+]|join(' ')|trim %}
 
 <div class="{{ classes }}">
 
