@@ -4,6 +4,7 @@ title: Menu
 ---
 
 __Variables:__
+* modifier_classes: [string] Classes to modify the default component styling.
 * menu_name: [string] Machine name of the menu.
 * items: [array] Menu items. Each item is an object containing:
   * title: [string] Title of the menu item.

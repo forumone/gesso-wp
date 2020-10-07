@@ -1,4 +1,10 @@
-<ul class="menu menu--{{menu_name}}">
+{% set classes = [
+  'menu',
+  menu_name ? 'menu--' ~ menu_name,
+  modifier_classes ? modifier_classes,
+]|join(' ')|trim %}
+
+<ul class="{{ classes }}">
   {% for item in items %}
     <li class="menu__item{% if item.children %} has-subnav{% endif %}">
       <a class="menu__link{% if item.children %} has-subnav{% endif %}{% if item.current %} is-active{% endif %}{% if item.class %} {{ item.class }}{% endif %}" href="{{ item.link }}">{{ item.title }}</a>

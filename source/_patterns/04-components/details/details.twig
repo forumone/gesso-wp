@@ -1,4 +1,9 @@
-<details class="details">
+{% set classes = [
+  'details',
+  modifier_classes ? modifier_classes,
+]|join(' ')|trim %}
+
+<details class="{{ classes }}">
   {% if details_summary %}
     <summary class="details__summary" role="button">{{ details_summary }}</summary>
   {% endif %}

@@ -1,9 +1,9 @@
-{%
-  set classes = [
+{% set additional_attributes = {
+  'class': [
     'article',
-    custom_classes ? custom_classes,
-  ]|join(' ')|trim
-%}
+    modifier_classes ? modifier_classes,
+  ],
+} %}
 
 <article class="{{ classes }}" role="article">
   {% block title %}
