@@ -1,25 +1,25 @@
 <ul class="menu menu--{{menu_name}}">
   {% for item in items %}
     <li class="menu__item{% if item.children %} has-subnav{% endif %}">
-    	<a class="menu__link{% if item.children %} has-subnav{% endif %}{% if item.current %} is-active{% endif %}{% if item.class %} {{ item.class }}{% endif %}" {% if item.target %} target="{{ item.target }}">{% endif %} href="{{ item.link }}">{{ item.title }}</a>
-				{% if item.children %}
-					<ul class="menu menu__subnav">
-						{% for child in item.children %}
-							<li class="menu__item{% if child.children %} has-subnav{% endif %}">
-								<a class="menu__link{% if child.children %} has-subnav{% endif %}{% if child.current %} is-active{% endif %}{% if child.class %} {{ child.class }}{% endif %}"  {% if child.target %} target="{{ child.target }}">{% endif %}  href="{{ child.link }}">{{ child.title }}</a>
-								{% if child.children %}
-									<ul class="menu menu__subnav">
-										{% for grandchild in child.children %}
-											<li class="menu__item">
-												<a class="menu__link{% if grandchild.current %} is-active{% endif %}{% if grandchild.class %} {{ grandchild.class }}{% endif %}" {% if grandchild.target %} target="{{ grandchild.target }}">{% endif %}  href="{{ grandchild.link }}">{{ grandchild.title }}</a>
-											</li>
-										{% endfor %}
-									</ul>
-								{% endif %}
-							</li>
-						{% endfor %}
-					</ul>
-				{% endif %}
+      <a class="menu__link{% if item.children %} has-subnav{% endif %}{% if item.current %} is-active{% endif %}{% if item.class %} {{ item.class }}{% endif %}"{% if item.target %} target="{{ item.target }}"{% endif %} href="{{ item.link }}">{{ item.title }}</a>
+      {% if item.children %}
+        <ul class="menu menu__subnav">
+          {% for child in item.children %}
+            <li class="menu__item{% if child.children %} has-subnav{% endif %}">
+              <a class="menu__link{% if child.children %} has-subnav{% endif %}{% if child.current %} is-active{% endif %}{% if child.class %} {{ child.class }}{% endif %}"{% if child.target %} target="{{ child.target }}"{% endif %} href="{{ child.link }}">{{ child.title }}</a>
+              {% if child.children %}
+                <ul class="menu menu__subnav">
+                  {% for grandchild in child.children %}
+                    <li class="menu__item">
+                      <a class="menu__link{% if grandchild.current %} is-active{% endif %}{% if grandchild.class %} {{ grandchild.class }}{% endif %}"{% if grandchild.target %} target="{{ grandchild.target }}"{% endif %} href="{{ grandchild.link }}">{{ grandchild.title }}</a>
+                    </li>
+                  {% endfor %}
+                </ul>
+              {% endif %}
+            </li>
+          {% endfor %}
+        </ul>
+      {% endif %}
     </li>
   {% endfor %}
 </ul>
