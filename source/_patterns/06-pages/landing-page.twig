@@ -18,7 +18,7 @@
   {# define the content for the landing page template, using dummy content from above #}
   {% set main_content %}
     {% include '@layouts/grid/grid.twig' with {
-      'num_of_cols': 3,
+      'num_of_cols': '3',
       'grid_content': grid_content
     } %}
     {% include '@components/pager/pager.twig' with {
