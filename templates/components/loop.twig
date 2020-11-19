@@ -38,7 +38,7 @@
   } %}
     {% block functions %}
       {{ function('gesso_link_pages') }}
-      <div>{{ function('edit_post_link', 'Edit', '<span class="edit-link">', '</span>', post.id) }}</div>
+      {{ function('edit_post_link', 'Edit', '<span class="edit-link">', '</span>', post.id) }}
     {% endblock %}
   {% endembed %}
 {% else %}
