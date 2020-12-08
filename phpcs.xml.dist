@@ -27,8 +27,8 @@
 	<!-- Check up to 8 files simultanously. -->
 	<arg name="parallel" value="8"/>
 
-	<!-- Only check the PHP, CSS and SCSS files. JS files are checked separately with ESLint. -->
-	<arg name="extensions" value="php,css,scss/css"/>
+		<!-- Only check the PHP files. CSS and SCSS are checked separately. JS files are checked separately with ESLint. -->
+	<arg name="extensions" value="php"/>
 
 	<!-- Check all files in this directory and the directories below it. -->
 	<file>.</file>
@@ -57,7 +57,7 @@
 		 Multiple valid text domains can be provided as a comma-delimited list. -->
 	<rule ref="WordPress.WP.I18n">
 		<properties>
-			<property name="text_domain" type="array" value="wp-rig"/>
+			<property name="text_domain" type="array" value="gesso"/>
 		</properties>
 	</rule>
 
@@ -74,7 +74,7 @@
 	<!-- Set the minimum supported WP version. This is used by several sniffs.
 		 The minimum version set here should be in line with the minimum WP version
 		 as set in the "Requires at least" tag in the readme.txt file. -->
-	<config name="minimum_supported_wp_version" value="4.5"/>
+	<config name="minimum_supported_wp_version" value="5.0"/>
 
 	<rule ref="WordPress.Arrays.MultipleStatementAlignment">
 		<properties>
@@ -93,7 +93,7 @@
 	#############################################################################
 	-->
 
-	<config name="testVersion" value="7.0-99.0"/>
+	<config name="testVersion" value="7.3-"/>
 	<rule ref="PHPCompatibility" />
 
 </ruleset>

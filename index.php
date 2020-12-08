@@ -13,4 +13,4 @@ if ( is_front_page() ) {
 }
 Timber::render( $templates, $context );
 
-?>
+

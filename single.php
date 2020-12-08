@@ -11,11 +11,11 @@ $context = Timber::get_context();
 $post = Timber::query_post();
 $context['post'] = $post;
 // Define generic templates.
-$templates = array( 
-	'single-' . $post->post_type . '-' . $post->slug . '.twig', 
-	'single-' . $post->ID . '.twig', 
+$templates = array(
+	'single-' . $post->post_type . '-' . $post->slug . '.twig',
+	'single-' . $post->ID . '.twig',
 	'single-' . $post->post_type . '.twig',
-	'single.twig'
+	'single.twig',
 );
 if ( post_password_required( $post->ID ) ) {
 	Timber::render( 'components/password-form.twig', $context );

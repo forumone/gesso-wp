@@ -16,6 +16,6 @@ $context['pagination'] = Timber::get_pagination();
 if ( isset( $wp_query->query_vars['author'] ) ) {
 	$author = new TimberUser( $wp_query->query_vars['author'] );
 	$context['author'] = $author;
-	$context['title'] = __('Author Archives: ', 'gesso') . $author->name();
+	$context['title'] = __( 'Author Archives: ', 'gesso' ) . $author->name();
 }
 Timber::render( array( 'author.twig', 'archive.twig', 'search.twig' ), $context );
