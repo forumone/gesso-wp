@@ -70,8 +70,7 @@
     </main>
 
     {% block footer %}
-      {% include 'footer.twig' %}
-      {{ function('wp_footer') }}
+      {{ function('get_footer') }}
     {% endblock %}
 
   {% endset %}
