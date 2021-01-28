@@ -1,94 +1,94 @@
-{% block html_head_container %}
-  {% include 'html-header.twig' %}
-{% endblock %}
+{{ function('get_header') }}
 
-{% block page_header %}
-  {# This is where you would stick another header, if different than #}
-  {{ function('get_header') }}
-{% endblock %}
-
-{% set body_id = 'body_top' %}
-
-<!-- Provided by templates/base.twig -->
-<body {{ function('body_class')}} id="{{ body_id }}">
-
-  {% block skiplinks %}
-    {% include '@components/skiplinks/skiplinks.twig' %}
+{% block page %}
+  {% block html_head_container %}
+    {% include 'html-header.twig' %}
   {% endblock %}
 
-  {# set the content of the site as a variable to be passed to site-container.twig #}
-  {% set site_content %}
+  {% set body_id = 'body_top' %}
 
-    {% embed '@layouts/header/header.twig' with {
-      'has_constrain': true
-    } %}
-      {% block content %}
-        {% include '@components/site-name/site-name.twig' with {
-          'url': site.url,
-          'site_name': site.title
-        } %}
-      {% endblock  %}
-    {% endembed %}
+  <!-- Provided by templates/base.twig -->
+  <body {{ function('body_class')}} id="{{ body_id }}">
 
-    {% embed '@layouts/region/region.twig' with {
-      'region_name': 'navigation',
-      'has_constrain': true
-    } %}
-      {% block content %}
-        {% include '@components/menu/menu.twig' with {
-          'items': primary_menu.items,
-          'menu_name': 'main'
-        } %}
-      {% endblock  %}
-    {% endembed %}
+    {% block skiplinks %}
+      {% include '@components/skiplinks/skiplinks.twig' %}
+    {% endblock %}
 
-    <main id="main" class="main" role="main" tabindex="-1">
-      {% embed '@layouts/region/region.twig' with {
-        'region_name': 'preface',
+    {# set the content of the site as a variable to be passed to site-container.twig #}
+    {% set site_content %}
+
+      {% embed '@layouts/header/header.twig' with {
         'has_constrain': true
       } %}
         {% block content %}
-        {% endblock %}
+          {% include '@components/site-name/site-name.twig' with {
+            'url': site.url,
+            'site_name': site.title
+          } %}
+        {% endblock  %}
       {% endembed %}
 
-      {% block content %}
-        {% embed '@layouts/content/content.twig' with {
+      {% embed '@layouts/region/region.twig' with {
+        'region_name': 'navigation',
+        'has_constrain': true
+      } %}
+        {% block content %}
+          {% include '@components/menu/menu.twig' with {
+            'items': primary_menu.items,
+            'menu_name': 'main'
+          } %}
+        {% endblock  %}
+      {% endembed %}
+
+      <main id="main" class="main" role="main" tabindex="-1">
+        {% embed '@layouts/region/region.twig' with {
+          'region_name': 'preface',
           'has_constrain': true
         } %}
           {% block content %}
           {% endblock %}
         {% endembed %}
+
+        {% block content %}
+          {% embed '@layouts/content/content.twig' with {
+            'has_constrain': true
+          } %}
+            {% block content %}
+            {% endblock %}
+          {% endembed %}
+        {% endblock %}
+
+        {% embed '@layouts/region/region.twig' with {
+          'region_name': 'postscript',
+          'has_constrain': true
+        } %}
+          {% block content %}
+          {% endblock %}
+        {% endembed %}
+      </main>
+
+      {% block footer %}
+        {% include 'footer.twig' %}
       {% endblock %}
 
-      {% embed '@layouts/region/region.twig' with {
-        'region_name': 'postscript',
-        'has_constrain': true
-      } %}
-        {% block content %}
-        {% endblock %}
-      {% endembed %}
-    </main>
+    {% endset %}
 
-    {% block footer %}
-      {{ function('get_footer') }}
+    {% embed '@layouts/site-container/site-container.twig' %}
+      {% block site_content %}
+        {{ site_content }}
+      {% endblock %}
+    {% endembed %}
+
+    {% include '@components/back-to-top/back-to-top.twig' with {
+      text: 'Back to top',
+      top_element: body_id,
+      gesso_image_path: gesso_image_path,
+    } %}
+
+    {% block javascripts %}
     {% endblock %}
-
-  {% endset %}
-
-  {% embed '@layouts/site-container/site-container.twig' %}
-    {% block site_content %}
-      {{ site_content }}
-    {% endblock %}
-  {% endembed %}
-
-  {% include '@components/back-to-top/back-to-top.twig' with {
-    text: 'Back to top',
-    top_element: body_id,
-    gesso_image_path: gesso_image_path,
-  } %}
-
-  {% block javascripts %}
-  {% endblock %}
-  {{ function('wp_footer') }}
-</body>
+    {{ function('wp_footer') }}
+  </body>
+{% endblock %}
+{{ function('get_footer') }}
 </html>

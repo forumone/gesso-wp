@@ -1,16 +1,5 @@
 {% extends 'base.twig' %}
 
-{% block content %}
-  <!-- Provided by templates/page-plugin.twig -->
-  {% embed '@layouts/content/content.twig' with {
-    'has_constrain': true
-  } %}
-    {% block content %}
-      {{ content }}
-    {% endblock %}
-  {% endembed %}
-{% endblock %}
-
-{% block footer %}
-  {% include 'footer.twig' %}
+{% block page %}
+  {{ content }}
 {% endblock %}
