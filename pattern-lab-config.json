@@ -1,15 +1,15 @@
 {
   "cacheBust": true,
   "cleanPublic": true,
-  "defaultPattern": "all",
+  "defaultPattern": "global-overview",
   "defaultShowPatternInfo": false,
   "ishControlsHide": {
     "s": false,
     "m": false,
     "l": false,
     "full": false,
-    "random": false,
-    "disco": false,
+    "random": true,
+    "disco": true,
     "hay": true,
     "mqs": false,
     "find": false,
