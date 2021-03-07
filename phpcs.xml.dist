@@ -27,13 +27,14 @@
 	<!-- Check up to 8 files simultanously. -->
 	<arg name="parallel" value="8"/>
 
-		<!-- Only check the PHP files. CSS and SCSS are checked separately. JS files are checked separately with ESLint. -->
+	<!-- Only check the PHP files. CSS and SCSS are checked separately. JS files are checked separately with ESLint. -->
 	<arg name="extensions" value="php"/>
 
 	<!-- Check all files in this directory and the directories below it. -->
 	<file>.</file>
 
 	<exclude-pattern>*/node_modules/*</exclude-pattern>
+	<exclude-pattern>*/source/*</exclude-pattern>
 	<exclude-pattern>*/vendor/*</exclude-pattern>
 
 	<!--
