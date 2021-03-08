@@ -1,0 +1,9 @@
+# This is the Docker Compose entry point for this project.
+# Services listed in this file will automatically be built and started when you bring
+# the project up.
+version: "3.7"
+services:
+  {}
+volumes:
+  ? gesso-pattern-lab
+  ? gesso-css
