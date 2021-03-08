@@ -9,15 +9,19 @@ services:
       - ./:/app:cached
   codacy:
     image: codacy/codacy-analysis-cli:latest
+    environment:
+      CODACY_CODE: /app
     volumes:
       - ./:/app:cached
+      - /var/run/docker.sock:/var/run/docker.sock
+      - /tmp:/tmp
   gesso:
     build: ./
     init: true
     volumes:
       - ./images:/app/images:cached
       - ./js:/app/js:cached
-      - .source:/app/source:cached
+      - ./source:/app/source:cached
       - type: volume
         source: gesso-pattern-lab
         target: /app/pattern-lab
