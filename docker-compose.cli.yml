@@ -7,12 +7,13 @@ services:
     image: composer:1.9
     volumes:
       - ./:/app:cached
-  codacy:
+  phpcs:
     image: codacy/codacy-analysis-cli:latest
     environment:
-      CODACY_CODE: /app
+      CODACY_CODE: ${PWD}
+    command: analyze -t phpcs
     volumes:
-      - ./:/app:cached
+      - ${PWD}:${PWD}:cached
       - /var/run/docker.sock:/var/run/docker.sock
       - /tmp:/tmp
   gesso:
