@@ -1,14 +1,14 @@
 <?php
 /**
- * The Template for displaying all single posts
+ * The Template for displaying all single posts.
  *
- * @package  WordPress
- * @subpackage  Timber
- * @since    Timber 0.1
+ * @package Gesso
  */
 
 $context = Timber::get_context();
+// phpcs:disable WordPress.WP.GlobalVariablesOverride.Prohibited
 $post = Timber::query_post();
+// phpcs:enable
 $context['post'] = $post;
 // Define generic templates.
 $templates = array(

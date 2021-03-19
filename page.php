@@ -14,13 +14,13 @@
  * /mytheme/page-mypage.php
  * (in which case you'll want to duplicate this file and save to the above path)
  *
- * @package  WordPress
- * @subpackage  Timber
- * @since    Timber 0.1
+ * @package Gesso
  */
 
 $context = Timber::get_context();
+// phpcs:disable WordPress.WP.GlobalVariablesOverride.Prohibited
 $post = new Timber\Post();
+// phpcs:enable
 $context['post'] = $post;
 // Define generic templates.
 $templates = array(
