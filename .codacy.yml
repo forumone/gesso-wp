@@ -7,11 +7,16 @@ engines:
       - 'source/**'
   eslint:
     enabled: true
+    exclude_paths:
+      - '**/*.svg'
 languages:
   php:
     extensions:
       - '.php'
 exclude_paths:
+  - 'css/**'
   - 'images/**'
+  - 'js/dist/**'
+  - 'js/libraries/**'
   - 'node_modules/**'
   - 'vendor/**'
