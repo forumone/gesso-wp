@@ -320,8 +320,13 @@ code.
 See the README.md file in the /js directory for details on included scripts
 (e.g., mobile menu, primary menu, etc.).
 
+## Contributing
+
+Please use the Github issue queue (https://github.com/forumone/gesso-wp/issues) for
+discussion, bug reports, feature requests, etc.
+
+Submitted pull requests should be against the release candidate branch, `4.x-RC`.
+
 ## Maintainers
 
 The Gesso theme for WordPress is maintained by [Corey Lafferty](https://github.com/coreylafferty), [Lindsey DiNapoli](https://github.com/cssgirl), [Karen Kitchens](https://github.com/karenkitchens) and [Elvis Morales](https://github.com/elvismdev).
-
-Please use the Github issue queue: https://github.com/forumone/gesso-wp/issues
