@@ -7,6 +7,7 @@ engines:
     enabled: true
     exclude_paths:
       - '**/*.svg'
+      - '**/*.artifact.scss'
   remark-lint:
     enabled: false
 languages:
@@ -14,9 +15,11 @@ languages:
     extensions:
       - '.php'
 exclude_paths:
+  - 'pattern-lab/**'
   - 'css/**'
   - 'images/**'
   - 'js/dist/**'
   - 'js/libraries/**'
   - 'node_modules/**'
   - 'vendor/**'
+  - 'lib/**'
