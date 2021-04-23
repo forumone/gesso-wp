@@ -14,23 +14,24 @@
  * /mytheme/page-mypage.php
  * (in which case you'll want to duplicate this file and save to the above path)
  *
- *
- * @package  WordPress
- * @subpackage  Timber
- * @since    Timber 0.1
+ * @package Gesso
  */
 
 $context = Timber::get_context();
+// phpcs:disable WordPress.WP.GlobalVariablesOverride.Prohibited
 $post = new Timber\Post();
+// phpcs:enable
 $context['post'] = $post;
 // Define generic templates.
-$templates = array( 
-	'page-' . $post->post_name . '.twig', 
-	'page-' . $post->ID . '.twig', 
-	'page.twig' 
+$templates = array(
+	'page-' . $post->post_name . '.twig',
+	'page-' . $post->ID . '.twig',
+	'page.twig',
 );
 // Set the Homepage template.
-if ( is_front_page() ) array_unshift( $templates, 'front-page.twig' );
+if ( is_front_page() ) {
+	array_unshift( $templates, 'front-page.twig' );
+}
 // Render twig template.
 if ( post_password_required( $post->ID ) ) {
 	Timber::render( 'components/password-form.twig', $context );
