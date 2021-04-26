@@ -1,21 +1,21 @@
 <?php
 /**
- * The Template for displaying all single posts
+ * The Template for displaying all single posts.
  *
- * @package  WordPress
- * @subpackage  Timber
- * @since    Timber 0.1
+ * @package Gesso
  */
 
 $context = Timber::get_context();
+// phpcs:disable WordPress.WP.GlobalVariablesOverride.Prohibited
 $post = Timber::query_post();
+// phpcs:enable
 $context['post'] = $post;
 // Define generic templates.
-$templates = array( 
-	'single-' . $post->post_type . '-' . $post->slug . '.twig', 
-	'single-' . $post->ID . '.twig', 
+$templates = array(
+	'single-' . $post->post_type . '-' . $post->slug . '.twig',
+	'single-' . $post->ID . '.twig',
 	'single-' . $post->post_type . '.twig',
-	'single.twig'
+	'single.twig',
 );
 if ( post_password_required( $post->ID ) ) {
 	Timber::render( 'components/password-form.twig', $context );
