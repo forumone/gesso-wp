@@ -126,7 +126,7 @@ function gesso_scripts() {
 	wp_enqueue_style( 'google-fonts', 'https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,300i,400,400i,600,600i,700,700i&display=swap', array( 'google-fonts-preconnect' ), null );
 
 	// Filter enqueue styles.
-	function update_enqueued_styles( $html, $handle ) {
+	function gesso_google_font_enqueued_styles( $html, $handle ) {
 		$handles = array( 'google-fonts-preconnect' );
 		if ( in_array( $handle, $handles ) ) {
 			// Change enqueued style from stylesheet to preconnect.
@@ -137,7 +137,7 @@ function gesso_scripts() {
 		}
 		return $html;
 	}
-	add_filter( 'style_loader_tag', 'update_enqueued_styles', 10, 4 );
+	add_filter( 'style_loader_tag', 'gesso_google_font_enqueued_styles', 10, 4 );
 
 	wp_enqueue_style( 'style', get_stylesheet_directory_uri() . '/css/styles.css', array(), filemtime( get_stylesheet_directory() . '/css/styles.css' ), 'all' );
 
