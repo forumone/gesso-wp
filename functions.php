@@ -113,7 +113,7 @@ function gesso_scripts() {
 	wp_register_script( 'gessoscripts', get_template_directory_uri() . '/js/dist/scripts.min.js', array( 'jquery', 'gessocommon', 'gessomodernizr' ), filemtime( get_template_directory() . '/js/dist/scripts.min.js' ) );
 	wp_enqueue_script( 'gessoscripts' );
 
-		/**
+	/**
 	* https://developer.wordpress.org/reference/hooks/style_loader_tag/
 	* Using style_loader_tag:
 	* - Enqueue the preconnect URL as a style
@@ -121,23 +121,23 @@ function gesso_scripts() {
 	* - Remove the type & media attributes
 	*/
 
-	// Enqueue Google Font
+	// Enqueue Google Font.
 	wp_enqueue_style( 'google-fonts-preconnect', 'https://fonts.gstatic.com', false );
 	wp_enqueue_style( 'google-fonts', 'https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,300i,400,400i,600,600i,700,700i&display=swap', array( 'google-fonts-preconnect' ), null );
 
-	// Filter enqueue styles
-	function lstreng_update_enqueued_styles( $html, $handle, $href, $media ) {
+	// Filter enqueue styles.
+	function update_enqueued_styles( $html, $handle ) {
 		$handles = array( 'google-fonts-preconnect' );
 		if ( in_array( $handle, $handles ) ) {
-			// Change enqueued style from stylesheet to preconnect
+			// Change enqueued style from stylesheet to preconnect.
 			$html = str_replace( "rel='stylesheet'", "rel='preconnect'", $html );
-			// Remove unnecessary attributes
+			// Remove unnecessary attributes.
 			$html = str_replace( "type='text/css'", '', $html );
 			$html = str_replace( "media='all'", '', $html );
 		}
 		return $html;
 	}
-	add_filter( 'style_loader_tag', 'lstreng_update_enqueued_styles', 10, 4 );
+	add_filter( 'style_loader_tag', 'update_enqueued_styles', 10, 4 );
 
 	wp_enqueue_style( 'style', get_stylesheet_directory_uri() . '/css/styles.css', array(), filemtime( get_stylesheet_directory() . '/css/styles.css' ), 'all' );
 
