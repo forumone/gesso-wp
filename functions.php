@@ -125,7 +125,9 @@ function gesso_scripts() {
 	wp_enqueue_style( 'google-fonts-preconnect', 'https://fonts.gstatic.com', false );
 	wp_enqueue_style( 'google-fonts', 'https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,300i,400,400i,600,600i,700,700i&display=swap', array( 'google-fonts-preconnect' ), null );
 
-	// Filter enqueue styles.
+	/**
+	 * Filter enqueue styles.
+	 */
 	function gesso_google_font_enqueued_styles( $html, $handle ) {
 		$handles = array( 'google-fonts-preconnect' );
 		if ( in_array( $handle, $handles ) ) {
