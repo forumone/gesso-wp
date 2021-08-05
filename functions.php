@@ -113,13 +113,17 @@ function gesso_scripts() {
 	wp_register_script( 'gessoscripts', get_template_directory_uri() . '/js/dist/scripts.min.js', array( 'jquery', 'gessocommon', 'gessomodernizr' ), filemtime( get_template_directory() . '/js/dist/scripts.min.js' ) );
 	wp_enqueue_script( 'gessoscripts' );
 
-	// Enqueue Google Font
-	wp_enqueue_style( 'google-fonts-preconnect', 'https://fonts.gstatic.com', false, $gesso_version );
-	wp_enqueue_style( 'google-fonts', 'https://fonts.googleapis.com/css2?family=Lato&family=Noto+Sans+JP&family=Roboto:wght@100;300&display=swap', array(), null, $gesso_version );
+	// Enqueue Google Fonts.
+	wp_enqueue_style( 'google-fonts', 'https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600;1,700&display=swap', array(), null );
 
 	wp_enqueue_style( 'style', get_stylesheet_directory_uri() . '/css/styles.css', array(), filemtime( get_stylesheet_directory() . '/css/styles.css' ), 'all' );
 
 }
+function google_preconnect() {
+	echo '<link rel="preconnect" href="https://fonts.googleapis.com">
+	  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>';
+}
+add_action('wp_head', 'google_preconnect', 0);
 add_action( 'wp_enqueue_scripts', 'gesso_scripts' );
 
 /**
