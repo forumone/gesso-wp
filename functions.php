@@ -119,11 +119,14 @@ function gesso_scripts() {
 	wp_enqueue_style( 'style', get_stylesheet_directory_uri() . '/css/styles.css', array(), filemtime( get_stylesheet_directory() . '/css/styles.css' ), 'all' );
 
 }
+/**
+ * Setup Google preconnect links.
+ */
 function google_preconnect() {
 	echo '<link rel="preconnect" href="https://fonts.googleapis.com">
 	  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>';
 }
-add_action('wp_head', 'google_preconnect', 0);
+add_action( 'wp_head', 'google_preconnect', 0 );
 add_action( 'wp_enqueue_scripts', 'gesso_scripts' );
 
 /**
