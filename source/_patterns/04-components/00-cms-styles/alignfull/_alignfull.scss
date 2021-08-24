@@ -1,0 +1,6 @@
+// @file
+// Align full width class coming from the WordPress block editor.
+
+.alignfull {
+  @include layout-full-bleed();
+}
