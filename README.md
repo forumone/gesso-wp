@@ -273,7 +273,7 @@ Output a min-width based media query.**
 examples:
 
 ```
-@include breakpoint(gesso-breakpoint(800px)) {
+@include breakpoint(800px) {
   display: flex;
 }
 

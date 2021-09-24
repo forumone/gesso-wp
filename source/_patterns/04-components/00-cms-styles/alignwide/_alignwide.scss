@@ -1,0 +1,8 @@
+// @file
+// Align wide width class coming from the WordPress block editor.
+
+.alignwide {
+  margin-left: calc((calc(100vw - 100%) / 2) * -0.5);
+  margin-right: calc((calc(100vw - 100%) / 2) * -0.5);
+  width: auto;
+}
