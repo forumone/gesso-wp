@@ -59,10 +59,9 @@ function has_visible_widgets( $sidebar_id ) {
 		if ( '' == $sidebar ) {
 			return false;
 		}
-	} else {
-		return false;
+		return true;
 	}
-	return true;
+	return false;
 }
 
 /**
