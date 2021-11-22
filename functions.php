@@ -381,6 +381,8 @@ new StarterSite();
  * @param array  $attr    The gallery attributes.
  *
  * @return string
+ *
+ * @SuppressWarnings(PHPMD.UnusedFormalParameter) $gallery is not used.
  */
 function gesso_bem_gallery( $gallery, $attr ) {
 	// [ thumbnail | medium | large | full ]
