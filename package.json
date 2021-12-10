@@ -4,8 +4,8 @@
   "description": "Starter WordPress theme",
   "main": "style.css",
   "scripts": {
-    "start": "webpack --config ./webpack.dev.js",
-    "build": "webpack --config ./webpack.production.js",
+    "start": "webpack --config ./webpack.theme-config.js && webpack --config ./webpack.dev.js",
+    "build": "webpack --config ./webpack.theme-config.js && webpack --config ./webpack.production.js",
     "dev": "npm run start && webpack watch --config ./webpack.dev.js"
   },
   "repository": {
@@ -21,6 +21,7 @@
   "devDependencies": {
     "css-loader": "^6.5.1",
     "fibers": "^5.0.0",
+    "nani": "^3.2.1",
     "sass-loader": "^12.4.0",
     "stylelint": "^14.1.0",
     "stylelint-config-prettier": "^9.0.3",
