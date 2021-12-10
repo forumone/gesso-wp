@@ -1,7 +1,11 @@
-// WYSIWYG styles
+// Editor styles
 
 @use '00-config' as * with($wysiwyg: true);
 @use '01-global' as *;
 @use '02-blocks' as *;
 @use '03-utility' as *;
 @use 'shame';
+
+body {
+  font-size: gesso-base-font-size();
+}
