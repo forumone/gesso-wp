@@ -1,8 +1,14 @@
 <!-- wp:template-part {"slug":"header"} /-->
 
-<!-- wp:query {"queryId":0,"query":{"perPage":3,"pages":0,"offset":0,"postType":"post","categoryIds":[],"tagIds":[],"order":"desc","orderBy":"date","author":"","search":"","exclude":[],"sticky":"","inherit":true},"layout":{"inherit":true}} -->
+<!-- wp:heading {"level":1} -->
+<h1 id="search-results">Search results</h1>
+<!-- /wp:heading -->
+
+<!-- wp:query {"queryId":0,"query":{"perPage":3,"pages":0,"offset":0,"postType":"post","categoryIds":[],"tagIds":[],"order":"desc","orderBy":"date","author":"","search":"","exclude":[],"sticky":"","inherit":true}} -->
 <div class="wp-block-query"><!-- wp:post-template -->
 <!-- wp:post-title /-->
+
+<!-- wp:post-date /-->
 
 <!-- wp:post-excerpt /-->
 <!-- /wp:post-template -->
@@ -15,5 +21,3 @@
 <!-- wp:query-pagination-next /-->
 <!-- /wp:query-pagination --></div>
 <!-- /wp:query -->
-
-<!-- wp:template-part {"slug":"footer"} /-->
