@@ -7,10 +7,12 @@ pattern-lab
 dist/css
 dist/js
 dist/design-tokens.js
+dist/theme-json.js
 dist/images/backgrounds
 dist/images/sprite.artifact.svg
 source/00-config/_design-tokens.artifact.scss
 source/00-config/_GESSO.es6.js
+theme.json
 
 dependencyGraph.json
 .vscode
