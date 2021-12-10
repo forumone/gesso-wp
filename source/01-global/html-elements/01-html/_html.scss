@@ -1,0 +1,16 @@
+// HTML Element: HTML
+
+@use 'sass:math';
+@use '00-config' as *;
+
+html {
+  box-sizing: border-box;
+  font-family: gesso-font-family(primary);
+  font-size: 100% * (math.div(gesso-base-font-size(), 16px));
+  line-height: gesso-line-height(base);
+  min-height: 100%;
+  text-size-adjust: 100%;
+  @media screen and (prefers-reduced-motion: no-preference) {
+    scroll-behavior: smooth;
+  }
+}
