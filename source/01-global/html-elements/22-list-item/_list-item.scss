@@ -2,14 +2,17 @@
 
 @use '00-config' as *;
 
-li {
-  margin-bottom: rem(gesso-spacing(1));
+ol:not([class]),
+ul:not([class]) {
+  li {
+    margin-bottom: rem(gesso-spacing(1));
 
-  &:last-child {
-    margin-bottom: 0;
-  }
+    &:last-child {
+      margin-bottom: 0;
+    }
 
-  @media print {
-    page-break-inside: avoid;
+    @media print {
+      page-break-inside: avoid;
+    }
   }
 }
