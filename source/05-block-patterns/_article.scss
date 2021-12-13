@@ -1,0 +1,20 @@
+@use '00-config' as *;
+
+// Gratuitous nesting here to increase specificity of selector.
+.article {
+  .article__footer {
+    gap: 0;
+
+    > * {
+      border-right: 1px solid gesso-color(ui, generic, border);
+      margin-right: 0.75em;
+      padding-right: 0.75em;
+
+      &:last-child {
+        border-right: 0;
+        margin-right: 0;
+        padding-right: 0;
+      }
+    }
+  }
+}

@@ -64,3 +64,29 @@ function wp_next_theme_editor_scripts() {
 	add_editor_style( 'dist/css/editor-styles.css' );
 }
 add_action( 'admin_init', 'wp_next_theme_editor_scripts' );
+
+function wp_next_theme_block_patterns() {
+  register_block_pattern_category('wp_next_theme',
+  array(
+    'label' => __('WP Next Theme')
+  ));
+  register_block_pattern('wp-next-theme/article', array(
+    'title' => __( 'Article '),
+    'categories' => array('wp_next_theme'),
+    'viewportWidth' => 700,
+    'content' => <<<EOT
+<!-- wp:group {"tagName":"article","className":"article","layout":{"inherit":true}} -->
+<article class="wp-block-group article"><!-- wp:post-title {"level":1,"className":"article__title"} /-->
+
+<!-- wp:group {"tagName":"footer","className":"article__footer","layout":{"type":"flex","allowOrientation":false,"flexWrap":"nowrap"}} -->
+<footer class="wp-block-group article__footer"><!-- wp:post-date /-->
+
+<!-- wp:post-author {"showAvatar":false,"showBio":false} /--></footer>
+<!-- /wp:group -->
+
+<!-- wp:post-content {"className":"article__content"} /--></article>
+<!-- /wp:group -->
+EOT
+  ));
+}
+add_action( 'init', 'wp_next_theme_block_patterns');
