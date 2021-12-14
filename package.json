@@ -19,6 +19,7 @@
   },
   "homepage": "https://github.com/forumone/wp-next-theme#readme",
   "devDependencies": {
+    "@wordpress/dependency-extraction-webpack-plugin": "^3.2.1",
     "css-loader": "^6.5.1",
     "fibers": "^5.0.0",
     "nani": "^3.2.1",

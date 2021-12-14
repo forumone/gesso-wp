@@ -4,6 +4,7 @@ const dartSass = require('sass');
 const path = require('path');
 const glob = require('glob');
 const RemovePlugin = require('remove-files-webpack-plugin');
+const DependencyExtractionPlugin = require('@wordpress/dependency-extraction-webpack-plugin');
 
 module.exports = {
   entry: () => {
@@ -50,6 +51,7 @@ module.exports = {
     new StylelintPlugin({
       exclude: ['node_modules', 'dist', 'storybook'],
     }),
+    new DependencyExtractionPlugin()
   ],
   module: {
     rules: [
