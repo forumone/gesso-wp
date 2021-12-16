@@ -1,0 +1,8 @@
+// HTML Element: Audio
+
+audio {
+  &:not([controls]) {
+    display: none;
+    height: 0;
+  }
+}

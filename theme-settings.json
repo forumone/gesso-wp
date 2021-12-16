@@ -1,0 +1,13 @@
+{
+  "version": 2,
+  "settings": {
+    "color": {
+      "defaultPalette": false,
+      "defaultGradients": false,
+      "custom": false
+    },
+    "typography": {
+      "customFontSize": false
+    }
+  }
+}

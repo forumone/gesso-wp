@@ -1,0 +1,15 @@
+// Mixins: Clearfix
+
+@use '../functions' as *;
+
+@mixin clearfix($important: false) {
+  &::after {
+    clear: both iff($important, !important);
+    content: '' iff($important, !important);
+    display: table iff($important, !important);
+  }
+}
+
+@mixin clearfix-important {
+  @include clearfix(true);
+}
