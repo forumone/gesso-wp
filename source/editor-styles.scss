@@ -2,8 +2,9 @@
 
 @use '00-config' as * with($wysiwyg: true);
 @use '01-global' as *;
-@use '02-blocks' as *;
-@use '03-utility' as *;
+@use '02-layout' as *;
+@use '03-blocks' as *;
+@use '04-utility' as *;
 @use 'shame';
 
 body {

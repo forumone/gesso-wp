@@ -10,6 +10,11 @@ if ( ! function_exists( 'wp_next_theme_theme_setup' ) ) :
 		// Disable WordPress's block patterns.
 		// Comment out if you want to use them.
 		remove_theme_support( 'core-block-patterns' );
+
+		// Define featured image sizes.
+		add_image_size( 'large', 700, '', true ); // Large Thumbnail.
+		add_image_size( 'medium', 250, '', true ); // Medium Thumbnail.
+		add_image_size( 'small', 120, '', true ); // Small Thumbnail.
 	}
 	add_action( 'after_setup_theme', 'wp_next_theme_theme_setup' );
 endif;
