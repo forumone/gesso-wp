@@ -1,0 +1,31 @@
+@use '00-config' as *;
+
+.wp-block-button__link {
+  margin-bottom: rem(gesso-spacing(1));
+}
+
+.is-style-primary .wp-block-button__link {
+  @include button();
+}
+
+.is-style-danger .wp-block-button__link {
+  @include button(
+    $color-background: gesso-color(button, danger, background),
+    $color-text: gesso-color(button, danger, text),
+    $color-background-hover: gesso-color(button, danger, background-hover),
+    $color-text-hover: gesso-color(button, danger, text-hover),
+    $color-background-active: gesso-color(button, danger, background-active),
+    $color-text-active: gesso-color(button, danger, text-active)
+  );
+}
+
+.is-style-secondary .wp-block-button__link {
+  @include button(
+    $color-background: gesso-color(button, secondary, background),
+    $color-text: gesso-color(button, secondary, text),
+    $color-background-hover: gesso-color(button, secondary, background-hover),
+    $color-text-hover: gesso-color(button, secondary, text-hover),
+    $color-background-active: gesso-color(button, secondary, background-active),
+    $color-text-active: gesso-color(button, secondary, text-active)
+  );
+}
