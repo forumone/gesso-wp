@@ -4,6 +4,7 @@ node_modules
 pattern-lab
 
 ## Ignore compiled files
+dist/*.php
 dist/css
 dist/js
 dist/design-tokens.js
