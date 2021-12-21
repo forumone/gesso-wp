@@ -35,6 +35,12 @@ function wp_next_theme_theme_scripts() {
 }
 add_action( 'wp_enqueue_scripts', 'wp_next_theme_theme_scripts' );
 
+function wp_next_theme_block_scripts() {
+  $button_asset_file = include 'dist/css/button.asset.php';
+  wp_enqueue_style( 'button-css', get_stylesheet_directory_uri() . '/dist/css/button.css', $button_asset_file['dependencies'], $button_asset_file['version'], 'all' );
+}
+add_action( 'enqueue_block_assets', 'wp_next_theme_block_scripts' );
+
 /**
  * Filter enqueue styles.
  *
@@ -65,6 +71,36 @@ function wp_next_theme_editor_scripts() {
 	add_editor_style( 'dist/css/editor-styles.css' );
 }
 add_action( 'admin_init', 'wp_next_theme_editor_scripts' );
+
+function wp_next_theme_block_metadata_registration( $metadata ) {
+  if ($metadata['name'] === 'core/button') {
+    // Disables the color and radius selector for buttons,
+    // so buttons will be limited to the available styles.
+    $metadata['supports']['color'] = false;
+    $metadata['supports']['__experimentalBorder'] = false;
+  }
+  return $metadata;
+}
+add_filter( 'block_type_metadata', 'wp_next_theme_block_metadata_registration' );
+
+function wp_next_theme_block_styles() {
+  register_block_style( 'core/button', array(
+    'name' => 'primary',
+    'label' => __( 'Primary' ),
+    'is_default' => true,
+  ) );
+  register_block_style( 'core/button', array(
+    'name' => 'secondary',
+    'label' => __( 'Secondary' ),
+    'is_default' => false,
+  ) );
+  register_block_style( 'core/button', array(
+    'name' => 'danger',
+    'label' => __( 'Danger' ),
+    'is_default' => false,
+  ) );
+}
+add_action( 'init', 'wp_next_theme_block_styles' );
 
 function wp_next_theme_block_patterns() {
   register_block_pattern_category('wp_next_theme',
