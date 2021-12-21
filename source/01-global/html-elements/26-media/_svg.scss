@@ -1,7 +1,7 @@
 // HTML Element: SVG
 
 svg {
-  &:not(:root) {
-    overflow: hidden;
-  }
+	&:not(:root) {
+		overflow: hidden;
+	}
 }
