@@ -95,7 +95,8 @@ module.exports = {
 					{
 						loader: MiniCssExtractPlugin.loader,
 						options: {
-							publicPath: '../',
+							publicPath:
+								'/wp-content/themes/wp-next-theme/dist/',
 						},
 					},
 					'css-loader',
