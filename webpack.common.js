@@ -92,7 +92,12 @@ module.exports = {
 				test: /\.scss$/i,
 				exclude: /node_modules/,
 				use: [
-					MiniCssExtractPlugin.loader,
+					{
+						loader: MiniCssExtractPlugin.loader,
+						options: {
+							publicPath: '../',
+						},
+					},
 					'css-loader',
 					{
 						loader: 'sass-loader',
@@ -106,6 +111,14 @@ module.exports = {
 						},
 					},
 				],
+			},
+			{
+				test: /fonts\/.*\.(woff2?|ttf|otf|eot|svg)(\?v=\d+\.\d+\.\d+)?$/i,
+				exclude: ['/node_modules/'],
+				type: 'asset/resource',
+				generator: {
+					filename: 'fonts/[hash][ext][query]',
+				},
 			},
 		],
 	},
