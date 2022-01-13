@@ -121,6 +121,17 @@ module.exports = {
 					filename: 'fonts/[hash][ext][query]',
 				},
 			},
+			{
+				test: /\.(png|svg|jpg|gif)$/i,
+				exclude: [
+					/images\/_sprite-source-files\/.*\.svg$/,
+					'/node_modules/',
+				],
+				type: 'asset',
+				generator: {
+					filename: 'images/[hash][ext][query]',
+				},
+			},
 		],
 	},
 	resolve: {
