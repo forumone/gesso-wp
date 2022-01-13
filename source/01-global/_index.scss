@@ -1,4 +1,4 @@
-@use 'fonts/fonts';
-@use 'normalize/normalize';
-@use 'html-elements';
-@use 'extendables';
+@forward 'fonts/fonts';
+@forward 'normalize/normalize';
+@forward 'html-elements';
+@forward 'extendables';
