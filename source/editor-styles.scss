@@ -9,5 +9,9 @@
 @use 'shame';
 
 body {
-  font-size: gesso-base-font-size();
+	font-size: gesso-base-font-size();
+}
+
+:where(.wp-block-group.has-background) {
+	padding: revert;
 }
