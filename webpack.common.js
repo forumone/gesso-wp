@@ -139,7 +139,11 @@ module.exports = {
 		],
 	},
 	resolve: {
-		modules: [path.resolve(__dirname, 'source'), 'node_modules'],
+		modules: [
+			path.resolve(__dirname, 'source'),
+			path.resolve(__dirname, '../../plugins/f1-block-library'),
+			'node_modules',
+		],
 	},
 	output: {
 		path: path.resolve(__dirname, 'dist'),
