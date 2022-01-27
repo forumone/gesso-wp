@@ -107,6 +107,10 @@ module.exports = {
 							sassOptions: {
 								includePaths: [
 									path.resolve(__dirname, 'source'),
+									path.resolve(
+										__dirname,
+										'../../plugins/f1-block-library'
+									),
 								],
 							},
 						},
