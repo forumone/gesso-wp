@@ -1,0 +1,92 @@
+@use '00-config' as *;
+
+$card-accent-border-color: gesso-color(ui, generic, accent) !default;
+$card-link-color: gesso-color(text, on-light) !default;
+$card-link-color-hover: gesso-color(ui, generic, text-dark) !default;
+$card-meta-color: gesso-color(ui, generic, text-dark) !default;
+$card-padding: rem(gesso-spacing(3)) !default;
+
+.card {
+	border-bottom: 4px solid $card-accent-border-color;
+	box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+	display: flex;
+	flex-direction: column;
+	transition: box-shadow 200ms ease-in-out;
+
+	&:hover,
+	&:focus-within {
+		box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19),
+			0 6px 6px rgba(0, 0, 0, 0.23);
+	}
+}
+
+.card__title {
+	font-size: var(--wp--preset--font-size--4, 1.5rem);
+	margin: 0;
+
+	a {
+		color: $card-link-color;
+
+		&:visited {
+			color: $card-link-color;
+		}
+
+		&:hover,
+		&:focus {
+			color: $card-link-color-hover;
+		}
+
+		&:active {
+			color: $card-link-color-hover;
+		}
+	}
+}
+
+.card__body {
+	padding: $card-padding;
+}
+
+.card__header {
+	margin-bottom: 1.5rem;
+}
+
+.card__date {
+	color: $card-meta-color;
+	font-size: var(--wp--preset--font-size--1, 0.75rem);
+	margin-bottom: 1rem;
+}
+
+.card__content {
+	margin-bottom: 1.5rem;
+}
+
+.card__footer {
+	margin-top: auto;
+}
+
+.card__readmore {
+	text-align: right;
+}
+
+.is-style-feature .card {
+	.card__media {
+		flex-grow: 1;
+	}
+
+	@include break-xlarge {
+		flex-direction: row;
+
+		.card__title {
+			font-size: var(--wp--preset--font-size--5);
+		}
+
+		.card__body {
+			max-width: 600px;
+			padding: $card-padding 2vw;
+		}
+
+		.card__media {
+			order: initial;
+		}
+	}
+}

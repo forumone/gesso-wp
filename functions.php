@@ -37,11 +37,49 @@ function wp_next_theme_theme_scripts() {
 add_action( 'wp_enqueue_scripts', 'wp_next_theme_theme_scripts' );
 
 
-function wp_next_theme_block_scripts() {
-  $button_asset_file = include 'dist/css/button.asset.php';
-  wp_enqueue_style( 'button-css', get_stylesheet_directory_uri() . '/dist/css/button.css', $button_asset_file['dependencies'], $button_asset_file['version'], 'all' );
+function wp_next_theme_block_assets() {
+  wp_enqueue_block_style('core/button', [
+    'handle' => 'wp-next-theme-button',
+    'src' => get_theme_file_uri('dist/css/button.css'),
+    'path' => get_theme_file_path('dist/css/button.css')
+  ]);
+  wp_enqueue_block_style('f1-block-library/accordion', [
+    'handle' => 'wp-next-theme-accordion',
+    'src' => get_theme_file_uri('dist/css/accordion.css'),
+    'path' => get_theme_file_path('dist/css/accordion.css')
+  ]);
+  wp_enqueue_block_style('f1-block-library/back-to-top', [
+    'handle' => 'wp-next-theme-back-to-top',
+    'src' => get_theme_file_uri('dist/css/back-to-top.css'),
+    'path' => get_theme_file_path('dist/css/back-to-top.css')
+  ]);
+  wp_enqueue_block_style('f1-block-library/featured-cards', [
+    'handle' => 'wp-next-theme-cards',
+    'src' => get_theme_file_uri('dist/css/cards.css'),
+    'path' => get_theme_file_path('dist/css/cards.css')
+  ]);
+  wp_enqueue_block_style('f1-block-library/query-cards', [
+    'handle' => 'wp-next-theme-cards',
+    'src' => get_theme_file_uri('dist/css/cards.css'),
+    'path' => get_theme_file_path('dist/css/cards.css')
+  ]);
+  wp_enqueue_block_style('f1-block-library/manual-cards', [
+    'handle' => 'wp-next-theme-cards',
+    'src' => get_theme_file_uri('dist/css/cards.css'),
+    'path' => get_theme_file_path('dist/css/cards.css')
+  ]);
+  wp_enqueue_block_style('f1-block-library/skiplinks', [
+    'handle' => 'wp-next-theme-skiplinks',
+    'src' => get_theme_file_uri('dist/css/skiplinks.css'),
+    'path' => get_theme_file_path('dist/css/skiplinks.css')
+  ]);
+  wp_enqueue_block_style('f1-block-library/standalone-link', [
+    'handle' => 'wp-next-theme-standalone-link',
+    'src' => get_theme_file_uri('dist/css/standalone-link.css'),
+    'path' => get_theme_file_path('dist/css/standalone-link.css')
+  ]);
 }
-add_action( 'enqueue_block_assets', 'wp_next_theme_block_scripts' );
+add_action( 'after_setup_theme', 'wp_next_theme_block_assets' );
 
 /**
  * Filter enqueue styles.
