@@ -1,0 +1,22 @@
+@use '00-config' as *;
+
+.back-to-top {
+	@include break-small {
+		@include reduce-motion('transition');
+		background-color: gesso-color(button, back-to-top, background);
+		border-radius: 50%;
+		color: gesso-color(button, back-to-top, color);
+		transition-duration: 200ms;
+		transition-property: filter, opacity;
+		transition-timing-function: ease-in;
+
+		&:visited {
+			color: currentColor;
+		}
+
+		&:hover,
+		&:focus {
+			filter: brightness(0.6);
+		}
+	}
+}

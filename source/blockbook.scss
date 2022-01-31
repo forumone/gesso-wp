@@ -2,12 +2,16 @@
 // Do not enqueue into WordPress itself.
 
 // Block styles
-@use 'accordion/accordion';
-@use 'back-to-top/back-to-top';
-@use 'cards/cards';
+@use 'accordion/accordion' as f1-block-library-accordion;
+@use 'back-to-top/back-to-top' as f1-block-library-back-to-top;
+@use 'cards/cards' as f1-block-library-cards;
 @use 'mega-menu/mega-menu';
-@use 'skiplinks/skiplinks';
-@use 'standalone-link/standalone-link';
 
 // Theme styles
 @use 'editor-styles';
+@use '03-blocks/accordion/accordion';
+@use '03-blocks/back-to-top/back-to-top';
+@use '03-blocks/button/button';
+@use '03-blocks/cards/cards';
+@use '03-blocks/skiplinks/skiplinks';
+@use '03-blocks/standalone-link/standalone-link';

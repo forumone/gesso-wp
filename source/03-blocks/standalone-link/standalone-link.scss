@@ -1,0 +1,62 @@
+@use '00-config' as *;
+
+.wp-block-f1-block-library-standalone-link {
+	&.is-style-arrow {
+		display: inline-block;
+		line-height: 1;
+		padding-right: 1.25rem;
+		position: relative;
+
+		[class*='wp-container-'] > & {
+			padding-right: calc(1.25rem + 16px);
+
+			@media screen and (min-width: 51.2em) {
+				padding-right: calc(1.25rem + 32px);
+			}
+		}
+
+		[class*='wp-container-'] [class*='wp-container-'] > & {
+			padding-right: 1.25rem;
+		}
+
+		&::after {
+			@include svg-background(arrow-forward);
+			background-repeat: no-repeat;
+			content: '';
+			display: inline-block;
+			height: 1rem;
+			overflow: hidden;
+			position: absolute;
+			right: 0;
+			top: 0;
+			width: 1rem;
+		}
+
+		@media (prefers-reduced-motion: no-preference) {
+			&:hover,
+			&:focus {
+				&::after {
+					animation: arrowSlide 0.3s ease-in-out;
+				}
+			}
+		}
+	}
+}
+
+@keyframes arrowSlide {
+	0% {
+		right: 0;
+	}
+	25% {
+		right: -10px;
+	}
+	50% {
+		right: -25px;
+	}
+	75% {
+		right: -10px;
+	}
+	100% {
+		right: 0;
+	}
+}
