@@ -130,25 +130,6 @@ function wp_next_theme_block_metadata_registration( $metadata ) {
 }
 add_filter( 'block_type_metadata', 'wp_next_theme_block_metadata_registration' );
 
-function wp_next_theme_block_styles() {
-  register_block_style( 'core/button', array(
-    'name' => 'primary',
-    'label' => __( 'Primary' ),
-    'is_default' => true,
-  ) );
-  register_block_style( 'core/button', array(
-    'name' => 'secondary',
-    'label' => __( 'Secondary' ),
-    'is_default' => false,
-  ) );
-  register_block_style( 'core/button', array(
-    'name' => 'danger',
-    'label' => __( 'Danger' ),
-    'is_default' => false,
-  ) );
-}
-add_action( 'init', 'wp_next_theme_block_styles' );
-
 function wp_next_theme_block_patterns() {
   register_block_pattern_category('wp_next_theme',
   array(
