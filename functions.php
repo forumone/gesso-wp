@@ -78,6 +78,10 @@ function wp_next_theme_block_assets() {
     'src' => get_theme_file_uri('dist/css/standalone-link.css'),
     'path' => get_theme_file_path('dist/css/standalone-link.css')
   ]);
+  wp_enqueue_block_style('f1-block-library/slider', [
+    'handle' => 'wp-next-theme-slider',
+    'src' => get_theme_file_uri('dist/css/slider.css'),
+  ]);
 }
 add_action( 'after_setup_theme', 'wp_next_theme_block_assets' );
 

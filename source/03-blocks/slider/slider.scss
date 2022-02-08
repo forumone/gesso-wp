@@ -1,0 +1,78 @@
+@use 'sass:math';
+@use '00-config' as *;
+
+$slider-button-size: rem(48px);
+$slider-pager-color: gesso-color(ui, generic, background-light);
+$slider-pager-active-color: gesso-color(ui, generic, background-dark);
+
+// Class names set by Tiny Slider
+.tns-outer {
+	position: relative;
+}
+.tns-controls {
+	height: rem(48px);
+	overflow: hidden;
+
+	@include break-large {
+		height: auto;
+	}
+}
+
+.tns-controls button {
+	@include image-replace($slider-button-size);
+	appearance: none;
+	background-color: transparent;
+	background-position: center center;
+	background-size: cover;
+	border: 0;
+	box-shadow: none;
+
+	&[data-controls='prev'] {
+		@include svg-background(chevron-left);
+	}
+
+	&[data-controls='next'] {
+		@include svg-background(chevron-right);
+	}
+
+	@include break-large {
+		position: absolute;
+		top: calc(50% - #{math.div($slider-button-size, 2)});
+
+		&[data-controls='prev'] {
+			right: 100%;
+		}
+
+		&[data-controls='next'] {
+			left: 100%;
+		}
+	}
+
+	@include break-xlarge {
+		&[data-controls='prev'] {
+			right: calc(100% + #{rem(gesso-spacing(2.5))});
+		}
+
+		&[data-controls='next'] {
+			left: calc(100% + #{rem(gesso-spacing(2.5))});
+		}
+	}
+}
+
+.tns-nav {
+	[aria-controls] {
+		appearance: none;
+		background: $slider-pager-color;
+		border: 0;
+		border-radius: 50%;
+		box-shadow: none;
+		height: rem(10px);
+		margin: 0 gesso-spacing(0.5) gesso-spacing(1);
+		padding: 0;
+		width: rem(10px);
+	}
+
+	.tns-nav-active {
+		background-color: $slider-pager-active-color;
+	}
+}
