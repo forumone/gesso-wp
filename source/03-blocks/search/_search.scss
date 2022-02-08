@@ -1,0 +1,56 @@
+@use '00-config' as *;
+
+.collapsed-search {
+	--search-content-left: 0;
+	--search-content-width: 100%;
+
+	@include break-small {
+		position: relative;
+		z-index: gesso-z-index(nav);
+	}
+}
+
+.collapsed-search__toggle {
+	display: none;
+
+	@include break-small {
+		appearance: none;
+		background-color: transparent;
+		border: 0;
+		border-radius: 0;
+		color: gesso-color(text, link);
+		cursor: pointer;
+		display: inline-block;
+		padding: 0;
+
+		svg {
+			height: rem(24);
+			width: rem(24);
+		}
+	}
+}
+
+.collapsed-search__content {
+	@include break-small {
+		background-color: gesso-brand(green, light-1);
+		display: none;
+		left: var(--search-content-left);
+		padding: rem(gesso-spacing(2));
+		position: absolute;
+		top: 100%;
+		width: var(--search-content-width);
+
+		.has-open-search & {
+			display: flex;
+			justify-content: flex-end;
+			z-index: gesso-z-index(nav);
+		}
+	}
+}
+
+.wp-block-search.is-style-collapsed {
+	@include break-small {
+		max-width: rem(500px);
+		width: 100%;
+	}
+}
