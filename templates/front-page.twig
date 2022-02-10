@@ -6,8 +6,13 @@
     'has_constrain': true
   } %}
     {% block content %}
-      {% include 'templates/components/loop.twig' %}
-      {% include '@components/pager/pager.twig' %}
+		{% if fn('is_home') == true %}
+			{% include 'templates/components/loop.twig' %}
+			{% include '@components/pager/pager.twig' %}
+		{% endif %}
+		{% if fn('is_home') == false %}
+			{{ post.content }}
+		{% endif %}
     {% endblock %}
   {% endembed %}
 {% endblock %}
