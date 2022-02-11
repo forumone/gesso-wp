@@ -11,8 +11,8 @@ import 'F1BlockLibrary/single-card';
 
 // Themes
 registerTheme({
-	name: 'wp-next-theme',
-	title: 'WP Next Theme',
+	name: 'gesso',
+	title: 'Gesso',
 	themeStyles,
 });
 
