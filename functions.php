@@ -31,13 +31,13 @@ function wp_next_theme_theme_scripts() {
 	wp_enqueue_style( 'google-fonts-preconnect', 'https://fonts.gstatic.com', array( 'google-fonts-preconnect-api' ), null );
 	wp_enqueue_style( 'google-fonts', 'https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600;1,700&display=swap', array( 'google-fonts-preconnect' ), null );
 	// phpcs:enable
-	$style_asset_file = include 'dist/css/styles.asset.php';
-	wp_enqueue_style( 'style', get_stylesheet_directory_uri() . '/dist/css/styles.css', $style_asset_file['dependencies'], $style_asset_file['version'], 'all' );
+	$style_asset_file = include 'build/css/styles.asset.php';
+	wp_enqueue_style( 'style', get_stylesheet_directory_uri() . '/build/css/styles.css', $style_asset_file['dependencies'], $style_asset_file['version'], 'all' );
 
   // WP doesn't support enqueuing scripts by block at the theme level yet.
   // Maybe in 6.0.
-  $search_script_asset_file = include 'dist/js/search.asset.php';
-  wp_enqueue_script( 'wp-next-theme-search', get_stylesheet_directory_uri() . '/dist/js/search.js', $search_script_asset_file['dependencies'], $search_script_asset_file['version']);
+  $search_script_asset_file = include 'build/js/search.asset.php';
+  wp_enqueue_script( 'wp-next-theme-search', get_stylesheet_directory_uri() . '/build/js/search.js', $search_script_asset_file['dependencies'], $search_script_asset_file['version']);
 }
 add_action( 'wp_enqueue_scripts', 'wp_next_theme_theme_scripts' );
 
@@ -45,47 +45,47 @@ add_action( 'wp_enqueue_scripts', 'wp_next_theme_theme_scripts' );
 function wp_next_theme_block_assets() {
   wp_enqueue_block_style('core/button', [
     'handle' => 'wp-next-theme-button',
-    'src' => get_theme_file_uri('dist/css/button.css'),
-    'path' => get_theme_file_path('dist/css/button.css')
+    'src' => get_theme_file_uri('build/css/button.css'),
+    'path' => get_theme_file_path('build/css/button.css')
   ]);
   wp_enqueue_block_style('f1-block-library/accordion', [
     'handle' => 'wp-next-theme-accordion',
-    'src' => get_theme_file_uri('dist/css/accordion.css'),
-    'path' => get_theme_file_path('dist/css/accordion.css')
+    'src' => get_theme_file_uri('build/css/accordion.css'),
+    'path' => get_theme_file_path('build/css/accordion.css')
   ]);
   wp_enqueue_block_style('f1-block-library/back-to-top', [
     'handle' => 'wp-next-theme-back-to-top',
-    'src' => get_theme_file_uri('dist/css/back-to-top.css'),
-    'path' => get_theme_file_path('dist/css/back-to-top.css')
+    'src' => get_theme_file_uri('build/css/back-to-top.css'),
+    'path' => get_theme_file_path('build/css/back-to-top.css')
   ]);
   wp_enqueue_block_style('f1-block-library/featured-cards', [
     'handle' => 'wp-next-theme-cards',
-    'src' => get_theme_file_uri('dist/css/cards.css'),
-    'path' => get_theme_file_path('dist/css/cards.css')
+    'src' => get_theme_file_uri('build/css/cards.css'),
+    'path' => get_theme_file_path('build/css/cards.css')
   ]);
   wp_enqueue_block_style('f1-block-library/query-cards', [
     'handle' => 'wp-next-theme-cards',
-    'src' => get_theme_file_uri('dist/css/cards.css'),
-    'path' => get_theme_file_path('dist/css/cards.css')
+    'src' => get_theme_file_uri('build/css/cards.css'),
+    'path' => get_theme_file_path('build/css/cards.css')
   ]);
   wp_enqueue_block_style('f1-block-library/manual-cards', [
     'handle' => 'wp-next-theme-cards',
-    'src' => get_theme_file_uri('dist/css/cards.css'),
-    'path' => get_theme_file_path('dist/css/cards.css')
+    'src' => get_theme_file_uri('build/css/cards.css'),
+    'path' => get_theme_file_path('build/css/cards.css')
   ]);
   wp_enqueue_block_style('f1-block-library/skiplinks', [
     'handle' => 'wp-next-theme-skiplinks',
-    'src' => get_theme_file_uri('dist/css/skiplinks.css'),
-    'path' => get_theme_file_path('dist/css/skiplinks.css')
+    'src' => get_theme_file_uri('build/css/skiplinks.css'),
+    'path' => get_theme_file_path('build/css/skiplinks.css')
   ]);
   wp_enqueue_block_style('f1-block-library/standalone-link', [
     'handle' => 'wp-next-theme-standalone-link',
-    'src' => get_theme_file_uri('dist/css/standalone-link.css'),
-    'path' => get_theme_file_path('dist/css/standalone-link.css')
+    'src' => get_theme_file_uri('build/css/standalone-link.css'),
+    'path' => get_theme_file_path('build/css/standalone-link.css')
   ]);
   wp_enqueue_block_style('f1-block-library/slider', [
     'handle' => 'wp-next-theme-slider',
-    'src' => get_theme_file_uri('dist/css/slider.css'),
+    'src' => get_theme_file_uri('build/css/slider.css'),
   ]);
 }
 add_action( 'after_setup_theme', 'wp_next_theme_block_assets' );
@@ -116,15 +116,15 @@ function wp_next_theme_google_font_enqueued_styles( $tag, $handle, $href, $media
 add_filter( 'style_loader_tag', 'wp_next_theme_google_font_enqueued_styles', 10, 4 );
 
 function wp_next_theme_editor_scripts() {
-  $script_asset_file = include 'dist/js/editor-scripts.asset.php';
-  wp_enqueue_script( 'editor-script', get_stylesheet_directory_uri() . '/dist/js/editor-scripts.js', array_merge($script_asset_file['dependencies'], ['wp-edit-post']), $script_asset_file['version']);
+  $script_asset_file = include 'build/js/editor-scripts.asset.php';
+  wp_enqueue_script( 'editor-script', get_stylesheet_directory_uri() . '/build/js/editor-scripts.js', array_merge($script_asset_file['dependencies'], ['wp-edit-post']), $script_asset_file['version']);
 
 }
 add_action( 'enqueue_block_editor_assets', 'wp_next_theme_editor_scripts' );
 
 function wp_next_theme_editor_styles() {
   add_editor_style( 'https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600;1,700&display=swap' );
-  add_editor_style( get_stylesheet_directory_uri() . '/dist/css/editor-styles.css' );
+  add_editor_style( get_stylesheet_directory_uri() . '/build/css/editor-styles.css' );
 }
 add_action( 'admin_init', 'wp_next_theme_editor_styles' );
 

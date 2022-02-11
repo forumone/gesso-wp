@@ -4,13 +4,13 @@ node_modules
 pattern-lab
 
 ## Ignore compiled files
-dist/*.php
-dist/css
-dist/js
-dist/design-tokens.js
-dist/theme-json.js
-dist/images/backgrounds
-dist/images/sprite.artifact.svg
+build/*.php
+build/css
+build/js
+build/design-tokens.js
+build/theme-json.js
+build/images/backgrounds
+build/images/sprite.artifact.svg
 source/00-config/_design-tokens.artifact.scss
 source/00-config/_GESSO.es6.js
 theme.json
