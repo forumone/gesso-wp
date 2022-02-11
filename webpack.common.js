@@ -67,7 +67,7 @@ module.exports = {
 			after: {
 				test: [
 					{
-						folder: './dist/css',
+						folder: './build/css',
 						method: (absolutePath) =>
 							new RegExp(/\.js(\.map)?$/, 'm').test(absolutePath),
 						recursive: true,
@@ -76,7 +76,7 @@ module.exports = {
 			},
 		}),
 		new StylelintPlugin({
-			exclude: ['node_modules', 'dist', 'storybook'],
+			exclude: ['node_modules', 'build', 'storybook'],
 		}),
 		new DependencyExtractionPlugin(),
 	],
@@ -96,7 +96,7 @@ module.exports = {
 						loader: MiniCssExtractPlugin.loader,
 						options: {
 							publicPath:
-								'/wp-content/themes/wp-next-theme/dist/',
+								'/wp-content/themes/wp-next-theme/build/',
 						},
 					},
 					'css-loader',
@@ -151,6 +151,6 @@ module.exports = {
 		],
 	},
 	output: {
-		path: path.resolve(__dirname, 'dist'),
+		path: path.resolve(__dirname, 'build'),
 	},
 };
