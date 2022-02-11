@@ -1,6 +1,6 @@
 <?php
-if ( ! function_exists( 'wp_next_theme_theme_setup' ) ) :
-	function wp_next_theme_theme_setup() {
+if ( ! function_exists( 'gesso_theme_setup' ) ) :
+	function gesso_theme_setup() {
 		// Support featured images.
 		add_theme_support( 'post-thumbnails' );
 		// Support wide alignment.
@@ -17,10 +17,10 @@ if ( ! function_exists( 'wp_next_theme_theme_setup' ) ) :
 		add_image_size( 'medium', 250, '', true ); // Medium Thumbnail.
 		add_image_size( 'small', 120, '', true ); // Small Thumbnail.
 	}
-	add_action( 'after_setup_theme', 'wp_next_theme_theme_setup' );
+	add_action( 'after_setup_theme', 'gesso_theme_setup' );
 endif;
 
-function wp_next_theme_theme_scripts() {
+function gesso_theme_scripts() {
 	// Enqueue Google Fonts.
 	/**
 	 * Google font preconnect setup doesn't work when version is specified.
@@ -39,10 +39,10 @@ function wp_next_theme_theme_scripts() {
   $search_script_asset_file = include 'build/js/search.asset.php';
   wp_enqueue_script( 'wp-next-theme-search', get_stylesheet_directory_uri() . '/build/js/search.js', $search_script_asset_file['dependencies'], $search_script_asset_file['version']);
 }
-add_action( 'wp_enqueue_scripts', 'wp_next_theme_theme_scripts' );
+add_action( 'wp_enqueue_scripts', 'gesso_theme_scripts' );
 
 
-function wp_next_theme_block_assets() {
+function gesso_block_assets() {
   wp_enqueue_block_style('core/button', [
     'handle' => 'wp-next-theme-button',
     'src' => get_theme_file_uri('build/css/button.css'),
@@ -88,7 +88,7 @@ function wp_next_theme_block_assets() {
     'src' => get_theme_file_uri('build/css/slider.css'),
   ]);
 }
-add_action( 'after_setup_theme', 'wp_next_theme_block_assets' );
+add_action( 'after_setup_theme', 'gesso_block_assets' );
 
 /**
  * Filter enqueue styles.
@@ -102,7 +102,7 @@ add_action( 'after_setup_theme', 'wp_next_theme_block_assets' );
  *
  * @return string
  */
-function wp_next_theme_google_font_enqueued_styles( $tag, $handle, $href, $media ) {
+function gesso_google_font_enqueued_styles( $tag, $handle, $href, $media ) {
 	$handles = array( 'google-fonts-preconnect', 'google-fonts-preconnect-api' );
 	// Google font preconnect rewrite.
 	if ( in_array( $handle, $handles ) ) {
@@ -113,22 +113,22 @@ function wp_next_theme_google_font_enqueued_styles( $tag, $handle, $href, $media
 	}
 	return $tag;
 }
-add_filter( 'style_loader_tag', 'wp_next_theme_google_font_enqueued_styles', 10, 4 );
+add_filter( 'style_loader_tag', 'gesso_google_font_enqueued_styles', 10, 4 );
 
-function wp_next_theme_editor_scripts() {
+function gesso_editor_scripts() {
   $script_asset_file = include 'build/js/editor-scripts.asset.php';
   wp_enqueue_script( 'editor-script', get_stylesheet_directory_uri() . '/build/js/editor-scripts.js', array_merge($script_asset_file['dependencies'], ['wp-edit-post']), $script_asset_file['version']);
 
 }
-add_action( 'enqueue_block_editor_assets', 'wp_next_theme_editor_scripts' );
+add_action( 'enqueue_block_editor_assets', 'gesso_editor_scripts' );
 
-function wp_next_theme_editor_styles() {
+function gesso_editor_styles() {
   add_editor_style( 'https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600;1,700&display=swap' );
   add_editor_style( get_stylesheet_directory_uri() . '/build/css/editor-styles.css' );
 }
-add_action( 'admin_init', 'wp_next_theme_editor_styles' );
+add_action( 'admin_init', 'gesso_editor_styles' );
 
-function wp_next_theme_block_metadata_registration( $metadata ) {
+function gesso_block_metadata_registration( $metadata ) {
   if ($metadata['name'] === 'core/button') {
     // Disables the color and radius selector for buttons,
     // so buttons will be limited to the available styles.
@@ -137,16 +137,16 @@ function wp_next_theme_block_metadata_registration( $metadata ) {
   }
   return $metadata;
 }
-add_filter( 'block_type_metadata', 'wp_next_theme_block_metadata_registration' );
+add_filter( 'block_type_metadata', 'gesso_block_metadata_registration' );
 
-function wp_next_theme_block_patterns() {
-  register_block_pattern_category('wp_next_theme',
+function gesso_block_patterns() {
+  register_block_pattern_category('gesso',
   array(
     'label' => __('WP Next Theme')
   ));
   register_block_pattern('wp-next-theme/article', array(
     'title' => __( 'Article '),
-    'categories' => array('wp_next_theme'),
+    'categories' => array('gesso'),
     'viewportWidth' => 700,
     'content' => <<<EOT
 <!-- wp:group {"tagName":"article","className":"article","layout":{"inherit":true}} -->
@@ -163,9 +163,9 @@ function wp_next_theme_block_patterns() {
 EOT
   ));
 }
-add_action( 'init', 'wp_next_theme_block_patterns');
+add_action( 'init', 'gesso_block_patterns');
 
-function wp_next_theme_collapsed_search( $block_content, $block ) {
+function gesso_collapsed_search( $block_content, $block ) {
   if (!empty($block['attrs']['className']) &&
     strpos($block['attrs']['className'], 'is-style-collapsed') !== FALSE) {
     return '<div class="collapsed-search"><button type="button" class="collapsed-search__toggle"><svg
@@ -181,4 +181,4 @@ function wp_next_theme_collapsed_search( $block_content, $block ) {
   }
   return $block_content;
 }
-add_filter('render_block_core/search', 'wp_next_theme_collapsed_search', 10, 2);
+add_filter('render_block_core/search', 'gesso_collapsed_search', 10, 2);

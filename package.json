@@ -1,7 +1,7 @@
 {
-  "name": "wp-next-theme",
-  "version": "0.0.1",
-  "description": "Starter WordPress theme",
+  "name": "gesso-wp",
+  "version": "5.0.0",
+  "description": "A WordPress theme",
   "main": "style.css",
   "scripts": {
     "start": "webpack --config ./webpack.theme-config.js && webpack --config ./webpack.dev.js",
@@ -10,16 +10,19 @@
     "blockbook:start": "blockbook start",
     "blockbook:build": "blockbook build"
   },
+  "bugs": "https://github.com/forumone/gesso-wp/issues",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/forumone/wp-next-theme.git"
+    "url": "https://github.com/forumone/gesso-wp.git"
   },
   "author": "Forum One",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/forumone/wp-next-theme/issues"
-  },
-  "homepage": "https://github.com/forumone/wp-next-theme#readme",
+  "homepage": "https://github.com/forumone/gesso-wp#readme",
+  "browserslist": [
+    "last 2 versions and not dead",
+    ">= 1%",
+    ">= 1% in US"
+  ],
   "devDependencies": {
     "@babel/core": "^7.17.2",
     "@wordpress/babel-preset-default": "^6.4.1",

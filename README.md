@@ -1,4 +1,4 @@
-# F1 WordPress Theme (Name TK)
+# Gesso for WordPress
 
 A Sass-based starter [block theme](https://developer.wordpress.org/block-editor/how-to-guides/themes/block-theme-overview/) for
 WordPress 5.9+.
@@ -23,13 +23,13 @@ will not be working on the theme itself):
 
 ## Configuration
 ### Design tokens
-The theme uses a configuration file `source/00-config/config.design-tokens.yml` 
+Gesso uses a configuration file `source/00-config/config.design-tokens.yml` 
 to manage the theme’s design tokens and automatically generate both the global sass map for styling 
 and the theme.json file. The dev script will monitor changes in the config and 
 rebuild all necessary assets. To rebuild the theme assets a single time run `npm run build`.
 
 ### theme.json
-The theme's [theme.json](https://developer.wordpress.org/block-editor/how-to-guides/themes/theme-json/) file
+Gesso's [theme.json](https://developer.wordpress.org/block-editor/how-to-guides/themes/theme-json/) file
 is automatically generated. Colors, font families, font sizes, and layout 
 constrain widths are generated from the design tokens. Other theme.json customizations
 can be added to `theme-settings.json`. The `theme.json` file should not be modified
