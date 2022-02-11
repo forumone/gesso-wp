@@ -33,6 +33,11 @@ function wp_next_theme_theme_scripts() {
 	// phpcs:enable
 	$style_asset_file = include 'dist/css/styles.asset.php';
 	wp_enqueue_style( 'style', get_stylesheet_directory_uri() . '/dist/css/styles.css', $style_asset_file['dependencies'], $style_asset_file['version'], 'all' );
+
+  // WP doesn't support enqueuing scripts by block at the theme level yet.
+  // Maybe in 6.0.
+  $search_script_asset_file = include 'dist/js/search.asset.php';
+  wp_enqueue_script( 'wp-next-theme-search', get_stylesheet_directory_uri() . '/dist/js/search.js', $search_script_asset_file['dependencies'], $search_script_asset_file['version']);
 }
 add_action( 'wp_enqueue_scripts', 'wp_next_theme_theme_scripts' );
 
@@ -159,3 +164,21 @@ EOT
   ));
 }
 add_action( 'init', 'wp_next_theme_block_patterns');
+
+function wp_next_theme_collapsed_search( $block_content, $block ) {
+  if (!empty($block['attrs']['className']) &&
+    strpos($block['attrs']['className'], 'is-style-collapsed') !== FALSE) {
+    return '<div class="collapsed-search"><button type="button" class="collapsed-search__toggle"><svg
+			xmlns="http://www.w3.org/2000/svg"
+			viewBox="0 0 24 24"
+			fill="currentColor"
+			width="24px"
+			height="24px"
+		>
+			<path d="M0 0h24v24H0z" fill="none" />
+			<path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z" />
+		</svg></button><div class="collapsed-search__content">' . $block_content . '</div></div>';
+  }
+  return $block_content;
+}
+add_filter('render_block_core/search', 'wp_next_theme_collapsed_search', 10, 2);
