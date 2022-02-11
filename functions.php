@@ -12,7 +12,7 @@ if ( ! function_exists( 'wp_next_theme_theme_setup' ) ) :
 		remove_theme_support( 'core-block-patterns' );
 
 		// Define featured image sizes.
-    set_post_thumbnail_size(800, 600, true);
+    add_image_size( 'large_cropped', 800, 600, true);
 		add_image_size( 'large', 700, '', true ); // Large Thumbnail.
 		add_image_size( 'medium', 250, '', true ); // Medium Thumbnail.
 		add_image_size( 'small', 120, '', true ); // Small Thumbnail.
