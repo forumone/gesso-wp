@@ -51,7 +51,7 @@
     "@wordpress/dom-ready": "^3.2.3",
     "@wordpress/hooks": "^3.3.0",
     "@wordpress/i18n": "^4.3.0",
-    "blockbook-cli": "github:youknowriad/blockbook",
+    "blockbook-cli": "^0.7.1",
     "eslint-webpack-plugin": "^3.1.1",
     "glob": "^7.2.0",
     "mini-css-extract-plugin": "^2.4.5",
