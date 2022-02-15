@@ -5,7 +5,7 @@
 // Align items
 .u-align-left,
 .align-left {
-  @include breakpoint(gesso-breakpoint(tablet)) {
+  @include breakpoint(gesso-breakpoint($break-small)) {
     float: left;
     margin-right: rem(gesso-get-map(gutter-width));
   }
@@ -13,7 +13,7 @@
 
 .u-align-right,
 .align-right {
-  @include breakpoint(gesso-breakpoint(tablet)) {
+  @include breakpoint(gesso-breakpoint($break-small)) {
     float: right;
     margin-left: rem(gesso-get-map(gutter-width));
   }

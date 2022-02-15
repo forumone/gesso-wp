@@ -7,7 +7,7 @@
   padding-left: gesso-site-margins('mobile');
   padding-right: gesso-site-margins('mobile');
 
-  @include breakpoint(gesso-breakpoint('desktop')) {
+  @include breakpoint(gesso-breakpoint($break-xlarge)) {
     padding-left: gesso-site-margins('desktop');
     padding-right: gesso-site-margins('desktop');
   }
