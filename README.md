@@ -16,21 +16,21 @@ WordPress 5.9+.
 4. Enable the theme
 
 ## Building the theme
-To build the theme for production (or to get your local up and running if you 
+To build the theme for production (or to get your local up and running if you
 will not be working on the theme itself):
 1. `npm ci`
 2. `npm run build`
 
 ## Configuration
 ### Design tokens
-Gesso uses a configuration file `source/00-config/config.design-tokens.yml` 
-to manage the theme’s design tokens and automatically generate both the global sass map for styling 
-and the theme.json file. The dev script will monitor changes in the config and 
+Gesso uses a configuration file `source/00-config/config.design-tokens.yml`
+to manage the theme’s design tokens and automatically generate both the global sass map for styling
+and the theme.json file. The dev script will monitor changes in the config and
 rebuild all necessary assets. To rebuild the theme assets a single time run `npm run build`.
 
 ### theme.json
 Gesso's [theme.json](https://developer.wordpress.org/block-editor/how-to-guides/themes/theme-json/) file
-is automatically generated. Colors, font families, font sizes, and layout 
+is automatically generated. Colors, font families, font sizes, and layout
 constrain widths are generated from the design tokens. Other theme.json customizations
 can be added to `theme-settings.json`. The `theme.json` file should not be modified
 directly as it'll be overwritten when `npm run build` runs. Instead, modify the design
@@ -38,25 +38,25 @@ tokens or place your changes in `theme-settings.json`. For more about what can b
 with theme.json, see [the Block Editor Handbook](https://developer.wordpress.org/block-editor/how-to-guides/themes/theme-json/).
 
 ## Sass
-Sass can be compiled as part of the global styles.css file or to individual 
-CSS files for use in a Drupal library.
+Sass can be compiled as part of the global styles.css file or to individual
+CSS files for use in a block style.
 
-@use is used to import Sass variables, mixins, and/or functions into individual 
-SCSS files. @import is discouraged by the Sass team and will eventually be 
-phased out. This means that most files will start with @use '00-config' as *;. 
-This allows you to use the design token accessor functions without an 
-additional namespace. Other functions and mixins can be used similarly. Note 
-that to avoid namespace collisions, only theme-related variables, mixins, and 
+@use is used to import Sass variables, mixins, and/or functions into individual
+SCSS files. @import is discouraged by the Sass team and will eventually be
+phased out. This means that most files will start with @use '00-config' as *;.
+This allows you to use the design token accessor functions without an
+additional namespace. Other functions and mixins can be used similarly. Note
+that to avoid namespace collisions, only theme-related variables, mixins, and
 functions should be used with *.
 
 All Sass files that are compiled to individual CSS files must have a unique filename, even if they are in different directories.
 
 ### Global styles
-Prefix the name of your Sass file with _, e.g. _card.scss. Add it to 
+Prefix the name of your Sass file with _, e.g. _card.scss. Add it to
 the appropriate aggregate file (i.e. _components.scss).
 
 ### Individual block styles
-DO NOT prefix the name of your Sass file with _, e.g. menu.scss. 
+DO NOT prefix the name of your Sass file with _, e.g. menu.scss.
 Import the config and global aggregate files. Add your CSS file to the
 `wp_next_theme_block_assets` function inside functions.php:
 ```php
@@ -67,8 +67,8 @@ wp_enqueue_block_style('f1-block-library/standalone-link', [
 ]);
 ```
 Omit the `path` line if the WordPress should not be able to choose whether
-to inject the styles via a `<style></style>` tag instead of loading an external 
-file. You may need to remove that line if you find that image paths break when the 
+to inject the styles via a `<style></style>` tag instead of loading an external
+file. You may need to remove that line if you find that image paths break when the
 CSS is injected. See [the WordPress dev note](https://make.wordpress.org/core/2021/12/15/using-multiple-stylesheets-per-block/)
 for more on loading block styles.
 
