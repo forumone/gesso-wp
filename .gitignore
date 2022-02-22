@@ -1,7 +1,7 @@
 .DS_Store
+.idea
+.vscode
 node_modules
-.sass-cache
-pattern-lab
 
 ## Ignore compiled files
 build/*.php
@@ -16,6 +16,4 @@ source/00-config/_GESSO.es6.js
 theme.json
 
 dependencyGraph.json
-.vscode
-.idea
 vendor
