@@ -16,3 +16,5 @@ rules:
   # @wordpress/prettier-config uses single quotes,
   # so prettier and stylelint are in conflict here
   string-quotes: single
+  # Results in false positives
+  no-descending-specificity: null
