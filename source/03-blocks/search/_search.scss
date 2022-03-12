@@ -32,7 +32,7 @@
 
 .collapsed-search__content {
 	@include break-small {
-		background-color: gesso-brand(green, light-1);
+		background-color: gesso-color(ui, generic, background);
 		display: none;
 		left: var(--search-content-left);
 		padding: rem(gesso-spacing(2));
