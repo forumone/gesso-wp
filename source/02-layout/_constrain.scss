@@ -1,0 +1,27 @@
+// Layout: Constrain
+// Used for constraining the page width.
+
+@use '00-config' as *;
+
+:is(.l-constrain, [class*='wp-container-']
+		> .l-constrain, .block-editor-block-list__layout.is-root-container
+		> .l-constrain) {
+	@include layout-constrain();
+}
+
+:is(.l-constrain--small, [class*='wp-container-']
+		> .l-constrain--small, .block-editor-block-list__layout.is-root-container
+		> .l-constrain--small) {
+	max-width: rem(gesso-constrain(sm));
+}
+
+:is(.l-constrain--large, [class*='wp-container-']
+		> .l-constrain--large, .block-editor-block-list__layout.is-root-container
+		> .l-constrain--large) {
+	max-width: rem(gesso-constrain(lg));
+}
+
+.l-constrain--no-padding {
+	padding-left: 0;
+	padding-right: 0;
+}
