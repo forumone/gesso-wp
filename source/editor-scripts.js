@@ -3,6 +3,8 @@ import { registerBlockStyle, unregisterBlockStyle } from '@wordpress/blocks';
 import { __ } from '@wordpress/i18n';
 import { createHigherOrderComponent } from '@wordpress/compose';
 import { addFilter } from '@wordpress/hooks';
+import classnames from 'classnames';
+import { assign } from 'lodash';
 
 domReady(() => {
 	// BUTTONS
@@ -46,6 +48,16 @@ domReady(() => {
 		label: __('Collapsed'),
 	});
 
+	// TEXT
+	registerBlockStyle('core/paragraph', {
+		name: 'no-max-width',
+		label: __('No Max Width'),
+	});
+	registerBlockStyle('core/heading', {
+		name: 'no-max-width',
+		label: __('No Max Width'),
+	});
+
 	const withSearchIcon = createHigherOrderComponent((BlockEdit) => {
 		return (props) => {
 			if (
@@ -74,9 +86,50 @@ domReady(() => {
 			);
 		};
 	}, 'withSearchIcon');
+	addFilter('editor.BlockEdit', 'gesso/with-search-icon', withSearchIcon);
+
+	const shouldNotHaveNarrowConstrain = (blockType, props) => {
+		return (
+			!blockType.name ||
+			!['core/paragraph', 'core/heading'].includes(blockType.name) ||
+			(props.attributes?.className &&
+				props.attributes?.className.includes('is-style-no-max-width'))
+		);
+	};
+
+	const addNarrowConstrainClasses = (props) =>
+		assign(props, {
+			className: classnames(
+				props.attributes?.className || '',
+				'l-constrain',
+				'l-constrain--small'
+			),
+		});
+
+	const withNarrowConstrain = createHigherOrderComponent((BlockListBlock) => {
+		return (props) => {
+			if (shouldNotHaveNarrowConstrain(props, props)) {
+				return <BlockListBlock {...props} />;
+			}
+			const newProps = addNarrowConstrainClasses(props);
+			return <BlockListBlock {...newProps} />;
+		};
+	}, 'withNarrowConstrain');
 	addFilter(
-		'editor.BlockEdit',
-		'collapsed-blocks/with-search-icon',
-		withSearchIcon
+		'editor.BlockListBlock',
+		'gesso/with-narrow-constrain',
+		withNarrowConstrain
+	);
+
+	const addNarrowConstrain = (props, blockType) => {
+		if (shouldNotHaveNarrowConstrain(blockType, props)) {
+			return props;
+		}
+		return addNarrowConstrainClasses(props);
+	};
+	addFilter(
+		'blocks.getSaveContent.extraProps',
+		'gesso/add-narrow-constrain',
+		addNarrowConstrain
 	);
 });

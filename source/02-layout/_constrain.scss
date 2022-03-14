@@ -3,15 +3,21 @@
 
 @use '00-config' as *;
 
-.l-constrain {
+:is(.l-constrain, [class*='wp-container-']
+		> .l-constrain, .block-editor-block-list__layout.is-root-container
+		> .l-constrain) {
 	@include layout-constrain();
 }
 
-.l-constrain--small {
+:is(.l-constrain--small, [class*='wp-container-']
+		> .l-constrain--small, .block-editor-block-list__layout.is-root-container
+		> .l-constrain--small) {
 	max-width: rem(gesso-constrain(sm));
 }
 
-.l-constrain--large {
+:is(.l-constrain--large, [class*='wp-container-']
+		> .l-constrain--large, .block-editor-block-list__layout.is-root-container
+		> .l-constrain--large) {
 	max-width: rem(gesso-constrain(lg));
 }
 
