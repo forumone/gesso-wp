@@ -44,47 +44,47 @@ add_action( 'wp_enqueue_scripts', 'gesso_theme_scripts' );
 
 function gesso_block_assets() {
   wp_enqueue_block_style('core/button', [
-    'handle' => 'wp-next-theme-button',
+    'handle' => 'gesso-button',
     'src' => get_theme_file_uri('build/css/button.css'),
     'path' => get_theme_file_path('build/css/button.css')
   ]);
   wp_enqueue_block_style('f1-block-library/accordion', [
-    'handle' => 'wp-next-theme-accordion',
+    'handle' => 'gesso-accordion',
     'src' => get_theme_file_uri('build/css/accordion.css'),
     'path' => get_theme_file_path('build/css/accordion.css')
   ]);
   wp_enqueue_block_style('f1-block-library/back-to-top', [
-    'handle' => 'wp-next-theme-back-to-top',
+    'handle' => 'gesso-back-to-top',
     'src' => get_theme_file_uri('build/css/back-to-top.css'),
     'path' => get_theme_file_path('build/css/back-to-top.css')
   ]);
   wp_enqueue_block_style('f1-block-library/featured-cards', [
-    'handle' => 'wp-next-theme-cards',
+    'handle' => 'gesso-cards',
     'src' => get_theme_file_uri('build/css/cards.css'),
     'path' => get_theme_file_path('build/css/cards.css')
   ]);
   wp_enqueue_block_style('f1-block-library/query-cards', [
-    'handle' => 'wp-next-theme-cards',
+    'handle' => 'gesso-cards',
     'src' => get_theme_file_uri('build/css/cards.css'),
     'path' => get_theme_file_path('build/css/cards.css')
   ]);
   wp_enqueue_block_style('f1-block-library/manual-cards', [
-    'handle' => 'wp-next-theme-cards',
+    'handle' => 'gesso-cards',
     'src' => get_theme_file_uri('build/css/cards.css'),
     'path' => get_theme_file_path('build/css/cards.css')
   ]);
   wp_enqueue_block_style('f1-block-library/skiplinks', [
-    'handle' => 'wp-next-theme-skiplinks',
+    'handle' => 'gesso-skiplinks',
     'src' => get_theme_file_uri('build/css/skiplinks.css'),
     'path' => get_theme_file_path('build/css/skiplinks.css')
   ]);
   wp_enqueue_block_style('f1-block-library/standalone-link', [
-    'handle' => 'wp-next-theme-standalone-link',
+    'handle' => 'gesso-standalone-link',
     'src' => get_theme_file_uri('build/css/standalone-link.css'),
     'path' => get_theme_file_path('build/css/standalone-link.css')
   ]);
   wp_enqueue_block_style('f1-block-library/slider', [
-    'handle' => 'wp-next-theme-slider',
+    'handle' => 'gesso-slider',
     'src' => get_theme_file_uri('build/css/slider.css'),
   ]);
 }
