@@ -1,14 +1,15 @@
 {
   "name": "gesso-wp",
   "version": "5.0.0",
-  "description": "A WordPress theme",
+  "description": "Gesso starter theme",
   "main": "style.css",
   "scripts": {
     "start": "webpack --config ./webpack.theme-config.js && webpack --config ./webpack.dev.js",
     "build": "webpack --config ./webpack.theme-config.js && webpack --config ./webpack.production.js",
     "dev": "npm run start && webpack watch --config ./webpack.dev.js",
     "blockbook:start": "blockbook start",
-    "blockbook:build": "blockbook build"
+    "blockbook:build": "blockbook build",
+    "rename": "node lib/rename.js"
   },
   "bugs": "https://github.com/forumone/gesso-wp/issues",
   "repository": {
