@@ -92,27 +92,37 @@ domReady(() => {
 		return (
 			!blockType.name ||
 			!['core/paragraph', 'core/heading'].includes(blockType.name) ||
-			(props.attributes?.className &&
-				props.attributes?.className.includes('is-style-no-max-width'))
+			(props?.className &&
+				props?.className.includes('is-style-no-max-width'))
 		);
 	};
 
 	const addNarrowConstrainClasses = (props) =>
 		assign(props, {
 			className: classnames(
-				props.attributes?.className || '',
+				props?.className || '',
 				'l-constrain',
 				'l-constrain--small'
 			),
 		});
 
+	const removeNarrowConstrainClass = (props) => {
+		if (!props?.className) return props;
+		return assign(props, {
+			className: props?.className
+				.replace('l-constrain--small', '')
+				.replace('l-constrain', ''),
+		});
+	};
+
 	const withNarrowConstrain = createHigherOrderComponent((BlockListBlock) => {
 		return (props) => {
-			if (shouldNotHaveNarrowConstrain(props, props)) {
-				return <BlockListBlock {...props} />;
+			if (shouldNotHaveNarrowConstrain(props, props.attributes)) {
+				props.attributes = removeNarrowConstrainClass(props.attributes);
+			} else {
+				props.attributes = addNarrowConstrainClasses(props.attributes);
 			}
-			const newProps = addNarrowConstrainClasses(props);
-			return <BlockListBlock {...newProps} />;
+			return <BlockListBlock {...props} />;
 		};
 	}, 'withNarrowConstrain');
 	addFilter(
