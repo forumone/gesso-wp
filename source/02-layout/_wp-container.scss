@@ -3,17 +3,17 @@
 // Add padding to the layout containers.
 // Partial matching is used here because each container has
 // a unique class.
-[class*='wp-container-'] > * {
-  padding-left: gesso-site-margins('mobile');
-  padding-right: gesso-site-margins('mobile');
+[class*='wp-container-'] > *:not(.alignfull) {
+	padding-left: gesso-site-margins('mobile');
+	padding-right: gesso-site-margins('mobile');
 
-  @include breakpoint(gesso-breakpoint($break-xlarge)) {
-    padding-left: gesso-site-margins('desktop');
-    padding-right: gesso-site-margins('desktop');
-  }
+	@include breakpoint(gesso-breakpoint($break-xlarge)) {
+		padding-left: gesso-site-margins('desktop');
+		padding-right: gesso-site-margins('desktop');
+	}
 }
 
 [class*='wp-container-'] [class*='wp-container-'] > * {
-  padding-left: 0;
-  padding-right: 0;
+	padding-left: 0;
+	padding-right: 0;
 }
