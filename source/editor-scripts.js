@@ -117,12 +117,16 @@ domReady(() => {
 
 	const withNarrowConstrain = createHigherOrderComponent((BlockListBlock) => {
 		return (props) => {
+			let newAttributes;
 			if (shouldNotHaveNarrowConstrain(props, props.attributes)) {
-				props.attributes = removeNarrowConstrainClass(props.attributes);
+				newAttributes = removeNarrowConstrainClass(props.attributes);
 			} else {
-				props.attributes = addNarrowConstrainClasses(props.attributes);
+				newAttributes = addNarrowConstrainClasses(props.attributes);
 			}
-			return <BlockListBlock {...props} />;
+			const newProps = assign(props, {
+				attributes: newAttributes,
+			});
+			return <BlockListBlock {...newProps} />;
 		};
 	}, 'withNarrowConstrain');
 	addFilter(
