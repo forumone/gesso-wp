@@ -120,6 +120,11 @@ domReady(() => {
 			let newAttributes;
 			if (shouldNotHaveNarrowConstrain(props, props.attributes)) {
 				newAttributes = removeNarrowConstrainClass(props.attributes);
+			} else if (
+				props.attributes.className &&
+				props.attributes.className.includes('l-constrain')
+			) {
+				newAttributes = props.attributes;
 			} else {
 				newAttributes = addNarrowConstrainClasses(props.attributes);
 			}
@@ -137,6 +142,9 @@ domReady(() => {
 
 	const addNarrowConstrain = (props, blockType) => {
 		if (shouldNotHaveNarrowConstrain(blockType, props)) {
+			return props;
+		}
+		if (props.className && props.className.includes('l-constrain')) {
 			return props;
 		}
 		return addNarrowConstrainClasses(props);
