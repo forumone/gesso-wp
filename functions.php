@@ -142,9 +142,9 @@ add_filter( 'block_type_metadata', 'gesso_block_metadata_registration' );
 function gesso_block_patterns() {
   register_block_pattern_category('gesso',
   array(
-    'label' => __('WP Next Theme')
+    'label' => __('Gesso')
   ));
-  register_block_pattern('wp-next-theme/article', array(
+  register_block_pattern('gesso/article', array(
     'title' => __( 'Article '),
     'categories' => array('gesso'),
     'viewportWidth' => 700,
