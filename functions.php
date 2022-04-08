@@ -37,7 +37,7 @@ function gesso_theme_scripts() {
   // WP doesn't support enqueuing scripts by block at the theme level yet.
   // Maybe in 6.0.
   $search_script_asset_file = include 'build/js/search.asset.php';
-  wp_enqueue_script( 'wp-next-theme-search', get_stylesheet_directory_uri() . '/build/js/search.js', $search_script_asset_file['dependencies'], $search_script_asset_file['version']);
+  wp_enqueue_script( 'gesso-search', get_stylesheet_directory_uri() . '/build/js/search.js', $search_script_asset_file['dependencies'], $search_script_asset_file['version']);
 }
 add_action( 'wp_enqueue_scripts', 'gesso_theme_scripts' );
 
@@ -142,9 +142,9 @@ add_filter( 'block_type_metadata', 'gesso_block_metadata_registration' );
 function gesso_block_patterns() {
   register_block_pattern_category('gesso',
   array(
-    'label' => __('WP Next Theme')
+    'label' => __('Gesso')
   ));
-  register_block_pattern('wp-next-theme/article', array(
+  register_block_pattern('gesso/article', array(
     'title' => __( 'Article '),
     'categories' => array('gesso'),
     'viewportWidth' => 700,
