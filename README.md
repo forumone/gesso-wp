@@ -11,9 +11,10 @@ WordPress 5.9+.
 
 ## Getting Started
 1. `npm ci`
-2. `npm run dev`
-3. Enable the Forum One Block Library plugin
-4. Enable the theme
+2. [Optional] Rename the theme with `npm run rename`
+3. `npm run dev`
+4. Enable the Forum One Block Library plugin
+5. Enable the theme
 
 ## Building the theme
 To build the theme for production (or to get your local up and running if you
