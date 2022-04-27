@@ -13,7 +13,7 @@ import 'F1BlockLibrary/single-card';
 registerTheme({
 	name: 'gesso',
 	title: 'Gesso',
-	themeStyles,
+	editorStyles: themeStyles,
 });
 
 // Blocks
