@@ -6,7 +6,7 @@
   "scripts": {
     "start": "webpack --config ./webpack.theme-config.js && webpack --config ./webpack.dev.js",
     "build": "webpack --config ./webpack.theme-config.js && webpack --config ./webpack.production.js",
-    "dev": "npm run start && webpack watch --config ./webpack.dev.js",
+    "dev": "npm run start && concurrently \"webpack watch --config ./webpack.dev.js\" \"webpack watch --config ./webpack.theme-config.js\"",
     "blockbook:start": "blockbook start",
     "blockbook:build": "blockbook build",
     "rename": "node lib/rename.js"
@@ -34,6 +34,7 @@
     "autoprefixer": "^10.4.4",
     "babel-loader": "^8.2.3",
     "classnames": "^2.3.1",
+    "concurrently": "^7.1.0",
     "css-loader": "^6.5.1",
     "eslint": "^7.32.0",
     "eslint-config-prettier": "^8.3.0",
