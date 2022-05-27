@@ -90,10 +90,8 @@ domReady(() => {
 
 	const shouldNotHaveNarrowConstrain = (blockType, props) => {
 		return (
-			!blockType.name ||
-			!['core/paragraph', 'core/heading'].includes(blockType.name) ||
-			(props?.className &&
-				props?.className.includes('is-style-no-max-width'))
+			props?.className &&
+			props?.className.includes('is-style-no-max-width')
 		);
 	};
 
@@ -118,7 +116,12 @@ domReady(() => {
 	const withNarrowConstrain = createHigherOrderComponent((BlockListBlock) => {
 		return (props) => {
 			let newAttributes;
-			if (shouldNotHaveNarrowConstrain(props, props.attributes)) {
+			if (
+				!props.name ||
+				!['core/paragraph', 'core/heading'].includes(props.name)
+			) {
+				newAttributes = props.attributes;
+			} else if (shouldNotHaveNarrowConstrain(props, props.attributes)) {
 				newAttributes = removeNarrowConstrainClass(props.attributes);
 			} else if (
 				props.attributes.className &&
@@ -141,7 +144,11 @@ domReady(() => {
 	);
 
 	const addNarrowConstrain = (props, blockType) => {
-		if (shouldNotHaveNarrowConstrain(blockType, props)) {
+		if (
+			!props.name ||
+			!['core/paragraph', 'core/heading'].includes(props.name) ||
+			shouldNotHaveNarrowConstrain(blockType, props)
+		) {
 			return props;
 		}
 		if (props.className && props.className.includes('l-constrain')) {
