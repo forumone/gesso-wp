@@ -6,7 +6,7 @@
   "scripts": {
     "start": "webpack --config ./webpack.theme-config.js && webpack --config ./webpack.dev.js",
     "build": "webpack --config ./webpack.theme-config.js && webpack --config ./webpack.production.js",
-    "dev": "npm run start && concurrently \"webpack watch --config ./webpack.dev.js\" \"webpack watch --config ./webpack.theme-config.js\"",
+    "dev": "npm run start && concurrently --raw \"webpack watch --config ./webpack.dev.js\" \"webpack watch --config ./webpack.theme-config.js\"",
     "blockbook:start": "blockbook start",
     "blockbook:build": "blockbook build",
     "rename": "node lib/rename.js"
