@@ -25,6 +25,7 @@ rules:
       - custom-properties
       - declarations
     - unspecified: ignore
+      disableFix: true
   order/properties-alphabetical-order: error
   # Results in false positives
   no-descending-specificity: null
