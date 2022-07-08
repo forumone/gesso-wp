@@ -48,7 +48,7 @@ function gesso_block_assets() {
     'src' => get_theme_file_uri('build/css/button.css'),
     'path' => get_theme_file_path('build/css/button.css')
   ]);
-  if (is_plugin_active('f1-block-library')) {
+  if (function_exists('f1_block_library_register_blocks')) {
     wp_enqueue_block_style('f1-block-library/accordion', [
       'handle' => 'gesso-accordion',
       'src' => get_theme_file_uri('build/css/accordion.css'),
