@@ -48,45 +48,47 @@ function gesso_block_assets() {
     'src' => get_theme_file_uri('build/css/button.css'),
     'path' => get_theme_file_path('build/css/button.css')
   ]);
-  wp_enqueue_block_style('f1-block-library/accordion', [
-    'handle' => 'gesso-accordion',
-    'src' => get_theme_file_uri('build/css/accordion.css'),
-    'path' => get_theme_file_path('build/css/accordion.css')
-  ]);
-  wp_enqueue_block_style('f1-block-library/back-to-top', [
-    'handle' => 'gesso-back-to-top',
-    'src' => get_theme_file_uri('build/css/back-to-top.css'),
-    'path' => get_theme_file_path('build/css/back-to-top.css')
-  ]);
-  wp_enqueue_block_style('f1-block-library/featured-cards', [
-    'handle' => 'gesso-cards',
-    'src' => get_theme_file_uri('build/css/cards.css'),
-    'path' => get_theme_file_path('build/css/cards.css')
-  ]);
-  wp_enqueue_block_style('f1-block-library/query-cards', [
-    'handle' => 'gesso-cards',
-    'src' => get_theme_file_uri('build/css/cards.css'),
-    'path' => get_theme_file_path('build/css/cards.css')
-  ]);
-  wp_enqueue_block_style('f1-block-library/manual-cards', [
-    'handle' => 'gesso-cards',
-    'src' => get_theme_file_uri('build/css/cards.css'),
-    'path' => get_theme_file_path('build/css/cards.css')
-  ]);
-  wp_enqueue_block_style('f1-block-library/skiplinks', [
-    'handle' => 'gesso-skiplinks',
-    'src' => get_theme_file_uri('build/css/skiplinks.css'),
-    'path' => get_theme_file_path('build/css/skiplinks.css')
-  ]);
-  wp_enqueue_block_style('f1-block-library/standalone-link', [
-    'handle' => 'gesso-standalone-link',
-    'src' => get_theme_file_uri('build/css/standalone-link.css'),
-    'path' => get_theme_file_path('build/css/standalone-link.css')
-  ]);
-  wp_enqueue_block_style('f1-block-library/slider', [
-    'handle' => 'gesso-slider',
-    'src' => get_theme_file_uri('build/css/slider.css'),
-  ]);
+  if (is_plugin_active('f1-block-library')) {
+    wp_enqueue_block_style('f1-block-library/accordion', [
+      'handle' => 'gesso-accordion',
+      'src' => get_theme_file_uri('build/css/accordion.css'),
+      'path' => get_theme_file_path('build/css/accordion.css')
+    ]);
+    wp_enqueue_block_style('f1-block-library/back-to-top', [
+      'handle' => 'gesso-back-to-top',
+      'src' => get_theme_file_uri('build/css/back-to-top.css'),
+      'path' => get_theme_file_path('build/css/back-to-top.css')
+    ]);
+    wp_enqueue_block_style('f1-block-library/featured-cards', [
+      'handle' => 'gesso-cards',
+      'src' => get_theme_file_uri('build/css/cards.css'),
+      'path' => get_theme_file_path('build/css/cards.css')
+    ]);
+    wp_enqueue_block_style('f1-block-library/query-cards', [
+      'handle' => 'gesso-cards',
+      'src' => get_theme_file_uri('build/css/cards.css'),
+      'path' => get_theme_file_path('build/css/cards.css')
+    ]);
+    wp_enqueue_block_style('f1-block-library/manual-cards', [
+      'handle' => 'gesso-cards',
+      'src' => get_theme_file_uri('build/css/cards.css'),
+      'path' => get_theme_file_path('build/css/cards.css')
+    ]);
+    wp_enqueue_block_style('f1-block-library/skiplinks', [
+      'handle' => 'gesso-skiplinks',
+      'src' => get_theme_file_uri('build/css/skiplinks.css'),
+      'path' => get_theme_file_path('build/css/skiplinks.css')
+    ]);
+    wp_enqueue_block_style('f1-block-library/standalone-link', [
+      'handle' => 'gesso-standalone-link',
+      'src' => get_theme_file_uri('build/css/standalone-link.css'),
+      'path' => get_theme_file_path('build/css/standalone-link.css')
+    ]);
+    wp_enqueue_block_style('f1-block-library/slider', [
+      'handle' => 'gesso-slider',
+      'src' => get_theme_file_uri('build/css/slider.css'),
+    ]);
+  }
 }
 add_action( 'after_setup_theme', 'gesso_block_assets' );
 
