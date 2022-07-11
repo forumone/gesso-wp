@@ -1,5 +1,9 @@
 import domReady from '@wordpress/dom-ready';
-import { registerBlockStyle, unregisterBlockStyle } from '@wordpress/blocks';
+import {
+	getBlockType,
+	registerBlockStyle,
+	unregisterBlockStyle,
+} from '@wordpress/blocks';
 import { __ } from '@wordpress/i18n';
 import { createHigherOrderComponent } from '@wordpress/compose';
 import { addFilter } from '@wordpress/hooks';
@@ -26,22 +30,6 @@ domReady(() => {
 		isDefault: false,
 	});
 
-	// CARDS
-	registerBlockStyle('f1-block-library/query-cards', {
-		name: 'feature',
-		label: __('Feature'),
-	});
-	registerBlockStyle('f1-block-library/manual-cards', {
-		name: 'feature',
-		label: __('Feature'),
-	});
-
-	// LINK
-	registerBlockStyle('f1-block-library/standalone-link', {
-		name: 'arrow',
-		label: __('Arrow'),
-	});
-
 	// SEARCH
 	registerBlockStyle('core/search', {
 		name: 'collapsed',
@@ -57,6 +45,28 @@ domReady(() => {
 		name: 'no-max-width',
 		label: __('No Max Width'),
 	});
+
+	// CARDS
+	if (getBlockType('f1-block-library/query-cards')) {
+		registerBlockStyle('f1-block-library/query-cards', {
+			name: 'feature',
+			label: __('Feature'),
+		});
+	}
+	if (getBlockType('f1-block-library/manual-cards')) {
+		registerBlockStyle('f1-block-library/manual-cards', {
+			name: 'feature',
+			label: __('Feature'),
+		});
+	}
+
+	// LINK
+	if (getBlockType('f1-block-library/standalone-link')) {
+		registerBlockStyle('f1-block-library/standalone-link', {
+			name: 'arrow',
+			label: __('Arrow'),
+		});
+	}
 
 	const withSearchIcon = createHigherOrderComponent((BlockEdit) => {
 		return (props) => {

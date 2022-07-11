@@ -7,13 +7,12 @@ WordPress 5.9+.
 * Node 14.x.x
 * npm 7.x.x
 * WordPress 5.9+
-* [Forum One Block Library](https://github.com/forumone/f1-block-library)
+* [Forum One Block Library](https://github.com/forumone/f1-block-library) (Optional)
 
 ## Getting Started
 1. `npm ci`
 2. [Optional] Rename the theme with `npm run rename`
 3. `npm run dev`
-4. Enable the Forum One Block Library plugin
 5. Enable the theme
 
 ## Building the theme
