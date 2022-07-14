@@ -33,7 +33,7 @@ if ( is_day() ) {
 	array_unshift( $templates, 'taxonomy.twig' );
 } else if ( is_post_type_archive() ) {
 	$context['title'] = post_type_archive_title( '', false );
-	array_unshift( $templates, 'archive-' . get_post_type() . '.twig' );
+	array_unshift( $templates, 'archive-' . get_query_var( 'post_type' ) . '.twig' );
 }
 
 $context['pagination'] = Timber::get_pagination();
