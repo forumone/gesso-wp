@@ -1,17 +1,17 @@
-{{- function('get_header') }}
+{{ function('get_header') }}
 
-{%- block page %}
-	{%~ block html_head_container %}
-	{%~ include 'html-header.twig' %}
-	{%~ endblock %}
+{% block page %}
+	{% block html_head_container %}
+	{% include 'html-header.twig' %}
+	{% endblock %}
 
-	{%- set body_id = 'body_top' %}
+	{% set body_id = 'body_top' %}
 	<!-- Provided by templates/base.twig -->
 	<body {{ function('body_class')}} id="{{ body_id }}">
 
-		{%- block skiplinks %}
+		{% block skiplinks %}
 		  {% include '@components/skiplinks/skiplinks.twig' %}
-		{%- endblock %}
+		{% endblock %}
 
 		{# set the content of the site as a variable to be passed to site-container.twig #}
 		{% set site_content %}
@@ -89,5 +89,5 @@
 		{{ function('wp_footer') }}
 	</body>
 </html>
-{%- endblock %}
-{{- function('get_footer') }}
+{% endblock %}
+{{ function('get_footer') }}
