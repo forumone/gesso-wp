@@ -32,6 +32,7 @@ if ( function_exists( 'add_theme_support' ) ) {
 	// Add support for automatic links for feeds.
 	add_theme_support( 'automatic-feed-links' );
 	add_theme_support( 'post-thumbnails' );
+	add_theme_support( 'menus' );
 
 	// Define automatic thumbnail sizes.
 	add_image_size( 'large', 700, '', true ); // Large Thumbnail.
@@ -312,6 +313,41 @@ if ( ! class_exists( 'Timber' ) ) {
 }
 
 Timber::$dirname = array( 'templates' );
+
+/**
+ * Add items to Timber context.
+ *
+ * @param array $context The Timber context array.
+ *
+ * @return array The Timber context array.
+ */
+function f1_add_to_context( $context ) {
+	$context['primary_menu'] = new Timber\Menu( 'primary' );
+	$context['secondary_menu'] = new Timber\Menu( 'secondary' );
+	$context['menu'] = new Timber\Menu();
+	$context['current_year'] = gmdate( 'Y' );
+	$context['gesso_image_path'] = get_template_directory_uri() . '/images';
+	return $context;
+}
+add_filter( 'timber/context', 'f1_add_to_context' );
+
+/**
+ * Method used to add custom Twig functions.
+ *
+ * @param \Twig_Environment $twig The Twig object.
+ *
+ * @return \Twig_Environment
+ */
+function f1_add_to_twig( \Twig_Environment $twig ) {
+	/**
+	 * This is where you can add your own fuctions to twig.
+	 *
+	 * @see https://timber.github.io/docs/guides/extending-timber/#adding-to-twig
+	 */
+	$twig->addExtension( new \Twig_Extension_StringLoader() );
+	return $twig;
+}
+add_filter( 'timber/twig', 'f1_add_to_twig' );
 
 /**
  * Override default WordPress gallery markup, outputs in BEM format.
