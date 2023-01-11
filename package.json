@@ -63,7 +63,9 @@
     "yaml": "1.10.0"
   },
   "scripts": {
-    "component": "node lib/component.js"
+    "component": "node lib/component.js",
+    "eslint": "eslint -c .eslintrc-dev.js \"**/*.es6.js\"",
+    "stylelint": "stylelint -f verbose \"source/**/*.scss\" --ip \"source/**/*.artifact.scss\""
   },
   "dependencies": {
     "custom-event-polyfill": "^1.0.7",
