@@ -7,7 +7,9 @@
     "start": "webpack --config ./webpack.theme-config.js && webpack --config ./webpack.dev.js",
     "build": "webpack --config ./webpack.theme-config.js && webpack --config ./webpack.production.js",
     "dev": "npm run start && concurrently --raw \"webpack watch --config ./webpack.dev.js\" \"webpack watch --config ./webpack.theme-config.js\"",
-    "rename": "node lib/rename.js"
+    "rename": "node lib/rename.js",
+    "eslint": "eslint -c .eslintrc.js \"**/*.es6.js\"",
+    "stylelint": "stylelint \"source/**/*.scss\""
   },
   "bugs": "https://github.com/forumone/gesso-wp/issues",
   "repository": {
