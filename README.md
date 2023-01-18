@@ -4,31 +4,38 @@ A Sass-based starter [block theme](https://developer.wordpress.org/block-editor/
 WordPress 5.9+.
 
 ## Requirements
-* Node 14.x.x
-* npm 7.x.x
-* WordPress 5.9+
-* [Forum One Block Library](https://github.com/forumone/f1-block-library) (Optional)
+
+-   Node 14.x.x
+-   npm 7.x.x
+-   WordPress 5.9+
+-   [Forum One Block Library](https://github.com/forumone/f1-block-library) (Optional)
 
 ## Getting Started
+
 1. `npm ci`
 2. [Optional] Rename the theme with `npm run rename`
 3. `npm run dev`
-5. Enable the theme
+4. Enable the theme
 
 ## Building the theme
+
 To build the theme for production (or to get your local up and running if you
 will not be working on the theme itself):
+
 1. `npm ci`
 2. `npm run build`
 
 ## Configuration
+
 ### Design tokens
+
 Gesso uses a configuration file `source/00-config/config.design-tokens.yml`
 to manage the theme’s design tokens and automatically generate both the global sass map for styling
 and the theme.json file. The dev script will monitor changes in the config and
 rebuild all necessary assets. To rebuild the theme assets a single time run `npm run build`.
 
 ### theme.json
+
 Gesso's [theme.json](https://developer.wordpress.org/block-editor/how-to-guides/themes/theme-json/) file
 is automatically generated. Colors, font families, font sizes, and layout
 constrain widths are generated from the design tokens. Other theme.json customizations
@@ -38,6 +45,7 @@ tokens or place your changes in `theme-settings.json`. For more about what can b
 with theme.json, see [the Block Editor Handbook](https://developer.wordpress.org/block-editor/how-to-guides/themes/theme-json/).
 
 ## Sass
+
 Sass can be compiled as part of the global styles.css file or to individual
 CSS files for use in a block style.
 
@@ -52,20 +60,24 @@ functions should be used with *.
 All Sass files that are compiled to individual CSS files must have a unique filename, even if they are in different directories.
 
 ### Global styles
-Prefix the name of your Sass file with _, e.g. _card.scss. Add it to
-the appropriate aggregate file (i.e. _components.scss).
+
+Prefix the name of your Sass file with \_, e.g. \_card.scss. Add it to
+the appropriate aggregate file (i.e. \_components.scss).
 
 ### Individual block styles
-DO NOT prefix the name of your Sass file with _, e.g. menu.scss.
+
+DO NOT prefix the name of your Sass file with \_, e.g. menu.scss.
 Import the config and global aggregate files. Add your CSS file to the
 `wp_next_theme_block_assets` function inside functions.php:
+
 ```php
 wp_enqueue_block_style('f1-block-library/standalone-link', [
   'handle' => 'wp-next-theme-standalone-link',
-  'src' => get_theme_file_uri('dist/css/standalone-link.css'),
-  'path' => get_theme_file_path('dist/css/standalone-link.css')
+  'src' => get_theme_file_uri('build/css/standalone-link.css'),
+  'path' => get_theme_file_path('build/css/standalone-link.css')
 ]);
 ```
+
 Omit the `path` line if the WordPress should not be able to choose whether
 to inject the styles via a `<style></style>` tag instead of loading an external
 file. You may need to remove that line if you find that image paths break when the
@@ -73,10 +85,12 @@ CSS is injected. See [the WordPress dev note](https://make.wordpress.org/core/20
 for more on loading block styles.
 
 ## Block Styles
+
 Block Styles can be registered or unregistered in the `source/editor-styles.js`. This script
 is loaded whenever the Block Editor is loaded. For more about Block Styles, see [the Block Editor Handbook](https://developer.wordpress.org/block-editor/reference-guides/block-api/block-styles/).
 
 ## Linting
+
 Linting is done with Prettier, ESLint, and Stylelint. Linting follows the WordPress standards,
 with some rules disabled where needed to resolve conflicts between tools (mostly Prettier and Stylelint)
 or between linting standards and the theme design tokens.
@@ -197,6 +211,7 @@ in `js/src/constants/_GESSO.es6.js`. This file is also rebuilt whenever `gulp`
 or `gulp build` is run.
 
 For example, to use a breakpoint in a script:
+
 ```
 import { BREAKPOINTS } from '../constants/_GESSO.es6';
 
@@ -204,6 +219,7 @@ if (window.matchMedia(`min-width: ${BREAKPOINTS.desktop}`).matches) {
   // Some script that should only run on larger screens.
 }
 ```
+
 This will use the same breakpoint as `breakpoint(gesso-breakpoint(desktop))` in
 your Sass.
 
@@ -215,14 +231,15 @@ CSS and JavaScript, you should use simple strings or numbers.
 ### Width Based Media Queries
 
 Gesso uses custom mixins to specify viewport width based media queries:
-* `breakpoint`: min-width queries
-* `breakpoint-max`: max-width queries
-* `breakpoint-min-max`: queries with both a min and max width
+
+-   `breakpoint`: min-width queries
+-   `breakpoint-max`: max-width queries
+-   `breakpoint-min-max`: queries with both a min and max width
 
 Each mixin takes one or two
 width parameters, which can be a straight value (e.g., 800px, 40em) or a design
 token value called using the `gesso-breakpoint` function (e.g.,
-`gesso-breakpoint(tablet-lg)`).  The `breakpoint-max` and `breakpoint-min-max`
+`gesso-breakpoint(tablet-lg)`). The `breakpoint-max` and `breakpoint-min-max`
 mixins can also take an optional parameter to subtract one pixel from the
 max-width value, which can be useful when you want your query to go up to the
 value but not to include it, such as when using WordPress breakpoint variables.
@@ -230,12 +247,13 @@ value but not to include it, such as when using WordPress breakpoint variables.
 You can also use the width-based breakpoint mixins defined in [@wordpress/base-styles](https://www.npmjs.com/package/@wordpress/base-styles),
 alongside the breakpoint variables. We recommend using those instead of defining your
 own for consistency between theme styling and plugin styling.
+
 ```scss
 $break-huge: 1440px;
 $break-wide: 1280px;
 $break-xlarge: 1080px;
-$break-large: 960px;	// admin sidebar auto folds
-$break-medium: 782px;	// adminbar goes big
+$break-large: 960px; // admin sidebar auto folds
+$break-medium: 782px; // adminbar goes big
 $break-small: 600px;
 $break-mobile: 480px;
 $break-zoomed-in: 280px;
@@ -277,8 +295,7 @@ examples:
 }
 ```
 
-**`@include breakpoint-min-max($min-width, $max-width, $subtract_1_from_max)
-{ // styles }`
+**`@include breakpoint-min-max($min-width, $max-width, $subtract_1_from_max) { // styles }`
 Output a media query with both a min-width and max-width. The optional
 $subtract_1_from_max parameter will subtract 1px from the max-width value if
 set to `true` (default: `false`).**

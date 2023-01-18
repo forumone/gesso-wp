@@ -1,6 +1,6 @@
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const StylelintPlugin = require('stylelint-webpack-plugin');
-const dartSass = require('sass');
+const embeddedSass = require('sass-embedded');
 const path = require('path');
 const glob = require('glob');
 const RemovePlugin = require('remove-files-webpack-plugin');
@@ -97,7 +97,7 @@ module.exports = {
 					{
 						loader: 'sass-loader',
 						options: {
-							implementation: dartSass,
+							implementation: embeddedSass,
 							sassOptions: {
 								includePaths: [
 									path.resolve(__dirname, 'source'),
@@ -134,10 +134,7 @@ module.exports = {
 		],
 	},
 	resolve: {
-		modules: [
-			path.resolve(__dirname, 'source'),
-			'node_modules',
-		],
+		modules: [path.resolve(__dirname, 'source'), 'node_modules'],
 	},
 	output: {
 		path: path.resolve(__dirname, 'build'),

@@ -8,7 +8,7 @@ build/*.php
 build/css
 build/js
 build/fonts/*
-## To unignore fonts placed in the dist/fonts directory, uncomment and update
+## To unignore fonts placed in the build/fonts directory, uncomment and update
 ## !build/fonts/[DIRECTORY_NAME]/
 build/design-tokens.js
 build/theme-json.js
