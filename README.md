@@ -51,11 +51,11 @@ CSS files for use in a block style.
 
 @use is used to import Sass variables, mixins, and/or functions into individual
 SCSS files. @import is discouraged by the Sass team and will eventually be
-phased out. This means that most files will start with @use '00-config' as _;.
+phased out. This means that most files will start with @use '00-config' as *;.
 This allows you to use the design token accessor functions without an
 additional namespace. Other functions and mixins can be used similarly. Note
 that to avoid namespace collisions, only theme-related variables, mixins, and
-functions should be used with _.
+functions should be used with *.
 
 All Sass files that are compiled to individual CSS files must have a unique filename, even if they are in different directories.
 
