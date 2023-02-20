@@ -64,7 +64,9 @@
   },
   "scripts": {
     "component": "node lib/component.js",
-    "eslint": "eslint -c .eslintrc-dev.js \"**/*.es6.js\"",
+    "build": "gulp build",
+    "eslint": "eslint -c .eslintrc.js \"**/*.es6.js\"",
+    "eslint:dev": "eslint -c .eslintrc-dev.js \"**/*.es6.js\"",
     "stylelint": "stylelint -f verbose \"source/**/*.scss\" --ip \"source/**/*.artifact.scss\""
   },
   "dependencies": {
