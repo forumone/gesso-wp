@@ -1,4 +1,0 @@
----
-title: Default
-hidden: true
----

@@ -1,0 +1,7 @@
+// Component: Footer Menu
+
+@use '00-config' as *;
+
+.c-menu--footer {
+  @include list-inline();
+}

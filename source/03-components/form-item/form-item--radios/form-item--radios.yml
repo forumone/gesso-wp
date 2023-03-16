@@ -1,0 +1,8 @@
+---
+legend:
+  title: 'Radios'
+is_disabled: false
+is_required: false
+description:
+  content: 'The description for this fieldset.'
+id: 'radios'

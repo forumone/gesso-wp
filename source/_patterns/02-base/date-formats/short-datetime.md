@@ -1,3 +1,0 @@
----
-title: Short Datetime
----

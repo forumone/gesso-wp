@@ -1,0 +1,10 @@
+{% set classes = [
+  'c-list',
+  modifier_classes ? modifier_classes : '',
+]|join(' ')|trim %}
+
+<ul {{ add_attributes({ 'class': classes }) }}>
+  {% for item in list %}
+    <li>{{ item.content }}</li>
+  {% endfor %}
+</ul>

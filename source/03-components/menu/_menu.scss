@@ -1,0 +1,15 @@
+// Component: Menu
+
+@use '00-config' as *;
+
+.c-menu {
+  @include list-clean();
+
+  @media print {
+    display: none;
+  }
+}
+
+.c-menu__item {
+  margin-bottom: 0;
+}

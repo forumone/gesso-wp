@@ -1,0 +1,30 @@
+{% set classes = [
+  'c-field',
+  modifier_classes ? modifier_classes : '',
+]|join(' ')|trim %}
+
+{% if not label_display %}
+  {% if is_inline %}
+    {% set label_display = 'inline' %}
+  {% endif %}
+{% endif %}
+
+{% set title_classes = [
+  'c-field__label',
+  label_display == 'inline' ? 'is-inline' : '',
+  label_display == 'visually_hidden' ? 'u-visually-hidden' : '',
+]|join(' ')|trim %}
+
+<{{ element ?: 'div' }} {{ add_attributes({ 'class': classes }) }}>
+  {% if not hide_label -%}
+    <{{ label_element ?: 'h3' }} {{ add_attributes({ 'class': title_classes },'title_attributes') }}>{{ label }}</{{ label_element ?: 'h3' }}>
+  {%- endif -%}
+  {% if not hide_content_wrapper %}<div class="c-field__content">{% endif %}
+    {%- for item in field_items -%}
+      {{- item.content -}}
+      {%- if show_separator -%}
+        {{- not loop.last ? separator -}}
+      {%- endif -%}
+    {%- endfor -%}
+  {% if not hide_content_wrapper %}</div>{% endif %}
+</{{ element ?: 'div' }}>

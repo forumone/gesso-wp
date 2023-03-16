@@ -1,0 +1,31 @@
+---
+menu_name: 'footer'
+items:
+  - title: 'Careers'
+    url: '#0'
+    original_link:
+      options:
+        attributes:
+          class: ''
+    in_active_trail: false
+  - title: 'Contact'
+    url: '#0'
+    original_link:
+      options:
+        attributes:
+          class: ''
+    in_active_trail: false
+  - title: 'Credits'
+    url: '#0'
+    original_link:
+      options:
+        attributes:
+          class: ''
+    in_active_trail: false
+  - title: 'Terms of Use'
+    url: '#0'
+    original_link:
+      options:
+        attributes:
+          class: ''
+    in_active_trail: false

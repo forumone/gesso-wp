@@ -1,0 +1,36 @@
+{% set classes = [
+  'c-icon',
+  modifier_classes ? modifier_classes : '',
+]|join(' ')|trim %}
+
+{% if is_demo %}
+  {% set icons = [
+    'angle-double-left',
+    'angle-double-right',
+    'angle-down',
+    'angle-left',
+    'angle-right',
+    'angle-up',
+    'rss',
+    'facebook',
+    'linkedin',
+    'twitter',
+    'close'
+   ] %}
+  {% for icon in icons %}
+    <p>
+      <svg {{ add_attributes({ 'class': classes }) }} role="img"{% if is_hidden %} aria-hidden="true"{% endif %}>
+        {% if label %}<title>{{ label }}</title>{% endif %}
+        <use xlink:href="{{ gesso_image_path }}/sprite.artifact.svg#{{ icon }}"></use>
+      </svg>
+      {{ icon }}
+    </p>
+  {% endfor %}
+{%- else -%}
+  {% spaceless %}
+    <svg {{ add_attributes({ 'class': classes }) }} role="img"{% if is_hidden %} aria-hidden="true"{% endif %}>
+      {% if label %}<title>{{ label }}</title>{% endif %}
+      <use xlink:href="{{ gesso_image_path }}/sprite.artifact.svg#{{ icon_name }}"></use>
+    </svg>
+  {% endspaceless %}
+{%- endif -%}

@@ -1,0 +1,23 @@
+// Component: List
+
+@use '00-config' as *;
+
+.c-list--border {
+  @include list-border();
+}
+
+.c-list--clean {
+  @include list-clean();
+}
+
+.c-list--column {
+  @include list-column();
+}
+
+.c-list--inline {
+  @include list-inline();
+}
+
+.c-list--pipeline {
+  @include list-pipeline();
+}

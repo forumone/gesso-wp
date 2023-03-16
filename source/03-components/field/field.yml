@@ -1,0 +1,14 @@
+---
+element: 'div'
+is_inline: false
+label: 'Field Label'
+hide_label: false
+label_element: 'h3'
+hide_content_wrapper: false
+show_separator: true
+separator: ', '
+field_items:
+  -
+    content: 'First field item'
+  -
+    content: 'Second field item'

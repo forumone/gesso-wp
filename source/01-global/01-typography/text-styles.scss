@@ -1,0 +1,17 @@
+// Storybook: Text Styles
+
+@use '00-config' as *;
+
+.gesso-storybook-text-style {
+  margin-bottom: 3rem;
+}
+
+.gesso-storybook-text-style__label {
+  text-transform: uppercase;
+}
+
+@each $name, $style in gesso-get-map(typography, display) {
+  .gesso-storybook-text-style__preview--#{$name} {
+    @include display-text-style($name);
+  }
+}

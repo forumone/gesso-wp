@@ -1,3 +1,0 @@
----
-title: Preformatted text
----

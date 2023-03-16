@@ -1,12 +1,8 @@
-// @file
 // Main styles
-$pattern-lab-overrides: false !default;
 
-@import '_patterns/00-config/**/*.scss';
-@import '_patterns/01-global/**/*.scss';
-@import '_patterns/02-base/**/*.scss';
-@import '_patterns/03-layouts/**/*.scss';
-@import '_patterns/04-components/**/*.scss';
-
-@import '_patterns/utility-classes/**/*.scss';
-@import '_patterns/shame';
+@use '00-config' as *;
+@use '01-global' as *;
+@use '02-layouts' as *;
+@use '03-components' as *;
+@use '06-utility' as *;
+@use 'shame';
