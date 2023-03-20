@@ -40,28 +40,28 @@
   {% set sidebar_second_content = macros.sample_content('Optional Sidebar Content') %}
 {% endif %}
 
-<div {{ add_attributes({ 'class': classes }) }}>
+<div class="{{ classes }}">
 
   {% if sidebar_header_content %}
-    <div {{ add_attributes({ 'class': sidebar_header_classes }, 'region_attributes.header') }}>
+    <div class="{{ sidebar_header_classes }}">
       {{ sidebar_header_content }}
     </div>
   {% endif %}
 
   {% if sidebar_first_content %}
-    <aside {{ add_attributes({ 'class': sidebar_first_classes }, 'region_attributes.sidebar_first') }}>
+    <aside class="{{ sidebar_first_classes }}">
       {{ sidebar_first_content }}
     </aside>
   {% endif %}
 
   {% if sidebar_main_content %}
-    <div {{ add_attributes({ 'class': sidebar_main_classes }, 'region_attributes.main') }}>
+    <div class="{{ sidebar_main_classes }}">
       {{ sidebar_main_content }}
     </div>
   {% endif %}
 
   {% if sidebar_second_content %}
-    <aside {{ add_attributes({ 'class': sidebar_second_classes }, 'region_attributes.sidebar_second') }}>
+    <aside class="{{ sidebar_second_classes }}">
       {{ sidebar_second_content }}
     </aside>
   {% endif %}

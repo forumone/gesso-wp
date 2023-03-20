@@ -4,7 +4,7 @@
   modifier_classes ? modifier_classes : '',
 ]|join(' ')|trim %}
 
-<div {{ add_attributes({ 'class': classes }) }}>
+<div class="{{ classes }}">
   {% if iframe_src %}
     <iframe class="c-video__iframe" src="{{ iframe_src }}" title="{{ iframe_title }}" allowfullscreen frameborder="0"></iframe>
   {% elseif files %}

@@ -17,21 +17,21 @@
 ]|join(' ')|trim %}
 
 {% if not hide_wrapper %}
-  <div {{ add_attributes({ 'class': classes }) }}>
+  <div class="{{ classes }}">
 {% endif %}
 
   {% if has_constrain %}
-    <div {{ add_attributes({ 'class': constrain_classes }) }}>
+    <div class="{{ constrain_classes }}">
   {% endif %}
 
   {{ title_prefix }}
   {% if label %}
-    <{{ label_element ?: 'h2' }} {{ add_attributes({ 'class': title_classes }, 'title_attributes') }}>{{ label }}</{{ label_element ?: 'h2' }}>
+    <{{ label_element ?: 'h2' }} class="{{ title_classes }}">{{ label }}</{{ label_element ?: 'h2' }}>
   {% endif %}
   {{ title_suffix }}
 
   {% if not hide_content_wrapper %}
-    <div {{ add_attributes({ 'class': content_classes }, 'content_attributes') }}>
+    <div class="{{ content_classes }}">
   {% endif %}
 
   {% block content %}

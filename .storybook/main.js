@@ -68,11 +68,7 @@ module.exports = {
       ],
     });
 
-    config.externals = {
-      // drupal: 'Drupal',
-      // drupalSettings: 'drupalSettings',
-      // once: 'once',
-    };
+    config.externals = {};
 
     config.resolve.modules.push(path.resolve(__dirname, '../source'));
 

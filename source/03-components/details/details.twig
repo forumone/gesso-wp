@@ -8,9 +8,9 @@
   required ?'is-required' : '',
 ]|join(' ')|trim %}
 
-<details {{ add_attributes({ 'class': classes }) }}>
+<details class="{{ classes }}">
   {% if details_summary %}
-    <summary {{ add_attributes({ 'class': summary_classes, 'role': 'button' }) }}>{{ details_summary }}</summary>
+    <summary class="{{ summary_classes }}">{{ details_summary }}</summary>
   {% endif %}
   <div class="c-details__content">
     {% if details_description %}

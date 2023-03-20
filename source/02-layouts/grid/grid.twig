@@ -16,7 +16,7 @@
   {% endset %}
 {% endif %}
 
-<div {{ add_attributes({ 'class': classes }) }}>
+<div class="{{ classes }}">
   {% block content %}
     {{ grid_content }}
   {% endblock %}

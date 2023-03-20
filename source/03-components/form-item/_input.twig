@@ -3,113 +3,82 @@
   modifier_classes ? modifier_classes : '',
 ]|join(' ')|trim %}
 
-{% set attributes_to_add = {
-  class: classes,
-} %}
+{% set attributes_to_add = '' %}
 
 {# ID #}
 {% if id is not empty %}
-  {% set attributes_to_add = attributes_to_add|merge({
-    'id': id ~ '',
-  }) %}
+  {% set attributes_to_add = attributes_to_add ~ 'id="{{ id }}" ' %}
 {% endif %}
 
 {# Name #}
 {% if name is not empty %}
-  {% set attributes_to_add = attributes_to_add|merge({
-    'name': name ~ '',
-  }) %}
+  {% set attributes_to_add = attributes_to_add ~ 'name="{{ name }}" ' %}
 {% endif %}
 
 {# Input Type #}
 {% if type is not empty %}
-  {% set attributes_to_add = attributes_to_add|merge({
-    'type': type ~ '',
-  }) %}
+  {% set attributes_to_add = attributes_to_add ~ 'type="{{ type }}" ' %}
 {% endif %}
 
 {# Input Size #}
 {% if size is not empty %}
-  {% set attributes_to_add = attributes_to_add|merge({
-    'size': size ~ '',
-  }) %}
+  {% set attributes_to_add = attributes_to_add ~ 'size="{{ size }}" ' %}
 {% endif %}
 
 {# Max Length #}
 {% if max_length is not empty %}
-  {% set attributes_to_add = attributes_to_add|merge({
-    'maxlength': max_length ~ '',
-  }) %}
+  {% set attributes_to_add = attributes_to_add ~ 'maxlength="{{ max_length }}" ' %}
 {% endif %}
 
 {# Placeholder #}
 {% if placeholder is not empty %}
-  {% set attributes_to_add = attributes_to_add|merge({
-    'placeholder': placeholder ~ '',
-  }) %}
+  {% set attributes_to_add = attributes_to_add ~ 'placeholder="{{ placeholder }}" ' %}
 {% endif %}
 
 {# Step #}
 {% if step is not empty %}
-  {% set attributes_to_add = attributes_to_add|merge({
-    'step': step ~ '',
-  }) %}
+  {% set attributes_to_add = attributes_to_add ~ 'step="{{ step }}" ' %}
 {% endif %}
 
 {# Min #}
 {% if min is not empty %}
-  {% set attributes_to_add = attributes_to_add|merge({
-    'min': min ~ '',
-  }) %}
+  {% set attributes_to_add = attributes_to_add ~ 'min="{{ min }}" ' %}
 {% endif %}
 
 {# Max #}
 {% if max is not empty %}
-  {% set attributes_to_add = attributes_to_add|merge({
-    'max': max ~ '',
-  }) %}
+  {% set attributes_to_add = attributes_to_add ~ 'max="{{ max }}" ' %}
 {% endif %}
 
 {# Accept #}
 {% if accept is not empty %}
-  {% set attributes_to_add = attributes_to_add|merge({
-    'accept': accept ~ '',
-  }) %}
+  {% set attributes_to_add = attributes_to_add ~ 'accept="{{ accept }}" ' %}
 {% endif %}
 
 {# Disabled #}
 {% if disabled or is_disabled %}
-  {% set attributes_to_add = attributes_to_add|merge({
-    'disabled': 'disabled' ~ '',
-  }) %}
+  {% set attributes_to_add = attributes_to_add ~ 'disabled="{{ disabled }}" ' %}
 {% endif %}
 
 {# Required #}
 {% if required or is_required %}
-  {% set attributes_to_add = attributes_to_add|merge({
-    'required': 'required' ~ '',
-    'aria-required': 'true' ~ '',
-  }) %}
+  {% set attributes_to_add = attributes_to_add ~ 'required="{{ required }}" aria-required="true" ' %}
 {% endif %}
 
 {# Checked #}
 {% if is_checked %}
-  {% set attributes_to_add = attributes_to_add|merge({
-    'checked': 'checked' ~ '',
-  }) %}
+  {% set attributes_to_add = attributes_to_add ~ 'checked="{{ checked }}" ' %}
 {% endif %}
 
 {# Described By #}
 {% if described_by is not empty %}
-  {% set attributes_to_add = attributes_to_add|merge({
-    'aria-describedby': described_by ~ '',
-  }) %}
+  {% set attributes_to_add = attributes_to_add ~ 'aria-describedby="{{ described_by }}" ' %}
 {% endif %}
 
 {% if value is not empty %}
-  {% set attributes_to_add = attributes_to_add|merge({
-    'value': value ~ '',
-  }) %}
+  {% set attributes_to_add = attributes_to_add ~ 'value="{{ value }}" ' %}
 {% endif %}
 
-<input {{ add_attributes(attributes_to_add)}}>
+{% set attributes_to_add = attributes_to_add|trim %}
+
+<input class="{{ classes }}"{% if attributes_to_add is not empty %} {{ attributes_to_add }}{% endif %}>

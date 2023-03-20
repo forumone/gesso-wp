@@ -9,22 +9,14 @@
   hide_title ? 'u-visually-hidden' : '',
 ]|join(' ')|trim %}
 
-{% set breadcrumb_id = 'breadcrumb-label'|unique_id %}
+{% set breadcrumb_id = 'breadcrumb-label' %}
 
-<nav {{ add_attributes({
-  'aria-labelledby': breadcrumb_id,
-  'class': classes,
-  'role': 'navigation',
-}) }}>
+<nav class="{{ classes }}" aria-labelledby="{{ breadcrumb_id }}" role="navigation">
   <div class="l-constrain">
     <{{ title_element ?: 'h2' }}
-      {{ add_attributes(
-        {
-          'id': breadcrumb_id,
-          'class': title_classes,
-        },
-        'title_attributes')
-      }}>{{ title|default('Breadcrumb') }}</{{ title_element ?: 'h2' }}>
+      class="{{ title_classes }}"
+      id="{{ breadcrumb_id }}"
+    >{{ title|default('Breadcrumb') }}</{{ title_element ?: 'h2' }}>
     <ol class="c-breadcrumb__list">
       {% for item in breadcrumb %}
         <li class="c-breadcrumb__item">

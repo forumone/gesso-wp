@@ -23,7 +23,7 @@
             <a href="{{ button.url|default('#0') }}" class="{{ button_classes }}">
               {{ button.text }}
               {% if button.active %}
-                <span class="u-visually-hidden">{{ (active_label|default('(active)'))|t }}</span>
+                <span class="u-visually-hidden">{{ (active_label|default('(active)')) }}</span>
               {% endif %}
             </a>
           {% endblock link %}

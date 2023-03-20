@@ -4,9 +4,9 @@
   modifier_classes ? modifier_classes : ''
 ]|join(' ')|trim %}
 
-{% set id = 'side-menu'|unique_id %}
+{% set id = 'side-menu' %}
 
-<nav {{ add_attributes({class: classes, id: id}) }}>
+<nav class="{{ classes }}"{% if id %} id="{{ id }}"{% endif %}>
   {% include '@components/menu/menu.twig' with {
     'menu_name': menu_name,
     'items': items,

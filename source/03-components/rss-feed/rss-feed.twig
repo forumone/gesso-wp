@@ -3,7 +3,7 @@
   modifier_classes ? modifier_classes : '',
 ]|join(' ')|trim %}
 
-<a href="{{ url }}" {{ add_attributes({ 'class': classes }) }}>
+<a href="{{ url }}" class="{{ classes }}">
   {%- include '@components/icon/icon.twig' with {
     'modifier_classes': 'c-icon--rss is-spaced-after',
     'is_hidden': true,

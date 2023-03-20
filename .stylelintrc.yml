@@ -1,19 +1,24 @@
 extends:
-  - stylelint-config-sass-guidelines
+  - '@wordpress/stylelint-config/scss'
   - stylelint-config-prettier
-
 plugins:
   - stylelint-prettier
   - './lib/stylelintLVHFA.js'
   - stylelint-order
 rules:
-  block-no-empty: null
-  color-named:
-    - never
-    - ignore:
-      - 'inside-function'
-  max-nesting-depth: 4
-  no-empty-first-line: true
+  # Prettier automatically removes the empty line
+  at-rule-empty-line-before: null
+  # Stylelint doesn't understand gesso design tokens
+  font-weight-notation: null
+  color-named: null
+  rule-empty-line-before: null
+  # Allow BEM style classes
+  selector-class-pattern: null
+  # @wordpress/prettier-config uses single quotes,
+  # so prettier and stylelint are in conflict here
+  string-quotes: single
+  # Enforce alphabetical ordering of properties,
+  # which is an F1 convention but not required by WP
   order/order:
     - - type: at-rule
         hasBlock: false
@@ -22,39 +27,5 @@ rules:
     - unspecified: ignore
       disableFix: true
   order/properties-alphabetical-order: error
-  plugin/selector-pseudo-class-lvhfa: true
-  prettier/prettier: true
-  property-no-vendor-prefix: null
-  selector-attribute-brackets-space-inside: never
-  selector-class-pattern:
-    # "piece" regex:
-    # [a-zA-Z0-9]+
-    # dash-separated pieces:
-    # [a-zA-Z][a-zA-Z0-9]*(?:-[a-zA-Z][a-zA-Z0-9]*)*
-    #
-    #   Block                                              Element (optional)                                   Modifier (also optional)
-    #   ----------------------------------------------     -----------------------------------------------      -----------------------------------------------
-    - '^[a-zA-Z][a-zA-Z0-9]*(?:-[a-zA-Z0-9]+)*(?:__[a-zA-Z0-9]+(?:-[a-zA-Z0-9]+)*)?(?:--[a-zA-Z0-9]+(?:-[a-zA-Z0-9]+)*)?$'
-  selector-no-qualifying-type:
-  string-no-newline: true
-  scss/at-import-partial-extension-blacklist:
-    - 'less'
-    - 'sass'
-  scss/at-mixin-pattern:
-    # "piece" regex:
-    # [a-zA-Z0-9]+
-    # dash-separated pieces:
-    # [a-zA-Z][a-zA-Z0-9]*(?:-[a-zA-Z][a-zA-Z0-9]*)*
-    #
-    #   Block                                              Element (optional)                                   Modifier (also optional)
-    #   ----------------------------------------------     -----------------------------------------------      -----------------------------------------------
-    - '^[a-zA-Z][a-zA-Z0-9]*(?:-[a-zA-Z0-9]+)*(?:__[a-zA-Z0-9]+(?:-[a-zA-Z0-9]+)*)?(?:--[a-zA-Z0-9]+(?:-[a-zA-Z0-9]+)*)?$'
-  scss/percent-placeholder-pattern:
-    # "piece" regex:
-    # [a-zA-Z0-9]+
-    # dash-separated pieces:
-    # [a-zA-Z][a-zA-Z0-9]*(?:-[a-zA-Z][a-zA-Z0-9]*)*
-    #
-    #   Block                                              Element (optional)                                   Modifier (also optional)
-    #   ----------------------------------------------     -----------------------------------------------      -----------------------------------------------
-    - '^[a-zA-Z][a-zA-Z0-9]*(?:-[a-zA-Z0-9]+)*(?:__[a-zA-Z0-9]+(?:-[a-zA-Z0-9]+)*)?(?:--[a-zA-Z0-9]+(?:-[a-zA-Z0-9]+)*)?$'
+  # Results in false positives
+  no-descending-specificity: null

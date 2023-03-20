@@ -6,7 +6,7 @@
   modifier_classes ? modifier_classes : ''
 ]|join(' ')|trim %}
 
-<div {{ add_attributes({ 'class': classes }) }}>
+<div class="{{ classes }}">
   {{ hero_image }}
   <div class="c-hero-bg-image__content">
     {% if hero_title %}

@@ -10,12 +10,9 @@
       {% if menu_class %}
         {% set additional_classes = additional_classes|merge(menu_class) %}
       {% endif %}
-      {% set additional_attributes = {
-        'class': additional_classes
-      } %}
-<ul {{ add_attributes(additional_attributes) }}>
+<ul class="{{ additional_classes }}">
   {% else %}
-  <ul {{  add_attributes({class: ['c-dropdown-menu__subnav']}) }}>
+  <ul class="c-dropdown-menu__subnav">
     {% endif %}
     {% for item in items %}
       {% set item_classes = ['c-dropdown-menu__item'] %}
@@ -54,19 +51,10 @@
         {% set link_classes = link_classes|merge(link_class) %}
       {% endif %}
 
-      {% set additional_item_attributes = {
-        'class': item_classes,
-      } %}
-
-      {% set link_attributes = {
-        'class': link_classes,
-        'aria-current': item.is_active ? 'page' : 'false',
-      } %}
-
-      <li {{ add_attributes(additional_item_attributes) }}>
+      <li class="{{ item_classes }}">
         {% if item.url == '<button>' %}
           {# This is needed to work in Storybook. #}
-          <button {{ add_attributes(link_attributes) }}>{{ item.title }}</button>
+          <button class="{{ link_classes }}" aria-current="{% if item.is_active %}page{% else %}false{% endif %}">{{ item.title }}</button>
         {% else %}
           {{ link(item.title, item.url, link_attributes) }}
         {% endif %}

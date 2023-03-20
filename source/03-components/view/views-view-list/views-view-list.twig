@@ -15,14 +15,14 @@
 {% endif %}
 
 {% if title %}
-  <{{ title_element ?: 'h3' }} {{ add_attributes({ 'class': title_classes }, 'title_attributes') }}>{{ title }}</{{ title_element ?: 'h3' }}>
+  <{{ title_element ?: 'h3' }} class="{{ title_classes }}">{{ title }}</{{ title_element ?: 'h3' }}>
 {% endif %}
 
-  <{{ list.type }} {{ add_attributes({ 'class': list_classes }, 'list.attributes') }}>
+  <{{ list.type }} class="{{ list_classes }}">
 
 
     {% for row in rows %}
-      <li {{ add_attributes({ 'class': item_classes }, 'row.attributes') }}>
+      <li class="{{ item_classes }}">
         {{- row.content -}}
       </li>
     {% endfor %}

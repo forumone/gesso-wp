@@ -12,14 +12,14 @@
 {% endif %}
 
 {% if title %}
-  <{{ title_element ?: 'h3' }} {{ add_attributes({ 'class': title_classes }, 'title_attributes') }}>{{ title }}</{{ title_element ?: 'h3' }}>
+  <{{ title_element ?: 'h3' }} class="{{ title_classes }}">{{ title }}</{{ title_element ?: 'h3' }}>
 {% endif %}
 
 {% for row in rows %}
   {% if hide_row_wrapper %}
     {{ row.content }}
   {% else %}
-    <{{ element ?: 'div' }} {{ add_attributes({ 'class': row_classes }, 'row.attributes') }}>
+    <{{ element ?: 'div' }} class="{{ row_classes }}">
       {{- row.content -}}
     </{{ element ?: 'div' }}>
   {% endif %}

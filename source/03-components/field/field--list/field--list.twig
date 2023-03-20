@@ -16,9 +16,9 @@
   label_display == 'visually_hidden' ? 'u-visually-hidden' : '',
 ]|join(' ')|trim %}
 
-<{{ element ?: 'div' }} {{ add_attributes({ 'class': classes }) }}>
+<{{ element ?: 'div' }} class="{{ classes }}">
   {% if not hide_label -%}
-    <{{ label_element ?: 'h3' }} {{ add_attributes({ 'class': title_classes },'title_attributes') }}>{{ label }}</{{ label_element ?: 'h3' }}>
+    <{{ label_element ?: 'h3' }} class="{{ title_classes }}">{{ label }}</{{ label_element ?: 'h3' }}>
   {%- endif -%}
   <{{ list_element ?: 'ul' }} class="field__content">
     {%- for item in field_items -%}

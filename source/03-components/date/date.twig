@@ -3,7 +3,7 @@
   modifier_classes ? modifier_classes : '',
 ]|join(' ')|trim %}
 
-<div {{ add_attributes({ 'class': classes }) }}>
+<div class="{{ classes }}">
   {% if date_format == 'long-date' %}
     {% include '@global/date-formats/long-date.twig' %}
   {% elseif date_format == 'long-datetime' %}

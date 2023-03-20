@@ -71,9 +71,7 @@ $mobile-menu-line-height: gesso-line-height(base);
   margin: 0;
   padding: rem(
       math.div(
-        $mobile-menu-button-height -
-          ($mobile-menu-font-size * $mobile-menu-line-height),
-        2
+        $mobile-menu-button-height - ($mobile-menu-font-size * $mobile-menu-line-height), 2
       )
     )
     rem(gesso-spacing(2));

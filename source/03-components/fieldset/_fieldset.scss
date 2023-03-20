@@ -54,8 +54,7 @@ $fieldset-legend-offset: rem(
 .c-fieldset--default {
   background: #fff;
   border: 1px solid gesso-color(form, border);
-  margin: rem(gesso-spacing(2)) 0 rem(gesso-spacing(3)) +
-    $fieldset-legend-offset;
+  margin: rem(gesso-spacing(2)) 0 rem(gesso-spacing(3)) + $fieldset-legend-offset;
   padding: 0 rem(gesso-spacing(2));
 
   .c-fieldset__legend {

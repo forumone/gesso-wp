@@ -4,18 +4,14 @@
   modifier_classes ? modifier_classes : '',
 ]|join(' ')|trim %}
 
-{% set pagination_id = 'pagination-heading'|unique_id %}
+{% set pagination_id = 'pagination-heading' %}
 
 {% if pager_items.previous or pager_items.next %}
-  <nav {{ add_attributes({
-    'class': classes,
-    'aria-label': heading|default('Pagination'),
-    'role': 'navigation'
-  })}}>
+  <nav class="{{ classes }}" aria-label="{{ heading|default('Pagination') }}" role="navigation">
     <ul class="c-pager__items js-pager__items">
 
       {% if pager_items.previous %}
-        {% set link_label = 'Go to previous page'|t %}
+        {% set link_label = 'Go to previous page' %}
         <li class="c-pager__item c-pager__item--previous">
           <a class="c-pager__link c-pager__link--previous" href="{{ pager_items.previous.href }}" aria-label="{{ link_label }}" title="{{ link_label }}" rel="prev" {{ pager_items.previous.attributes|without('aria-label', 'href', 'rel', 'title') }}>
             {%- spaceless %}
@@ -25,7 +21,7 @@
                 'icon_name': 'angle-left',
               } %}
               <span class="u-visually-hidden">{{ link_label }}</span>
-              <span aria-hidden="true">{{ 'Previous'|t }}</span>
+              <span aria-hidden="true">{{ 'Previous' }}</span>
             {% endspaceless -%}
           </a>
         </li>
@@ -34,19 +30,19 @@
       {% if pager_items.current %}
         <li class="c-pager__item c-pager__item--current">
           <span class="u-visually-hidden">
-            {{ 'Currently on page'|t }}
+            {{ 'Currently on page' }}
           </span>
           {{ pager_items.current }}
         </li>
       {% endif %}
 
       {% if pager_items.next %}
-        {% set link_label = 'Go to next page'|t %}
+        {% set link_label = 'Go to next page' %}
         <li class="c-pager__item c-pager__item--next">
           <a class="c-pager__link c-pager__link--next" href="{{ pager_items.next.href }}" aria-label="{{ link_label }}" title="{{ link_label }}" rel="next" {{ pager_items.next.attributes|without('aria-label', 'href', 'rel', 'title') }}>
             {%- spaceless %}
               <span class="u-visually-hidden">{{ link_label }}</span>
-              <span aria-hidden="true">{{ 'Next'|t }}</span>
+              <span aria-hidden="true">{{ 'Next' }}</span>
               {% include '@components/icon/icon.twig' with {
                 'is_hidden': true,
                 'modifier_classes': 'c-icon--pager is-spaced-before',

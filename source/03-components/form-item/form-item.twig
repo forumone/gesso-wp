@@ -17,9 +17,7 @@
   description_display == 'invisible' ? 'u-visually-hidden' : '',
 ]|join(' ')|trim %}
 
-{% set description_attributes_to_add = {
-  class: description_classes,
-} %}
+
 
 {% if id %}
   {% set description_attributes_to_add = description_attributes_to_add|merge({
@@ -27,7 +25,7 @@
   }) %}
 {% endif %}
 
-<div {{ add_attributes({class: classes}) }}>
+<div class="{{ classes }}">
   {% if label_display in ['before', 'invisible'] %}
     {{ label }}
   {% endif %}
@@ -41,7 +39,7 @@
     {% endif %}
 
     {% if description_display == 'before' and description.content %}
-      <div {{ add_attributes(description_attributes_to_add, 'description.attributes') }}>
+      <div class="{{ description_classes }}"{% if id %} id={{ id ~ '-description'}}{% endif %}>
         {{ description.content }}
       </div>
     {% endif %}
@@ -67,7 +65,7 @@
   {% endif %}
 
   {% if description_display in ['after', 'invisible'] and description.content %}
-    <div {{ add_attributes(description_attributes_to_add, 'description.attributes') }}>
+    <div class="{{ description_classes }}"{% if id %} id={{ id ~ '-description'}}{% endif %}>
       {{ description.content }}
     </div>
   {% endif %}

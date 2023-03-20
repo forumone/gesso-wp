@@ -3,7 +3,7 @@
   modifier_classes ? modifier_classes : '',
 ]|join(' ')|trim %}
 
-<{{ element ?: 'div' }} {{ add_attributes({ 'class': classes })}}>
+<{{ element ?: 'div' }} class="{{ classes }}">
   {{ title_prefix }}
   {{ title }}
   {{ title_suffix }}

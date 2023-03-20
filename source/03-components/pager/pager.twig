@@ -4,15 +4,11 @@
 ]|join(' ')|trim %}
 
 {% if pager_items %}
-  <nav {{ add_attributes({
-    'class': classes,
-    'aria-label': heading|default('Pagination'),
-    'role': 'navigation'
-  })}}>
+  <nav class="{{ classes }}" aria-label="{{ heading|default('Pagination') }}" role="navigation">
     <ul class="c-pager__items js-pager__items">
       {# Print first item if we are not on the first page. #}
       {% if pager_items.first %}
-        {% set link_label = 'Go to first page'|t %}
+        {% set link_label = 'Go to first page' %}
         <li class="c-pager__item c-pager__item--first">
           <a class="c-pager__link c-pager__link--first" href="{{ pager_items.first.href }}" aria-label="{{ link_label }}" title="{{ link_label }}" {{ pager_items.first.attributes|without('aria-label', 'href', 'title') }}>
             {%- spaceless %}
@@ -22,7 +18,7 @@
                 'icon_name': 'angle-double-left',
               } %}
               <span class="u-visually-hidden">{{ link_label }}</span>
-              <span aria-hidden="true">{{ 'First'|t }}</span>
+              <span aria-hidden="true">{{ 'First' }}</span>
             {% endspaceless -%}
           </a>
         </li>
@@ -30,7 +26,7 @@
 
       {# Print previous item if we are not on the first page. #}
       {% if pager_items.previous %}
-        {% set link_label = 'Go to previous page'|t %}
+        {% set link_label = 'Go to previous page' %}
         <li class="c-pager__item c-pager__item--previous">
           <a class="c-pager__link c-pager__link--previous" href="{{ pager_items.previous.href }}" aria-label="{{ link_label }}" title="{{ link_label }}" rel="prev" {{ pager_items.previous.attributes|without('aria-label', 'href', 'rel', 'title') }}>
             {%- spaceless %}
@@ -40,7 +36,7 @@
                 'icon_name': 'angle-left',
               } %}
               <span class="u-visually-hidden">{{ link_label }}</span>
-              <span aria-hidden="true">{{ 'Previous'|t }}</span>
+              <span aria-hidden="true">{{ 'Previous' }}</span>
             {% endspaceless -%}
           </a>
         </li>
@@ -56,14 +52,14 @@
         <li class="c-pager__item{{ current == key ? ' c-pager__item--current' : '' }}">
           {% if current == key %}
             <span class="u-visually-hidden">
-              {{ 'Currently on page'|t }}
+              {{ 'Currently on page' }}
             </span>
             {{- key -}}
           {% else %}
             {% set link_label = 'Go to page @key'|t({'@key': key}) %}
             <a class="c-pager__link" href="{{ item.href }}" aria-label="{{ link_label }}" title="{{ link_label }}" {{ item.attributes|without('aria-label', 'href', 'title') }}>
               <span class="u-visually-hidden">
-                {{ 'Page'|t }}
+                {{ 'Page' }}
               </span>
               {{- key -}}
             </a>
@@ -78,12 +74,12 @@
 
       {# Print next item if we are not on the last page. #}
       {% if pager_items.next %}
-        {% set link_label = 'Go to next page'|t %}
+        {% set link_label = 'Go to next page' %}
         <li class="c-pager__item c-pager__item--next">
           <a class="c-pager__link c-pager__link--next" href="{{ pager_items.next.href }}" aria-label="{{ link_label }}" title="{{ link_label }}" rel="next" {{ pager_items.next.attributes|without('aria-label', 'href', 'rel', 'title') }}>
             {%- spaceless %}
               <span class="u-visually-hidden">{{ link_label }}</span>
-              <span aria-hidden="true">{{ 'Next'|t }}</span>
+              <span aria-hidden="true">{{ 'Next' }}</span>
               {% include '@components/icon/icon.twig' with {
                 'is_hidden': true,
                 'modifier_classes': 'c-icon--pager is-spaced-before',
@@ -96,12 +92,12 @@
 
       {# Print last item if we are not on the last page. #}
       {% if pager_items.last %}
-        {% set link_label = 'Go to last page'|t %}
+        {% set link_label = 'Go to last page' %}
         <li class="c-pager__item c-pager__item--last">
           <a class="c-pager__link c-pager__link--last" href="{{ pager_items.last.href }}" aria-label="{{ link_label }}" title="{{ link_label }}" {{ pager_items.last.attributes|without('aria-label', 'href', 'title') }}>
             {%- spaceless %}
               <span class="u-visually-hidden">{{ link_label }}</span>
-              <span aria-hidden="true">{{ 'Last'|t }}</span>
+              <span aria-hidden="true">{{ 'Last' }}</span>
               {% include '@components/icon/icon.twig' with {
                 'is_hidden': true,
                 'modifier_classes': 'c-icon--pager is-spaced-before',

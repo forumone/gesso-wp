@@ -3,6 +3,6 @@
   modifier_classes ? modifier_classes : '',
 ]|join(' ')|trim %}
 
-<div {{ add_attributes({ 'class': classes }) }}>
+<div class="{{ classes }}">
   <a href="{{ url }}">{{ author }}</a>
 </div>

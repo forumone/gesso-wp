@@ -4,6 +4,6 @@
   size ? 'c-tag--' ~ size : '',
 ]|join(' ')|trim %}
 
-<a href="{{ url }}" {{ add_attributes({ 'class': classes }) }} rel="tag">
+<a href="{{ url }}" class="{{ classes }}" rel="tag">
   {{ title }}
 </a>

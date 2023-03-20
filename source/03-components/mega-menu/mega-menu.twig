@@ -7,7 +7,7 @@
   modifier_classes ? modifier_classes : ''
 ] %}
 
-<ul {{ add_attributes({ 'class': classes }) }}>
+<ul class="{{ classes }}">
   {% for item in items %}
     {% set item_classes = [
       'c-mega-menu__item',
@@ -15,7 +15,7 @@
       item.in_active_trail ? 'in-active-trail' : '',
     ] %}
     {% set item_description = item.description %}
-    <li {{ add_attributes({ 'class': item_classes}) }}>
+    <li class="{{ item_classes }}">
       {% if item.below %}
         <button class="c-mega-menu__link js-top-level" aria-expanded="false" aria-controls="mega-menu-{{ menu_name }}--{{ loop.index }}" aria-current="{{ item.is_active ? 'page' : 'false' }}">
           <span>{{ item.title }}</span>
@@ -30,7 +30,7 @@
               {{ item.featured }}
             {% endblock %}
           </div>
-          <button aria-label="{{ 'Close menu'|t }}" class="c-mega-menu__section-close c-menu__section-close">
+          <button aria-label="{{ 'Close menu' }}" class="c-mega-menu__section-close c-menu__section-close">
             {% include '@components/icon/icon.twig' with {
               icon_name: 'close',
               modifier_classes: 'c-menu__close-icon',

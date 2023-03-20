@@ -3,7 +3,7 @@
   modifier_classes ? modifier_classes : '',
 ]|join(' ')|trim %}
 
-<div {{ add_attributes({ 'class': classes })}} data-drupal-progress>
+<div class="{{ classes }}" data-drupal-progress>
   {% if label %}
     <div class="c-progress__label">{{ label }}</div>
   {% endif %}
