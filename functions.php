@@ -13,6 +13,8 @@ if ( ! function_exists( 'gesso_theme_setup' ) ) :
 	 * Initialize basic theme customizations for Gesso theme.
 	 */
 	function gesso_theme_setup() {
+		// add support for WP menus
+		add_theme_support('menus');
 		// Support featured images.
 		add_theme_support( 'post-thumbnails' );
 		// Support wide alignment.
@@ -22,6 +24,8 @@ if ( ! function_exists( 'gesso_theme_setup' ) ) :
 		// Disable WordPress's block patterns.
 		// Comment out if you want to use them.
 		remove_theme_support( 'core-block-patterns' );
+		// Enable block template parts
+		add_theme_support( 'block-template-parts' );
 
 		// Define featured image sizes.
 		add_image_size( 'large_cropped', 800, 600, true );
@@ -255,3 +259,33 @@ function gesso_collapsed_search( $block_content, $block ) {
 	return $block_content;
 }
 add_filter( 'render_block_core/search', 'gesso_collapsed_search', 10, 2 );
+
+/***************** NEW FUN STUFF HERE **************************/
+
+/**
+ * Adding this in hides the theme options unless you are an admin
+ */
+function gesso_hide_fse_items(){
+	//global $current_user;
+	$user = wp_get_current_user();
+	$allowed_roles = array('administrator');
+
+	if( is_admin() && !array_intersect($allowed_roles, $user->roles ) ) {
+		remove_submenu_page( 'themes.php', 'theme_options' );
+		remove_submenu_page( 'themes.php', 'themes.php' );
+	}
+}
+add_action('admin_menu', 'gesso_hide_fse_items');
+
+/**
+ * Register menu locations
+ */
+function gesso_register_menus() {
+	register_nav_menus(
+		array(
+			'primary-menu' => __( 'Primary Menu' ),
+			'secondary-menu' => __( 'Secondary Menu' )
+		)
+	);
+}
+add_action( 'init', 'gesso_register_menus' );
