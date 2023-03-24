@@ -2,17 +2,20 @@
 /**
  * The template for displaying all pages.
  *
- * This is the template that displays all pages by default.
- * Please note that this is the WordPress construct of pages
- * and that other 'pages' on your WordPress site will use a
- * different template.
+ * This theme, out of the box, references the correspondingly named html file
+ * in the parts folder. This strategy leverages the quasi-block editor
+ * approach that Forum One is taking. If, for the purposes of your current
+ * build, it necessitates managing your template in PHP rather than the
+ * editor, you can use the following reference as a starter guide.
  *
- * To generate specific templates for your pages you can use:
- * /mytheme/templates/page-mypage.twig
- * (which will still route through this PHP file)
- * OR
- * /mytheme/page-mypage.php
- * (in which case you'll want to duplicate this file and save to the above path)
+ * Creating a php based page.
+ * @link https://developer.wordpress.org/themes/template-files-section/page-template-files/
+ *
+ * Futher information about block template parts in traditional theme.
+ * @link https://make.wordpress.org/core/2022/10/04/block-based-template-parts-in-traditional-themes/
+ *
+ * Further information about the Wordpress template hierarchy.
+ * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
  *
  * @package Gesso
  */
@@ -20,26 +23,9 @@
 get_header();
 ?>
 
-	<main id="primary" class="site-main">
-
-		<?php
-		/*while ( have_posts() ) :
-			the_post();
-
-			get_template_part( 'template-parts/content', 'page' );
-
-			// If comments are open or we have at least one comment, load up the comment template.
-			if ( comments_open() || get_comments_number() ) :
-				comments_template();
-			endif;
-
-		endwhile; // End of the loop.*/
-		the_content();
-		?>
-
-	</main><!-- #main -->
+<?php block_template_part( 'page' ); ?>
 
 <?php
-get_sidebar();
 get_footer();
+
 

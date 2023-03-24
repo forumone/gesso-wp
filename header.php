@@ -1,8 +1,22 @@
 <?php
 /**
- * Third party plugins that hijack the theme will call get_header() to get the header template.
- * We use this to start our output buffer and render into the templates/page-plugin.twig template in footer.php
+ * This template is for displaying the site header
  *
+ * This theme, out of the box, references the correspondingly named html file
+ * in the parts folder. The header and footer files are exceptions based on
+ * the challenges that we unearthed that led us to this theme structure. These
+ * Files are php-based out of the box but can be modified to leverage template
+ * parts if desired. If, for the purposes of your current build, it necessitates
+ * managing your header in a template part rather than php, you can delete any
+ * unnecessary php references below and add the following snippet of code.
+ *
+ * @example block_template_part( 'header' );
+ *
+ * Futher information about block template parts in traditional theme.
+ * @link https://make.wordpress.org/core/2022/10/04/block-based-template-parts-in-traditional-themes/
+ *
+ * Further information about the Wordpress template hierarchy.
+ * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
  * @package Gesso
  */
 ?>
@@ -20,7 +34,7 @@
 <?php wp_body_open(); ?>
 <div id="page" class="site">
 	<a class="skip-link screen-reader-text" href="#primary"><?php esc_html_e( 'Skip to content', 'gesso' ); ?></a>
-
+	<!-- Reference Header logo to home -->
 	<header id="masthead" class="site-header">
 		<div class="site-branding">
 			<?php
@@ -32,15 +46,10 @@
 			else :
 				?>
 				<p class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></p>
-			<?php
-			endif;
-			$gesso_description = get_bloginfo( 'description', 'display' );
-			if ( $gesso_description || is_customize_preview() ) :
-				?>
-				<p class="site-description"><?php echo $gesso_description; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></p>
 			<?php endif; ?>
 		</div><!-- .site-branding -->
 
+		<!-- Reference Navigation -->
 		<nav id="site-navigation" class="main-navigation">
 			<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"><?php esc_html_e( 'Primary Menu', 'gesso' ); ?></button>
 			<?php
@@ -52,5 +61,8 @@
 			);
 			?>
 		</nav><!-- #site-navigation -->
+
+
+		<!-- Reference Collapsible Search -->
 	</header><!-- #masthead -->
 
