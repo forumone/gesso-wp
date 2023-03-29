@@ -26,5 +26,4 @@ get_header();
 <?php block_template_part( 'archive' ); ?>
 
 <?php
-get_sidebar();
 get_footer();
