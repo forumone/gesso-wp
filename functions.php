@@ -57,6 +57,7 @@ function gesso_theme_scripts() {
 	// Maybe in 6.0.
 	$search_script_asset_file = include 'build/js/search.asset.php';
 	wp_enqueue_script( 'gesso-search', get_stylesheet_directory_uri() . '/build/js/search.js', $search_script_asset_file['dependencies'], $search_script_asset_file['version'] );
+	wp_enqueue_script( 'responsive-menu', get_stylesheet_directory_uri() . '/build/js/responsiveMenu.es6.js', array(), '1.0', true );
 }
 add_action( 'wp_enqueue_scripts', 'gesso_theme_scripts' );
 
@@ -260,10 +261,8 @@ function gesso_collapsed_search( $block_content, $block ) {
 }
 add_filter( 'render_block_core/search', 'gesso_collapsed_search', 10, 2 );
 
-/***************** NEW FUN STUFF HERE **************************/
-
 /**
- * Adding this in hides the theme options unless you are an admin
+ * Adding this in hides the theme options unless you are an admin.
  */
 function gesso_hide_fse_items(){
 	//global $current_user;
@@ -278,7 +277,7 @@ function gesso_hide_fse_items(){
 add_action('admin_menu', 'gesso_hide_fse_items');
 
 /**
- * Register menu locations
+ * Register menu locations.
  */
 function gesso_register_menus() {
 	register_nav_menus(
@@ -289,3 +288,26 @@ function gesso_register_menus() {
 	);
 }
 add_action( 'init', 'gesso_register_menus' );
+
+/**
+ * Echo a Wordpress Menu Item into either a responsive format, (allowing collapse
+ * to hamburger on mobile) or standard output (not used for WP core navigation block).
+ *
+ * @param string $theme_location The slug of the menu location assigned.
+ * @param boolean $responsive Should the menu collapse into a hamburger on mobile or not.
+ * @param string $menu_id The ID that shoudl be applied to the menu object.
+ */
+function gesso_render_menu( $theme_location, $menu_id = '', $responsive = false) {
+	$class = 'menu';
+	if ( $responsive ) {
+		$class = 'menu--responsive';
+		echo '<span class="menu--responsive__hamburger" data-target="'.$menu_id.'">Menu</span>';
+	}
+
+	$args = array(
+		'theme_location' => $theme_location,
+		'menu_class'=> $class,
+		'menu_id' => $menu_id
+	);
+	wp_nav_menu( $args );
+}
