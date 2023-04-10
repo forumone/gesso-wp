@@ -11,6 +11,8 @@
 if ( ! function_exists( 'gesso_theme_setup' ) ) :
 	/**
 	 * Initialize basic theme customizations for Gesso theme.
+	 *
+	 * @return void
 	 */
 	function gesso_theme_setup() {
 		// add support for WP menus.
@@ -38,6 +40,8 @@ endif;
 
 /**
  * Enqueue and register required scripts and stylesheets for the Gesso theme.
+ *
+ * @return void
  */
 function gesso_theme_scripts() {
 	// Enqueue Google Fonts.
@@ -63,6 +67,8 @@ add_action( 'wp_enqueue_scripts', 'gesso_theme_scripts' );
 
 /**
  * Register block styles custom to Gesso theme.
+ *
+ * @return void
  */
 function gesso_block_assets() {
 	wp_enqueue_block_style(
@@ -168,6 +174,8 @@ add_filter( 'style_loader_tag', 'gesso_google_font_enqueued_styles', 10, 4 );
 
 /**
  * Enqueue Wordpress editor specific scripts.
+ *
+ * @return void
  */
 function gesso_editor_scripts() {
 	$script_asset_file = include 'build/js/editor-scripts.asset.php';
@@ -177,6 +185,8 @@ add_action( 'enqueue_block_editor_assets', 'gesso_editor_scripts' );
 
 /**
  * Enqueue Wordpress editor specific styles.
+ *
+ * @return void
  */
 function gesso_editor_styles() {
 	add_editor_style( 'https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600;1,700&display=swap' );
@@ -187,8 +197,8 @@ add_action( 'admin_init', 'gesso_editor_styles' );
 /**
  * Customizes meta data for Wordpress blocks.
  *
- * @param array $metadata Array of Wordpress block data.
- * @return mixed
+ * @param array<mixed> $metadata Array of Wordpress block data.
+ * @return array<mixed>
  */
 function gesso_block_metadata_registration( $metadata ) {
 	if ( 'core/button' === $metadata['name'] ) {
@@ -203,6 +213,8 @@ add_filter( 'block_type_metadata', 'gesso_block_metadata_registration' );
 
 /**
  * Register block patterns custom to the Gesso theme.
+ *
+ * @return void
  */
 function gesso_block_patterns() {
 	register_block_pattern_category(
@@ -238,8 +250,8 @@ add_action( 'init', 'gesso_block_patterns' );
 /**
  * Render collapsible search block if contains the required class name.
  *
- * @param string $block_content String contents of the block.
- * @param array  $block          Array containing search block-specific details.
+ * @param string        $block_content String contents of the block.
+ * @param array<object> $block          Array containing search block-specific details.
  * @return string
  */
 function gesso_collapsed_search( $block_content, $block ) {
@@ -293,6 +305,8 @@ function gesso_collabsible_search_module( $class ) {
 
 /**
  * Adding this in hides the theme options unless you are an admin.
+ *
+ * @return void
  */
 function gesso_hide_fse_items() {
 	$user = wp_get_current_user();
@@ -307,6 +321,8 @@ add_action( 'admin_menu', 'gesso_hide_fse_items' );
 
 /**
  * Register menu locations.
+ *
+ * @return void
  */
 function gesso_register_menus() {
 	register_nav_menus(
@@ -325,6 +341,8 @@ add_action( 'init', 'gesso_register_menus' );
  * @param string  $theme_location The slug of the menu location assigned.
  * @param string  $menu_id The ID that shoudl be applied to the menu object.
  * @param boolean $responsive Should the menu collapse into a hamburger on mobile or not.
+ *
+ * @return void
  */
 function gesso_render_menu( $theme_location, $menu_id = '', $responsive = false ) {
 	$class = 'menu';
