@@ -9,6 +9,7 @@
  * editor, you can use the following reference as a starter guide.
  *
  * Creating a php based 404 page.
+ *
  * @link https://developer.wordpress.org/themes/functionality/404-pages/
  *
  * Futher information about block template parts in traditional theme.
@@ -18,8 +19,7 @@
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/#category
  *
  * @package Gesso
- *
-*/
+ */
 
 get_header();
 ?>

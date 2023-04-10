@@ -9,6 +9,7 @@
  * editor, you can use the following reference as a starter guide.
  *
  * Creating a php based tag page.
+ *
  * @link https://developer.wordpress.org/themes/template-files-section/post-template-files/#category-php-tag-php-and-taxonomy-php
  *
  * Futher information about block template parts in traditional theme.

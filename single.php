@@ -9,6 +9,7 @@
  * editor, you can use the following reference as a starter guide.
  *
  * Creating a php based single page.
+ *
  * @link https://developer.wordpress.org/themes/template-files-section/post-template-files/#single-php
  *
  * Creating a custom post type template in php.

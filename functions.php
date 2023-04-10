@@ -13,8 +13,8 @@ if ( ! function_exists( 'gesso_theme_setup' ) ) :
 	 * Initialize basic theme customizations for Gesso theme.
 	 */
 	function gesso_theme_setup() {
-		// add support for WP menus
-		add_theme_support('menus');
+		// add support for WP menus.
+		add_theme_support( 'menus' );
 		// Support featured images.
 		add_theme_support( 'post-thumbnails' );
 		// Support wide alignment.
@@ -24,7 +24,7 @@ if ( ! function_exists( 'gesso_theme_setup' ) ) :
 		// Disable WordPress's block patterns.
 		// Comment out if you want to use them.
 		remove_theme_support( 'core-block-patterns' );
-		// Enable block template parts
+		// Enable block template parts.
 		add_theme_support( 'block-template-parts' );
 
 		// Define featured image sizes.
@@ -172,7 +172,6 @@ add_filter( 'style_loader_tag', 'gesso_google_font_enqueued_styles', 10, 4 );
 function gesso_editor_scripts() {
 	$script_asset_file = include 'build/js/editor-scripts.asset.php';
 	wp_enqueue_script( 'editor-script', get_stylesheet_directory_uri() . '/build/js/editor-scripts.js', array_merge( $script_asset_file['dependencies'], array( 'wp-edit-post' ) ), $script_asset_file['version'] );
-
 }
 add_action( 'enqueue_block_editor_assets', 'gesso_editor_scripts' );
 
@@ -262,19 +261,49 @@ function gesso_collapsed_search( $block_content, $block ) {
 add_filter( 'render_block_core/search', 'gesso_collapsed_search', 10, 2 );
 
 /**
+ * If not leveraging the Wordpress core search block, this module can be leveraged to render a collapsible site search.
+ *
+ * @param string $class String of class name(s) the wrap the form.
+ *
+ * @return string
+ */
+function gesso_collabsible_search_module( $class ) {
+	return '<div class="collapsed-search"><button type="button" class="collapsed-search__toggle"><svg
+			xmlns="http://www.w3.org/2000/svg"
+			viewBox="0 0 24 24"
+			fill="currentColor"
+			width="24px"
+			height="24px"
+		>
+			<path d="M0 0h24v24H0z" fill="none" />
+			<path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z" />
+			</svg></button><div class="collapsed-search__content">
+				<form class="' . $class . '" method="get" action="' . get_home_url() . '" role="search">
+				  <div class="l-constrain--xs searchform__content">
+				  <div class="searchform__field">
+					<input class="searchform__input" placeholder="Enter Search Text Here" type="search" name="s" value="">
+				  </div>
+					<button class="button searchform__button searchform__button--search" type="submit" role="button">
+					  <span>search</span>
+					</button>
+				  </div>
+				</form>
+			</div></div>';
+}
+
+/**
  * Adding this in hides the theme options unless you are an admin.
  */
-function gesso_hide_fse_items(){
-	//global $current_user;
+function gesso_hide_fse_items() {
 	$user = wp_get_current_user();
-	$allowed_roles = array('administrator');
+	$allowed_roles = array( 'administrator' );
 
-	if( is_admin() && !array_intersect($allowed_roles, $user->roles ) ) {
+	if ( is_admin() && ! array_intersect( $allowed_roles, $user->roles ) ) {
 		remove_submenu_page( 'themes.php', 'theme_options' );
 		remove_submenu_page( 'themes.php', 'themes.php' );
 	}
 }
-add_action('admin_menu', 'gesso_hide_fse_items');
+add_action( 'admin_menu', 'gesso_hide_fse_items' );
 
 /**
  * Register menu locations.
@@ -283,7 +312,7 @@ function gesso_register_menus() {
 	register_nav_menus(
 		array(
 			'primary-menu' => __( 'Primary Menu' ),
-			'secondary-menu' => __( 'Secondary Menu' )
+			'secondary-menu' => __( 'Secondary Menu' ),
 		)
 	);
 }
@@ -293,21 +322,21 @@ add_action( 'init', 'gesso_register_menus' );
  * Echo a Wordpress Menu Item into either a responsive format, (allowing collapse
  * to hamburger on mobile) or standard output (not used for WP core navigation block).
  *
- * @param string $theme_location The slug of the menu location assigned.
+ * @param string  $theme_location The slug of the menu location assigned.
+ * @param string  $menu_id The ID that shoudl be applied to the menu object.
  * @param boolean $responsive Should the menu collapse into a hamburger on mobile or not.
- * @param string $menu_id The ID that shoudl be applied to the menu object.
  */
-function gesso_render_menu( $theme_location, $menu_id = '', $responsive = false) {
+function gesso_render_menu( $theme_location, $menu_id = '', $responsive = false ) {
 	$class = 'menu';
 	if ( $responsive ) {
 		$class = 'menu--responsive';
-		echo '<span class="menu--responsive__hamburger" data-target="'.$menu_id.'">Menu</span>';
+		echo esc_html( '<span class="menu--responsive__hamburger" data-target="' . $menu_id . '">Menu</span>' );
 	}
 
 	$args = array(
 		'theme_location' => $theme_location,
-		'menu_class'=> $class,
-		'menu_id' => $menu_id
+		'menu_class' => $class,
+		'menu_id' => $menu_id,
 	);
 	wp_nav_menu( $args );
 }

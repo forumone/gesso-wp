@@ -9,6 +9,7 @@
  * editor, you can use the following reference as a starter guide.
  *
  * Creating a php based search page.
+ *
  * @link https://codex.wordpress.org/Creating_a_Search_Page
  *
  * Futher information about block template parts in traditional theme.

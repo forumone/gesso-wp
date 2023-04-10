@@ -4,7 +4,10 @@
  * Slug: gesso/factoid
  * Categories: text, columns, fact
  * Block Types: core/block-pattern/factoid
+ *
+ * @package Gesso
  */
+
 ?>
 <!-- wp:group {"backgroundColor":"brand-ocean-blue-light","layout":{"type":"constrained"}} -->
 <div class="wp-block-group has-brand-ocean-blue-light-background-color has-background"><!-- wp:columns -->

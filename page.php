@@ -9,6 +9,7 @@
  * editor, you can use the following reference as a starter guide.
  *
  * Creating a php based page.
+ *
  * @link https://developer.wordpress.org/themes/template-files-section/page-template-files/
  *
  * Futher information about block template parts in traditional theme.

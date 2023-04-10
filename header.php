@@ -19,6 +19,7 @@
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
  * @package Gesso
  */
+
 ?>
 <!doctype html>
 <html <?php language_attributes(); ?>>
@@ -42,7 +43,7 @@
 			if ( is_front_page() && is_home() ) :
 				?>
 				<h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
-			<?php
+				<?php
 			else :
 				?>
 				<p class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></p>
@@ -52,10 +53,11 @@
 		<!-- Reference Navigation -->
 		<nav id="site-navigation" class="main-navigation">
 			<?php
-			gesso_render_menu( 'primary-menu' , 'main-menu', true );
+			gesso_render_menu( 'primary-menu', 'main-menu', true );
 			?>
 		</nav><!-- #site-navigation -->
 
+		<?php echo esc_html( gesso_collabsible_search_module( 'header-search' ) ); ?>
 		<!-- Reference Collapsible Search -->
 	</header><!-- #masthead -->
 

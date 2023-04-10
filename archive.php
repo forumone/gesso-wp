@@ -9,6 +9,7 @@
  * editor, you can use the following reference as a starter guide.
  *
  * Creating a php based archive page.
+ *
  * @link https://developer.wordpress.org/themes/template-files-section/post-template-files/#archive-php
  *
  * Futher information about block template parts in traditional theme.
