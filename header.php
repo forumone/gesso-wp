@@ -57,7 +57,7 @@
 			?>
 		</nav><!-- #site-navigation -->
 
-		<?php echo esc_html( gesso_collabsible_search_module( 'header-search' ) ); ?>
+		<?php echo gesso_collabsible_search_module( 'header-search' ); ?>
 		<!-- Reference Collapsible Search -->
 	</header><!-- #masthead -->
 

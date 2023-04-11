@@ -348,7 +348,7 @@ function gesso_render_menu( $theme_location, $menu_id = '', $responsive = false 
 	$class = 'menu';
 	if ( $responsive ) {
 		$class = 'menu--responsive';
-		echo esc_html( '<span class="menu--responsive__hamburger" data-target="' . $menu_id . '">Menu</span>' );
+		echo '<span class="menu--responsive__hamburger" data-target="' . $menu_id . '">Menu</span>';
 	}
 
 	$args = array(
