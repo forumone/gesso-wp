@@ -23,9 +23,7 @@
 
 ?>
 
-<!-- Reference Footer logo to home -->
-<!-- Reference Navigation -->
-<!-- Reference Copyright -->
+<?php block_template_part( 'footer' ); ?>
 
 <?php wp_footer(); ?>
 

@@ -3,7 +3,7 @@
  * Title: Hero with Background Image
  * Slug: gesso/image-hero
  * Description: For use in templates. Automatically references the title & featured image.
- * Categories: gesso, theme
+ * Categories: theme
  */
 ?>
 <!-- wp:cover {"useFeaturedImage":true,"dimRatio":50,"isDark":false} -->
