@@ -37,4 +37,3 @@
 	<a class="skip-link screen-reader-text" href="#primary"><?php esc_html_e( 'Skip to content', 'gesso' ); ?></a>
 	<!-- Reference Header logo to home -->
 	<?php block_template_part( 'header' ); ?>
-
