@@ -77,6 +77,7 @@ function gesso_block_assets() {
 			'handle' => 'gesso-button',
 			'src' => get_theme_file_uri( 'build/css/button.css' ),
 			'path' => get_theme_file_path( 'build/css/button.css' ),
+			'ver' => filemtime( get_theme_file_path( 'build/css/button.css' ) ),
 		)
 	);
 	if ( function_exists( 'f1_block_library_register_blocks' ) ) {
@@ -86,6 +87,7 @@ function gesso_block_assets() {
 				'handle' => 'gesso-accordion',
 				'src' => get_theme_file_uri( 'build/css/accordion.css' ),
 				'path' => get_theme_file_path( 'build/css/accordion.css' ),
+				'ver' => filemtime( get_theme_file_path( 'build/css/accordion.css' ) ),
 			)
 		);
 		wp_enqueue_block_style(
@@ -94,6 +96,7 @@ function gesso_block_assets() {
 				'handle' => 'gesso-back-to-top',
 				'src' => get_theme_file_uri( 'build/css/back-to-top.css' ),
 				'path' => get_theme_file_path( 'build/css/back-to-top.css' ),
+				'ver' => filemtime( get_theme_file_path( 'build/css/back-to-top.css' ) ),
 			)
 		);
 		wp_enqueue_block_style(
@@ -102,6 +105,7 @@ function gesso_block_assets() {
 				'handle' => 'gesso-cards',
 				'src' => get_theme_file_uri( 'build/css/cards.css' ),
 				'path' => get_theme_file_path( 'build/css/cards.css' ),
+				'ver' => filemtime( get_theme_file_path( 'build/css/cards.css' ) ),
 			)
 		);
 		wp_enqueue_block_style(
@@ -110,6 +114,7 @@ function gesso_block_assets() {
 				'handle' => 'gesso-cards',
 				'src' => get_theme_file_uri( 'build/css/cards.css' ),
 				'path' => get_theme_file_path( 'build/css/cards.css' ),
+				'ver' => filemtime( get_theme_file_path( 'build/css/cards.css' ) ),
 			)
 		);
 		wp_enqueue_block_style(
@@ -118,6 +123,7 @@ function gesso_block_assets() {
 				'handle' => 'gesso-cards',
 				'src' => get_theme_file_uri( 'build/css/cards.css' ),
 				'path' => get_theme_file_path( 'build/css/cards.css' ),
+				'ver' => filemtime( get_theme_file_path( 'build/css/cards.css' ) ),
 			)
 		);
 		wp_enqueue_block_style(
@@ -126,6 +132,7 @@ function gesso_block_assets() {
 				'handle' => 'gesso-skiplinks',
 				'src' => get_theme_file_uri( 'build/css/skiplinks.css' ),
 				'path' => get_theme_file_path( 'build/css/skiplinks.css' ),
+				'ver' => filemtime( get_theme_file_path( 'build/css/skiplinks.css' ) ),
 			)
 		);
 		wp_enqueue_block_style(
@@ -134,6 +141,7 @@ function gesso_block_assets() {
 				'handle' => 'gesso-standalone-link',
 				'src' => get_theme_file_uri( 'build/css/standalone-link.css' ),
 				'path' => get_theme_file_path( 'build/css/standalone-link.css' ),
+				'ver' => filemtime( get_theme_file_path( 'build/css/standalone-link.css' ) ),
 			)
 		);
 		wp_enqueue_block_style(
@@ -141,6 +149,7 @@ function gesso_block_assets() {
 			array(
 				'handle' => 'gesso-slider',
 				'src' => get_theme_file_uri( 'build/css/slider.css' ),
+				'ver' => filemtime( get_theme_file_path( 'build/css/slider.css' ) ),
 			)
 		);
 	}
