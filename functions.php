@@ -207,27 +207,6 @@ function gesso_block_patterns() {
 			'label' => __( 'Gesso' ),
 		)
 	);
-	register_block_pattern(
-		'gesso/article',
-		array(
-			'title' => __( 'Article ' ),
-			'categories' => array( 'gesso' ),
-			'viewportWidth' => 700,
-			'content' => <<<EOT
-<!-- wp:group {"tagName":"article","className":"article","layout":{"inherit":true}} -->
-<article class="wp-block-group article"><!-- wp:post-title {"level":1,"className":"article__title"} /-->
-
-<!-- wp:group {"tagName":"footer","className":"article__footer","layout":{"type":"flex","allowOrientation":false,"flexWrap":"nowrap"}} -->
-<footer class="wp-block-group article__footer"><!-- wp:post-date /-->
-
-<!-- wp:post-author {"showAvatar":false,"showBio":false} /--></footer>
-<!-- /wp:group -->
-
-<!-- wp:post-content {"className":"article__content"} /--></article>
-<!-- /wp:group -->
-EOT,
-		)
-	);
 }
 add_action( 'init', 'gesso_block_patterns' );
 
