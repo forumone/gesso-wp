@@ -320,7 +320,7 @@ If you wish to leverage the Full Site Editor functionality, you can make the fol
 
 To leverage the Full Site Editor:
 1. Create a directory in the root of the gesso theme named 'templates'
-2. Copy all html files from within the 'parts' directory (with the exception of header.html and footer.html) and move them into your new 'templates' directory.
+2. Copy all html files from within the 'parts' directory (with the exception of header.html and footer.html) and move them into your new 'templates' directory. You will need to reference the header.html and footer.html parts within your html files now in the templates/ folder. You can do this in the UI.
 3. Create a new file called index.html and place it within the 'templates' directory.
 4. All PHP files corresponding to one within the 'templates' or 'parts' directories, located in theme root, can be deleted.
 5. Remove `add_theme_support('menus');` and `add_theme_support( 'block-template-parts' );` within functions.php
@@ -330,3 +330,8 @@ To leverage the Full Site Editor:
 ## Block Patterns
 
 Gesso now also supports the template structure to automatically pull in rendered [Block Patterns](https://developer.wordpress.org/block-editor/reference-guides/block-api/block-patterns/). When creating a Block Patter, you can store the markup and block definitions as individual files within the 'pattern' directory.
+
+
+## Custom Gutenberg Blocks
+
+When starting your new Wordpress project, you may have a need to register custom blocks for your site's theme. Prior to starting new, first take a look at the available blocks located within the [f1-block-library](https://github.com/forumone/f1-block-library). If the blocks thre do not suffice, the Forum One github repository allow contains a [starter block plugin](https://github.com/forumone/blocks-plugin-template) that you can install and use to house all custom blocks.

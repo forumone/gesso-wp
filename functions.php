@@ -221,6 +221,22 @@ function gesso_block_metadata_registration( $metadata ) {
 add_filter( 'block_type_metadata', 'gesso_block_metadata_registration' );
 
 /**
+ * Register block patterns custom to the Gesso theme.
+ *
+ * @return void
+ */
+function gesso_block_patterns() {
+	register_block_pattern_category(
+		'gesso',
+		array(
+			'label' => __( 'Gesso' ),
+		)
+	);
+}
+add_action( 'init', 'gesso_block_patterns' );
+
+/**
+
  * Render collapsible search block if contains the required class name.
  *
  * @param string        $block_content String contents of the block.
