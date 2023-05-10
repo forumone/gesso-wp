@@ -11,8 +11,12 @@
 if ( ! function_exists( 'gesso_theme_setup' ) ) :
 	/**
 	 * Initialize basic theme customizations for Gesso theme.
+	 *
+	 * @return void
 	 */
 	function gesso_theme_setup() {
+		// add support for WP menus.
+		add_theme_support( 'menus' );
 		// Support featured images.
 		add_theme_support( 'post-thumbnails' );
 		// Support wide alignment.
@@ -22,6 +26,8 @@ if ( ! function_exists( 'gesso_theme_setup' ) ) :
 		// Disable WordPress's block patterns.
 		// Comment out if you want to use them.
 		remove_theme_support( 'core-block-patterns' );
+		// Enable block template parts.
+		add_theme_support( 'block-template-parts' );
 
 		// Define featured image sizes.
 		add_image_size( 'large_cropped', 800, 600, true );
@@ -34,6 +40,8 @@ endif;
 
 /**
  * Enqueue and register required scripts and stylesheets for the Gesso theme.
+ *
+ * @return void
  */
 function gesso_theme_scripts() {
 	// Enqueue Google Fonts.
@@ -53,11 +61,14 @@ function gesso_theme_scripts() {
 	// Maybe in 6.0.
 	$search_script_asset_file = include 'build/js/search.asset.php';
 	wp_enqueue_script( 'gesso-search', get_stylesheet_directory_uri() . '/build/js/search.js', $search_script_asset_file['dependencies'], $search_script_asset_file['version'] );
+	wp_enqueue_script( 'responsive-menu', get_stylesheet_directory_uri() . '/build/js/responsiveMenu.es6.js', array(), '1.0', true );
 }
 add_action( 'wp_enqueue_scripts', 'gesso_theme_scripts' );
 
 /**
  * Register block styles custom to Gesso theme.
+ *
+ * @return void
  */
 function gesso_block_assets() {
 	wp_enqueue_block_style(
@@ -66,6 +77,7 @@ function gesso_block_assets() {
 			'handle' => 'gesso-button',
 			'src' => get_theme_file_uri( 'build/css/button.css' ),
 			'path' => get_theme_file_path( 'build/css/button.css' ),
+			'ver' => filemtime( get_theme_file_path( 'build/css/button.css' ) ),
 		)
 	);
 	if ( function_exists( 'f1_block_library_register_blocks' ) ) {
@@ -75,6 +87,7 @@ function gesso_block_assets() {
 				'handle' => 'gesso-accordion',
 				'src' => get_theme_file_uri( 'build/css/accordion.css' ),
 				'path' => get_theme_file_path( 'build/css/accordion.css' ),
+				'ver' => filemtime( get_theme_file_path( 'build/css/accordion.css' ) ),
 			)
 		);
 		wp_enqueue_block_style(
@@ -83,6 +96,7 @@ function gesso_block_assets() {
 				'handle' => 'gesso-back-to-top',
 				'src' => get_theme_file_uri( 'build/css/back-to-top.css' ),
 				'path' => get_theme_file_path( 'build/css/back-to-top.css' ),
+				'ver' => filemtime( get_theme_file_path( 'build/css/back-to-top.css' ) ),
 			)
 		);
 		wp_enqueue_block_style(
@@ -91,6 +105,7 @@ function gesso_block_assets() {
 				'handle' => 'gesso-cards',
 				'src' => get_theme_file_uri( 'build/css/cards.css' ),
 				'path' => get_theme_file_path( 'build/css/cards.css' ),
+				'ver' => filemtime( get_theme_file_path( 'build/css/cards.css' ) ),
 			)
 		);
 		wp_enqueue_block_style(
@@ -99,6 +114,7 @@ function gesso_block_assets() {
 				'handle' => 'gesso-cards',
 				'src' => get_theme_file_uri( 'build/css/cards.css' ),
 				'path' => get_theme_file_path( 'build/css/cards.css' ),
+				'ver' => filemtime( get_theme_file_path( 'build/css/cards.css' ) ),
 			)
 		);
 		wp_enqueue_block_style(
@@ -107,6 +123,7 @@ function gesso_block_assets() {
 				'handle' => 'gesso-cards',
 				'src' => get_theme_file_uri( 'build/css/cards.css' ),
 				'path' => get_theme_file_path( 'build/css/cards.css' ),
+				'ver' => filemtime( get_theme_file_path( 'build/css/cards.css' ) ),
 			)
 		);
 		wp_enqueue_block_style(
@@ -115,6 +132,7 @@ function gesso_block_assets() {
 				'handle' => 'gesso-skiplinks',
 				'src' => get_theme_file_uri( 'build/css/skiplinks.css' ),
 				'path' => get_theme_file_path( 'build/css/skiplinks.css' ),
+				'ver' => filemtime( get_theme_file_path( 'build/css/skiplinks.css' ) ),
 			)
 		);
 		wp_enqueue_block_style(
@@ -123,6 +141,7 @@ function gesso_block_assets() {
 				'handle' => 'gesso-standalone-link',
 				'src' => get_theme_file_uri( 'build/css/standalone-link.css' ),
 				'path' => get_theme_file_path( 'build/css/standalone-link.css' ),
+				'ver' => filemtime( get_theme_file_path( 'build/css/standalone-link.css' ) ),
 			)
 		);
 		wp_enqueue_block_style(
@@ -130,6 +149,7 @@ function gesso_block_assets() {
 			array(
 				'handle' => 'gesso-slider',
 				'src' => get_theme_file_uri( 'build/css/slider.css' ),
+				'ver' => filemtime( get_theme_file_path( 'build/css/slider.css' ) ),
 			)
 		);
 	}
@@ -163,16 +183,19 @@ add_filter( 'style_loader_tag', 'gesso_google_font_enqueued_styles', 10, 4 );
 
 /**
  * Enqueue Wordpress editor specific scripts.
+ *
+ * @return void
  */
 function gesso_editor_scripts() {
 	$script_asset_file = include 'build/js/editor-scripts.asset.php';
 	wp_enqueue_script( 'editor-script', get_stylesheet_directory_uri() . '/build/js/editor-scripts.js', array_merge( $script_asset_file['dependencies'], array( 'wp-edit-post' ) ), $script_asset_file['version'] );
-
 }
 add_action( 'enqueue_block_editor_assets', 'gesso_editor_scripts' );
 
 /**
  * Enqueue Wordpress editor specific styles.
+ *
+ * @return void
  */
 function gesso_editor_styles() {
 	add_editor_style( 'https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600;1,700&display=swap' );
@@ -183,8 +206,8 @@ add_action( 'admin_init', 'gesso_editor_styles' );
 /**
  * Customizes meta data for Wordpress blocks.
  *
- * @param array $metadata Array of Wordpress block data.
- * @return mixed
+ * @param array<mixed> $metadata Array of Wordpress block data.
+ * @return array<mixed>
  */
 function gesso_block_metadata_registration( $metadata ) {
 	if ( 'core/button' === $metadata['name'] ) {
@@ -199,6 +222,8 @@ add_filter( 'block_type_metadata', 'gesso_block_metadata_registration' );
 
 /**
  * Register block patterns custom to the Gesso theme.
+ *
+ * @return void
  */
 function gesso_block_patterns() {
 	register_block_pattern_category(
@@ -207,35 +232,15 @@ function gesso_block_patterns() {
 			'label' => __( 'Gesso' ),
 		)
 	);
-	register_block_pattern(
-		'gesso/article',
-		array(
-			'title' => __( 'Article ' ),
-			'categories' => array( 'gesso' ),
-			'viewportWidth' => 700,
-			'content' => <<<EOT
-<!-- wp:group {"tagName":"article","className":"article","layout":{"inherit":true}} -->
-<article class="wp-block-group article"><!-- wp:post-title {"level":1,"className":"article__title"} /-->
-
-<!-- wp:group {"tagName":"footer","className":"article__footer","layout":{"type":"flex","allowOrientation":false,"flexWrap":"nowrap"}} -->
-<footer class="wp-block-group article__footer"><!-- wp:post-date /-->
-
-<!-- wp:post-author {"showAvatar":false,"showBio":false} /--></footer>
-<!-- /wp:group -->
-
-<!-- wp:post-content {"className":"article__content"} /--></article>
-<!-- /wp:group -->
-EOT,
-		)
-	);
 }
 add_action( 'init', 'gesso_block_patterns' );
 
 /**
+
  * Render collapsible search block if contains the required class name.
  *
- * @param string $block_content String contents of the block.
- * @param array  $block          Array containing search block-specific details.
+ * @param string        $block_content String contents of the block.
+ * @param array<object> $block          Array containing search block-specific details.
  * @return string
  */
 function gesso_collapsed_search( $block_content, $block ) {
@@ -255,3 +260,34 @@ function gesso_collapsed_search( $block_content, $block ) {
 	return $block_content;
 }
 add_filter( 'render_block_core/search', 'gesso_collapsed_search', 10, 2 );
+
+/**
+ * Adding this in hides the theme options unless you are an admin.
+ *
+ * @return void
+ */
+function gesso_hide_fse_items() {
+	$user = wp_get_current_user();
+	$allowed_roles = array( 'administrator' );
+
+	if ( is_admin() && ! array_intersect( $allowed_roles, $user->roles ) ) {
+		remove_submenu_page( 'themes.php', 'theme_options' );
+		remove_submenu_page( 'themes.php', 'themes.php' );
+	}
+}
+add_action( 'admin_menu', 'gesso_hide_fse_items' );
+
+/**
+ * Register menu locations.
+ *
+ * @return void
+ */
+function gesso_register_menus() {
+	register_nav_menus(
+		array(
+			'primary-menu' => __( 'Primary Menu' ),
+			'secondary-menu' => __( 'Secondary Menu' ),
+		)
+	);
+}
+add_action( 'init', 'gesso_register_menus' );

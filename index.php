@@ -11,3 +11,5 @@
  *
  * @package Gesso
  */
+
+// Silence is golden.
