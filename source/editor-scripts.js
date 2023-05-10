@@ -7,8 +7,6 @@ import {
 import { __ } from '@wordpress/i18n';
 import { createHigherOrderComponent } from '@wordpress/compose';
 import { addFilter } from '@wordpress/hooks';
-import classnames from 'classnames';
-import { assign } from 'lodash';
 
 domReady(() => {
 	// BUTTONS
@@ -34,16 +32,6 @@ domReady(() => {
 	registerBlockStyle('core/search', {
 		name: 'collapsed',
 		label: __('Collapsed'),
-	});
-
-	// TEXT
-	registerBlockStyle('core/paragraph', {
-		name: 'no-max-width',
-		label: __('No Max Width'),
-	});
-	registerBlockStyle('core/heading', {
-		name: 'no-max-width',
-		label: __('No Max Width'),
 	});
 
 	// CARDS
@@ -97,78 +85,4 @@ domReady(() => {
 		};
 	}, 'withSearchIcon');
 	addFilter('editor.BlockEdit', 'gesso/with-search-icon', withSearchIcon);
-
-	const shouldNotHaveNarrowConstrain = (blockType, props) => {
-		return (
-			props?.className &&
-			props?.className.includes('is-style-no-max-width')
-		);
-	};
-
-	const addNarrowConstrainClasses = (props) =>
-		assign(props, {
-			className: classnames(
-				props?.className || '',
-				'l-constrain',
-				'l-constrain--small'
-			),
-		});
-
-	const removeNarrowConstrainClass = (props) => {
-		if (!props?.className) return props;
-		return assign(props, {
-			className: props?.className
-				.replace('l-constrain--small', '')
-				.replace('l-constrain', ''),
-		});
-	};
-
-	const withNarrowConstrain = createHigherOrderComponent((BlockListBlock) => {
-		return (props) => {
-			let newAttributes;
-			if (
-				!props.name ||
-				!['core/paragraph', 'core/heading'].includes(props.name)
-			) {
-				newAttributes = props.attributes;
-			} else if (shouldNotHaveNarrowConstrain(props, props.attributes)) {
-				newAttributes = removeNarrowConstrainClass(props.attributes);
-			} else if (
-				props.attributes.className &&
-				props.attributes.className.includes('l-constrain')
-			) {
-				newAttributes = props.attributes;
-			} else {
-				newAttributes = addNarrowConstrainClasses(props.attributes);
-			}
-			const newProps = assign(props, {
-				attributes: newAttributes,
-			});
-			return <BlockListBlock {...newProps} />;
-		};
-	}, 'withNarrowConstrain');
-	addFilter(
-		'editor.BlockListBlock',
-		'gesso/with-narrow-constrain',
-		withNarrowConstrain
-	);
-
-	const addNarrowConstrain = (props, blockType) => {
-		if (
-			!props.name ||
-			!['core/paragraph', 'core/heading'].includes(props.name) ||
-			shouldNotHaveNarrowConstrain(blockType, props)
-		) {
-			return props;
-		}
-		if (props.className && props.className.includes('l-constrain')) {
-			return props;
-		}
-		return addNarrowConstrainClasses(props);
-	};
-	addFilter(
-		'blocks.getSaveContent.extraProps',
-		'gesso/add-narrow-constrain',
-		addNarrowConstrain
-	);
 });

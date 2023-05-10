@@ -1,0 +1,104 @@
+// Utility: Responsive Menus
+// Used for creating responsive mobile to desktop menu experiences.
+@use '00-config' as *;
+
+.menu--responsive {
+  @include break-medium {
+    display: block;
+  }
+  display: none;
+  &.open {
+    display: block;
+  }
+
+  > .menu-item {
+    display: inline-block;
+    position: relative;
+
+    > a {
+      background-color: transparent;
+      border: 0;
+      display: inline-block;
+      font-weight: gesso-font-weight(semibold);
+      margin-right: gesso-spacing(5);
+      padding: 0;
+      position: relative;
+      text-decoration: none;
+      text-transform: uppercase;
+
+      &.menu-item-has-children {
+        padding-right: 25px;
+      }
+    }
+  }
+
+  > .menu-item-has-children {
+    position: relative;
+
+    &::after {
+      @include image-replace(16px, 16px);
+      @include svg-background(chevron-right);
+      background-size: 16px 16px;
+      content: '';
+      display: inline-block;
+      transform: rotate(90deg);
+      vertical-align: middle;
+    }
+
+    &:hover {
+      > .sub-menu {
+        display: block;
+      }
+    }
+  }
+
+  .sub-menu {
+    background-color: gesso-grayscale(white);
+    display: none;
+    left: 0;
+    margin: rem(gesso-spacing(1)) 0 0;
+    padding: 0;
+    position: absolute;
+    top: 0;
+
+    .menu-item {
+      display: block;
+      line-height: gesso-line-height(base);
+      padding: rem(gesso-spacing(2)) rem(gesso-spacing(3));
+      position: relative;
+      text-decoration: none;
+      width: rem(200px);
+
+      &:hover,
+      &:focus {
+        background-color: gesso-grayscale(gray-1);
+      }
+
+      &.menu-item-has-children {
+        &:hover {
+          .sub-menu {
+            display: block;
+          }
+        }
+
+        &::after {
+          @include image-replace(16px, 16px);
+          @include svg-background(chevron-right);
+          background-size: 16px 16px;
+          content: '';
+          display: inline-block;
+          vertical-align: middle;
+        }
+      }
+    }
+  }
+
+  &__hamburger {
+    @include break-medium {
+      display: none;
+    }
+    cursor: pointer;
+    display: block;
+    position: relative;
+  }
+}

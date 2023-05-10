@@ -1,5 +1,5 @@
 function cleanString(stringToClean) {
-  return stringToClean.toLowerCase().replace(' ', '-');
+	return stringToClean.toLowerCase().replace(' ', '-');
 }
 
 export default cleanString;

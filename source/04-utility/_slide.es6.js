@@ -9,8 +9,8 @@
  * Slides target element up and out view.
  *
  * @name slideUp
- * @param {HTMLElement} target - The element sliding up.
- * @param {integer} duration - The duration of the animation, with default value 500.
+ * @param {HTMLElement} target   - The element sliding up.
+ * @param {number?}     duration - The duration of the animation, with default value 500.
  */
 export const slideUp = (target, duration = 500) => {
   target.style.height = `${target.offsetHeight}px`;
@@ -36,7 +36,9 @@ export const slideUp = (target, duration = 500) => {
         target.style.removeProperty('transition-duration');
         target.style.removeProperty('transition-property');
         target.removeEventListener('transitionend', hideTarget);
-        const event = new CustomEvent('finishslider', { detail: target });
+        const event = new CustomEvent('finishslider', { // eslint-disable-line
+          detail: target,
+        });
         target.dispatchEvent(event);
       }
       target.addEventListener('transitionend', hideTarget);
@@ -49,14 +51,14 @@ export const slideUp = (target, duration = 500) => {
  * Slides target element down and into view.
  *
  * @name slideDown
- * @param {HTMLElement} target - The element sliding down.
- * @param {integer} duration - The duration of the animation, with default value 500.
+ * @param {HTMLElement} target   - The element sliding down.
+ * @param {number?}     duration - The duration of the animation, with default value 500.
  */
 export const slideDown = (target, duration = 500) => {
   let height;
   target.style.removeProperty('display');
   window.requestAnimationFrame(() => {
-    let {display} = window.getComputedStyle(target);
+    let { display } = window.getComputedStyle(target);
     if (display === 'none') {
       display = 'block';
     }
@@ -83,7 +85,9 @@ export const slideDown = (target, duration = 500) => {
         target.style.removeProperty('transition-duration');
         target.style.removeProperty('transition-property');
         target.removeEventListener('transitionend', showTarget);
-        const event = new CustomEvent('finishslider', { detail: target });
+        const event = new CustomEvent('finishslider', { // eslint-disable-line
+          detail: target,
+        });
         target.dispatchEvent(event);
       }
       target.style.height = `${height}px`;
@@ -96,8 +100,8 @@ export const slideDown = (target, duration = 500) => {
  * Toggle slides target element in and out of view.
  *
  * @name slideToggle
- * @param {HTMLElement} target - The element to toggle.
- * @param {integer} duration - The duration of the animation, with default value 500.
+ * @param {HTMLElement} target   - The element to toggle.
+ * @param {number?}     duration - The duration of the animation, with default value 500.
  */
 export const slideToggle = (target, duration = 500) => {
   if (!target.dataset.isSliding) {

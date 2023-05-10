@@ -5,7 +5,10 @@
  * Categories: gesso
  * Description: A starting pattern for article content
  * Block Types: core/post-title, core/group, core/post-date, core/post-author, core/post-content
+ *
+ * @package gesso
  */
+
 ?>
 
 <!-- wp:group {"tagName":"article","className":"article","layout":{"inherit":true}} -->
