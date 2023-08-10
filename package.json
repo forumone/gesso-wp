@@ -67,7 +67,8 @@
     "build": "gulp build",
     "eslint": "eslint -c .eslintrc.js \"**/*.es6.js\"",
     "eslint:dev": "eslint -c .eslintrc-dev.js \"**/*.es6.js\"",
-    "stylelint": "stylelint -f verbose \"source/**/*.scss\" --ip \"source/**/*.artifact.scss\""
+    "stylelint": "stylelint -f verbose \"source/**/*.scss\" --ip \"source/**/*.artifact.scss\"",
+    "watch": "gulp"
   },
   "dependencies": {
     "custom-event-polyfill": "^1.0.7",
