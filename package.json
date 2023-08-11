@@ -1,6 +1,6 @@
 {
   "name": "gesso-wp",
-  "version": "4.7.9",
+  "version": "4.7.10",
   "description": "A WordPress theme.",
   "bugs": "https://github.com/forumone/gesso-wp/issues",
   "repository": {
@@ -67,7 +67,8 @@
     "build": "gulp build",
     "eslint": "eslint -c .eslintrc.js \"**/*.es6.js\"",
     "eslint:dev": "eslint -c .eslintrc-dev.js \"**/*.es6.js\"",
-    "stylelint": "stylelint -f verbose \"source/**/*.scss\" --ip \"source/**/*.artifact.scss\""
+    "stylelint": "stylelint -f verbose \"source/**/*.scss\" --ip \"source/**/*.artifact.scss\"",
+    "watch": "gulp"
   },
   "dependencies": {
     "custom-event-polyfill": "^1.0.7",
