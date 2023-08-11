@@ -1,6 +1,6 @@
 {
   "name": "gesso-wp",
-  "version": "5.2.0",
+  "version": "5.2.1",
   "description": "Gesso starter theme",
   "main": "style.css",
   "scripts": {
@@ -9,7 +9,8 @@
     "dev": "npm run start && concurrently --raw \"webpack watch --config ./webpack.dev.js\" \"webpack watch --config ./webpack.theme-config.js\"",
     "rename": "node lib/rename.js",
     "eslint": "eslint -c .eslintrc.js \"**/*.es6.js\"",
-    "stylelint": "stylelint \"source/**/*.scss\""
+    "stylelint": "stylelint \"source/**/*.scss\"",
+    "watch": "npm run dev"
   },
   "bugs": "https://github.com/forumone/gesso-wp/issues",
   "repository": {
