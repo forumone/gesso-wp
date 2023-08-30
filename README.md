@@ -334,4 +334,4 @@ Gesso now also supports the template structure to automatically pull in rendered
 
 ## Custom Gutenberg Blocks
 
-When starting your new Wordpress project, you may have a need to register custom blocks for your site's theme. Prior to starting new, first take a look at the available blocks located within the [f1-block-library](https://github.com/forumone/f1-block-library). If the blocks thre do not suffice, the Forum One github repository allow contains a [starter block plugin](https://github.com/forumone/blocks-plugin-template) that you can install and use to house all custom blocks.
+When starting your new Wordpress project, you may have a need to register custom blocks for your site's theme. Prior to starting new, first take a look at the available blocks located within the [f1-block-library](https://github.com/forumone/f1-block-library). If the blocks there do not suffice, the Forum One github repository also contains a [starter block plugin](https://github.com/forumone/blocks-plugin-template) that you can install and use to house all custom blocks.
