@@ -28,6 +28,8 @@ if ( ! function_exists( 'gesso_theme_setup' ) ) :
 		remove_theme_support( 'core-block-patterns' );
 		// Enable block template parts.
 		add_theme_support( 'block-template-parts' );
+		// Enable responsive embeds.
+		add_theme_support( 'responsive-embeds' );
 
 		// Define featured image sizes.
 		add_image_size( 'large_cropped', 800, 600, true );
