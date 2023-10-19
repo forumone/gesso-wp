@@ -30,6 +30,8 @@ if ( ! function_exists( 'gesso_theme_setup' ) ) :
 		add_theme_support( 'block-template-parts' );
 		// Enable responsive embeds.
 		add_theme_support( 'responsive-embeds' );
+		// Auto-output the page's title tag in the header.
+		add_theme_support( 'title-tag' );
 
 		// Define featured image sizes.
 		add_image_size( 'large_cropped', 800, 600, true );
