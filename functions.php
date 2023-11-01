@@ -28,6 +28,10 @@ if ( ! function_exists( 'gesso_theme_setup' ) ) :
 		remove_theme_support( 'core-block-patterns' );
 		// Enable block template parts.
 		add_theme_support( 'block-template-parts' );
+		// Enable responsive embeds.
+		add_theme_support( 'responsive-embeds' );
+		// Auto-output the page's title tag in the header.
+		add_theme_support( 'title-tag' );
 
 		// Define featured image sizes.
 		add_image_size( 'large_cropped', 800, 600, true );
@@ -199,7 +203,7 @@ add_action( 'enqueue_block_editor_assets', 'gesso_editor_scripts' );
  */
 function gesso_editor_styles() {
 	add_editor_style( 'https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600;1,700&display=swap' );
-	add_editor_style( get_stylesheet_directory_uri() . '/build/css/editor-styles.css' );
+	add_editor_style( './build/css/editor-styles.css' );
 }
 add_action( 'admin_init', 'gesso_editor_styles' );
 
