@@ -203,7 +203,7 @@ add_action( 'enqueue_block_editor_assets', 'gesso_editor_scripts' );
  */
 function gesso_editor_styles() {
 	add_editor_style( 'https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600;1,700&display=swap' );
-	add_editor_style( get_stylesheet_directory_uri() . '/build/css/editor-styles.css' );
+	add_editor_style( './build/css/editor-styles.css' );
 }
 add_action( 'admin_init', 'gesso_editor_styles' );
 
