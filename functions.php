@@ -80,7 +80,6 @@ function gesso_block_assets() {
 		array(
 			'handle' => 'gesso-button',
 			'src' => get_theme_file_uri( 'build/css/button.css' ),
-			'path' => get_theme_file_path( 'build/css/button.css' ),
 			'ver' => filemtime( get_theme_file_path( 'build/css/button.css' ) ),
 		)
 	);
@@ -90,7 +89,6 @@ function gesso_block_assets() {
 			array(
 				'handle' => 'gesso-accordion',
 				'src' => get_theme_file_uri( 'build/css/accordion.css' ),
-				'path' => get_theme_file_path( 'build/css/accordion.css' ),
 				'ver' => filemtime( get_theme_file_path( 'build/css/accordion.css' ) ),
 			)
 		);
@@ -99,7 +97,6 @@ function gesso_block_assets() {
 			array(
 				'handle' => 'gesso-back-to-top',
 				'src' => get_theme_file_uri( 'build/css/back-to-top.css' ),
-				'path' => get_theme_file_path( 'build/css/back-to-top.css' ),
 				'ver' => filemtime( get_theme_file_path( 'build/css/back-to-top.css' ) ),
 			)
 		);
@@ -108,7 +105,6 @@ function gesso_block_assets() {
 			array(
 				'handle' => 'gesso-cards',
 				'src' => get_theme_file_uri( 'build/css/cards.css' ),
-				'path' => get_theme_file_path( 'build/css/cards.css' ),
 				'ver' => filemtime( get_theme_file_path( 'build/css/cards.css' ) ),
 			)
 		);
@@ -117,7 +113,6 @@ function gesso_block_assets() {
 			array(
 				'handle' => 'gesso-cards',
 				'src' => get_theme_file_uri( 'build/css/cards.css' ),
-				'path' => get_theme_file_path( 'build/css/cards.css' ),
 				'ver' => filemtime( get_theme_file_path( 'build/css/cards.css' ) ),
 			)
 		);
@@ -126,7 +121,6 @@ function gesso_block_assets() {
 			array(
 				'handle' => 'gesso-cards',
 				'src' => get_theme_file_uri( 'build/css/cards.css' ),
-				'path' => get_theme_file_path( 'build/css/cards.css' ),
 				'ver' => filemtime( get_theme_file_path( 'build/css/cards.css' ) ),
 			)
 		);
@@ -135,7 +129,6 @@ function gesso_block_assets() {
 			array(
 				'handle' => 'gesso-skiplinks',
 				'src' => get_theme_file_uri( 'build/css/skiplinks.css' ),
-				'path' => get_theme_file_path( 'build/css/skiplinks.css' ),
 				'ver' => filemtime( get_theme_file_path( 'build/css/skiplinks.css' ) ),
 			)
 		);
@@ -144,7 +137,6 @@ function gesso_block_assets() {
 			array(
 				'handle' => 'gesso-standalone-link',
 				'src' => get_theme_file_uri( 'build/css/standalone-link.css' ),
-				'path' => get_theme_file_path( 'build/css/standalone-link.css' ),
 				'ver' => filemtime( get_theme_file_path( 'build/css/standalone-link.css' ) ),
 			)
 		);
