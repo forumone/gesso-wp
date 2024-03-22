@@ -228,13 +228,13 @@ value, if available. If there is no fallback value, the token will be omitted
 from the JavaScript objects. In general, if you want to share a value between
 CSS and JavaScript, you should use simple strings or numbers.
 
-### Width Based Media Queries
+### Viewport width-based media queries
 
 Gesso uses custom mixins to specify viewport width based media queries:
 
--   `breakpoint`: min-width queries
--   `breakpoint-max`: max-width queries
--   `breakpoint-min-max`: queries with both a min and max width
+- `breakpoint`: min-width queries
+- `breakpoint-max`: max-width queries
+- `breakpoint-min-max`: queries with both a min and max width
 
 Each mixin takes one or two
 width parameters, which can be a straight value (e.g., 800px, 40em) or a design
@@ -308,6 +308,83 @@ examples:
 }
 
 @include breakpoint-min-max($break-small, $break-medium, true) {
+  display: block;
+}
+```
+
+### Container queries
+
+Gesso uses custom mixins to specify container queries:
+
+- `container-query`: min-width container queries
+- `container-query-max`: max-width container queries
+- `container-query-min-max`: container queries with both a min and max width
+
+Each mixin takes one or two width parameters, which can be a straight value
+(e.g., 800px, 40em) or a design token value called using the `gesso-breakpoint`
+function (e.g., `gesso-breakpoint(tablet-lg)`). The `container-max` and
+`container-min-max` mixins can also take an optional parameter to subtract one
+pixel from the max-width value, which can be useful when you want your query to
+go up to the value but not to include it, such as when using Gesso breakpoint
+token values.
+
+In order for container queries to work, you need to set a containment context
+on a parent element.
+
+```scss
+container-type: inline-size;
+```
+
+```scss
+container: container-name / inline-size;
+```
+
+#### `@include container-query($width) { // styles }`
+
+Output a min-width based media query.
+
+```scss
+@include container-query(800px) {
+  display: flex;
+}
+
+@include container-query($break-xlarge) {
+  display: none;
+}
+```
+
+#### `@include container-query-max($width, $subtract_1_from_max) { // styles }`
+
+Output a max-width based container query. The optional `$subtract_1_from_max`
+parameter will subtract 1px from the width value if set to `true` (default:
+`false`).
+
+```scss
+@include container-query-max(900px) {
+  display: block;
+}
+
+@include container-query-max($break-small, true) {
+  display: none;
+}
+```
+
+#### `@include container-query-min-max($min-width, $max-width, $subtract_1_from_max) { // styles }`
+
+Output a container query with both a min-width and max-width. The optional
+$subtract_1_from_max parameter will subtract 1px from the max-width value if
+set to `true` (default: `false`).
+
+```scss
+@include container-query-min-max(400px, 700px) {
+  display: flex;
+}
+
+@include container-query-min-max(
+  $break-small,
+  $break-xlarge,
+  true
+) {
   display: block;
 }
 ```
