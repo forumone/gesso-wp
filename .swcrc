@@ -1,0 +1,17 @@
+[
+	{
+		"test": ".*\\.jsx?$",
+		"env": {
+			"mode": "usage",
+			"loose": true,
+			"corejs": "3"
+		},
+		"jsc": {
+			"loose": true,
+			"parser": {
+				"syntax": "ecmascript",
+				"jsx": true
+			}
+		}
+	}
+]
