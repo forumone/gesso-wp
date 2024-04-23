@@ -4,12 +4,12 @@
 // Partial matching is used here because each container has
 // a unique class.
 [class*='wp-container-'] > *:not(.alignfull) {
-	padding-left: gesso-site-margins('mobile');
-	padding-right: gesso-site-margins('mobile');
+	padding-left: var(--wp--preset--spacing--4);
+	padding-right: var(--wp--preset--spacing--4);
 
-	@include breakpoint(gesso-breakpoint($break-xlarge)) {
-		padding-left: gesso-site-margins('desktop');
-		padding-right: gesso-site-margins('desktop');
+	@include break-wide {
+		padding-left: calc(var(--wp--preset--spacing--4) * 2);
+		padding-right: calc(var(--wp--preset--spacing--4) * 2);
 	}
 }
 

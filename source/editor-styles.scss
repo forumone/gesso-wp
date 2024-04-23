@@ -9,7 +9,7 @@
 @use 'shame';
 
 body {
-	font-size: gesso-base-font-size();
+	font-size: var(--wp--preset--font-size--4);
 }
 
 :where(.wp-block-group.has-background) {

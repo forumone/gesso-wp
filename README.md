@@ -27,13 +27,6 @@ will not be working on the theme itself):
 
 ## Configuration
 
-### Design tokens
-
-Gesso uses a configuration file `source/00-config/config.design-tokens.yml`
-to manage the theme’s design tokens and automatically generate both the global sass map for styling
-and the theme.json file. The dev script will monitor changes in the config and
-rebuild all necessary assets. To rebuild the theme assets a single time run `npm run build`.
-
 ### theme.json
 
 Gesso's [theme.json](https://developer.wordpress.org/block-editor/how-to-guides/themes/theme-json/) file

@@ -4,10 +4,10 @@
 
 %hN {
 	color: inherit;
-	font-weight: gesso-font-weight(bold);
+	font-weight: 700;
 	hyphens: none;
-	line-height: gesso-line-height(base);
-	margin: 0 0 rem(gesso-spacing(2));
+	line-height: var(--wp--custom--line-height--base);
+	margin: 0 0 var(--wp--preset--spacing--4);
 	text-rendering: optimizelegibility;
 
 	@media print {
@@ -27,47 +27,12 @@
 }
 
 h1,
-%h1 {
-	@extend %hN;
-	@include display-text-style(h1);
-}
-
-h2,
-%h2 {
-	@extend %hN;
-	@include display-text-style(h2);
-}
-
-h3,
-%h3 {
-	@extend %hN;
-	@include display-text-style(h3);
-}
-
-h4,
-%h4 {
-	@extend %hN;
-	@include display-text-style(h4);
-}
-
-h5,
-%h5 {
-	@extend %hN;
-	@include display-text-style(h5);
-}
-
-h6,
-%h6 {
-	@extend %hN;
-	@include display-text-style(h6);
-}
-
-h1,
 h2,
 h3,
 h4,
 h5,
 h6 {
+	@extend %hN;
 	// Remove top margin for adjacent subheadings.
 	& + & {
 		margin-top: 0;

@@ -12,13 +12,13 @@
 :is(.l-constrain--small, [class*='wp-container-']
 		> .l-constrain--small, .block-editor-block-list__layout.is-root-container
 		> .l-constrain--small) {
-	max-width: rem(gesso-constrain(sm));
+	max-width: rem(--wp--custom--constrain--sm);
 }
 
 :is(.l-constrain--large, [class*='wp-container-']
 		> .l-constrain--large, .block-editor-block-list__layout.is-root-container
 		> .l-constrain--large) {
-	max-width: rem(gesso-constrain(lg));
+	max-width: rem(--wp--custom--constrain--lg);
 }
 
 .l-constrain--no-padding {

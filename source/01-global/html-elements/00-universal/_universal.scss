@@ -4,10 +4,10 @@
 
 // Uncomment to add a set of default transitions to all elements
 // * {
-//   transition-duration: gesso-duration(short);
+//   transition-duration: var(--wp--custom--transitions--duration-short);
 //   transition-property: background-color, border-color, box-shadow, color,
 //     opacity, text-shadow, transform;
-//   transition-timing-function: gesso-easing(ease-in);
+//   transition-timing-function: var(--wp--custom--transitions--ease-in);
 // }
 
 *,
@@ -26,4 +26,17 @@
   @page {
     margin: 2cm;
   }
+}
+
+// stylelint-disable-next-line selector-no-vendor-prefix
+::-moz-selection {
+  background: var(--wp--preset--color--brand-blue-base);
+  color: var(--wp--preset--color--grayscale-white);
+  text-shadow: none;
+}
+
+::selection {
+  background: var(--wp--preset--color--brand-blue-base);
+  color: var(--wp--preset--color--grayscale-white);
+  text-shadow: none;
 }

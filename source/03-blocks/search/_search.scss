@@ -6,7 +6,7 @@
 
 	@include break-small {
 		position: relative;
-		z-index: gesso-z-index(nav);
+		z-index: var(--wp--custom--z-index--nav);
 	}
 }
 
@@ -18,24 +18,24 @@
 		background-color: transparent;
 		border: 0;
 		border-radius: 0;
-		color: gesso-color(text, link);
+		color: var(--wp--preset--color--brand-blue-base);
 		cursor: pointer;
 		display: inline-block;
 		padding: 0;
 
 		svg {
-			height: rem(24);
-			width: rem(24);
+			height: rem(24px);
+			width: rem(24px);
 		}
 	}
 }
 
 .collapsed-search__content {
 	@include break-small {
-		background-color: gesso-color(ui, generic, background);
+		background-color: var(--wp--preset--color--grayscale-gray-3);
 		display: none;
 		left: var(--search-content-left);
-		padding: rem(gesso-spacing(2));
+		padding: var(--wp--preset--spacing--4);
 		position: absolute;
 		top: 100%;
 		width: var(--search-content-width);
@@ -43,7 +43,7 @@
 		.has-open-search & {
 			display: flex;
 			justify-content: flex-end;
-			z-index: gesso-z-index(nav);
+			z-index: var(--wp--custom--z-index--nav);
 		}
 	}
 }

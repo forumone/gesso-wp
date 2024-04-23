@@ -6,7 +6,7 @@
     gap: 0;
 
     > * {
-      border-right: 1px solid gesso-color(ui, generic, border);
+      border-right: 1px solid var(--wp--preset--color--grayscale-gray-3);
       margin-right: 0.75em;
       padding-right: 0.75em;
 

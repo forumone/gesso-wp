@@ -5,30 +5,18 @@
 
 $button-border-width: 0 !default;
 $button-border-radius: 0 !default;
-$button-background-color: gesso-color(button, primary, background) !default;
-$button-background-color-active: gesso-color(
-  button,
-  primary,
-  background-active
-) !default;
-$button-background-color-disabled: gesso-color(
-  button,
-  disabled,
-  background
-) !default;
-$button-background-color-hover: gesso-color(
-  button,
-  primary,
-  background-hover
-) !default;
-$button-border-color: gesso-color(button, primary, border) !default;
-$button-border-color-hover: gesso-color(button, primary, border-hover) !default;
-$button-border-color-disabled: gesso-color(button, disabled, border) !default;
-$button-text-color: gesso-color(button, primary, text) !default;
-$button-text-color-active: gesso-color(button, primary, text-active) !default;
-$button-text-color-disabled: gesso-color(button, disabled, text) !default;
-$button-text-color-hover: gesso-color(button, primary, text-hover) !default;
-$button-font-size: gesso-base-font-size() !default;
+$button-background-color: var(--wp--preset--color--grayscale-black) !default;
+$button-background-color-active: var(--wp--preset--color--grayscale-black) !default;
+$button-background-color-disabled: var(--wp--preset--color--grayscale-gray-1) !default;
+$button-background-color-hover: var(--wp--preset--color--grayscale-gray-6) !default;
+$button-border-color: var(--wp--preset--color--grayscale-black) !default;
+$button-border-color-hover: var(--wp--preset--color--grayscale-black) !default;
+$button-border-color-disabled: var(--wp--preset--color--grayscale-black) !default;
+$button-text-color: var(--wp--preset--color--grayscale-white) !default;
+$button-text-color-active: var(--wp--preset--color--grayscale-white) !default;
+$button-text-color-disabled: var(--wp--preset--color--grayscale-white) !default;
+$button-text-color-hover: var(--wp--preset--color--grayscale-white) !default;
+$button-font-size: 1rem !default;
 
 @mixin button(
   $color-background: $button-background-color,
@@ -56,16 +44,16 @@ $button-font-size: gesso-base-font-size() !default;
   color: $color-text;
   cursor: pointer;
   display: inline-block;
-  font-family: gesso-font-family(primary);
+  font-family: var(--wp--preset--font-family--primary);
   font-size: rem($font-size);
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
-  font-weight: gesso-font-weight(bold);
-  line-height: gesso-line-height(base);
-  padding: rem(gesso-spacing(1)) rem(gesso-spacing(2));
+  font-weight: 700;
+  line-height: var(--wp--custom--line-height--base);
+  padding: var(--wp--preset--spacing--2) var(--wp--preset--spacing--4);
   text-align: center;
   text-decoration: none;
-  transition: background gesso-duration(short) gesso-easing(ease-in);
+  transition: background var(--wp--custom--transitions--duration-short) var(--wp--custom--transitions--ease-in);
   vertical-align: top;
   white-space: normal;
 
@@ -113,7 +101,7 @@ $button-font-size: gesso-base-font-size() !default;
   -webkit-tap-highlight-color: transparent;
 
   &[disabled] {
-    color: gesso-color(button, disabled, text);
+    color: var(--wp--preset--color--grayscale-black);
     cursor: default;
     pointer-events: none;
   }

@@ -19,8 +19,8 @@
       background-color: transparent;
       border: 0;
       display: inline-block;
-      font-weight: gesso-font-weight(semibold);
-      margin-right: gesso-spacing(5);
+      font-weight: 600;
+      margin-right: var(--wp--preset--spacing--4);
       padding: 0;
       position: relative;
       text-decoration: none;
@@ -53,25 +53,25 @@
   }
 
   .sub-menu {
-    background-color: gesso-grayscale(white);
+    background-color: var(--wp--preset--color--grayscale-white);
     display: none;
     left: 0;
-    margin: rem(gesso-spacing(1)) 0 0;
+    margin: var(--wp--preset--spacing--2) 0 0;
     padding: 0;
     position: absolute;
     top: 0;
 
     .menu-item {
       display: block;
-      line-height: gesso-line-height(base);
-      padding: rem(gesso-spacing(2)) rem(gesso-spacing(3));
+      line-height: var(--wp--custom--line-height--base);
+      padding: var(--wp--preset--spacing--4) var(--wp--preset--spacing--3);
       position: relative;
       text-decoration: none;
       width: rem(200px);
 
       &:hover,
       &:focus {
-        background-color: gesso-grayscale(gray-1);
+        background-color: var(--wp--preset--color--grayscale-gray-1);
       }
 
       &.menu-item-has-children {

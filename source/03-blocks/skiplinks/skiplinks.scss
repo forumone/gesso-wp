@@ -2,29 +2,29 @@
 
 .skiplinks {
 	display: flex;
-	font-family: gesso-font-family(system);
+	font-family: var(--wp--preset--font-family--system);
 	justify-content: center;
 	position: absolute;
 	width: 100%;
-	z-index: 9999;
+	z-index: var(--wp--custom--z-index--skiplinks);
 }
 
 .skiplinks__link,
 .skiplinks__link:visited,
 .skiplinks__link:focus {
-	background-color: gesso-color(ui, generic, background-dark);
-	border: 2px solid gesso-color(ui, generic, border-light);
+	background-color: var(--wp--preset--color--grayscale-gray-6);
+	border: 2px solid var(--wp--preset--color--grayscale-gray-1);
 	border-bottom-left-radius: 5px;
 	border-bottom-right-radius: 5px;
 	border-top: 0;
-	box-shadow: gesso-box-shadow(2);
-	color: gesso-color(text, on-dark);
+	box-shadow: var(--wp--custom--box-shadow--2);
+	color: var(--wp--preset--color--grayscale-white);
 	display: inline-block;
 	font-weight: bold;
-	line-height: gesso-line-height(tight);
+	line-height: var(--wp--custom--line-height--tight);
 	margin: 0;
 	outline: 0;
-	padding: rem(gesso-spacing(2));
+	padding: var(--wp--preset--spacing--4);
 	text-align: center;
 	text-decoration: none;
 }

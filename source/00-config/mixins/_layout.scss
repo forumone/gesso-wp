@@ -26,9 +26,9 @@
 }
 
 @mixin layout-constrain(
-	$max-width: gesso-constrain(md),
-	$margins-mobile: gesso-site-margins(mobile),
-	$margins: gesso-site-margins(desktop)
+	$max-width: var(--wp--custom--constrain--md),
+	$margins-mobile: var(--wp--preset--spacing--4),
+	$margins: calc(var(--wp--preset--spacing--4) * 2)
 ) {
 	margin-left: auto;
 	margin-right: auto;
