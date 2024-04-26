@@ -14,7 +14,6 @@ build/theme-json.js
 build/images/backgrounds
 build/images/sprite.artifact.svg
 source/00-config/_GESSO.es6.js
-theme.json
 
 dependencyGraph.json
 vendor
