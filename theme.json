@@ -541,11 +541,19 @@
     "blocks": {
       "core/button": {
         "border": {
-          "radius": "false",
-          "width": "false",
+          "radius": "0",
+          "width": "0",
           "color": {
             "background": "var(--wp--preset--color--grayscale-black)",
             "text": "var(--wp--preset--color--grayscale-white)"
+          }
+        },
+        "spacing": {
+          "padding": {
+            "bottom": "var(--wp--preset--spacing--2)",
+            "left": "var(--wp--preset--spacing--4)",
+            "right": "var(--wp--preset--spacing--4)",
+            "top": "var(--wp--preset--spacing--2)"
           }
         }
       },

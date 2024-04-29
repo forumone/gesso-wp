@@ -1,7 +1,10 @@
 // HTML Element: Details
 
-// details {}
+details {
+  margin: 0 0 var(--wp--preset--spacing--4);
+}
 
 summary {
   display: list-item;
+  margin: 0 0 var(--wp--preset--spacing--2);
 }

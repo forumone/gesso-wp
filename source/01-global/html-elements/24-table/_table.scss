@@ -23,6 +23,11 @@ td {
 	background-color: var(--wp--preset--color--grayscale-white);
 	border: 1px solid var(--wp--preset--color--grayscale-gray-5);
 	padding: var(--wp--preset--spacing--4);
+
+
+  .is-style-stripes tr:nth-child(even) & {
+		background-color: var(--wp--preset--color--grayscale-gray-1);
+  }
 }
 
 th {
@@ -35,14 +40,14 @@ th {
 tfoot {
 	td,
 	th {
-		background-color: var(--wp--preset--color--grayscale-gray-1);
+		background-color: var(--wp--preset--color--grayscale-gray-2);
 	}
 }
 
 thead {
 	td,
 	th {
-		background-color: var(--wp--preset--color--grayscale-gray-1);
+		background-color: var(--wp--preset--color--grayscale-gray-2);
 	}
 
 	@media print {
