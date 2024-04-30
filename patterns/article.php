@@ -2,7 +2,7 @@
 /**
  * Title: Article
  * Slug: gesso/article
- * Categories: gesso
+ * Categories: gesso, templates_only, theme
  * Description: A starting pattern for article content
  * Block Types: core/post-title, core/group, core/post-date, core/post-author, core/post-content
  *

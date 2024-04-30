@@ -1,10 +1,9 @@
 <?php
 /**
  * Title: Hero with Background Image
- * Slug: gesso/image-hero
+ * Slug: gesso/hero-background-image
  * Description: For use in templates. Automatically references the title & featured image.
- * Categories: theme
- *
+ * Categories: theme, templates_only
  * @package gesso
  */
 
