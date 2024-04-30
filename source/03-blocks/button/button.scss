@@ -16,8 +16,13 @@ $secondary-text-active: var(--wp--preset--color--grayscale-white);
   margin-bottom: var(--wp--preset--spacing--2);
 }
 
-.is-style-primary .wp-block-button__link {
+.is-style-primary .wp-block-button__link,
+.wp-block-file__button {
   @include button();
+}
+
+.wp-block-file__button {
+  vertical-align: middle;
 }
 
 .is-style-danger .wp-block-button__link {

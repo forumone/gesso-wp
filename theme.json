@@ -6,6 +6,11 @@
       "defaultPalette": false,
       "defaultGradients": false,
       "custom": false,
+      "duotone": [],
+      "gradients": [],
+      "customDuotone": false,
+      "defaultDuotone": false,
+      "customGradient": false,
       "palette": [
         {
           "slug": "brand-blue-base",
@@ -159,6 +164,9 @@
         }
       ]
     },
+		"shadow": {
+			"defaultPresets": false
+		},
     "typography": {
       "customFontSize": false,
       "fontFamilies": [
@@ -450,6 +458,57 @@
         "drawer": 1200,
         "modal": 1300,
         "skiplinks": 9999
+      }
+    },
+    "blocks": {
+      "core/group": {
+        "typography": {
+          "fontSizes": [],
+          "fontFamilies": [],
+          "letterSpacing": false,
+          "lineHeight": false,
+          "dropCap": false,
+          "textDecoration": false,
+          "fontWeight": false,
+          "fontStyle": false,
+          "textTransform": false
+        }
+      },
+      "core/heading": {
+        "typography": {
+          "fontSizes": [],
+          "fontFamilies": [],
+          "letterSpacing": false,
+          "lineHeight": false,
+          "dropCap": false,
+          "textDecoration": false,
+          "fontWeight": false,
+          "fontStyle": false,
+          "textTransform": false
+        }
+      },
+      "core/quote": {
+        "typography": {
+          "fontSizes": [],
+          "fontFamilies": [],
+          "letterSpacing": false,
+          "lineHeight": false,
+          "dropCap": false,
+          "textDecoration": false,
+          "fontWeight": false,
+          "fontStyle": false,
+          "textTransform": false
+        }
+      },
+      "core/paragraph": {
+        "typography": {
+          "fontFamilies": [],
+          "lineHeight": false,
+          "textDecoration": false,
+          "fontWeight": false,
+          "fontStyle": false,
+          "textTransform": false
+        }
       }
     }
   },
