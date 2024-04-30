@@ -11,7 +11,7 @@
 
 ?>
 
-<!-- wp:group {"tagName":"article","className":"article","layout":{"inherit":true}} -->
+<!-- wp:group {"tagName":"article","className":"article","layout":{"inherit":true},{"metadata":{"name":"Article"}} -->
 <article class="wp-block-group article"><!-- wp:post-title {"level":1,"className":"article__title"} /-->
 
 <!-- wp:group {"tagName":"footer","className":"article__footer","layout":{"type":"flex","allowOrientation":false,"flexWrap":"nowrap"}} -->

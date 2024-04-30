@@ -437,7 +437,7 @@
         "lg": "2200px"
       },
       "line-height": {
-        "tight": 1.1,
+        "short": 1.1,
         "base": 1.45,
         "loose": 1.7
       },
