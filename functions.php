@@ -85,14 +85,6 @@ function gesso_block_assets() {
 	);
 	if ( function_exists( 'f1_block_library_register_blocks' ) ) {
 		wp_enqueue_block_style(
-			'f1-block-library/accordion',
-			array(
-				'handle' => 'gesso-accordion',
-				'src' => get_theme_file_uri( 'build/css/accordion.css' ),
-				'ver' => filemtime( get_theme_file_path( 'build/css/accordion.css' ) ),
-			)
-		);
-		wp_enqueue_block_style(
 			'f1-block-library/back-to-top',
 			array(
 				'handle' => 'gesso-back-to-top',

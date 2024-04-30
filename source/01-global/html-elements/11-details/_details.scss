@@ -2,6 +2,10 @@
 
 details {
   margin: 0 0 var(--wp--preset--spacing--4);
+
+  + details {
+    margin-bottom: 0;
+  }
 }
 
 summary {
