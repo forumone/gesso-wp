@@ -13,58 +13,58 @@
       "customGradient": false,
       "palette": [
         {
-          "slug": "brand-blue-base",
-          "name": "brand blue base",
+          "slug": "brand-primary-base",
+          "name": "brand primary base",
           "color": "#0071BC"
         },
         {
-          "slug": "brand-blue-light",
-          "name": "brand blue light",
+          "slug": "brand-primary-light",
+          "name": "brand primary light",
           "color": "#4773aa"
         },
         {
-          "slug": "brand-blue-light-1",
-          "name": "brand blue light-1",
+          "slug": "brand-primary-light-1",
+          "name": "brand primary light-1",
           "color": "#8ba6ca"
         },
         {
-          "slug": "brand-blue-light-2",
-          "name": "brand blue light-2",
+          "slug": "brand-primary-light-2",
+          "name": "brand primary light-2",
           "color": "#dce4ef"
         },
         {
-          "slug": "brand-blue-dark",
-          "name": "brand blue dark",
+          "slug": "brand-primary-dark",
+          "name": "brand primary dark",
           "color": "#205493"
         },
         {
-          "slug": "brand-blue-dark-1",
-          "name": "brand blue dark-1",
+          "slug": "brand-primary-dark-1",
+          "name": "brand primary dark-1",
           "color": "#112E51"
         },
         {
-          "slug": "brand-ocean-blue-base",
-          "name": "brand ocean-blue base",
+          "slug": "brand-secondary-base",
+          "name": "brand secondary base",
           "color": "#1dc2ae"
         },
         {
-          "slug": "brand-ocean-blue-light",
-          "name": "brand ocean-blue light",
+          "slug": "brand-secondary-light",
+          "name": "brand secondary light",
           "color": "#29e1cb"
         },
         {
-          "slug": "brand-ocean-blue-light-1",
-          "name": "brand ocean-blue light-1",
+          "slug": "brand-secondary-light-1",
+          "name": "brand secondary light-1",
           "color": "#7efbe1"
         },
         {
-          "slug": "brand-ocean-blue-dark",
-          "name": "brand ocean-blue dark",
+          "slug": "brand-secondary-dark",
+          "name": "brand secondary dark",
           "color": "#008480"
         },
         {
-          "slug": "brand-ocean-blue-dark-1",
-          "name": "brand ocean-blue dark-1",
+          "slug": "brand-secondary-dark-1",
+          "name": "brand secondary dark-1",
           "color": "#0b4b3f"
         },
         {
@@ -517,26 +517,26 @@
       "link": {
         "border": {},
         "color": {
-          "text": "var(--wp--preset--color--brand-blue-light)"
+          "text": "var(--wp--preset--color--brand-primary-light)"
         },
         ":hover": {
           "color": {
-            "text": "var(--wp--preset--color--brand-blue)"
+            "text": "var(---wp--preset--color--brand-primary)"
           }
         },
         ":focus": {
           "color": {
-            "text": "var(--wp--preset--color--brand-blue)"
+            "text": "var(---wp--preset--color--brand-primary)"
           }
         },
         ":visited": {
           "color": {
-            "text": "var(--wp--preset--color--brand-blue-dark)"
+            "text": "var(--wp--preset--color--brand-primary-dark)"
           }
         },
         ":active": {
           "color": {
-            "text": "var(--wp--preset--color--brand-blue)"
+            "text": "var(---wp--preset--color--brand-primary)"
           }
         },
         "spacing": {},
@@ -618,7 +618,7 @@
       },
       "core/quote": {
         "color": {
-          "text": "var(--wp--preset--color--brand-blue-light)"
+          "text": "var(--wp--preset--color--brand-primary-light)"
         },
         "spacing": {
           "margin": {
@@ -636,7 +636,7 @@
         "elements": {
           "cite": {
             "color": {
-              "text": "var(--wp--preset--color--brand-blue-dark)"
+              "text": "var(--wp--preset--color--brand-primary-dark)"
             },
             "typography": {
               "fontFamily": "var(--wp--preset--font-family--primary)",
