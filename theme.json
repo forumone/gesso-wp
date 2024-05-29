@@ -422,6 +422,7 @@
       "contentSize": "1440px",
       "wideSize": "2200px"
     },
+    "useRootPaddingAwareAlignments": true,
     "custom": {
       "box-shadow": {
         "0": "none",
@@ -513,6 +514,12 @@
     }
   },
   "styles": {
+    "spacing": {
+      "padding": {
+        "left": "1rem",
+        "right": "1rem"
+      }
+    },
     "elements": {
       "link": {
         "border": {},

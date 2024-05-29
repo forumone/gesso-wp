@@ -187,6 +187,10 @@ examples:
 }
 ```
 
+### Side padding
+
+In previous versions of Gesso, constrain classes were used to apply max-width and inline padding at the same time. As of 6.1, WordPress can now generate most of these styles automatically, and Gesso opts into this via theme.json. `settings.useRootAwarePadding` is set to true, and the spacing value is set at `styles.spacing.padding`. If you're not getting the padding you expect, check the layout settings on your blocks. More details can be found in the [documentation](https://developer.wordpress.org/themes/global-settings-and-styles/settings/use-root-padding-aware-alignments/).
+
 ### Container queries
 
 Gesso uses custom mixins to specify container queries:
