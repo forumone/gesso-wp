@@ -27,16 +27,3 @@
     margin: 2cm;
   }
 }
-
-// stylelint-disable-next-line selector-no-vendor-prefix
-::-moz-selection {
-  background: var(--wp--preset--color--primary-base);
-  color: var(--wp--preset--color--grayscale-white);
-  text-shadow: none;
-}
-
-::selection {
-  background: var(--wp--preset--color--primary-base);
-  color: var(--wp--preset--color--grayscale-white);
-  text-shadow: none;
-}

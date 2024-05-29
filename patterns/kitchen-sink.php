@@ -9,7 +9,6 @@
  */
 
 ?>
-
 <!-- wp:paragraph -->
 <p>This is an example page. It's different from a blog post because it will stay in one place and will show up in your site navigation (in most themes). Most people start with an About page that introduces them to potential site visitors. It might say something like this:</p>
 <!-- /wp:paragraph -->
@@ -31,7 +30,7 @@
 <!-- /wp:quote -->
 
 <!-- wp:paragraph -->
-<p>As a new WordPress user, you should go to <a href="https://wordpress-gesso-theme.ddev.site/wp-admin/">your dashboard</a> to delete this page and create new pages for your content. Have fun!</p>
+<p>As a new WordPress user, you should go to <a href="/wp-admin/">your dashboard</a> to delete this page and create new pages for your content. Have fun!</p>
 <!-- /wp:paragraph -->
 
 <!-- wp:heading -->
@@ -68,7 +67,7 @@
 <!-- /wp:list-item -->
 
 <!-- wp:list-item -->
-<li>Magnis lorem ipsum risus velit efficitur. <a href="https://wordpress-gesso-theme.ddev.site/sample-page/" data-type="page" data-id="2">Neque pede sagittis </a>id tortor arcu etiam rhoncus ac quis aptent enim.</li>
+<li>Magnis lorem ipsum risus velit efficitur. <a href="/sample-page/" data-type="page" data-id="2">Neque pede sagittis </a>id tortor arcu etiam rhoncus ac quis aptent enim.</li>
 <!-- /wp:list-item -->
 
 <!-- wp:list-item -->
@@ -187,7 +186,7 @@ Imperdiet cubilia aliquet per dictumst praesent magna mollis himenaeos litora. L
 <!-- /wp:html -->
 
 <!-- wp:image {"id":12,"sizeSlug":"large","linkDestination":"none","align":"center"} -->
-<figure class="wp-block-image aligncenter size-large"><img src="https://wordpress-gesso-theme.ddev.site/wp-content/uploads/2024/04/cake-pops-693645_1920-700x525.jpg" alt="" class="wp-image-12"/><figcaption class="wp-element-caption">This is the caption of my image.</figcaption></figure>
+<figure class="wp-block-image aligncenter size-large"><img src="https://place-hold.it/1200x600" alt="" class="wp-image-12"/><figcaption class="wp-element-caption">This is the caption of my image.</figcaption></figure>
 <!-- /wp:image -->
 
 <!-- wp:heading -->
@@ -262,59 +261,59 @@ Imperdiet cubilia aliquet per dictumst praesent magna mollis himenaeos litora. L
 
 <!-- wp:gallery {"columns":3,"linkTo":"none"} -->
 <figure class="wp-block-gallery has-nested-images columns-3 is-cropped"><!-- wp:image {"id":25,"sizeSlug":"large","linkDestination":"none"} -->
-<figure class="wp-block-image size-large"><img src="https://wordpress-gesso-theme.ddev.site/wp-content/uploads/2024/04/costume-7068836_1280-700x465.jpg" alt="" class="wp-image-25"/></figure>
+<figure class="wp-block-image size-large"><img src="https://place-hold.it/700x460" alt="" class="wp-image-25"/></figure>
 <!-- /wp:image -->
 
 <!-- wp:image {"id":22,"sizeSlug":"large","linkDestination":"none"} -->
-<figure class="wp-block-image size-large"><img src="https://wordpress-gesso-theme.ddev.site/wp-content/uploads/2024/04/video-game-4375824_1280-700x466.jpg" alt="" class="wp-image-22"/></figure>
+<figure class="wp-block-image size-large"><img src="https://place-hold.it/700x460" alt="" class="wp-image-22"/></figure>
 <!-- /wp:image -->
 
 <!-- wp:image {"id":21,"sizeSlug":"large","linkDestination":"none"} -->
-<figure class="wp-block-image size-large"><img src="https://wordpress-gesso-theme.ddev.site/wp-content/uploads/2024/04/yoschi-1557252_1280-700x451.jpg" alt="" class="wp-image-21"/></figure>
+<figure class="wp-block-image size-large"><img src="https://place-hold.it/700x460" alt="" class="wp-image-21"/></figure>
 <!-- /wp:image -->
 
 <!-- wp:image {"id":23,"sizeSlug":"large","linkDestination":"none"} -->
-<figure class="wp-block-image size-large"><img src="https://wordpress-gesso-theme.ddev.site/wp-content/uploads/2024/04/pokemon-5101360_1280-700x466.jpg" alt="" class="wp-image-23"/></figure>
+<figure class="wp-block-image size-large"><img src="https://place-hold.it/700x460" alt="" class="wp-image-23"/></figure>
 <!-- /wp:image -->
 
 <!-- wp:image {"id":24,"sizeSlug":"large","linkDestination":"none"} -->
-<figure class="wp-block-image size-large"><img src="https://wordpress-gesso-theme.ddev.site/wp-content/uploads/2024/04/like-6280024_1280-700x466.jpg" alt="" class="wp-image-24"/><figcaption class="wp-element-caption">This image has a caption</figcaption></figure>
+<figure class="wp-block-image size-large"><img src="https://place-hold.it/700x460" alt="" class="wp-image-24"/><figcaption class="wp-element-caption">This image has a caption</figcaption></figure>
 <!-- /wp:image -->
 
 <!-- wp:image {"id":31,"sizeSlug":"large","linkDestination":"none"} -->
-<figure class="wp-block-image size-large"><img src="https://wordpress-gesso-theme.ddev.site/wp-content/uploads/2024/04/nintendo-4684999_1280-1-700x466.jpg" alt="" class="wp-image-31"/></figure>
+<figure class="wp-block-image size-large"><img src="https://place-hold.it/700x460" alt="" class="wp-image-31"/></figure>
 <!-- /wp:image -->
 
 <!-- wp:image {"id":26,"sizeSlug":"large","linkDestination":"none"} -->
-<figure class="wp-block-image size-large"><img src="https://wordpress-gesso-theme.ddev.site/wp-content/uploads/2024/04/super-mario-2663951_1280-700x505.jpg" alt="" class="wp-image-26"/></figure>
+<figure class="wp-block-image size-large"><img src="https://place-hold.it/700x460" alt="" class="wp-image-26"/></figure>
 <!-- /wp:image -->
 
 <!-- wp:image {"id":34,"sizeSlug":"large","linkDestination":"none"} -->
-<figure class="wp-block-image size-large"><img src="https://wordpress-gesso-theme.ddev.site/wp-content/uploads/2024/04/recipe-8577854_1920-700x933.jpg" alt="" class="wp-image-34"/></figure>
+<figure class="wp-block-image size-large"><img src="https://place-hold.it/700x460" alt="" class="wp-image-34"/></figure>
 <!-- /wp:image -->
 
 <!-- wp:image {"id":30,"sizeSlug":"large","linkDestination":"none"} -->
-<figure class="wp-block-image size-large"><img src="https://wordpress-gesso-theme.ddev.site/wp-content/uploads/2024/04/poochy-2045657_1280-1-700x700.jpg" alt="" class="wp-image-30"/><figcaption class="wp-element-caption">Look at the caption for this image. It can have bold text, italic text or a link! That is wild. We should consider that when building <a href="https://wordpress-gesso-theme.ddev.site/sample-page/" data-type="page" data-id="2">these galleries so we make sure</a> that links get appropriate style overrides as needed.</figcaption></figure>
+<figure class="wp-block-image size-large"><img src="https://place-hold.it/700x460" alt="" class="wp-image-30"/><figcaption class="wp-element-caption">Look at the caption for this image. It can have bold text, italic text or a link! That is wild. We should consider that when building <a href="/sample-page/" data-type="page" data-id="2">these galleries so we make sure</a> that links get appropriate style overrides as needed.</figcaption></figure>
 <!-- /wp:image -->
 
 <!-- wp:image {"id":28,"sizeSlug":"large","linkDestination":"none"} -->
-<figure class="wp-block-image size-large"><img src="https://wordpress-gesso-theme.ddev.site/wp-content/uploads/2024/04/luigy-1206491_1280-700x466.jpg" alt="" class="wp-image-28"/></figure>
+<figure class="wp-block-image size-large"><img src="https://place-hold.it/700x460" alt="" class="wp-image-28"/></figure>
 <!-- /wp:image -->
 
 <!-- wp:image {"id":29,"sizeSlug":"large","linkDestination":"none"} -->
-<figure class="wp-block-image size-large"><img src="https://wordpress-gesso-theme.ddev.site/wp-content/uploads/2024/04/bowser-1912623_1280-700x466.jpg" alt="" class="wp-image-29"/></figure>
+<figure class="wp-block-image size-large"><img src="https://place-hold.it/700x460" alt="" class="wp-image-29"/></figure>
 <!-- /wp:image -->
 
 <!-- wp:image {"id":27,"sizeSlug":"large","linkDestination":"none"} -->
-<figure class="wp-block-image size-large"><img src="https://wordpress-gesso-theme.ddev.site/wp-content/uploads/2024/04/mario-1557240_1280-700x342.jpg" alt="" class="wp-image-27"/></figure>
+<figure class="wp-block-image size-large"><img src="https://place-hold.it/700x460" alt="" class="wp-image-27"/></figure>
 <!-- /wp:image -->
 
 <!-- wp:image {"id":32,"sizeSlug":"large","linkDestination":"none"} -->
-<figure class="wp-block-image size-large"><img src="https://wordpress-gesso-theme.ddev.site/wp-content/uploads/2024/04/chicken-8544360_1920-700x700.jpg" alt="" class="wp-image-32"/></figure>
+<figure class="wp-block-image size-large"><img src="https://place-hold.it/700x460" alt="" class="wp-image-32"/></figure>
 <!-- /wp:image -->
 
 <!-- wp:image {"id":33,"sizeSlug":"large","linkDestination":"none"} -->
-<figure class="wp-block-image size-large"><img src="https://wordpress-gesso-theme.ddev.site/wp-content/uploads/2024/04/mountain-8168060_1920-700x1050.jpg" alt="" class="wp-image-33"/></figure>
+<figure class="wp-block-image size-large"><img src="https://place-hold.it/700x460" alt="" class="wp-image-33"/></figure>
 <!-- /wp:image --><figcaption class="blocks-gallery-caption wp-element-caption">This is the gallery caption! Hendrerit taciti tincidunt nulla sociosqu diam nunc semper rhoncus ante purus. Curae suspendisse elit penatibus semper quis mattis consequat. Urna cubilia tellus cras augue luctus neque ipsum placerat auctor imperdiet.</figcaption></figure>
 <!-- /wp:gallery -->
 
@@ -331,7 +330,7 @@ Imperdiet cubilia aliquet per dictumst praesent magna mollis himenaeos litora. L
 <!-- /wp:paragraph -->
 
 <!-- wp:image {"id":14,"sizeSlug":"large","linkDestination":"none","align":"full"} -->
-<figure class="wp-block-image alignfull size-large"><img src="https://wordpress-gesso-theme.ddev.site/wp-content/uploads/2024/04/nintendo-4684999_1280-700x466.jpg" alt="" class="wp-image-14"/><figcaption class="wp-element-caption">Caption of the really cool image.</figcaption></figure>
+<figure class="wp-block-image alignfull size-large"><img src="https://place-hold.it/700x460" alt="" class="wp-image-14"/><figcaption class="wp-element-caption">Caption of the really cool image.</figcaption></figure>
 <!-- /wp:image -->
 
 <!-- wp:heading {"level":3} -->
@@ -387,7 +386,7 @@ Imperdiet cubilia aliquet per dictumst praesent magna mollis himenaeos litora. L
 <!-- /wp:paragraph -->
 
 <!-- wp:image {"id":15,"sizeSlug":"large","linkDestination":"none","align":"left"} -->
-<figure class="wp-block-image alignleft size-large"><img src="https://wordpress-gesso-theme.ddev.site/wp-content/uploads/2024/04/poochy-2045657_1280-700x700.jpg" alt="" class="wp-image-15"/><figcaption class="wp-element-caption">My favorite amiibos</figcaption></figure>
+<figure class="wp-block-image alignleft size-large"><img src="https://place-hold.it/700x700" alt="" class="wp-image-15"/><figcaption class="wp-element-caption">My favorite amiibos</figcaption></figure>
 <!-- /wp:image -->
 
 <!-- wp:paragraph -->
@@ -437,7 +436,7 @@ Imperdiet cubilia aliquet per dictumst praesent magna mollis himenaeos litora. L
 
 <!-- wp:column {"verticalAlignment":"top"} -->
 <div class="wp-block-column is-vertically-aligned-top"><!-- wp:paragraph -->
-<p>Sem scelerisque primis parturient amet id letius nunc. <a href="https://wordpress-gesso-theme.ddev.site/sample-page/" data-type="page" data-id="2">Facilisis per fermentum </a>libero torquent maximus rhoncus erat sagittis rutrum. Duis netus habitasse magna vulputate litora integer torquent commodo libero consequat.</p>
+<p>Sem scelerisque primis parturient amet id letius nunc. <a href="/sample-page/" data-type="page" data-id="2">Facilisis per fermentum </a>libero torquent maximus rhoncus erat sagittis rutrum. Duis netus habitasse magna vulputate litora integer torquent commodo libero consequat.</p>
 <!-- /wp:paragraph --></div>
 <!-- /wp:column --></div>
 <!-- /wp:columns -->
@@ -495,7 +494,7 @@ Imperdiet cubilia aliquet per dictumst praesent magna mollis himenaeos litora. L
 <!-- /wp:paragraph -->
 
 <!-- wp:image {"id":15,"sizeSlug":"medium","linkDestination":"none","align":"right"} -->
-<figure class="wp-block-image alignright size-medium"><img src="https://wordpress-gesso-theme.ddev.site/wp-content/uploads/2024/04/poochy-2045657_1280-250x250.jpg" alt="" class="wp-image-15"/></figure>
+<figure class="wp-block-image alignright size-medium"><img src="https://place-hold.it/250x250" alt="" class="wp-image-15"/></figure>
 <!-- /wp:image -->
 
 <!-- wp:paragraph -->
@@ -526,8 +525,8 @@ Imperdiet cubilia aliquet per dictumst praesent magna mollis himenaeos litora. L
 <p>Porttitor molestie posuere sollicitudin pulvinar donec condimentum quis. Quam quis fermentum felis per pretium aptent. Taciti dignissim platea rhoncus elit sed et pede viverra sollicitudin etiam. Proin arcu semper elementum pharetra fermentum litora faucibus mi. Maximus mauris cubilia phasellus nascetur tincidunt augue pharetra ornare scelerisque tortor sed.</p>
 <!-- /wp:paragraph -->
 
-<!-- wp:cover {"url":"https://wordpress-gesso-theme.ddev.site/wp-content/uploads/2024/04/cake-pops-693645_1920.jpg","id":12,"dimRatio":60,"overlayColor":"brand-blue-dark-1","isUserOverlayColor":true,"align":"full","className":"u-full-width","layout":{"type":"constrained","contentSize":"40rem"}} -->
-<div class="wp-block-cover alignfull u-full-width"><span aria-hidden="true" class="wp-block-cover__background has-brand-blue-dark-1-background-color has-background-dim-60 has-background-dim"></span><img class="wp-block-cover__image-background wp-image-12" alt="" src="https://wordpress-gesso-theme.ddev.site/wp-content/uploads/2024/04/cake-pops-693645_1920.jpg" data-object-fit="cover"/><div class="wp-block-cover__inner-container"><!-- wp:paragraph {"align":"center","placeholder":"Write title…","fontSize":"large"} -->
+<!-- wp:cover {"useFeaturedImage":true,"dimRatio":60,"overlayColor":"brand-blue-dark-1","isUserOverlayColor":true,"align":"full","className":"u-full-width","layout":{"type":"constrained","contentSize":"40rem"}} -->
+<div class="wp-block-cover alignfull u-full-width"><span aria-hidden="true" class="wp-block-cover__background has-brand-blue-dark-1-background-color has-background-dim-60 has-background-dim"></span><div class="wp-block-cover__inner-container"><!-- wp:paragraph {"align":"center","placeholder":"Write title…","fontSize":"large"} -->
 <p class="has-text-align-center has-large-font-size">Wow, this is my title! It's a good one!</p>
 <!-- /wp:paragraph -->
 
@@ -544,8 +543,8 @@ Imperdiet cubilia aliquet per dictumst praesent magna mollis himenaeos litora. L
 <p>Dictum aenean nam sagittis commodo ad nisl. In nec mi tristique hac porttitor augue cubilia faucibus. Libero sagittis vestibulum egestas nec justo fringilla ornare. Amet faucibus justo hac pellentesque in lacus lobortis. At ex nullam ridiculus risus laoreet inceptos amet est ipsum turpis. Quam tortor parturient maximus amet hac natoque potenti.</p>
 <!-- /wp:paragraph -->
 
-<!-- wp:cover {"url":"https://wordpress-gesso-theme.ddev.site/wp-content/uploads/2024/04/pokemon-5101360_1280.jpg","id":23,"hasParallax":true,"dimRatio":60,"overlayColor":"grayscale-gray-7","isUserOverlayColor":true,"style":{"color":{}},"layout":{"type":"constrained"}} -->
-<div class="wp-block-cover has-parallax"><span aria-hidden="true" class="wp-block-cover__background has-grayscale-gray-7-background-color has-background-dim-60 has-background-dim"></span><div class="wp-block-cover__image-background wp-image-23 has-parallax" style="background-position:50% 50%;background-image:url(https://wordpress-gesso-theme.ddev.site/wp-content/uploads/2024/04/pokemon-5101360_1280.jpg)"></div><div class="wp-block-cover__inner-container"><!-- wp:paragraph {"align":"center","placeholder":"Write title…","fontSize":"large"} -->
+<!-- wp:cover {"useFeaturedImage":true,"hasParallax":true,"dimRatio":60,"overlayColor":"grayscale-gray-7","isUserOverlayColor":true,"style":{"color":[]},"layout":{"type":"constrained"}} -->
+<div class="wp-block-cover has-parallax"><span aria-hidden="true" class="wp-block-cover__background has-grayscale-gray-7-background-color has-background-dim-60 has-background-dim"></span><div class="wp-block-cover__inner-container"><!-- wp:paragraph {"align":"center","placeholder":"Write title…","fontSize":"large"} -->
 <p class="has-text-align-center has-large-font-size"></p>
 <!-- /wp:paragraph --></div></div>
 <!-- /wp:cover -->
@@ -563,7 +562,7 @@ Imperdiet cubilia aliquet per dictumst praesent magna mollis himenaeos litora. L
 <!-- /wp:paragraph -->
 
 <!-- wp:file {"id":44,"href":"https://wordpress-gesso-theme.ddev.site/wp-content/uploads/2024/04/aarp-tooltip-behavior.mp4"} -->
-<div class="wp-block-file"><a id="wp-block-file--media-035233ed-6f37-40ae-9fae-41e95e59234d" href="https://wordpress-gesso-theme.ddev.site/wp-content/uploads/2024/04/aarp-tooltip-behavior.mp4">aarp-tooltip-behavior</a><a href="https://wordpress-gesso-theme.ddev.site/wp-content/uploads/2024/04/aarp-tooltip-behavior.mp4" class="wp-block-file__button wp-element-button" download aria-describedby="wp-block-file--media-035233ed-6f37-40ae-9fae-41e95e59234d">Download</a></div>
+<div class="wp-block-file"><a id="wp-block-file--media-035233ed-6f37-40ae-9fae-41e95e59234d" href="https://place-hold.it/700x460">file name</a><a href="https://wordpress-gesso-theme.ddev.site/wp-content/uploads/2024/04/aarp-tooltip-behavior.mp4" class="wp-block-file__button wp-element-button" download aria-describedby="wp-block-file--media-035233ed-6f37-40ae-9fae-41e95e59234d">Download</a></div>
 <!-- /wp:file -->
 
 <!-- wp:paragraph -->
@@ -579,7 +578,7 @@ Imperdiet cubilia aliquet per dictumst praesent magna mollis himenaeos litora. L
 <!-- /wp:paragraph -->
 
 <!-- wp:media-text {"mediaId":21,"mediaLink":"https://wordpress-gesso-theme.ddev.site/sample-page/yoschi-1557252_1280/","mediaType":"image"} -->
-<div class="wp-block-media-text is-stacked-on-mobile"><figure class="wp-block-media-text__media"><img src="https://wordpress-gesso-theme.ddev.site/wp-content/uploads/2024/04/yoschi-1557252_1280-700x451.jpg" alt="" class="wp-image-21 size-full"/></figure><div class="wp-block-media-text__content"><!-- wp:heading -->
+<div class="wp-block-media-text is-stacked-on-mobile"><figure class="wp-block-media-text__media"><img src="https://place-hold.it/700x460" alt="" class="wp-image-21 size-full"/></figure><div class="wp-block-media-text__content"><!-- wp:heading -->
 <h2 class="wp-block-heading">This is my media and text block</h2>
 <!-- /wp:heading -->
 
@@ -682,8 +681,8 @@ https://www.youtube.com/watch?v=rCoT5ockplg
 <!-- /wp:columns --></div>
 <!-- /wp:group -->
 
-<!-- wp:cover {"useFeaturedImage":true,"dimRatio":50,"customOverlayColor":"#847670","isUserOverlayColor":true,"metadata":{"name":"Hero With Background Image"}} -->
-<div class="wp-block-cover"><span aria-hidden="true" class="wp-block-cover__background has-background-dim" style="background-color:#847670"></span><div class="wp-block-cover__inner-container"><!-- wp:post-title {"textAlign":"center","level":1} /--></div></div>
+<!-- wp:cover {"useFeaturedImage":true,"dimRatio":50,"customOverlayColor":"#847670","isUserOverlayColor":true,"isDark":false,"metadata":{"name":"Hero With Background Image"}} -->
+<div class="wp-block-cover is-light"><span aria-hidden="true" class="wp-block-cover__background has-background-dim" style="background-color:#847670"></span><div class="wp-block-cover__inner-container"><!-- wp:post-title {"textAlign":"center","level":1} /--></div></div>
 <!-- /wp:cover -->
 
 <!-- wp:group {"metadata":{"name":"Full-width content"},"align":"full","backgroundColor":"grayscale-gray-1","className":"u-full-width","layout":{"type":"default"}} -->
