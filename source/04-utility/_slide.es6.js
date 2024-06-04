@@ -8,7 +8,7 @@
 import { TRANSITIONS } from '../00-config/_GESSO.es6'; // eslint-disable-line
 
 /**
- * Slides target element up and out view.
+ * Collapses target element by sliding out of view.
  *
  * @name slideCollapse
  * @param {HTMLElement} target      - The element collapsing.
@@ -22,11 +22,17 @@ export const slideCollapse = (
 	easing = TRANSITIONS.ease['ease-in-out'],
 	hideContent = true
 ) => {
+	// Change duration if user prefers reduced motion.
+	const prefersReducedMotion = window.matchMedia(
+		'(prefers-reduced-motion: reduce)'
+	);
+	const slideDuration = prefersReducedMotion.matches ? '1ms' : duration;
+
 	target.style.height = `${target.offsetHeight}px`;
 
 	window.requestAnimationFrame(() => {
 		target.style.transitionProperty = 'height, margin, padding';
-		target.style.transitionDuration = duration;
+		target.style.transitionDuration = slideDuration;
 		target.style.transitionTimingFunction = easing;
 		target.style.boxSizing = 'border-box';
 		target.style.overflow = 'hidden';
@@ -83,6 +89,11 @@ export const slideExpand = (
 	easing = TRANSITIONS.ease['ease-in-out'],
 	hideContent = true
 ) => {
+	// Change duration if user prefers reduced motion.
+	const prefersReducedMotion = window.matchMedia(
+		'(prefers-reduced-motion: reduce)'
+	);
+	const slideDuration = prefersReducedMotion.matches ? '1ms' : duration;
 	let height;
 
 	if (hideContent) {
@@ -113,7 +124,7 @@ export const slideExpand = (
 		target.style.marginBottom = '0';
 		target.style.boxSizing = 'border-box';
 		target.style.transitionProperty = 'height, margin, padding';
-		target.style.transitionDuration = duration;
+		target.style.transitionDuration = slideDuration;
 		target.style.transitionTimingFunction = easing;
 
 		window.requestAnimationFrame(() => {
@@ -145,10 +156,10 @@ export const slideExpand = (
  * Toggle slides target element in and out of view.
  *
  * @name slideToggle
- * @param {HTMLElement} target      - The element to toggle.
- * @param {number?}     duration    - The duration of the animation, defaults to gesso token standard.
- * @param {string}      easing      - The easing of the animation, defaults to gesso token ease-in-out.
- * @param {boolean}     hideContent - Whether to hide collapsed content from screen readers, defaults to true.
+ * @param {HTMLElement} target - The element to toggle.
+ * @param {integer} duration - The duration of the animation, defaults to gesso token standard.
+ * @param {string} easing - The easing of the animation, defaults to gesso token ease-in-out.
+ * @param {boolean} hideContent - Whether to hide collapsed content from screen readers, defaults to true.
  */
 export const slideToggle = (
 	target,
