@@ -3,7 +3,7 @@
 @use '00-config' as *;
 
 caption {
-	margin-bottom: rem(gesso-spacing(0.5));
+	margin-bottom: var(--wp--preset--spacing--1);
 }
 
 // col {}
@@ -13,36 +13,41 @@ caption {
 table {
 	border-collapse: collapse;
 	border-spacing: 0;
-	margin-bottom: rem(gesso-spacing(2));
+	margin-bottom: var(--wp--preset--spacing--4);
 	min-width: 100%;
 }
 
 // tbody {}
 
 td {
-	background-color: gesso-color(table, background);
-	border: 1px solid gesso-color(table, border);
-	padding: rem(gesso-spacing(2));
+	background-color: var(--wp--preset--color--grayscale-white);
+	border: 1px solid var(--wp--preset--color--grayscale-gray-5);
+	padding: var(--wp--preset--spacing--4);
+
+
+  .is-style-stripes tr:nth-child(even) & {
+		background-color: var(--wp--preset--color--grayscale-gray-1);
+  }
 }
 
 th {
-	background-color: gesso-color(table, background);
-	border: 1px solid gesso-color(table, border);
-	padding: rem(gesso-spacing(2));
+	background-color: var(--wp--preset--color--grayscale-white);
+	border: 1px solid var(--wp--preset--color--grayscale-gray-5);
+	padding: var(--wp--preset--spacing--4);
 	text-align: left;
 }
 
 tfoot {
 	td,
 	th {
-		background-color: gesso-color(table, background-foot);
+		background-color: var(--wp--preset--color--grayscale-gray-2);
 	}
 }
 
 thead {
 	td,
 	th {
-		background-color: gesso-color(table, background-head);
+		background-color: var(--wp--preset--color--grayscale-gray-2);
 	}
 
 	@media print {

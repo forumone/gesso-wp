@@ -33,7 +33,7 @@
 	}
 }
 
-@mixin list-pipeline($pipeline-border-color: gesso-color(ui, generic, border)) {
+@mixin list-pipeline($pipeline-border-color: var(--wp--preset--color--grayscale-gray-3)) {
 	@include clearfix();
 	list-style-type: none;
 	margin-inline-start: 0;
@@ -58,7 +58,7 @@
 		}
 
 		&.is-active {
-			font-weight: gesso-font-weight(bold);
+			font-weight: 700;
 		}
 
 		&:last-child {
@@ -71,7 +71,7 @@
 
 @mixin list-border(
 	$list-border-padding: 0.25rem,
-	$list-border-color: gesso-color(ui, generic, border)
+	$list-border-color: var(--wp--preset--color--grayscale-gray-3)
 ) {
 	list-style: none;
 	margin-inline-start: 0;

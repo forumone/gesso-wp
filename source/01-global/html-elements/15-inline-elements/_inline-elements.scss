@@ -5,24 +5,10 @@
 a {
   @include focus();
   background-color: transparent;
-  color: gesso-color(text, link);
   -webkit-text-decoration-skip: objects;
-  transition-duration: gesso-duration(short);
+  transition-duration: var(--wp--custom--transitions--duration-short);
   transition-property: background-color, border-color, color, outline-color;
-  transition-timing-function: gesso-easing(ease-in);
-
-  &:visited {
-    color: gesso-color(text, link-visited);
-  }
-
-  &:hover,
-  &:focus {
-    color: gesso-color(text, link-hover);
-  }
-
-  &:active {
-    color: gesso-color(text, link-active);
-  }
+  transition-timing-function: var(--wp--custom--transitions--ease-in);
 
   @media print {
     &,
@@ -32,7 +18,7 @@ a {
 
     &[href]::after {
       content: ' <' attr(href) '>';
-      font-family: gesso-font-family(primary);
+      font-family: var(--wp--preset--font-family--primary);
       font-size: 10pt;
       font-weight: normal;
       text-transform: lowercase;
@@ -74,10 +60,23 @@ abbr {
 // b {}
 
 cite {
-  @include display-text-style(cite);
+  color: var(--wp--preset--color--brand-primary-dark);
+  font-family: var(--wp--preset--font-family--primary);
+  font-size: var(--wp--preset--font-size--2);
+  font-style: normal;
+  font-weight: semibold;
+  letter-spacing: .02em;
+  line-height: var(--wp--custom--line-height--short);
+  text-align: right;
 }
 
-// code {}
+code,
+kbd,
+pre,
+samp {
+  font-family: var(--wp--preset--font-family--monospace);
+  font-size: 1em;
+}
 
 // del {}
 
@@ -94,8 +93,8 @@ dfn {
 // kbd {}
 
 mark {
-  background: gesso-color(mark, background);
-  color: gesso-color(mark, text);
+  background: var(--wp--preset--color--other-yellow-neon-base);
+  color: var(--wp--preset--color--grayscale-gray-7);
 }
 
 // q {}

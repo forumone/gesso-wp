@@ -1,9 +1,7 @@
 // Mixins: Focus
 
-@use '00-config/functions/gesso' as *;
-
 @mixin focus(
-  $color: gesso-color(ui, generic, focus),
+  $color: var(--wp--preset--color--primary-light),
   $width: 2px,
   $offset: 2px
 ) {

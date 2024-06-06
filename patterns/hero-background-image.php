@@ -1,14 +1,13 @@
 <?php
 /**
  * Title: Hero with Background Image
- * Slug: gesso/image-hero
+ * Slug: gesso/hero-background-image
  * Description: For use in templates. Automatically references the title & featured image.
- * Categories: theme
- *
+ * Categories: theme, templates_only
  * @package gesso
  */
 
 ?>
-<!-- wp:cover {"useFeaturedImage":true,"dimRatio":50,"isDark":false} -->
+<!-- wp:cover {"useFeaturedImage":true,"dimRatio":50,"isDark":false, "metadata":{"name":"Hero With Background Image"}} -->
 <div class="wp-block-cover is-light"><span aria-hidden="true" class="wp-block-cover__background has-background-dim"></span><div class="wp-block-cover__inner-container"><!-- wp:post-title {"textAlign":"center","level":1} /--></div></div>
 <!-- /wp:cover -->

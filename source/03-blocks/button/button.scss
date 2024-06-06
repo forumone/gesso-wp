@@ -1,31 +1,48 @@
 @use '00-config' as *;
 
+$danger-bg: var(--wp--preset--color--other-red-base);
+$danger-bg-hover: var(--wp--preset--color--other-red-dark);
+$danger-bg-active: var(--wp--preset--color--other-red-dark-1);
+$danger-text: var(--wp--preset--color--grayscale-white);
+
+$secondary-bg: var(--wp--preset--color--brand-secondary-base);
+$secondary-bg-hover: var(--wp--preset--color--brand-secondary-base);
+$secondary-bg-active: var(--wp--preset--color--brand-secondary-base);
+$secondary-text: var(--wp--preset--color--grayscale-white);
+$secondary-text-hover: var(--wp--preset--color--grayscale-white);
+$secondary-text-active: var(--wp--preset--color--grayscale-white);
+
 .wp-block-button__link {
-  margin-bottom: rem(gesso-spacing(1));
+  margin-bottom: var(--wp--preset--spacing--2);
 }
 
-.is-style-primary .wp-block-button__link {
+.is-style-primary .wp-block-button__link,
+.wp-block-file__button {
   @include button();
+}
+
+.wp-block-file__button {
+  vertical-align: middle;
 }
 
 .is-style-danger .wp-block-button__link {
   @include button(
-    $color-background: gesso-color(button, danger, background),
-    $color-text: gesso-color(button, danger, text),
-    $color-background-hover: gesso-color(button, danger, background-hover),
-    $color-text-hover: gesso-color(button, danger, text-hover),
-    $color-background-active: gesso-color(button, danger, background-active),
-    $color-text-active: gesso-color(button, danger, text-active)
+    $color-background: $danger-bg,
+    $color-text: $danger-text,
+    $color-background-hover: $danger-bg-hover,
+    $color-text-hover: $danger-text,
+    $color-background-active: $danger-bg-active,
+    $color-text-active: $danger-text
   );
 }
 
 .is-style-secondary .wp-block-button__link {
   @include button(
-    $color-background: gesso-color(button, secondary, background),
-    $color-text: gesso-color(button, secondary, text),
-    $color-background-hover: gesso-color(button, secondary, background-hover),
-    $color-text-hover: gesso-color(button, secondary, text-hover),
-    $color-background-active: gesso-color(button, secondary, background-active),
-    $color-text-active: gesso-color(button, secondary, text-active)
+    $color-background: $secondary-bg,
+    $color-text: $secondary-text,
+    $color-background-hover: $secondary-bg-hover,
+    $color-text-hover: $secondary-text-hover,
+    $color-background-active: $secondary-bg-active,
+    $color-text-active: $secondary-text-active
   );
 }

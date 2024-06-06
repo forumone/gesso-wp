@@ -1,10 +1,10 @@
 @use '00-config' as *;
 
-$card-accent-border-color: gesso-color(ui, generic, accent) !default;
-$card-link-color: gesso-color(text, on-light) !default;
-$card-link-color-hover: gesso-color(ui, generic, text-dark) !default;
-$card-meta-color: gesso-color(ui, generic, text-dark) !default;
-$card-padding: rem(gesso-spacing(3)) !default;
+$card-accent-border-color: var(--wp--preset--color--brand-primary-base) !default;
+$card-link-color: var(--wp--preset--color--grayscale-gray-7) !default;
+$card-link-color-hover: var(--wp--preset--color--grayscale-black) !default;
+$card-meta-color: var(--wp--preset--color--grayscale-gray-5) !default;
+$card-padding: var(--wp--preset--spacing--3) !default;
 
 .card {
 	border-bottom: 4px solid $card-accent-border-color;
