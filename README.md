@@ -5,8 +5,8 @@ WordPress 5.9+.
 
 ## Requirements
 
-- Node 16.x.x
-- npm 7.x.x
+- [Node](https://nodejs.org/en/) version 20. Long-term stable recommended.
+- [npm](https://www.npmjs.com/get-npm) version 10.7.0 or greater.
 - WordPress 5.9+
 - [Forum One Block Library](https://github.com/forumone/f1-block-library) (Optional)
 
