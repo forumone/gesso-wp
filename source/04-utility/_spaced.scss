@@ -2,17 +2,22 @@
 // Used for vertical spacing.
 
 @use '00-config' as *;
-$sizes: 0.5, 1, 1.5, 2, 2.5, 3, 4, 5;
+/* stylelint-disable */
+$sizes: ();
+@for $i from 0 through 19 {
+  $sizes: append($sizes, $i);
+}
+/* stylelint-enable */
 
 @each $size in $sizes {
-  .u-spaced-#{escape-number($size)},
-  .u-spaced-#{escape-number($size)}-above {
-    margin-top: #{rem(gesso-spacing($size))} !important;
+  .u-spaced-#{$size},
+  .u-spaced-#{$size}-above {
+    margin-top: var(--wp--preset--spacing--#{$size}) !important;
   }
 
-  .u-spaced-#{escape-number($size)},
-  .u-spaced-#{escape-number($size)}-below {
-    margin-bottom: #{rem(gesso-spacing($size))} !important;
+  .u-spaced-#{$size},
+  .u-spaced-#{$size}-below {
+    margin-bottom: var(--wp--preset--spacing--#{$size}) !important;
   }
 }
 

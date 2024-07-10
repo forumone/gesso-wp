@@ -5,17 +5,17 @@
 // Align items
 .align-left,
 .u-align-left {
-  @include breakpoint(gesso-breakpoint($break-small)) {
+  @include break-small {
     float: left;
-    margin-right: rem(gesso-get-map(gutter-width));
+    margin-right: rem(var(--wp--preset--spacing--4));
   }
 }
 
 .align-right,
 .u-align-right {
-  @include breakpoint(gesso-breakpoint($break-small)) {
+  @include break-small {
     float: right;
-    margin-left: rem(gesso-get-map(gutter-width));
+    margin-left: rem(var(--wp--preset--spacing--4));
   }
 }
 

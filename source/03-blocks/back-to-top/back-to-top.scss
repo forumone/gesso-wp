@@ -3,9 +3,9 @@
 .back-to-top {
 	@include break-small {
 		@include reduce-motion('transition');
-		background-color: gesso-color(button, back-to-top, background);
+		background-color: var(--wp--preset--color--grayscale-black);
 		border-radius: 50%;
-		color: gesso-color(button, back-to-top, color);
+		color: var(--wp--preset--color--grayscale-white);
 		transition-duration: 200ms;
 		transition-property: filter, opacity;
 		transition-timing-function: ease-in;

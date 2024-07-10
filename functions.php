@@ -75,23 +75,7 @@ add_action( 'wp_enqueue_scripts', 'gesso_theme_scripts' );
  * @return void
  */
 function gesso_block_assets() {
-	wp_enqueue_block_style(
-		'core/button',
-		array(
-			'handle' => 'gesso-button',
-			'src' => get_theme_file_uri( 'build/css/button.css' ),
-			'ver' => filemtime( get_theme_file_path( 'build/css/button.css' ) ),
-		)
-	);
 	if ( function_exists( 'f1_block_library_register_blocks' ) ) {
-		wp_enqueue_block_style(
-			'f1-block-library/accordion',
-			array(
-				'handle' => 'gesso-accordion',
-				'src' => get_theme_file_uri( 'build/css/accordion.css' ),
-				'ver' => filemtime( get_theme_file_path( 'build/css/accordion.css' ) ),
-			)
-		);
 		wp_enqueue_block_style(
 			'f1-block-library/back-to-top',
 			array(
@@ -226,6 +210,12 @@ function gesso_block_patterns() {
 		'gesso',
 		array(
 			'label' => __( 'Gesso' ),
+		),
+	);
+	register_block_pattern_category(
+		'templates_only',
+		array(
+			'label' => __( 'For Templates Only' ),
 		)
 	);
 }

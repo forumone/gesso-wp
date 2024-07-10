@@ -28,6 +28,16 @@ domReady(() => {
 		isDefault: false,
 	});
 
+	// IMAGE
+	unregisterBlockStyle('core/image', 'rounded');
+
+	// QUOTE
+	unregisterBlockStyle('core/image', 'plain');
+
+	// SEPARATOR
+	unregisterBlockStyle('core/separator', 'wide');
+	unregisterBlockStyle('core/separator', 'dots');
+
 	// SEARCH
 	registerBlockStyle('core/search', {
 		name: 'collapsed',

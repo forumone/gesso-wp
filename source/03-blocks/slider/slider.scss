@@ -2,8 +2,8 @@
 @use '00-config' as *;
 
 $slider-button-size: rem(48px);
-$slider-pager-color: gesso-color(ui, generic, background-light);
-$slider-pager-active-color: gesso-color(ui, generic, background-dark);
+$slider-pager-color: var(--wp--preset--color--grayscale-gray-1);
+$slider-pager-active-color: var(--wp--preset--color--grayscale-gray-7);
 
 // Class names set by Tiny Slider
 .tns-outer {
@@ -37,7 +37,7 @@ $slider-pager-active-color: gesso-color(ui, generic, background-dark);
 
 	@include break-large {
 		position: absolute;
-		top: calc(50% - #{math.div($slider-button-size, 2)});
+		top: calc(50% - ($slider-button-size / 2));
 
 		&[data-controls='prev'] {
 			right: 100%;
@@ -50,11 +50,11 @@ $slider-pager-active-color: gesso-color(ui, generic, background-dark);
 
 	@include break-xlarge {
 		&[data-controls='prev'] {
-			right: calc(100% + #{rem(gesso-spacing(2.5))});
+			right: calc(100% + var(--wp--preset--spacing--5));
 		}
 
 		&[data-controls='next'] {
-			left: calc(100% + #{rem(gesso-spacing(2.5))});
+			left: calc(100% + var(--wp--preset--spacing--5));
 		}
 	}
 }
@@ -67,7 +67,7 @@ $slider-pager-active-color: gesso-color(ui, generic, background-dark);
 		border-radius: 50%;
 		box-shadow: none;
 		height: rem(10px);
-		margin: 0 gesso-spacing(0.5) gesso-spacing(1);
+		margin: 0 var(--wp--preset--spacing--1) var(--wp--preset--spacing--1);
 		padding: 0;
 		width: rem(10px);
 	}
