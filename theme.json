@@ -188,127 +188,76 @@
       ],
       "fontSizes": [
         {
-          "name": "1",
-          "slug": "1",
-          "size": "12px"
+          "name": "XXX Small",
+          "slug": "xxx-small",
+          "size": "14px",
+          "fluid": false
         },
         {
-          "name": "2",
-          "slug": "2",
-          "size": "14px"
+          "name": "XX Small",
+          "slug": "xx-small",
+          "size": "16px",
+          "fluid": false
         },
         {
-          "name": "3",
-          "slug": "3",
-          "size": "16px"
+          "name": "X Small",
+          "slug": "x-small",
+          "size": "18px",
+          "fluid": false
         },
         {
-          "name": "4",
-          "slug": "4",
-          "size": "17px",
-					"fluid": {
-						"min": "17px",
-						"max": "18px"
-					}
+          "name": "Small",
+          "slug": "small",
+          "size": "20px",
+          "fluid": {
+            "min": "18px",
+            "max": "20px"
+          }
         },
         {
-          "name": "5",
-          "slug": "5",
-          "size": "19px",
-					"fluid": {
-						"min": "19px",
-						"max": "21px"
-					}
+          "name": "Medium",
+          "slug": "medium",
+          "size": "22x",
+          "fluid": {
+            "min": "18px",
+            "max": "22px"
+          }
         },
         {
-          "name": "6",
-          "slug": "6",
-          "size": "21px",
-					"fluid": {
-						"min": "21px",
-						"max": "23px"
-					}
+          "name": "Large",
+          "slug": "large",
+          "size": "24px",
+          "fluid": {
+            "min": "22px",
+            "max": "24px"
+          }
         },
         {
-          "name": "7",
-          "slug": "7",
-          "size": "23px",
-					"fluid": {
-						"min": "23px",
-						"max": "26px"
-					}
-        },
-        {
-          "name": "8",
-          "slug": "8",
-          "size": "26px",
-					"fluid": {
-						"min": "26px",
-						"max": "30px"
-					}
-        },
-        {
-          "name": "9",
-          "slug": "9",
+          "name": "X Large",
+          "slug": "x-large",
           "size": "28px",
-					"fluid": {
-						"min": "28px",
-						"max": "34px"
-					}
+          "fluid": {
+            "min": "24px",
+            "max": "28px"
+          }
         },
         {
-          "name": "10",
-          "slug": "10",
-          "size": "31px",
-					"fluid": {
-						"min": "31px",
-						"max": "39px"
-					}
-        },
-        {
-          "name": "11",
-          "slug": "11",
-          "size": "34px",
-					"fluid": {
-						"min": "34px",
-						"max": "44px"
-					}
-        },
-        {
-          "name": "12",
-          "slug": "12",
+          "name": "XX Large",
+          "slug": "xx-large",
           "size": "38px",
-					"fluid": {
-						"min": "38px",
-						"max": "50px"
-					}
-        },
+          "fluid": {
+            "min": "28px",
+            "max": "38px"
+          }
+        }
         {
-          "name": "13",
-          "slug": "13",
-          "size": "41px",
-					"fluid": {
-						"min": "41px",
-						"max": "56px"
-					}
-        },
-        {
-          "name": "14",
-          "slug": "14",
-          "size": "46px",
-					"fluid": {
-						"min": "46px",
-						"max": "64px"
-					}
-        },
-        {
-          "name": "15",
-          "slug": "15",
-          "size": "50px",
-					"fluid": {
-						"min": "50px",
-						"max": "72px"
-					}
+          "name": "XXX Large",
+          "slug": "xxx-large",
+          "size": "44px",
+          "fluid": {
+            "min": "38px",
+            "max": "44px"
+          }
         }
       ]
     },
