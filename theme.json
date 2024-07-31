@@ -188,24 +188,30 @@
       ],
       "fontSizes": [
         {
+          "name": "XXX Small",
+          "slug": "xxx-small",
+          "size": "14px",
+          "fluid": false
+        },
+        {
           "name": "XX Small",
           "slug": "xx-small",
-          "size": "14px",
+          "size": "16px",
           "fluid": false
         },
         {
           "name": "X Small",
           "slug": "x-small",
-          "size": "16px",
+          "size": "18px",
           "fluid": false
         },
         {
           "name": "Small",
           "slug": "small",
-          "size": "18px",
+          "size": "20px",
           "fluid": {
-            "min": "16px",
-            "max": "18px"
+            "min": "18px",
+            "max": "20px"
           }
         },
         {
@@ -228,7 +234,7 @@
         },
         {
           "name": "X Large",
-          "slug": "xx-small",
+          "slug": "x-large",
           "size": "28px",
           "fluid": {
             "min": "24px",
@@ -237,11 +243,20 @@
         },
         {
           "name": "XX Large",
-          "slug": "xx-small",
+          "slug": "xx-large",
           "size": "38px",
           "fluid": {
             "min": "28px",
             "max": "38px"
+          }
+        }
+        {
+          "name": "XXX Large",
+          "slug": "xxx-large",
+          "size": "44px",
+          "fluid": {
+            "min": "38px",
+            "max": "44px"
           }
         }
       ]
