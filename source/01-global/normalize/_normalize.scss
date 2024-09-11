@@ -22,7 +22,7 @@ sup {
 }
 
 img {
-  border-style: none;
+  border-block-style: none;
 }
 
 button,
@@ -32,7 +32,8 @@ select,
 textarea {
   font-family: inherit;
   font-size: 100%;
-  margin: 0;
+  margin-block: 0;
+  margin-inline: 0;
 }
 
 button,
@@ -56,8 +57,9 @@ button::-moz-focus-inner,
 [type='button']::-moz-focus-inner,
 [type='reset']::-moz-focus-inner,
 [type='submit']::-moz-focus-inner {
-  border-style: none;
-  padding: 0;
+  border-block-style: none;
+  padding-block: 0;
+  padding-inline: 0;
 }
 
 button::-moz-focusring,
@@ -71,8 +73,9 @@ legend {
   box-sizing: border-box;
   color: inherit;
   display: table;
-  max-width: 100%;
-  padding: 0;
+  max-inline-size: 100%;
+  padding-block: 0;
+  padding-inline: 0;
   white-space: normal;
 }
 
@@ -87,12 +90,13 @@ textarea {
 [type='checkbox'],
 [type='radio'] {
   box-sizing: border-box;
-  padding: 0;
+  padding-block: 0;
+  padding-inline: 0;
 }
 
 [type='number']::-webkit-inner-spin-button,
 [type='number']::-webkit-outer-spin-button {
-  height: auto;
+  block-size: auto;
 }
 
 [type='search'] {

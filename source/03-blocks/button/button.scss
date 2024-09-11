@@ -13,7 +13,7 @@ $secondary-text-hover: var(--wp--preset--color--grayscale-white);
 $secondary-text-active: var(--wp--preset--color--grayscale-white);
 
 .wp-block-button__link {
-  margin-bottom: var(--wp--preset--spacing--2);
+  margin-block-end: var(--wp--preset--spacing--2);
 }
 
 .is-style-primary .wp-block-button__link,

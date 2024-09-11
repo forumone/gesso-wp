@@ -53,10 +53,10 @@ export const slideCollapse = (
 
 				target.style.removeProperty('box-sizing');
 				target.style.removeProperty('height');
-				target.style.removeProperty('margin-bottom');
-				target.style.removeProperty('margin-top');
-				target.style.removeProperty('padding-bottom');
-				target.style.removeProperty('padding-top');
+				target.style.removeProperty('margin-block-end');
+				target.style.removeProperty('margin-block-start');
+				target.style.removeProperty('padding-block-end');
+				target.style.removeProperty('padding-block-start');
 				target.style.removeProperty('transition-duration');
 				target.style.removeProperty('transition-property');
 				target.style.removeProperty('transition-timing-function');
@@ -100,6 +100,7 @@ export const slideExpand = (
 		target.style.removeProperty('display');
 	} else {
 		target.style.removeProperty('max-height');
+		target.style.removeProperty('max-block-size');
 		target.style.removeProperty('overflow');
 	}
 
@@ -112,6 +113,7 @@ export const slideExpand = (
 			target.style.display = display;
 		} else {
 			target.style.removeProperty('max-height');
+			target.style.removeProperty('max-block-size');
 			target.style.removeProperty('overflow');
 		}
 
@@ -133,9 +135,13 @@ export const slideExpand = (
 				target.style.removeProperty('height');
 				target.style.removeProperty('margin-bottom');
 				target.style.removeProperty('margin-top');
+				target.style.removeProperty('margin-block-end');
+				target.style.removeProperty('margin-block-start');
 				target.style.removeProperty('overflow');
 				target.style.removeProperty('padding-bottom');
 				target.style.removeProperty('padding-top');
+				target.style.removeProperty('padding-block-end');
+				target.style.removeProperty('padding-block-start');
 				target.style.removeProperty('transition-duration');
 				target.style.removeProperty('transition-property');
 				target.style.removeProperty('transition-timing-function');

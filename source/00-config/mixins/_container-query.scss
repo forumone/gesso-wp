@@ -12,11 +12,11 @@
     $breakpoint: rem($breakpoint);
   }
   @if $container-name {
-    @container #{$container-name} (min-width: #{$breakpoint}) {
+    @container #{$container-name} (min-inline-size: #{$breakpoint}) {
       @content;
     }
   } @else {
-    @container (min-width: #{$breakpoint}) {
+    @container (min-inline-size: #{$breakpoint}) {
       @content;
     }
   }
@@ -47,17 +47,17 @@
     $breakpoint: rem($breakpoint);
   }
   @if $container-name {
-    @container #{$container-name} (max-width: #{$breakpoint}) {
+    @container #{$container-name} (max-inline-size: #{$breakpoint}) {
       @content;
     }
   } @else {
-    @container (max-width: #{$breakpoint}) {
+    @container (max-inline-size: #{$breakpoint}) {
       @content;
     }
   }
 }
 
-// Create a container query with both min-width and max-width.
+// Create a container query with both min-inline-size and max-inline-size.
 // @param {Number} $breakpoint-min - width value.
 // @param {Number} $breakpoint-max - width value.
 // @param {String} $container-name - name of container.
@@ -76,11 +76,11 @@
     $breakpoint-max: rem($breakpoint-max);
   }
   @if $container-name {
-    @container #{$container-name} (min-width: #{$breakpoint-min}) and (max-width: #{$breakpoint-max}) {
+    @container #{$container-name} (min-inline-size: #{$breakpoint-min}) and (max-inline-size: #{$breakpoint-max}) {
       @content;
     }
   } @else {
-    @container (min-width: #{$breakpoint-min}) and (max-width: #{$breakpoint-max}) {
+    @container (min-inline-size: #{$breakpoint-min}) and (max-inline-size: #{$breakpoint-max}) {
       @content;
     }
   }

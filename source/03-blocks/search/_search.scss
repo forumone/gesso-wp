@@ -16,16 +16,17 @@
 	@include break-small {
 		appearance: none;
 		background-color: transparent;
-		border: 0;
+		border-block: 0;
 		border-radius: 0;
 		color: var(--wp--preset--color--primary-base);
 		cursor: pointer;
 		display: inline-block;
-		padding: 0;
+		padding-block: 0;
+		padding-inline: 0;
 
 		svg {
-			height: rem(24px);
-			width: rem(24px);
+			block-size: rem(24px);
+			inline-size: rem(24px);
 		}
 	}
 }
@@ -34,11 +35,12 @@
 	@include break-small {
 		background-color: var(--wp--preset--color--grayscale-gray-3);
 		display: none;
-		left: var(--search-content-left);
-		padding: var(--wp--preset--spacing--4);
+		inline-size: var(--search-content-width);
+		inset-block-start: 100%;
+		inset-inline-start: var(--search-content-left);
+		padding-block: var(--wp--preset--spacing--4);
+		padding-inline: var(--wp--preset--spacing--4);
 		position: absolute;
-		top: 100%;
-		width: var(--search-content-width);
 
 		.has-open-search & {
 			display: flex;
@@ -50,7 +52,7 @@
 
 .wp-block-search.is-style-collapsed {
 	@include break-small {
-		max-width: rem(500px);
-		width: 100%;
+		inline-size: 100%;
+		max-inline-size: rem(500px);
 	}
 }

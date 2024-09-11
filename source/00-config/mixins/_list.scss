@@ -7,8 +7,10 @@
 
 @mixin list-clean {
 	list-style-type: none;
-	margin: 0;
-	padding: 0;
+	margin-block: 0;
+	margin-inline: 0;
+	padding-block: 0;
+	padding-inline: 0;
 
 	li {
 		padding-inline-start: 0;
@@ -40,22 +42,11 @@
 	padding-inline-start: 0;
 
 	> li {
-		border-right: 1px solid $pipeline-border-color;
+		border-inline-end: 1px solid $pipeline-border-color;
 		display: block;
 		float: inline-start;
 		margin-inline-end: 0.75em;
-		padding-inline-end: 0.75em;
-		padding-inline-start: 0;
-
-		@supports not (float: inline-start) {
-      float: left;
-
-      @if $support-for-rtl {
-        [dir='rtl'] & {
-          float: right;
-        }
-			}
-		}
+		padding-inline: 0 0.75em;
 
 		&.is-active {
 			font-weight: 700;
@@ -83,7 +74,8 @@
 
 	> li {
 		border-block-end: 1px solid $list-border-color;
-		padding: $list-border-padding;
+		padding-block: $list-border-padding;
+		padding-inline: $list-border-padding;
 	}
 }
 
