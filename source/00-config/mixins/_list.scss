@@ -7,8 +7,10 @@
 
 @mixin list-clean {
 	list-style-type: none;
-	margin: 0;
-	padding: 0;
+	margin-block: 0;
+	margin-inline: 0;
+	padding-block: 0;
+	padding-inline: 0;
 
 	li {
 		padding-inline-start: 0;
@@ -83,7 +85,8 @@
 
 	> li {
 		border-block-end: 1px solid $list-border-color;
-		padding: $list-border-padding;
+		padding-block: $list-border-padding;
+		padding-inline: $list-border-padding;
 	}
 }
 

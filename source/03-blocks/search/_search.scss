@@ -21,7 +21,8 @@
 		color: var(--wp--preset--color--primary-base);
 		cursor: pointer;
 		display: inline-block;
-		padding: 0;
+		padding-block: 0;
+		padding-inline: 0;
 
 		svg {
 			height: rem(24px);
@@ -35,7 +36,8 @@
 		background-color: var(--wp--preset--color--grayscale-gray-3);
 		display: none;
 		left: var(--search-content-left);
-		padding: var(--wp--preset--spacing--4);
+		padding-block: var(--wp--preset--spacing--4);
+		padding-inline: var(--wp--preset--spacing--4);
 		position: absolute;
 		top: 100%;
 		width: var(--search-content-width);

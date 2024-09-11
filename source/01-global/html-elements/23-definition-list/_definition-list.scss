@@ -3,16 +3,16 @@
 @use '00-config' as *;
 
 dd {
-  margin-bottom: var(--wp--preset--spacing--4);
+  margin-block-end: var(--wp--preset--spacing--4);
   padding-left: var(--wp--preset--spacing--3);
 
   dt + & {
-    margin-top: 0;
+    margin-block-start: 0;
   }
 }
 
 dl {
-  margin-bottom: var(--wp--preset--spacing--4);
+  margin-block-end: var(--wp--preset--spacing--4);
 }
 
 // dt {}

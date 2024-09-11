@@ -4,17 +4,13 @@
 @use '00-config' as *;
 
 ol:not([class]) {
-  margin: 0 0 var(--wp--preset--spacing--4);
-  padding: 0 0 0 var(--wp--preset--spacing--3); // LTR
-
-  @if $support-for-rtl {
-    [dir='rtl'] & {
-      padding: 0 var(--wp--preset--spacing--3) 0 0;
-    }
-  }
+  margin-block: 0 var(--wp--preset--spacing--4);
+  margin-inline: 0;
+  padding-block: 0;
+  padding-inline: 0 var(--wp--preset--spacing--3);
 
   ol,
   ul {
-    margin-top: calc(var(--wp--preset--spacing--4) / 2);
+    margin-block-start: calc(var(--wp--preset--spacing--4) / 2);
   }
 }

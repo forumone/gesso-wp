@@ -5,10 +5,10 @@
 ol:not([class]),
 ul:not([class]) {
   li {
-    margin-bottom: var(--wp--preset--spacing--1);
+    margin-block-end: var(--wp--preset--spacing--1);
 
     &:last-child {
-      margin-bottom: 0;
+      margin-block-end: 0;
     }
 
     @media print {

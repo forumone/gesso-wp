@@ -6,7 +6,7 @@ $blockquote-cite-divider-color: var(--wp--preset--color--grayscale-gray-3);
 
 blockquote {
   * + & {
-    margin-top: var(--wp--preset--spacing--4);
+    margin-block-start: var(--wp--preset--spacing--4);
   }
 
   p {
@@ -26,7 +26,7 @@ blockquote {
   }
 
   &:last-child {
-    margin-bottom: 0;
+    margin-block-end: 0;
   }
 
   @media print {

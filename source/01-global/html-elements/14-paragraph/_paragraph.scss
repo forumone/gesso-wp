@@ -3,7 +3,8 @@
 @use '00-config' as *;
 
 p {
-  margin: 0 0 var(--wp--preset--spacing--4);
+  margin-block: 0 var(--wp--preset--spacing--4);
+  margin-inline: 0;
 
   @media print {
     orphans: 3;
@@ -13,7 +14,8 @@ p {
   // Hide empty paragraphs except in WYSIWYG editor.
   @if not $wysiwyg {
     &:empty {
-      margin: 0 !important;
+      margin-block: 0 !important;
+      margin-inline: 0 !important;
     }
   }
 }

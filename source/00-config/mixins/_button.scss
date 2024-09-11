@@ -50,7 +50,8 @@ $button-font-size: 1rem !default;
   -webkit-font-smoothing: antialiased;
   font-weight: 700;
   line-height: var(--wp--custom--line-height--base);
-  padding: var(--wp--preset--spacing--2) var(--wp--preset--spacing--4);
+  padding-block: var(--wp--preset--spacing--2);
+  padding-inline: var(--wp--preset--spacing--4);
   text-align: center;
   text-decoration: none;
   transition: background var(--wp--custom--transitions--duration-short) var(--wp--custom--transitions--ease-in);
@@ -97,7 +98,8 @@ $button-font-size: 1rem !default;
   cursor: pointer;
   font-family: inherit;
   font-size: inherit;
-  padding: 0;
+  padding-block: 0;
+  padding-inline: 0;
   -webkit-tap-highlight-color: transparent;
 
   &[disabled] {

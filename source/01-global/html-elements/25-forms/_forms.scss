@@ -12,8 +12,10 @@ button {
 
 fieldset {
   border: 0;
-  margin: 0;
-  padding: 0;
+  margin-block: 0;
+  margin-inline: 0;
+  padding-block: 0;
+  padding-inline: 0;
 }
 
 // form {}
@@ -55,9 +57,11 @@ legend {
   box-sizing: border-box;
   color: inherit;
   display: table;
-  margin: 0;
+  margin-block: 0;
+  margin-inline: 0;
   max-width: 100%;
-  padding: 0;
+  padding-block: 0;
+  padding-inline: 0;
   white-space: normal;
 }
 

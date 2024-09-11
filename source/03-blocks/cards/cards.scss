@@ -22,7 +22,8 @@ $card-padding: var(--wp--preset--spacing--3) !default;
 
 .card__title {
 	font-size: var(--wp--preset--font-size--7, 1.5rem);
-	margin: 0;
+	margin-block: 0;
+	margin-inline: 0;
 
 	a {
 		color: $card-link-color;
@@ -43,25 +44,26 @@ $card-padding: var(--wp--preset--spacing--3) !default;
 }
 
 .card__body {
-	padding: $card-padding;
+	padding-block: $card-padding;
+	padding-inline: $card-padding;
 }
 
 .card__header {
-	margin-bottom: 1.5rem;
+	margin-block-end: 1.5rem;
 }
 
 .card__date {
 	color: $card-meta-color;
 	font-size: var(--wp--preset--font-size--2, 0.75rem);
-	margin-bottom: 1rem;
+	margin-block-end: 1rem;
 }
 
 .card__content {
-	margin-bottom: 1.5rem;
+	margin-block-end: 1.5rem;
 }
 
 .card__footer {
-	margin-top: auto;
+	margin-block-start: auto;
 }
 
 .card__readmore {
@@ -82,7 +84,8 @@ $card-padding: var(--wp--preset--spacing--3) !default;
 
 		.card__body {
 			max-width: 600px;
-			padding: $card-padding 2vw;
+			padding-block: $card-padding;
+			padding-inline: 2vw;
 		}
 
 		.card__media {
