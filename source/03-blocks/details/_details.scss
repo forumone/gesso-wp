@@ -5,7 +5,7 @@ $accordion-item-icon-color: var(--wp--preset--color--black, #000);
 $accordion-item-icon-size: 20px;
 
 .wp-block-details {
-	border-bottom: 1px solid $accordion-item-border-color;
+	border-block-end: 1px solid $accordion-item-border-color;
 
   summary {
     @include reduce-motion('transition');
@@ -24,16 +24,16 @@ $accordion-item-icon-size: 20px;
     &::after {
       @include reduce-motion('transition');
       background-color: $accordion-item-icon-color;
+      block-size: $accordion-item-icon-size;
       content: '';
       display: block;
-      height: $accordion-item-icon-size;
-      left: calc(($accordion-item-icon-size + 10px) / 2);
+      inline-size: 2px;
+      inset-inline-start: calc(($accordion-item-icon-size + 10px) / 2);
       margin-block-start: calc(($accordion-item-icon-size + 6px) / 2);
       position: absolute;
       transform: translate(-50%, -50%);
       transform-origin: center;
       transition: transform 150ms ease-out;
-      width: 2px;
     }
 
     &::after {

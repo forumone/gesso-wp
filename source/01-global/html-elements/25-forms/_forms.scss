@@ -11,7 +11,7 @@ button {
 // datalist {}
 
 fieldset {
-  border: 0;
+  border-block: 0;
   margin-block: 0;
   margin-inline: 0;
   padding-block: 0;
@@ -53,13 +53,13 @@ input {
 // label {}
 
 legend {
-  border: 0;
+  border-block: 0;
   box-sizing: border-box;
   color: inherit;
   display: table;
   margin-block: 0;
   margin-inline: 0;
-  max-width: 100%;
+  max-inline-size: 100%;
   padding-block: 0;
   padding-inline: 0;
   white-space: normal;

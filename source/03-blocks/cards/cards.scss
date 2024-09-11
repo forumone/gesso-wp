@@ -7,7 +7,7 @@ $card-meta-color: var(--wp--preset--color--grayscale-gray-5) !default;
 $card-padding: var(--wp--preset--spacing--3) !default;
 
 .card {
-	border-bottom: 4px solid $card-accent-border-color;
+	border-block-end: 4px solid $card-accent-border-color;
 	box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
 	display: flex;
 	flex-direction: column;
@@ -67,7 +67,7 @@ $card-padding: var(--wp--preset--spacing--3) !default;
 }
 
 .card__readmore {
-	text-align: right;
+	text-align: end;
 }
 
 .is-style-feature .card {
@@ -83,7 +83,7 @@ $card-padding: var(--wp--preset--spacing--3) !default;
 		}
 
 		.card__body {
-			max-width: 600px;
+			max-inline-size: rem(600px);
 			padding-block: $card-padding;
 			padding-inline: 2vw;
 		}

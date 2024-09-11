@@ -3,9 +3,9 @@
 .skiplinks {
 	display: flex;
 	font-family: var(--wp--preset--font-family--system);
+	inline-size: 100%;
 	justify-content: center;
 	position: absolute;
-	width: 100%;
 	z-index: var(--wp--custom--z-index--skiplinks);
 }
 
@@ -13,10 +13,10 @@
 .skiplinks__link:visited,
 .skiplinks__link:focus {
 	background-color: var(--wp--preset--color--grayscale-gray-6);
-	border: 2px solid var(--wp--preset--color--grayscale-gray-1);
+	border-block: 2px solid var(--wp--preset--color--grayscale-gray-1);
+	border-block-start: 0;
 	border-bottom-left-radius: 5px;
 	border-bottom-right-radius: 5px;
-	border-top: 0;
 	box-shadow: var(--wp--custom--box-shadow--2);
 	color: var(--wp--preset--color--grayscale-white);
 	display: inline-block;

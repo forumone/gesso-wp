@@ -4,25 +4,24 @@
 @use '../wordpress-base-styles' as *;
 
 @mixin layout-align-left($margin) {
-	float: left;
+	float: inline-start;
 
 	@if $margin {
-		margin-right: $margin;
+		margin-inline-end: $margin;
 	}
 }
 
 @mixin layout-align-right($margin) {
-	float: right;
+	float: inline-end;
 
 	@if $margin {
-		margin-left: $margin;
+		margin-inline-start: $margin;
 	}
 }
 
 @mixin layout-align-none {
 	float: none;
-	margin-left: 0;
-	margin-right: 0;
+	margin-inline: 0;
 }
 
 @mixin layout-constrain(
@@ -30,46 +29,38 @@
 	$margins-mobile: var(--wp--preset--spacing--4),
 	$margins: calc(var(--wp--preset--spacing--4) * 2)
 ) {
-	margin-left: auto;
-	margin-right: auto;
-	max-width: rem($max-width);
+	margin-inline: auto;
+	max-inline-size: rem($max-width);
 
 	@if $margins-mobile {
-		padding-left: rem($margins-mobile);
-		padding-right: rem($margins-mobile);
+		padding-inline: rem($margins-mobile);
 	}
 
 	@if $margins {
 		@include break-xlarge {
-			padding-left: rem($margins);
-			padding-right: rem($margins);
+			padding-inline: rem($margins);
 		}
 	}
 
 	// Just in case .l-constrain is nested within another .l-constrain.
 	& & {
-		padding-left: 0;
-		padding-right: 0;
+		padding-inline: 0;
 	}
 }
 
 // Breaks something outside its parent l-constrain or other centered container
 // and makes it flush with the edge of the viewport.
 @mixin layout-full-bleed() {
-	left: 50%;
-	margin-left: -50vw;
-	margin-right: -50vw;
+	inline-size: 100vw;
+	inset-inline: 50%;
+	margin-inline: -50vw;
 	position: relative;
-	right: 50%;
-	width: 100vw;
 }
 
 // Reverses the above.
 @mixin layout-undo-full-bleed() {
-	left: auto;
-	margin-left: 0;
-	margin-right: 0;
+	inline-size: auto;
+	inset-inline: auto;
+	margin-inline: 0;
 	position: static;
-	right: auto;
-	width: auto;
 }

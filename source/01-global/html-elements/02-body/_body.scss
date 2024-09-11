@@ -9,13 +9,13 @@ body {
   color: var(--wp--preset--color--grayscale-black);
   font-family: var(--wp--preset--font-family--primary);
   font-size: calc(100% * (var(--wp--preset--font-size--4) / 16px));
+  inline-size: 100%;
   line-height: var(--wp--custom--line-height--base);
   margin-block: 0;
   margin-inline: 0;
   overflow-x: hidden;
   padding-block: 0;
   padding-inline: 0;
-  width: 100%;
   word-wrap: break-word;
 
   &.has-open-menu {

@@ -6,14 +6,14 @@
     gap: 0;
 
     > * {
-      border-right: 1px solid var(--wp--preset--color--grayscale-gray-3);
-      margin-right: 0.75em;
-      padding-right: 0.75em;
+      border-inline-end: 1px solid var(--wp--preset--color--grayscale-gray-3);
+      margin-inline-end: 0.75em;
+      padding-inline-end: 0.75em;
 
       &:last-child {
-        border-right: 0;
-        margin-right: 0;
-        padding-right: 0;
+        border-inline-end: 0;
+        margin-inline-end: 0;
+        padding-inline-end: 0;
       }
     }
   }

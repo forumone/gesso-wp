@@ -42,22 +42,11 @@
 	padding-inline-start: 0;
 
 	> li {
-		border-right: 1px solid $pipeline-border-color;
+		border-inline-end: 1px solid $pipeline-border-color;
 		display: block;
 		float: inline-start;
 		margin-inline-end: 0.75em;
-		padding-inline-end: 0.75em;
-		padding-inline-start: 0;
-
-		@supports not (float: inline-start) {
-      float: left;
-
-      @if $support-for-rtl {
-        [dir='rtl'] & {
-          float: right;
-        }
-			}
-		}
+		padding-inline: 0 0.75em;
 
 		&.is-active {
 			font-weight: 700;

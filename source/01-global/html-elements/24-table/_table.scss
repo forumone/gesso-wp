@@ -14,14 +14,14 @@ table {
 	border-collapse: collapse;
 	border-spacing: 0;
 	margin-block-end: var(--wp--preset--spacing--4);
-	min-width: 100%;
+	min-inline-size: 100%;
 }
 
 // tbody {}
 
 td {
 	background-color: var(--wp--preset--color--grayscale-white);
-	border: 1px solid var(--wp--preset--color--grayscale-gray-5);
+	border-block: 1px solid var(--wp--preset--color--grayscale-gray-5);
 	padding-block: var(--wp--preset--spacing--4);
   padding-inline: var(--wp--preset--spacing--4);
 
@@ -33,10 +33,10 @@ td {
 
 th {
 	background-color: var(--wp--preset--color--grayscale-white);
-	border: 1px solid var(--wp--preset--color--grayscale-gray-5);
+	border-block: 1px solid var(--wp--preset--color--grayscale-gray-5);
 	padding-block: var(--wp--preset--spacing--4);
 	padding-inline: var(--wp--preset--spacing--4);
-	text-align: left;
+	text-align: start;
 }
 
 tfoot {

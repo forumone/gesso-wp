@@ -4,7 +4,7 @@
 
 dd {
   margin-block-end: var(--wp--preset--spacing--4);
-  padding-left: var(--wp--preset--spacing--3);
+  padding-inline-start: var(--wp--preset--spacing--3);
 
   dt + & {
     margin-block-start: 0;

@@ -6,35 +6,34 @@
 .align-left,
 .u-align-left {
   @include break-small {
-    float: left;
-    margin-right: rem(var(--wp--preset--spacing--4));
+    float: inline-start;
+    margin-inline-end: rem(var(--wp--preset--spacing--4));
   }
 }
 
 .align-right,
 .u-align-right {
   @include break-small {
-    float: right;
-    margin-left: rem(var(--wp--preset--spacing--4));
+    float: inline-end;
+    margin-inline-start: rem(var(--wp--preset--spacing--4));
   }
 }
 
 .align-center,
 .u-align-center {
   display: block;
-  margin-left: auto;
-  margin-right: auto;
+  margin-inline: auto;
 }
 
 // Text alignment
 .text-align-left,
 .u-text-align-left {
-  text-align: left;
+  text-align: start;
 }
 
 .text-align-right,
 .u-text-align-right {
-  text-align: right;
+  text-align: end;
 }
 
 .text-align-center,
@@ -53,9 +52,9 @@
 }
 
 .u-clear-left {
-  clear: left;
+  clear: inline-start;
 }
 
 .u-clear-right {
-  clear: right;
+  clear: inline-end;
 }
